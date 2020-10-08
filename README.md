@@ -6,4 +6,9 @@ Preparing the Hansard data is done in multiple phases:
 
 2) Stage II (ENTER) 
 
-This repository is dedicated to Stage II
+This repository is dedicated to Stage II, cleaning the Hansard speaker names. 
+
+Stage I outputs a data set (enter description)
+
+Stage II performs the following tasks: 
+
