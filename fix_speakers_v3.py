@@ -12,6 +12,8 @@ from multiprocessing import Process, Queue, cpu_count
 
 DATE_FORMAT = '%Y-%m-%d'
 
+MP_ALIAS_PATTERN = re.compile(r'\(([^\)]+)\)')
+
 
 class FirstNameMissingError(Exception):
     pass
@@ -172,25 +174,39 @@ if __name__ == '__main__':
             dod = datetime.now()
             continue
 
-        if '(' in row['mp.name']:
-            malformed_mp_name += 1
-            logging.debug(f'Unhandled character at row: {index}. Fullname is {row["mp.name"]}.')
-            continue
+        fullname, firstname, surname = row['mp.name'], row['mp.fname'], row['mp.sname']
 
-        if type(row['mp.fname']) != str:
+        if type(firstname) != str:
             missing_fn_name += 1
             logging.debug(f'Missing first name at row: {index}. Fullname is {row["mp.name"]}. Surname is {row["mp.sname"]}.')
             continue
-        elif type(row['mp.sname']) != str:
+        elif type(surname) != str:
             missing_sn_name += 1
             logging.debug(f'Missing surname at row: {index}. Fullname is {row["mp.name"]}. First name is {row["mp.fname"]}.')
+            continue
+
+        defined_aliases = []
+        for alias in MP_ALIAS_PATTERN.finditer(fullname):
+            defined_aliases.append(alias.group(1))
+
+        MP_ALIAS_PATTERN.sub('', fullname)
+
+        # if '(' in row['mp.name']:
+        #     malformed_mp_name += 1
+        #     logging.debug(f'Unhandled character at row: {index}. Fullname is {row["mp.name"]}.')
+        #     continue
 
         try:
-            speaker = SpeakerReplacement(row['mp.name'], row['mp.fname'], row['mp.sname'], row['member.id'], dob, dod)
+            speaker = SpeakerReplacement(fullname, firstname, surname, row['member.id'], dob, dod)
             speakers.append(speaker)
             speaker_dict[speaker.member_id] = speaker
+
             for alias in speaker.aliases:
                 full_alias_dict.setdefault(alias, []).append(speaker)
+
+            for alias in defined_aliases:
+                full_alias_dict.setdefault(alias, []).append(speaker)
+
         except FirstNameMissingError:
             continue
         except LastNameMissingError:
@@ -273,7 +289,7 @@ if __name__ == '__main__':
     for chunk in pd.read_csv('hansard_justnine_12192019.csv', sep=',', chunksize=chunksize):
         t0 = time.time()
         for index, row in chunk.iterrows():
-            target = row['speaker'].strip().lower()
+            target = ' '.join(row['speaker'].split()).lower()
             speechdate = datetime.strptime(row['speechdate'], '%Y-%m-%d')
             inq.put((index, target, speechdate))
 
@@ -294,7 +310,9 @@ if __name__ == '__main__':
         numrows += len(chunk.index)
         logging.info(f'{len(chunk.index)} processed in {int((time.time() - t0) * 100) / 100} seconds')
         logging.info(f'Processed {numrows} rows so far.')
-        break
+
+        # Uncomment break to process only 1 chunk.
+        # break
 
     missed_df.to_csv('missed_speakers.csv')
 
