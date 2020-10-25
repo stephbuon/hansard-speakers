@@ -15,6 +15,18 @@ DATE_FORMAT = '%Y-%m-%d'
 MP_ALIAS_PATTERN = re.compile(r'\(([^\)]+)\)')
 
 
+def cleanse_string(s):
+    # Cleanse string from trailing and leading white space.
+    s = s.lower().strip()
+
+    # Remove characters that are not alphabetical, a hyphen, or a space.
+    s = re.sub(r"[^a-zA-Z\- ]", "", s)
+
+    # Change multiple whitespaces to single spaces.
+    s = re.sub(r' +', ' ', s)
+    return s
+
+
 class FirstNameMissingError(Exception):
     pass
 
@@ -29,10 +41,10 @@ class SpeakerAmbiguityError(Exception):
 
 class SpeakerReplacement:
     def __init__(self, full_name, first_name, last_name, member_id, start, end):
-        self.first_name = first_name.lower()
-        self.last_name = last_name.lower()
+        self.first_name = cleanse_string(first_name)
+        self.last_name = cleanse_string(last_name)
 
-        name_parts = full_name.lower().split()
+        name_parts = cleanse_string(full_name).split()
 
         try:
             fn_index = name_parts.index(self.first_name)
@@ -88,6 +100,8 @@ class SpeakerReplacement:
         if not self.start_date <= speech_date <= self.end_date:
             return False
 
+        speaker_name = cleanse_string(speaker_name)
+
         return speaker_name in self.aliases
 
     def __repr__(self):
@@ -95,17 +109,34 @@ class SpeakerReplacement:
 
 
 class Office:
+    STOPWORDS = {'of', 'the', 'to'}
+
     def __init__(self, office_id, office_name):
         self.id = office_id
         self.name = office_name
 
-        words = self.name.lower().split()
-        for i, word in enumerate(words):
-            if word in {'of', 'the', 'to'}:
-                words[i] = f'(?: {word} | )?'
+        self.words = cleanse_string(office_name).split()
 
-        pattern = ' '.join(words).replace(' (?:', '(?:').replace(')? ', ')?')
-        self.pattern = re.compile(pattern)
+        self.aliases = set(self._generate_parts(0))
+
+    def _generate_parts(self, i):
+        if i >= len(self.words):
+            yield ''
+            return
+
+        word = self.words[i]
+
+        for p in self._generate_parts(i + 1):
+            if word in Office.STOPWORDS:
+                yield p
+            if p:
+                yield word + ' ' + p
+            else:
+                yield word
+
+    def matches(self, target):
+        target = cleanse_string(target)
+        return target in self.aliases
 
 
 class OfficeHolding:
@@ -120,12 +151,10 @@ class OfficeHolding:
         self.office = office
 
     def matches(self, office_name: str, speech_date: datetime):
-        office_name = office_name.strip().lower()
-
         if not self.start_date <= speech_date <= self.end_date:
             return False
 
-        return self.office.pattern.match(office_name) is not None
+        return self.office.matches(office_name)
 
     @property
     def speaker(self) -> SpeakerReplacement:
