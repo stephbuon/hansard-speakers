@@ -1,5 +1,4 @@
 import os
-
 import pandas as pd
 from datetime import datetime
 from typing import Dict, List, Set, Union
@@ -8,6 +7,7 @@ import time
 import re
 import sys
 from multiprocessing import Process, Queue, cpu_count
+import argparse
 
 
 DATE_FORMAT = '%Y-%m-%d'
@@ -170,6 +170,13 @@ class OfficeHolding:
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--cores', nargs=1, default=1, type=int, help='Number of cores to use.')
+    args = parser.parse_args()
+    cores = args.cores[0]
+    if cores < 0 or cores > cpu_count():
+        raise ValueError('Invalid core number specified.')
+
     if not os.path.isdir('logs'):
         os.mkdir('logs')
 
@@ -180,6 +187,8 @@ if __name__ == '__main__':
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
 
     logging.debug('Initializing...\n')
+
+    logging.debug(f'Utilizing {cores} cores...')
 
     logging.debug('Loading misspellings...')
     misspellings: pd.DataFrame = pd.read_csv('misspellings_dictionary.csv', sep=',', encoding='ISO-8859-1')
@@ -326,8 +335,6 @@ if __name__ == '__main__':
     inq = Queue()
     outq = Queue()
 
-    cores = max(cpu_count() - 1, 1)
-    logging.debug(f'Utilizing {cores} cores...')
     processes = [Process(target=worker_function, args=(inq, outq, holdings, full_alias_dict)) for _ in range(cores)]
 
     for p in processes:
@@ -359,7 +366,7 @@ if __name__ == '__main__':
             inq.put((index, target, speechdate))
 
         for i in range(len(chunk)):
-            if i % 1000 == 0:
+            if i % 100000 == 0:
                 logging.debug(f'Chunk Progress: {i}/{len(chunk)}')
             is_hit, is_ambig, missed_i = outq.get()
             if is_hit:
