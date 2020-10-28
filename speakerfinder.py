@@ -1,6 +1,7 @@
 from datetime import datetime
 import multiprocessing
 from queue import Empty
+import re
 
 
 # This function will run per core.
@@ -16,11 +17,17 @@ def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, hol
             ambiguity = False
             possibles = None
 
+            target = target.lower().strip()
+            # Change multiple whitespaces to single spaces.
+            target = re.sub(r' +', ' ', target)
+
             for misspell in misspellings_dict:
                 if misspell in target:
                     target = target.replace(misspell, misspellings_dict[misspell])
 
-            if 'chancellor of the exchequer' in target:
+            target = target.lower()
+
+            if 'exchequer' in target:
                 query = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
                 if not query.empty and len(query) > 1:
                     target = query.loc[0, 'real_name'].lower()
