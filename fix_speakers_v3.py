@@ -180,6 +180,16 @@ if __name__ == '__main__':
 
     logging.debug('Initializing...\n')
 
+    logging.debug('Loading misspellings...')
+    misspellings: pd.DataFrame = pd.read_csv('misspellings_dictionary.csv', sep=',', encoding='ISO-8859-1')
+    misspellings['correct'] = misspellings['correct'].fillna('')
+    misspellings_dict = {k.lower(): v for k, v in zip(misspellings['incorrect'], misspellings['correct'])}
+
+    ocr_title_errs: pd.DataFrame = pd.read_csv('common_OCR_errors_titles.csv', sep=',')
+    ocr_title_errs['CORRECT'] = ocr_title_errs['CORRECT'].fillna('')
+    ocr_err_dict = {k.lower(): v for k, v in zip(ocr_title_errs['INCORRECT'], ocr_title_errs['CORRECT'])}
+    misspellings_dict.update(ocr_err_dict)
+
     speakers = []
     speaker_dict: Dict[str, SpeakerReplacement] = {}
     office_dict: Dict[str, Office] = {}
@@ -298,6 +308,7 @@ if __name__ == '__main__':
     logging.debug(f'{unknown_offices} office holding rows had unknown offices.')
     logging.debug(f'{len(holdings)} office holdings successfully loaded out of {len(holdings_df)} rows.')
 
+
     logging.info('Loading text...')
 
     hit = 0
@@ -325,7 +336,12 @@ if __name__ == '__main__':
     for chunk in pd.read_csv(DATA_FILE, sep=',', chunksize=chunksize):
         t0 = time.time()
         for index, row in chunk.iterrows():
-            target = ' '.join(row['speaker'].split()).lower()
+            target = row['speaker'].lower()
+
+            for misspell in misspellings_dict:
+                if misspell in target:
+                    target = target.replace(misspell, misspellings_dict[misspell])
+
             speechdate = datetime.strptime(row['speechdate'], '%Y-%m-%d')
             inq.put((index, target, speechdate))
 
