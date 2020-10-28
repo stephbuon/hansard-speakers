@@ -15,6 +15,13 @@ DATE_FORMAT = '%Y-%m-%d'
 MP_ALIAS_PATTERN = re.compile(r'\(([^\)]+)\)')
 
 
+INPUT_DIR = os.environ.get('SCRATCH', '.')
+OUTPUT_DIR = os.environ.get('SCRATCH', '.')
+
+
+DATA_FILE = os.path.join(INPUT_DIR, 'hansard_justnine_12192019.csv')
+
+
 def cleanse_string(s):
     # Cleanse string from trailing and leading white space.
     s = s.lower().strip()
@@ -315,7 +322,7 @@ if __name__ == '__main__':
 
     missed_indexes = []
 
-    for chunk in pd.read_csv('hansard_justnine_12192019.csv', sep=',', chunksize=chunksize):
+    for chunk in pd.read_csv(DATA_FILE, sep=',', chunksize=chunksize):
         t0 = time.time()
         for index, row in chunk.iterrows():
             target = ' '.join(row['speaker'].split()).lower()
@@ -343,8 +350,8 @@ if __name__ == '__main__':
         # Uncomment break to process only 1 chunk.
         # break
 
-    missed_df.to_csv('missed_speakers.csv')
-
+    logging.info('Writing missed speakers data...')
+    missed_df.to_csv(os.path.join(INPUT_DIR, 'missed_speakers.csv'))
     logging.info('Complete.')
 
     for process in processes:
@@ -354,8 +361,3 @@ if __name__ == '__main__':
     logging.info(f'{ambiguities} ambiguities')
     logging.info(f'{index} rows parsed')
     logging.info('Exiting...')
-
-# TODO: aliases from mps.csv
-# TODO: find_replce implementation
-# TODO: send list of aliases from mps
-# TODO: account for OCR errors
