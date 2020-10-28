@@ -11,6 +11,7 @@ from multiprocessing import Process, Queue, cpu_count
 
 
 DATE_FORMAT = '%Y-%m-%d'
+DATE_FORMAT2 = '%Y/%m/%d'
 
 MP_ALIAS_PATTERN = re.compile(r'\(([^\)]+)\)')
 
@@ -308,6 +309,9 @@ if __name__ == '__main__':
     logging.debug(f'{unknown_offices} office holding rows had unknown offices.')
     logging.debug(f'{len(holdings)} office holdings successfully loaded out of {len(holdings_df)} rows.')
 
+    exchaequer_df = pd.read_csv('chancellor_of_the_exchequer.csv', sep=',')
+    exchaequer_df['started_service'] = pd.to_datetime(exchaequer_df['started_service'], format=DATE_FORMAT2)
+    exchaequer_df['ended_service'] = pd.to_datetime(exchaequer_df['ended_service'], format=DATE_FORMAT2)
 
     logging.info('Loading text...')
 
@@ -342,7 +346,16 @@ if __name__ == '__main__':
                 if misspell in target:
                     target = target.replace(misspell, misspellings_dict[misspell])
 
+            target = target.lower()
             speechdate = datetime.strptime(row['speechdate'], '%Y-%m-%d')
+
+            if 'chancellor of the exchequer' in target:
+                query: pd.DataFrame = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
+                if query.empty or len(query) > 1:
+                    logging.warning(f'Could not find chancellor of the exchequer for datetime: {row["speechdate"]}')
+                else:
+                    target = query.loc[0, 'real_name'].lower()
+
             inq.put((index, target, speechdate))
 
         for i in range(len(chunk)):
