@@ -4,7 +4,8 @@ from queue import Empty
 
 
 # This function will run per core.
-def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, holdings, full_alias_dict):
+def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, holdings, full_alias_dict, misspellings_dict,
+                    exchaequer_df):
     while True:
         try:
             i, target, speechdate = inq.get(block=True)
@@ -14,6 +15,15 @@ def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, hol
             match = None
             ambiguity = False
             possibles = None
+
+            for misspell in misspellings_dict:
+                if misspell in target:
+                    target = target.replace(misspell, misspellings_dict[misspell])
+
+            if 'chancellor of the exchequer' in target:
+                query = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
+                if not query.empty and len(query) > 1:
+                    target = query.loc[0, 'real_name'].lower()
 
             # can we get ambiguities with office names?
             for holding in holdings:

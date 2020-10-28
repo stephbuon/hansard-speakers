@@ -22,6 +22,8 @@ OUTPUT_DIR = os.environ.get('SCRATCH', '.')
 
 DATA_FILE = os.path.join(INPUT_DIR, 'hansard_justnine_12192019.csv')
 
+CHUNK_SIZE = 10**6
+
 
 def cleanse_string(s):
     # Cleanse string from trailing and leading white space.
@@ -322,11 +324,8 @@ if __name__ == '__main__':
     exchaequer_df['started_service'] = pd.to_datetime(exchaequer_df['started_service'], format=DATE_FORMAT2)
     exchaequer_df['ended_service'] = pd.to_datetime(exchaequer_df['ended_service'], format=DATE_FORMAT2)
 
-    logging.info('Loading text...')
-
     hit = 0
     ambiguities = 0
-    chunksize = 10 ** 6
     numrows = 0
     index = 0
 
@@ -335,7 +334,9 @@ if __name__ == '__main__':
     inq = Queue()
     outq = Queue()
 
-    processes = [Process(target=worker_function, args=(inq, outq, holdings, full_alias_dict)) for _ in range(cores)]
+    logging.info('Loading processes...')
+
+    processes = [Process(target=worker_function, args=(inq, outq, holdings, full_alias_dict, misspellings_dict, exchaequer_df)) for _ in range(cores)]
 
     for p in processes:
         p.start()
@@ -344,24 +345,13 @@ if __name__ == '__main__':
 
     missed_indexes = []
 
-    for chunk in pd.read_csv(DATA_FILE, sep=',', chunksize=chunksize):
+    logging.info('Loading text...')
+
+    for chunk in pd.read_csv(DATA_FILE, sep=',', chunksize=CHUNK_SIZE):
         t0 = time.time()
         for index, row in chunk.iterrows():
             target = row['speaker'].lower()
-
-            for misspell in misspellings_dict:
-                if misspell in target:
-                    target = target.replace(misspell, misspellings_dict[misspell])
-
-            target = target.lower()
             speechdate = datetime.strptime(row['speechdate'], '%Y-%m-%d')
-
-            if 'chancellor of the exchequer' in target:
-                query: pd.DataFrame = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
-                if query.empty or len(query) > 1:
-                    logging.warning(f'Could not find chancellor of the exchequer for datetime: {row["speechdate"]}')
-                else:
-                    target = query.loc[0, 'real_name'].lower()
 
             inq.put((index, target, speechdate))
 
@@ -387,7 +377,7 @@ if __name__ == '__main__':
         # break
 
     logging.info('Writing missed speakers data...')
-    missed_df.to_csv(os.path.join(INPUT_DIR, 'missed_speakers.csv'))
+    missed_df.to_csv(os.path.join(OUTPUT_DIR, 'missed_speakers.csv'))
     logging.info('Complete.')
 
     for process in processes:
