@@ -108,11 +108,12 @@ class SpeakerReplacement:
             yield b + p
             yield c + p
 
-    def matches(self, speaker_name: str, speech_date: datetime):
+    def matches(self, speaker_name: str, speech_date: datetime, cleanse=True):
         if not self.start_date <= speech_date <= self.end_date:
             return False
 
-        speaker_name = cleanse_string(speaker_name)
+        if cleanse:
+            speaker_name = cleanse_string(speaker_name)
 
         return speaker_name in self.aliases
 
@@ -146,8 +147,9 @@ class Office:
             else:
                 yield word
 
-    def matches(self, target):
-        target = cleanse_string(target)
+    def matches(self, target, cleanse=True):
+        if cleanse:
+            target = cleanse_string(target)
         return target in self.aliases
 
 
@@ -162,11 +164,11 @@ class OfficeHolding:
         self.end_date = end_date
         self.office = office
 
-    def matches(self, office_name: str, speech_date: datetime):
+    def matches(self, office_name: str, speech_date: datetime, cleanse=True):
         if not self.start_date <= speech_date <= self.end_date:
             return False
 
-        return self.office.matches(office_name)
+        return self.office.matches(office_name, cleanse=cleanse)
 
     @property
     def speaker(self) -> SpeakerReplacement:
