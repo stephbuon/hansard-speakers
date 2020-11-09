@@ -57,12 +57,14 @@ class SpeakerReplacement:
         name_parts = cleanse_string(full_name).split()
 
         try:
-            fn_index = name_parts.index(self.first_name)
+            # Start from the end of the name in case their first name matches a title.
+            fn_index = name_parts[::-1].index(self.first_name)
         except ValueError:
             raise FirstNameMissingError
 
         try:
-            ln_index = name_parts.index(self.last_name)
+            # Start from the end of the name in case their surname matches a title.
+            ln_index = name_parts[::-1].index(self.last_name)
         except ValueError:
             raise LastNameMissingError
 
