@@ -29,12 +29,13 @@ def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, hol
 
             if 'exchequer' in target:
                 query = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
-                if not query.empty and len(query) >= 1:
-                    target = query.loc[0, 'real_name'].lower()
+                if len(query) >= 1:
+                    print(query)
+                    target = query.iloc[0]['real_name'].lower()
             elif target == 'prime minister':
                 query = pm_df[(speechdate >= pm_df['started_service']) & (speechdate < pm_df['ended_service'])]
-                if not query.empty and len(query) >= 1:
-                    target = query.loc[0, 'real_name'].lower()
+                if len(query) >= 1:
+                    target = query.iloc[0]['real_name'].lower()
 
             # can we get ambiguities with office names?
             for holding in holdings:
