@@ -328,6 +328,10 @@ if __name__ == '__main__':
     exchaequer_df['started_service'] = pd.to_datetime(exchaequer_df['started_service'], format=DATE_FORMAT2)
     exchaequer_df['ended_service'] = pd.to_datetime(exchaequer_df['ended_service'], format=DATE_FORMAT2)
 
+    pm_df = pd.read_csv('prime_ministers.csv', sep=',')
+    pm_df['started_service'] = pd.to_datetime(pm_df['started_service'], format=DATE_FORMAT2)
+    pm_df['ended_service'] = pd.to_datetime(pm_df['ended_service'], format=DATE_FORMAT2)
+
     hit = 0
     ambiguities = 0
     numrows = 0
@@ -340,7 +344,7 @@ if __name__ == '__main__':
 
     logging.info('Loading processes...')
 
-    processes = [Process(target=worker_function, args=(inq, outq, holdings, full_alias_dict, misspellings_dict, exchaequer_df)) for _ in range(cores)]
+    processes = [Process(target=worker_function, args=(inq, outq, holdings, full_alias_dict, misspellings_dict, exchaequer_df, pm_df)) for _ in range(cores)]
 
     for p in processes:
         p.start()
