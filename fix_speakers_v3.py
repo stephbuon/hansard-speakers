@@ -350,8 +350,10 @@ if __name__ == '__main__':
         p.start()
 
     missed_df = pd.DataFrame()
+    ambiguities_df = pd.DataFrame()
 
     missed_indexes = []
+    ambiguities_indexes = []
 
     logging.info('Loading text...')
 
@@ -371,11 +373,15 @@ if __name__ == '__main__':
                 hit += 1
             elif is_ambig:
                 ambiguities += 1
+                ambiguities_indexes.append(missed_i)
             else:
                 missed_indexes.append(missed_i)
 
         missed_df = missed_df.append(chunk.loc[missed_indexes, :])
         del missed_indexes[:]
+
+        ambiguities_df = ambiguities_df.append(chunk.loc[ambiguities_indexes, :])
+        del ambiguities_indexes[:]
 
         numrows += len(chunk.index)
         logging.info(f'{len(chunk.index)} processed in {int((time.time() - t0) * 100) / 100} seconds')
@@ -386,6 +392,8 @@ if __name__ == '__main__':
 
     logging.info('Writing missed speakers data...')
     missed_df.to_csv(os.path.join(OUTPUT_DIR, 'missed_speakers.csv'))
+    logging.info('Writing ambiguous speakers data...')
+    ambiguities_df.to_csv(os.path.join(OUTPUT_DIR, 'ambig_speakers.csv'))
     logging.info('Complete.')
 
     for process in processes:
