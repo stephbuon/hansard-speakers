@@ -1,7 +1,7 @@
 import unittest
 import datetime
 
-from fix_speakers_v3 import SpeakerReplacement, Office
+from .speaker import SpeakerReplacement, Office
 
 
 class TestSpeakerReplacement(unittest.TestCase):
@@ -85,6 +85,8 @@ class TestSpeakerReplacement(unittest.TestCase):
 
         self.assertFalse(sp.matches('JJ Smith', speech_date))
         self.assertFalse(sp.matches('JohnSmith', speech_date))
+
+        self.assertFalse(sp.matches("John Smith's", speech_date))
 
     def test_middle_name(self):
         first = 'John'

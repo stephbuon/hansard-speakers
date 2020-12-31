@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pandas as pd
 
-from fix_speakers_v3 import SpeakerReplacement, LastNameMissingError, FirstNameMissingError
+from hansard.speaker import SpeakerReplacement, LastNameMissingError, FirstNameMissingError
 
 DATE_FORMAT = '%Y-%m-%d'
 DATE_FORMAT2 = '%Y/%m/%d'
