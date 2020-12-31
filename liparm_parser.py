@@ -93,9 +93,9 @@ for mad in root:  # type: Element
     s_dod = ''
 
     if extension.find(tagname('dateOfBirth')) is not None:
-        dob = extension.find(tagname('dateOfBirth')).text
+        s_dob = extension.find(tagname('dateOfBirth')).text
     if extension.find(tagname('dateOfDeath')) is not None:
-        dod = extension.find(tagname('dateOfDeath')).text
+        s_dod = extension.find(tagname('dateOfDeath')).text
 
     dob = datetime.strptime(s_dob, '%Y-%m-%d') if s_dob else None
     dod = datetime.strptime(s_dod, '%Y-%m-%d') if s_dod else None
@@ -143,4 +143,4 @@ df = pd.DataFrame(
     columns=['fullname', 'title', 'first_name', 'surname', 'id', 'start_term', 'end_term', 'dob', 'dod', 'location']
 )
 df.set_index('id', inplace=True)
-df.to_csv('liparm_members.csv', sep=',')
+df.to_csv('data/liparm_members.csv', sep=',')

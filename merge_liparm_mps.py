@@ -8,13 +8,14 @@ DATE_FORMAT = '%Y-%m-%d'
 DATE_FORMAT2 = '%Y/%m/%d'
 
 
-mps: pd.DataFrame = pd.read_csv('mps.csv', sep=',')
+mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
 mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
 mps['mp.dod'] = pd.to_datetime(mps['mp.dod'], format=DATE_FORMAT)
 mps = mps[mps['mp.dob'].notnull() & mps['mp.dod'].notnull() & mps['mp.fname'].notnull() & mps['mp.sname'].notnull()]
 total_mps = mps.shape[0]
 
-members: pd.DataFrame = pd.read_csv('liparm_members.csv', sep=',')
+
+members: pd.DataFrame = pd.read_csv('data/liparm_members.csv', sep=',')
 members['first_name'] = members['first_name'].str.lower()
 members['surname'] = members['surname'].str.lower()
 members['fullname'] = members['fullname'].str.lower()
