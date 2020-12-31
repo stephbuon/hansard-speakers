@@ -86,7 +86,20 @@ class TestSpeakerReplacement(unittest.TestCase):
         self.assertFalse(sp.matches('JJ Smith', speech_date))
         self.assertFalse(sp.matches('JohnSmith', speech_date))
 
-        self.assertFalse(sp.matches("John Smith's", speech_date))
+    def test_excess_chars2(self):
+        first = '**Joh\'n,**'
+        surname = '**D.o.e**'
+        full_name = f'{first} {surname}'
+
+        start = datetime.datetime(year=1800, month=1, day=1)
+        speech_date = datetime.datetime(year=1850, month=6, day=1)
+        end = datetime.datetime(year=1900, month=12, day=31)
+
+        sp = SpeakerReplacement(full_name=full_name, first_name=first, last_name=surname, member_id=1,
+                                start=start, end=end)
+        self.assertFalse(sp.matches("John Doe's", speech_date))
+        self.assertTrue(sp.matches("John Doe'", speech_date))
+        self.assertTrue(sp.matches('*John* *Doe**', speech_date))
 
     def test_middle_name(self):
         first = 'John'
