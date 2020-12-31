@@ -1,178 +1,12 @@
-import os
 import pandas as pd
-from datetime import datetime
-from typing import Dict, List, Set, Union
+from typing import Dict, List
 import logging
 import time
-import re
 import sys
 from multiprocessing import Process, Queue, cpu_count
 import argparse
-
-
-DATE_FORMAT = '%Y-%m-%d'
-DATE_FORMAT2 = '%Y/%m/%d'
-
-MP_ALIAS_PATTERN = re.compile(r'\(([^\)]+)\)')
-
-
-INPUT_DIR = os.environ.get('SCRATCH', '.')
-OUTPUT_DIR = os.environ.get('SCRATCH', '.')
-
-
-DATA_FILE = os.path.join(INPUT_DIR, 'hansard_justnine_12192019.csv')
-
-CHUNK_SIZE = 10**6
-
-
-def cleanse_string(s):
-    # Cleanse string from trailing and leading white space.
-    s = s.lower().strip()
-
-    # Remove characters that are not alphabetical, a hyphen, or a space.
-    s = re.sub(r"[^a-zA-Z\- ]", "", s)
-
-    # Change multiple whitespaces to single spaces.
-    s = re.sub(r' +', ' ', s)
-    return s
-
-
-class FirstNameMissingError(Exception):
-    pass
-
-
-class LastNameMissingError(Exception):
-    pass
-
-
-class SpeakerAmbiguityError(Exception):
-    pass
-
-
-class SpeakerReplacement:
-    def __init__(self, full_name, first_name, last_name, member_id, start, end):
-        self.first_name = cleanse_string(first_name)
-        self.last_name = cleanse_string(last_name)
-
-        name_parts = cleanse_string(full_name).split()
-
-        try:
-            # Start from the end of the name in case their first name matches a title.
-            fn_index = name_parts[::-1].index(self.first_name)
-        except ValueError:
-            raise FirstNameMissingError
-
-        try:
-            # Start from the end of the name in case their surname matches a title.
-            ln_index = name_parts[::-1].index(self.last_name)
-        except ValueError:
-            raise LastNameMissingError
-
-        self.titles = name_parts[:fn_index]
-        for i, title in enumerate(self.titles):
-            if title.endswith('.'):
-                self.titles[i] = title[:-1]
-
-        self.middle_names = name_parts[fn_index + 1:ln_index]
-
-        self.member_id = member_id
-        self.id = f'{self.first_name}_{self.last_name}_{member_id}'
-
-        self.middle_possibilities = list(re.sub(' +', ' ', p.strip()) for p in self._generate_middle_parts(0))
-
-        self.aliases: Set[str] = set(self._generate_aliases())
-
-        self.start_date: datetime = start
-        self.end_date: datetime = end
-
-    def _generate_aliases(self):
-        for title in self.titles + ['']:
-            for fn in ('', self.first_name[0], self.first_name[0] + '.', self.first_name):
-                for mn in self.middle_possibilities:
-                    if title:
-                        yield re.sub(' +', ' ', f'{title + "."} {fn} {mn} {self.last_name}').strip(' ')
-                    yield re.sub(' +', ' ', f'{title} {fn} {mn} {self.last_name}').strip(' ')
-
-    def _generate_middle_parts(self, i):
-        if i >= len(self.middle_names):
-            yield ''
-            return
-
-        a = self.middle_names[i][0] + ' '
-        b = self.middle_names[i][0] + '.' + ' '
-        c = self.middle_names[i] + ' '
-
-        for p in self._generate_middle_parts(i + 1):
-            yield p
-            yield a + p
-            yield b + p
-            yield c + p
-
-    def matches(self, speaker_name: str, speech_date: datetime, cleanse=True):
-        if not self.start_date <= speech_date <= self.end_date:
-            return False
-
-        if cleanse:
-            speaker_name = cleanse_string(speaker_name)
-
-        return speaker_name in self.aliases
-
-    def __repr__(self):
-        return f'SpeakerReplacement({self.id}, {self.start_date}, {self.end_date})'
-
-
-class Office:
-    STOPWORDS = {'of', 'the', 'to'}
-
-    def __init__(self, office_id, office_name):
-        self.id = office_id
-        self.name = office_name
-
-        self.words = cleanse_string(office_name).split()
-
-        self.aliases = set(self._generate_parts(0))
-
-    def _generate_parts(self, i):
-        if i >= len(self.words):
-            yield ''
-            return
-
-        word = self.words[i]
-
-        for p in self._generate_parts(i + 1):
-            if word in Office.STOPWORDS:
-                yield p
-            if p:
-                yield word + ' ' + p
-            else:
-                yield word
-
-    def matches(self, target, cleanse=True):
-        if cleanse:
-            target = cleanse_string(target)
-        return target in self.aliases
-
-
-class OfficeHolding:
-    # TODO: check start-end dates for 19th century
-
-    def __init__(self, holding_id, member_id, office_id, start_date, end_date, office):
-        self.holding_id = holding_id
-        self.member_id = member_id
-        self.office_id = office_id
-        self.start_date = start_date
-        self.end_date = end_date
-        self.office = office
-
-    def matches(self, office_name: str, speech_date: datetime, cleanse=True):
-        if not self.start_date <= speech_date <= self.end_date:
-            return False
-
-        return self.office.matches(office_name, cleanse=cleanse)
-
-    @property
-    def speaker(self) -> SpeakerReplacement:
-        return speaker_dict[self.member_id]
+from hansard import *
+from hansard.speaker import *
 
 
 if __name__ == '__main__':
@@ -197,11 +31,11 @@ if __name__ == '__main__':
     logging.debug(f'Utilizing {cores} cores...')
 
     logging.debug('Loading misspellings...')
-    misspellings: pd.DataFrame = pd.read_csv('misspellings_dictionary.csv', sep=',', encoding='ISO-8859-1')
+    misspellings: pd.DataFrame = pd.read_csv('data/misspellings_dictionary.csv', sep=',', encoding='ISO-8859-1')
     misspellings['correct'] = misspellings['correct'].fillna('')
     misspellings_dict = {k.lower(): v for k, v in zip(misspellings['incorrect'], misspellings['correct'])}
 
-    ocr_title_errs: pd.DataFrame = pd.read_csv('common_OCR_errors_titles.csv', sep=',')
+    ocr_title_errs: pd.DataFrame = pd.read_csv('data/common_OCR_errors_titles.csv', sep=',')
     ocr_title_errs['CORRECT'] = ocr_title_errs['CORRECT'].fillna('')
     ocr_err_dict = {k.lower(): v for k, v in zip(ocr_title_errs['INCORRECT'], ocr_title_errs['CORRECT'])}
     misspellings_dict.update(ocr_err_dict)
@@ -213,7 +47,7 @@ if __name__ == '__main__':
     holdings = []
 
     logging.debug('Reading mps.csv...')
-    mps: pd.DataFrame = pd.read_csv('mps.csv', sep=',')
+    mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
 
     malformed_mp_date = 0
     malformed_mp_name = 0
@@ -281,13 +115,13 @@ if __name__ == '__main__':
     logging.info(f'{len(speakers)} speakers sucessfully loaded out of {len(mps)} rows.')
 
     logging.info('Loading offices...')
-    offices_df = pd.read_csv('offices.csv', sep=',')
+    offices_df = pd.read_csv('data/offices.csv', sep=',')
     for index, row in offices_df.iterrows():
         office = Office(row['office_id'], row['name'])
         office_dict[office.id] = office
 
     logging.info('Loading office holdings...')
-    holdings_df = pd.read_csv('officeholdings.csv', sep=',')
+    holdings_df = pd.read_csv('data/officeholdings.csv', sep=',')
     unknown_members = 0
     unknown_offices = 0
     invalid_office_dates = 0
@@ -324,11 +158,11 @@ if __name__ == '__main__':
     logging.debug(f'{unknown_offices} office holding rows had unknown offices.')
     logging.debug(f'{len(holdings)} office holdings successfully loaded out of {len(holdings_df)} rows.')
 
-    exchaequer_df = pd.read_csv('chancellor_of_the_exchequer.csv', sep=',')
+    exchaequer_df = pd.read_csv('data/chancellor_of_the_exchequer.csv', sep=',')
     exchaequer_df['started_service'] = pd.to_datetime(exchaequer_df['started_service'], format=DATE_FORMAT2)
     exchaequer_df['ended_service'] = pd.to_datetime(exchaequer_df['ended_service'], format=DATE_FORMAT2)
 
-    pm_df = pd.read_csv('prime_ministers.csv', sep=',')
+    pm_df = pd.read_csv('data/prime_ministers.csv', sep=',')
     pm_df['started_service'] = pd.to_datetime(pm_df['started_service'], format=DATE_FORMAT2)
     pm_df['ended_service'] = pd.to_datetime(pm_df['ended_service'], format=DATE_FORMAT2)
 
@@ -337,7 +171,7 @@ if __name__ == '__main__':
     numrows = 0
     index = 0
 
-    from speakerfinder import worker_function
+    from hansard.worker import worker_function
 
     inq = Queue()
     outq = Queue()

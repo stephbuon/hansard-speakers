@@ -22,4 +22,4 @@ else
   cd hansard-speakers
 fi
 
-python3 fix_speakers_v3.py --cores ${SLURM_NTASKS}
+python3 run.py --cores ${SLURM_NTASKS}

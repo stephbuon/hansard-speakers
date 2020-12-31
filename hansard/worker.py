@@ -7,7 +7,7 @@ import re
 # This function will run per core.
 def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, holdings, full_alias_dict, misspellings_dict,
                     exchaequer_df, pm_df):
-    from fix_speakers_v3 import cleanse_string
+    from . import cleanse_string
 
     while True:
         try:
@@ -30,7 +30,6 @@ def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, hol
             if 'exchequer' in target:
                 query = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
                 if len(query) >= 1:
-                    print(query)
                     target = query.iloc[0]['real_name'].lower()
             elif target == 'prime minister':
                 query = pm_df[(speechdate >= pm_df['started_service']) & (speechdate < pm_df['ended_service'])]
