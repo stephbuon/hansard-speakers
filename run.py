@@ -48,6 +48,8 @@ if __name__ == '__main__':
 
     logging.debug('Reading mps.csv...')
     mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
+    mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
+    mps['mp.dod'] = pd.to_datetime(mps['mp.dod'], format=DATE_FORMAT)
 
     malformed_mp_date = 0
     malformed_mp_name = 0
@@ -56,19 +58,16 @@ if __name__ == '__main__':
 
     logging.debug('Parsing mps.csv...')
     for index, row in mps.iterrows():
-        try:
-            dob = datetime.strptime(row['mp.dob'], DATE_FORMAT)
-        except TypeError:
-            malformed_mp_date += 1
-            logging.debug(f'Invalid date at row: {index}. DOB is {row["mp.dob"]}. DOD is {row["mp.dod"]}')
+        dob = row['mp.dob']
+
+        if pd.isna(dob):
+            # TODO: fix members without DOB
             continue
 
-        try:
-            dod = datetime.strptime(row['mp.dod'], DATE_FORMAT)
-        except TypeError:
+        dod = row['mp.dod']
+        if pd.isna(dod):
             # Assume that the speaker is still alive.
             dod = datetime.now()
-            continue
 
         fullname, firstname, surname = row['mp.name'], row['mp.fname'], row['mp.sname']
 
