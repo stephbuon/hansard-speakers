@@ -1,5 +1,5 @@
 import pandas as pd
-from fix_speakers_v3 import DATE_FORMAT
+from hansard import DATE_FORMAT
 from datetime import datetime
 import re
 

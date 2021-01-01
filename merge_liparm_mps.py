@@ -16,24 +16,23 @@ total_mps = mps.shape[0]
 
 
 members: pd.DataFrame = pd.read_csv('data/liparm_members.csv', sep=',')
-members['first_name'] = members['first_name'].str.lower()
-members['surname'] = members['surname'].str.lower()
-members['fullname'] = members['fullname'].str.lower()
+members.set_index('id', inplace=True)
 members['dob'] = pd.to_datetime(members['dob'], format=DATE_FORMAT)
 members['dod'] = pd.to_datetime(members['dod'], format=DATE_FORMAT)
 members['start_term'] = pd.to_datetime(members['start_term'], format=DATE_FORMAT)
 members['end_term'] = pd.to_datetime(members['end_term'], format=DATE_FORMAT)
+members['member.id'] = -1
 
 
 def first_last_query(fname, sname, dob, dod):
-    return (members['first_name'] == fname) & \
-           (members['surname'] == sname) & \
+    return (members['first_name'].str.lower() == fname) & \
+           (members['surname'].str.lower() == sname) & \
            (dob < members['start_term']) & \
            (members['end_term'] <= dod)
 
 
 def alias_query(speaker: SpeakerReplacement, dob, dod):
-    return (members['fullname'].isin(speaker.aliases)) & \
+    return (members['fullname'].str.lower().isin(speaker.aliases)) & \
            (dob < members['start_term']) & \
            (members['end_term'] <= dod)
 
@@ -69,7 +68,15 @@ found = 0
 for index, mp_row in mps.iterrows():
     if not (index % 100):
         print(f'Current progress: {index} / {total_mps}')
-    if lookup(mp_row) is not None:
+    lookup_result = lookup(mp_row)
+    if lookup_result is not None:
+        for i, member_row in lookup_result.iterrows():
+            members.loc[i, 'member.id'] = int(mp_row['member.id'])
         found += 1
 
-print(f'Matched {found}/{total_mps} mps')
+
+updated_members = members[members['member.id'] != -1]
+
+print(f'Matched {found}/{total_mps} mps to LIPARM entries')
+print(f'Matched {len(updated_members)}/{len(members)} rows in liparm members')
+members.to_csv('data/liparm_members.csv', sep=',')
