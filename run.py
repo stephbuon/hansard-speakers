@@ -23,6 +23,8 @@ HOLDINGS: List[OfficeHolding] = []
 EXCHEQUER_DF: Optional[pd.DataFrame] = None
 PM_DF: Optional[pd.DataFrame] = None
 
+OFFICE_TERMS_DF: Optional[pd.DataFrame] = None
+
 
 def parse_config():
     global CPU_CORES
@@ -137,7 +139,7 @@ def parse_mps():
 
 
 def parse_offices():
-    global SPEAKER_DICT, OFFICE_DICT, HOLDINGS, EXCHEQUER_DF, PM_DF
+    global SPEAKER_DICT, OFFICE_DICT, HOLDINGS, EXCHEQUER_DF, PM_DF, OFFICE_TERMS_DF
 
     logging.info('Loading offices...')
     offices_df = pd.read_csv('data/offices.csv', sep=',')
@@ -191,6 +193,10 @@ def parse_offices():
     PM_DF['started_service'] = pd.to_datetime(PM_DF['started_service'], format=DATE_FORMAT2)
     PM_DF['ended_service'] = pd.to_datetime(PM_DF['ended_service'], format=DATE_FORMAT2)
 
+    OFFICE_TERMS_DF = pd.read_csv('data/liparm_members.csv', sep=',')
+    OFFICE_TERMS_DF['start_term'] = pd.to_datetime(OFFICE_TERMS_DF['start_term'], format=DATE_FORMAT)
+    OFFICE_TERMS_DF['end_term'] = pd.to_datetime(OFFICE_TERMS_DF['end_term'], format=DATE_FORMAT)
+
 
 if __name__ == '__main__':
     parse_config()
@@ -211,7 +217,7 @@ if __name__ == '__main__':
     numrows = 0
     index = 0
 
-    process_args = (inq, outq, HOLDINGS, FULL_ALIAS_DICT, CORRECTIONS, EXCHEQUER_DF, PM_DF)
+    process_args = (inq, outq, HOLDINGS, FULL_ALIAS_DICT, CORRECTIONS, EXCHEQUER_DF, PM_DF, OFFICE_TERMS_DF)
     processes = [Process(target=worker_function, args=process_args) for _ in range(CPU_CORES)]
 
     for p in processes:
@@ -231,7 +237,6 @@ if __name__ == '__main__':
                              usecols=['speechdate', 'speaker']):  # type: pd.DataFrame
 
         chunk['speechdate'] = pd.to_datetime(chunk['speechdate'], format=DATE_FORMAT)
-        chunk['speaker'] = chunk['speaker'].str.lower()
 
         t0 = time.time()
 

@@ -14,7 +14,8 @@ def worker_function(inq: multiprocessing.Queue,
                     full_alias_dict: Dict[str, List[SpeakerReplacement]],
                     misspellings_dict: Dict[str, str],
                     exchaequer_df: pd.DataFrame,
-                    pm_df: pd.DataFrame):
+                    pm_df: pd.DataFrame,
+                    terms_df: pd.DataFrame):
     from . import cleanse_string
 
     while True:
@@ -26,6 +27,8 @@ def worker_function(inq: multiprocessing.Queue,
             match = None
             ambiguity = False
             target = cleanse_string(target)
+            possibles = []
+            query = None
 
             for misspell in misspellings_dict:
                 if misspell in target:
@@ -56,5 +59,15 @@ def worker_function(inq: multiprocessing.Queue,
                         match = possibles[0]
                     else:
                         ambiguity = True
+
+            if ambiguity:
+                speaker_ids = {speaker.id for speaker in possibles}
+
+                query = terms_df[(terms_df['member.id'].isin(speaker_ids)) &
+                                 (terms_df['start_term'] <= speechdate) &
+                                 (speechdate <= terms_df['end_term'])]
+                if len(query) == 1:
+                    ambiguity = False
+                    match = query.iloc[0]['fullname'].lower()
 
             outq.put((match is not None, ambiguity, i))
