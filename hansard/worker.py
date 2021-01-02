@@ -2,23 +2,29 @@ from datetime import datetime
 import multiprocessing
 from queue import Empty
 import re
+from .speaker import SpeakerReplacement, OfficeHolding
+from typing import Dict, List
+import pandas as pd
 
 
 # This function will run per core.
-def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, holdings, full_alias_dict, misspellings_dict,
-                    exchaequer_df, pm_df):
+def worker_function(inq: multiprocessing.Queue,
+                    outq: multiprocessing.Queue,
+                    holdings: List[OfficeHolding],
+                    full_alias_dict: Dict[str, List[SpeakerReplacement]],
+                    misspellings_dict: Dict[str, str],
+                    exchaequer_df: pd.DataFrame,
+                    pm_df: pd.DataFrame):
     from . import cleanse_string
 
     while True:
         try:
-            i, target, speechdate = inq.get(block=True)
+            i, speechdate, target = inq.get(block=True)
         except Empty:
             continue
         else:
             match = None
             ambiguity = False
-            possibles = None
-
             target = cleanse_string(target)
 
             for misspell in misspellings_dict:
@@ -31,7 +37,7 @@ def worker_function(inq: multiprocessing.Queue, outq: multiprocessing.Queue, hol
                 query = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
                 if len(query) >= 1:
                     target = query.iloc[0]['real_name'].lower()
-            elif target == 'prime minister':
+            elif 'prime minister' in target:
                 query = pm_df[(speechdate >= pm_df['started_service']) & (speechdate < pm_df['ended_service'])]
                 if len(query) >= 1:
                     target = query.iloc[0]['real_name'].lower()
