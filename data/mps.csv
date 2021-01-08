@@ -1086,7 +1086,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1676,Mr William Selby Lowndes,Lowndes,William,1767-01-01,1,1840-05-18,0
 1677,Mr Abel Smith,Smith,Abel,1788-01-01,1,1859-12-31,1
 1678,Mr William Legge,Legge,William,1784-11-29,0,1853-11-22,0
-1679,The Lord Brougham and Vaux (Henry Peter Brougham),Brougham,Henry,1778-11-19,0,1868-05-07,0
+1679,Henry Peter Brougham,Brougham,Henry,1778-11-19,0,1868-05-07,0
 1680,Mr John Archer-Houblon,Archer-Houblon,John,1773-12-01,0,1831-05-31,0
 1681,Mr Joseph Hague Everett,Everett,Joseph,1776-01-01,1,1853-05-07,0
 1682,Mr Robert Chaloner,Chaloner,Robert,1776-09-23,0,1842-10-07,0
@@ -1402,7 +1402,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1992,Mr Hugh Henry John Seymour,Seymour,Hugh,1790-09-25,0,1821-12-02,0
 1993,Mr Lucius Concannon,Concannon,Lucius,1764-01-01,1,1823-01-29,0
 1994,Mr George Fludyer,Fludyer,George,1761-09-01,0,1837-04-15,0
-1995,Baron Lyndhurst (John Singleton Copley),Copley,John,1772-05-21,0,1863-10-12,0
 1996,Sir Lawrence Vaughan Palk,Palk,Lawrence,1793-04-24,0,1860-05-16,0
 1997,Mr John Gordon,Gordon,John,1794-10-20,0,1843-05-07,0
 1998,Mr Augustus William James Clifford,Clifford,Augustus,1788-05-26,0,1877-02-09,0
@@ -3000,7 +2999,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3608,Mr Matthew Elias Corbally,Corbally,Matthew,1797-01-01,1,1870-12-31,1
 3609,Mr John Basset,Basset,John,1791-01-01,1,1843-12-31,1
 3610,Mr Henry James Baillie,Baillie,Henry,1804-01-01,1,1885-12-31,1
-3611,The Lord Chelmsford (Frederick Thesiger),Thesiger,Frederick,1794-01-01,1,1878-12-31,1
+3611,Frederick Thesiger,Thesiger,Frederick,1794-01-01,1,1878-12-31,1
 3612,Sir Arthur Brinsley Brooke,Brooke,Arthur,1797-01-01,1,1854-12-31,1
 3613,Sir David Dundas,Dundas,David,1799-01-01,1,1877-12-31,1
 3614,Mr John Dawson Rawdon,Rawdon,John,1804-01-01,1,1866-12-31,1
@@ -3381,11 +3380,11 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3997,Mr John Duncuft,Duncuft,John,,1,1852-12-31,1
 3998,Mr William Johnson Fox,Fox,William,1786-01-01,1,1864-12-31,1
 3999,Mr Arthur Anderson,Anderson,Arthur,1792-01-01,1,1868-12-31,1
-4000,The Lord Hatherley (William Page Wood),Wood,William,1801-01-01,1,1881-12-31,1
+4000,William Page Wood,Wood,William,1801-01-01,1,1881-12-31,1
 4001,Mr Howel Gwyn,Gwyn,Howel,1806-01-01,1,1888-12-31,1
 4002,Mr Francis Mowatt,Mowatt,Francis,1803-01-01,1,1891-12-31,1
 4003,Hon. William George Cavendish,Cavendish,William,1815-01-01,1,1882-12-31,1
-4004,The Earl of Selborne (Roundell Palmer),Palmer,Roundell,1812-01-01,1,1895-12-31,1
+4004,Roundell Palmer,Palmer,Roundell,1812-01-01,1,1895-12-31,1
 4005,Sir Samuel Martin,Martin,Samuel,1801-01-01,1,1883-12-31,1
 4006,Mr Francis Plunkett Dunne,Dunne,Francis,1802-01-01,1,1874-12-31,1
 4007,Mr Charles Pascoe Grenfell,Grenfell,Charles,1790-01-01,1,1867-12-31,1
@@ -5993,7 +5992,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6622,Mr Francis Spencer,Spencer,Francis,1802-10-06,0,1886-11-24,0
 6623,Mr Leicester Stanhope,Stanhope,Leicester,1784-09-02,0,1862-09-07,0
 6624,Hon. John Stuart-Wortley,Stuart-Wortley,Hon.,1801-01-01,1,1855-12-31,1
-6625,Sir Edward Sugden,Sugden,Edward,1791-01-01,1,1875-12-31,1
 6626,Mr Henry Wellesley,Wellesley,Henry,1804-06-17,0,1884-07-15,0
 6627,Mr Henry Wilson,Wilson,Henry,1797-02-23,0,1871-06-27,0
 6633,Mr Henry Arundell,Arundell,Henry,1740-03-31,0,1808-12-04,0
