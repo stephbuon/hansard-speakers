@@ -29,6 +29,7 @@ class DataStruct:
 
     def _load_speakers(self):
         mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
+        mps['mp.dod'] = mps['mp.dod'].fillna(datetime.now().strftime(DATE_FORMAT))
         mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
         mps['mp.dod'] = pd.to_datetime(mps['mp.dod'], format=DATE_FORMAT)
         mps = mps.astype({'member.id': int})
