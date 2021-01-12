@@ -18,9 +18,11 @@ class DataStruct:
         self.office_dict: Dict[int, Office] = {}
         self.holdings: List[OfficeHolding] = []
 
+        self.term_df: Optional[pd.DataFrame] = None
+
         self.exchequer_df: Optional[pd.DataFrame] = None
         self.pm_df: Optional[pd.DataFrame] = None
-        self.term_df: Optional[pd.DataFrame] = None
+        self.lord_chance_df: Optional[pd.DataFrame] = None
 
     def load(self):
         self._load_speakers()
@@ -162,6 +164,10 @@ class DataStruct:
         logging.debug(f'{unknown_offices} office holding rows had unknown offices.')
         logging.debug(f'{len(holdings)} office holdings successfully loaded out of {len(holdings_df)} rows.')
 
+        self.term_df = pd.read_csv('data/liparm_members.csv', sep=',')
+        self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
+        self.term_df['end_term'] = pd.to_datetime(self.term_df['end_term'], format=DATE_FORMAT)
+
         self.exchequer_df = pd.read_csv('data/chancellor_of_the_exchequer.csv', sep=',')
         self.exchequer_df['started_service'] = pd.to_datetime(self.exchequer_df['started_service'], format=DATE_FORMAT2)
         self.exchequer_df['ended_service'] = pd.to_datetime(self.exchequer_df['ended_service'], format=DATE_FORMAT2)
@@ -170,6 +176,7 @@ class DataStruct:
         self.pm_df['started_service'] = pd.to_datetime(self.pm_df['started_service'], format=DATE_FORMAT2)
         self.pm_df['ended_service'] = pd.to_datetime(self.pm_df['ended_service'], format=DATE_FORMAT2)
 
-        self.term_df = pd.read_csv('data/liparm_members.csv', sep=',')
-        self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
-        self.term_df['end_term'] = pd.to_datetime(self.term_df['end_term'], format=DATE_FORMAT)
+        self.lord_chance_df = pd.read_csv('data/lord_chancellors.csv', sep=',')
+        self.lord_chance_df['started_service'] = pd.to_datetime(self.lord_chance_df['started_service'], format=DATE_FORMAT2)
+        self.lord_chance_df['ended_service'] = pd.to_datetime(self.lord_chance_df['ended_service'], format=DATE_FORMAT2)
+

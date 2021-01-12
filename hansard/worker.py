@@ -1,6 +1,12 @@
 import multiprocessing
 from queue import Empty
 from hansard.loader import DataStruct
+from datetime import datetime
+import pandas as pd
+
+
+def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
+    return df[(date >= df['started_service']) & (date < df['ended_service'])]
 
 
 # This function will run per core.
@@ -10,11 +16,14 @@ def worker_function(inq: multiprocessing.Queue,
     from . import cleanse_string
 
     misspellings_dict = data.corrections
-    exchaequer_df = data.exchequer_df
-    pm_df = data.pm_df
     holdings = data.holdings
     alias_dict = data.alias_dict
     terms_df = data.term_df
+    speaker_dict = data.speaker_dict
+
+    exchaequer_df = data.exchequer_df
+    pm_df = data.pm_df
+    lord_chance_df = data.lord_chance_df
 
     while True:
         try:
@@ -34,21 +43,19 @@ def worker_function(inq: multiprocessing.Queue,
 
             target = cleanse_string(target)
 
-            # Don't count these as ambigious for now
-            # TODO: need to add MP id to the CSV's.
             if 'exchequer' in target:
-                query = exchaequer_df[(speechdate >= exchaequer_df['started_service']) & (speechdate < exchaequer_df['ended_service'])]
-                if len(query) == 1:
-                    target = query.iloc[0]['real_name'].lower()
-                    match = target
-                elif len(query) > 1:
-                    ambiguity = True
-
+                query = match_term(exchaequer_df, speechdate)
             elif 'prime minister' in target:
-                query = pm_df[(speechdate >= pm_df['started_service']) & (speechdate < pm_df['ended_service'])]
+                query = match_term(pm_df, speechdate)
+            elif 'lord chancellor' in target:
+                query = match_term(lord_chance_df, speechdate)
+
+            if query is not None:
                 if len(query) == 1:
-                    target = query.iloc[0]['real_name'].lower()
-                    match = target
+                    speaker_id = query.iloc[0]['corresponding_id']
+                    if speaker_id != 'N/A':
+                        # TODO: setup logging to keep track of when == n/a
+                        match = speaker_dict[int(speaker_id)]
                 elif len(query) > 1:
                     ambiguity = True
 
