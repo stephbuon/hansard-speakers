@@ -68,7 +68,7 @@ def worker_function(inq: multiprocessing.Queue,
                     else:
                         ambiguity = True
 
-            if ambiguity:
+            if ambiguity and possibles:
                 speaker_ids = {speaker.id for speaker in possibles}
 
                 query = terms_df[(terms_df['member.id'].isin(speaker_ids)) &
