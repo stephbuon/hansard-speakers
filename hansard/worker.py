@@ -55,7 +55,10 @@ def worker_function(inq: multiprocessing.Queue,
                     speaker_id = query.iloc[0]['corresponding_id']
                     if speaker_id != 'N/A':
                         # TODO: setup logging to keep track of when == n/a
-                        match = speaker_dict[int(speaker_id)]
+                        # TODO: fix IDs missing due to being malformed entries in mps.csv
+                        # match = speaker_dict[int(speaker_id)]
+                        # for now use speaker_id to ensure this counts as a match
+                        match = speaker_id
                 elif len(query) > 1:
                     ambiguity = True
 
