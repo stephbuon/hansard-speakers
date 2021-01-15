@@ -35,6 +35,11 @@ def worker_function(inq: multiprocessing.Queue,
         except Empty:
             continue
         else:
+            if chunk is None:
+                # Forward to export thread, which will terminate all workers.
+                outq.put(None)
+                continue
+            
             for i, speechdate, target in chunk.itertuples():
                 match = None
                 ambiguity: bool = False
