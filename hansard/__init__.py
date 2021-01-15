@@ -14,7 +14,7 @@ OUTPUT_DIR = os.environ.get('SCRATCH', '.')
 
 DATA_FILE = os.path.join(INPUT_DIR, 'hansard_justnine_12192019.csv')
 
-CHUNK_SIZE = 10**6
+CHUNK_SIZE = 2**15
 
 
 def cleanse_string(s):
