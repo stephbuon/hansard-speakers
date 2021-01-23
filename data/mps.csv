@@ -1525,7 +1525,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2115,Mr Edward Denny,Denny,Edward,1796-10-02,0,1889-06-13,0
 2116,Lord Fitzroy James Henry Somerset,Somerset,Fitzroy,1788-09-30,0,1855-06-28,0
 2117,Mr William Stewart,Stewart,William,1780-01-01,1,1850-10-01,0
-2118,The Lord Denman (Thomas Denman),Denman,Thomas,1779-02-23,0,1854-09-22,0
+2118,Thomas Denman,Denman,Thomas,1779-02-23,0,1854-09-22,0
 2119,Hon. Robert John Smith,Smith,Robert,1796-01-01,1,1868-12-31,1
 2120,Mr Thomas Thynne,Thynne,Thomas,1796-04-09,0,1837-01-16,0
 2121,Mr Francis Nathaniel Conyngham,Conyngham,Francis,1797-06-11,0,1876-07-17,0
@@ -2740,7 +2740,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3347,Mr Rowland Alston,Alston,Rowland,1782-01-01,1,1865-12-31,1
 3348,Mr Arthur Chichester,Chichester,Arthur,,1,1869-12-31,1
 3349,Mr Alexander William Chisholm,Chisholm,Alexander,1810-01-01,1,1838-12-31,1
-3350,Mr Fitz-Roy Kelly,Kelly,Fitz-Roy,1796-01-01,1,1866-12-31,1
+3350,Mr Fitzroy Kelly,Kelly,Fitzroy,1796-01-01,1,1866-12-31,1
 3351,Sir William Geary,Geary,William,1810-01-01,1,1877-12-31,1
 3352,Mr Morgan John O'Connell,O'Connell,Morgan,1811-01-01,1,1875-12-31,1
 3353,Mr John Bowring,Bowring,John,1792-01-01,1,1854-12-31,1
@@ -2758,7 +2758,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3365,Mr Edmund Lechmere Charlton,Charlton,Edmund,1789-01-01,1,1845-12-31,1
 3366,Sir William John Brabazon,Brabazon,William,1779-01-01,1,1840-12-31,1
 3367,Mr Patrick Chalmers,Chalmers,Patrick,1802-01-01,1,1854-12-31,1
-3368,The Lord Truro (Thomas Wilde),Wilde,Thomas,1782-01-01,1,1858-12-31,1
+3368,Thomas Wilde,Wilde,Thomas,1782-01-01,1,1858-12-31,1
 3369,Mr Denis Caulfield Brady,Brady,Denis,,1,1886-12-31,1
 3370,Mr Edmond Wodehouse,Wodehouse,Edmond,1784-01-01,1,1855-12-31,1
 3371,Horatio William Walpole,Walpole,Horatio,1813-01-01,1,1894-12-31,1
@@ -3527,7 +3527,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4146,Sir William Augustus Fraser,Fraser,William,1826-01-01,1,1898-12-31,1
 4147,Mr Thomas Phinn,Phinn,Thomas,1814-01-01,1,1866-12-31,1
 4148,Mr Samuel Whitbread,Whitbread,Samuel,1830-01-01,1,1915-12-25,0
-4149,Lord Cairns (Hugh Mac-Calmont Cairns),Cairns,Hugh,1819-01-01,1,1885-12-31,1
+4149,Hugh McCalmont Cairns,Cairns,Hugh,1819-01-01,1,1885-12-31,1
 4150,Mr Richard Davison,Davison,Richard,1796-01-01,1,1869-12-31,1
 4151,Mr George Henry Vansittart,Vansittart,George,1823-01-01,1,1885-12-31,1
 4152,Mr John Stapleton,Stapleton,John,1816-01-01,1,1891-12-31,1
