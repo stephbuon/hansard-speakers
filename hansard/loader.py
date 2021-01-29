@@ -23,6 +23,7 @@ class DataStruct:
         self.exchequer_df: Optional[pd.DataFrame] = None
         self.pm_df: Optional[pd.DataFrame] = None
         self.lord_chance_df: Optional[pd.DataFrame] = None
+        self.attorney_general_df: Optional[pd.DataFrame] = None
 
     def load(self):
         self._load_speakers()
@@ -180,3 +181,8 @@ class DataStruct:
         self.lord_chance_df['started_service'] = pd.to_datetime(self.lord_chance_df['started_service'], format=DATE_FORMAT2)
         self.lord_chance_df['ended_service'] = pd.to_datetime(self.lord_chance_df['ended_service'], format=DATE_FORMAT2)
 
+        self.attorney_general_df = pd.read_csv('data/attorney_generals.csv', sep=',')
+        self.attorney_general_df['started_service'] = pd.to_datetime(self.attorney_general_df['started_service'],
+                                                                     format=DATE_FORMAT2)
+        self.attorney_general_df['ended_service'] = pd.to_datetime(self.attorney_general_df['ended_service'],
+                                                                   format=DATE_FORMAT2)

@@ -24,6 +24,7 @@ def worker_function(inq: multiprocessing.Queue,
     exchaequer_df = data.exchequer_df
     pm_df = data.pm_df
     lord_chance_df = data.lord_chance_df
+    ag_df = data.attorney_general_df
 
     hitcount = 0
     missed_indexes = []
@@ -59,6 +60,8 @@ def worker_function(inq: multiprocessing.Queue,
                     query = match_term(pm_df, speechdate)
                 elif 'lord chancellor' in target:
                     query = match_term(lord_chance_df, speechdate)
+                elif 'attorney general' in target:
+                    query = match_term(ag_df, speechdate)
 
                 if query is not None:
                     if len(query) == 1:

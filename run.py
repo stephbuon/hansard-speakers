@@ -60,8 +60,8 @@ def export(output_queue):
             ambiguities += len(chunk_ambig_df)
             i += 1
 
-            missed_df.append(chunk_missed_df)
-            ambiguities_df.append(chunk_ambig_df)
+            missed_df = missed_df.append(chunk_missed_df)
+            ambiguities_df = ambiguities_df.append(chunk_ambig_df)
 
             print(f'Processed {i} chunks so far.')
 
