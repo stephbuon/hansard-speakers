@@ -114,8 +114,16 @@ if __name__ == '__main__':
 
     logging.info(f'Added {num_chunks} chunks to the queue.')
 
-    # Signals thread that no more entries will be added.
-    inq.put(None)
+    for _ in range(len(processes)):
+        # Signals to process that no more entries will be added.
+        inq.put(None)
+
+    logging.info('Waiting on worker processes...')
+    for process in processes:
+        process.join()
+
+    # Tell export process to finish.
+    outq.put(None)
 
     logging.info('Waiting on export process...')
     export_process.join()

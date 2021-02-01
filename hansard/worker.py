@@ -37,9 +37,8 @@ def worker_function(inq: multiprocessing.Queue,
             continue
         else:
             if chunk is None:
-                # Forward to export thread, which will terminate all workers.
-                outq.put(None)
-                continue
+                # This is our signal that we are done here. Every other worker thread will get a similar signal.
+                break
             
             for i, speechdate, target in chunk.itertuples():
                 match = None
