@@ -30,6 +30,13 @@ def worker_function(inq: multiprocessing.Queue,
     missed_indexes = []
     ambiguities_indexes = []
 
+    def preprocess(string_val: str) -> str:
+        string_val = cleanse_string(string_val)
+        for misspell in misspellings_dict:
+            string_val = string_val.replace(misspell, misspellings_dict[misspell])
+        string_val = cleanse_string(string_val)
+        return string_val
+
     while True:
         try:
             chunk: pd.DataFrame = inq.get(block=True)
@@ -39,19 +46,15 @@ def worker_function(inq: multiprocessing.Queue,
             if chunk is None:
                 # This is our signal that we are done here. Every other worker thread will get a similar signal.
                 break
-            
-            for i, speechdate, target in chunk.itertuples():
+
+            chunk['speaker_modified'] = chunk['speaker']
+            chunk['speaker_modified'] = chunk['speaker_modified'].map(preprocess)
+
+            for i, speechdate, unmodified_target, target in chunk.itertuples():
                 match = None
                 ambiguity: bool = False
-                target = cleanse_string(target)
                 possibles = []
                 query = None
-
-                for misspell in misspellings_dict:
-                    if misspell in target:
-                        target = target.replace(misspell, misspellings_dict[misspell])
-
-                target = cleanse_string(target)
 
                 if 'exchequer' in target:
                     query = match_term(exchaequer_df, speechdate)
