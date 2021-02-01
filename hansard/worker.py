@@ -45,7 +45,7 @@ def worker_function(inq: multiprocessing.Queue,
         else:
             if chunk is None:
                 # This is our signal that we are done here. Every other worker thread will get a similar signal.
-                break
+                return
 
             chunk['speaker_modified'] = chunk['speaker']
             chunk['speaker_modified'] = chunk['speaker_modified'].map(preprocess)
