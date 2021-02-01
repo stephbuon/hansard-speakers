@@ -5,6 +5,29 @@ from hansard.speaker import SpeakerReplacement, OfficeHolding, Office
 from hansard.exceptions import *
 from datetime import datetime
 import logging
+import calendar
+
+
+def fix_estimated_date(date_str, start=True):
+    date = date_str.split('/')
+
+    if len(date) == 3:
+        # No changes as its already Year-Month-Day
+        return date_str
+    elif len(date) == 1:
+        # Year only estimate.
+        if start:
+            return f'{date_str}/1/1'
+        else:
+            return f'{date_str}/12/31'
+    elif len(date) == 2:
+        # Year-Month estimate.
+        if start:
+            return f'{date_str}/1'
+        else:
+            year, month = map(int, date)
+            # calendar.monthrange(year, month)[1] gives us the last day of the month, takes leap years into account.
+            return f'{date_str}/{calendar.monthrange(year, month)[1]}'
 
 
 class DataStruct:
@@ -27,7 +50,7 @@ class DataStruct:
 
     def load(self):
         self._load_speakers()
-        self._load_offices()
+        self._load_term_metadata()
         self._load_corrections()
 
     def _load_speakers(self):
@@ -108,12 +131,29 @@ class DataStruct:
         misspellings_dict = {k.lower(): v for k, v in zip(misspellings['incorrect'], misspellings['correct'])}
         self.corrections.update(misspellings_dict)
 
+        misspellings2 = pd.read_csv('data/misspelled_given_names.tsv', sep='\t', encoding='ISO-8859-1')
+        self.corrections.update({k.lower(): v for k, v in zip(misspellings2['misspelled_name'], misspellings2['correct_name'])})
+
         ocr_title_errs: pd.DataFrame = pd.read_csv('data/common_OCR_errors_titles.csv', sep=',')
         ocr_title_errs['CORRECT'] = ocr_title_errs['CORRECT'].fillna('')
         ocr_err_dict = {k.lower(): v for k, v in zip(ocr_title_errs['INCORRECT'], ocr_title_errs['CORRECT'])}
         self.corrections.update(ocr_err_dict)
 
-    def _load_offices(self):
+    @staticmethod
+    def _load_office_position(filename: str) -> pd.DataFrame:
+        df = pd.read_csv(f'data/{filename}')
+
+        start_column = 'started_service'
+        end_column = 'ended_service'
+
+        df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True))
+        df[start_column] = pd.to_datetime(df[start_column], format=DATE_FORMAT2)
+
+        df[end_column] = df[end_column].map(lambda x: fix_estimated_date(x, start=False))
+        df[end_column] = pd.to_datetime(df[end_column], format=DATE_FORMAT2)
+        return df
+
+    def _load_term_metadata(self):
         speaker_dict = self.speaker_dict
         office_dict = self.office_dict
         holdings = self.holdings
@@ -169,20 +209,8 @@ class DataStruct:
         self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
         self.term_df['end_term'] = pd.to_datetime(self.term_df['end_term'], format=DATE_FORMAT)
 
-        self.exchequer_df = pd.read_csv('data/chancellor_of_the_exchequer.csv', sep=',')
-        self.exchequer_df['started_service'] = pd.to_datetime(self.exchequer_df['started_service'], format=DATE_FORMAT2)
-        self.exchequer_df['ended_service'] = pd.to_datetime(self.exchequer_df['ended_service'], format=DATE_FORMAT2)
-
-        self.pm_df = pd.read_csv('data/prime_ministers.csv', sep=',')
-        self.pm_df['started_service'] = pd.to_datetime(self.pm_df['started_service'], format=DATE_FORMAT2)
-        self.pm_df['ended_service'] = pd.to_datetime(self.pm_df['ended_service'], format=DATE_FORMAT2)
-
-        self.lord_chance_df = pd.read_csv('data/lord_chancellors.csv', sep=',')
-        self.lord_chance_df['started_service'] = pd.to_datetime(self.lord_chance_df['started_service'], format=DATE_FORMAT2)
-        self.lord_chance_df['ended_service'] = pd.to_datetime(self.lord_chance_df['ended_service'], format=DATE_FORMAT2)
-
-        self.attorney_general_df = pd.read_csv('data/attorney_generals.csv', sep=',')
-        self.attorney_general_df['started_service'] = pd.to_datetime(self.attorney_general_df['started_service'],
-                                                                     format=DATE_FORMAT2)
-        self.attorney_general_df['ended_service'] = pd.to_datetime(self.attorney_general_df['ended_service'],
-                                                                   format=DATE_FORMAT2)
+        self.exchequer_df = self._load_office_position('chancellor_of_the_exchequer.csv')
+        self.pm_df = self._load_office_position('prime_ministers.csv')
+        self.lord_chance_df = self._load_office_position('lord_chancellors.csv')
+        self.attorney_general_df = self._load_office_position('attorney_generals.csv')
+        self.chief_sec_df = self._load_office_position('chief_secretary_ireland.csv')
