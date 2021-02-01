@@ -65,9 +65,12 @@ def export(output_queue):
 
             print(f'Processed {i} chunks so far.')
 
+    total = len(missed_df) + ambiguities + hit
     print('Exporting...')
-    print(f'{hit} hits...')
-    print(f'{ambiguities} ambiguities...')
+    print(f'{hit} hits ({hit/total * 100:.2f}%)...')
+    print(f'{ambiguities} ambiguities ({ambiguities/total * 100:.2f}%)...')
+    print(f'{len(missed_df)} misses ({len(missed_df)/total * 100:.2f}%)...')
+    print(f'Total rows processed: {total}')
     missed_df.to_csv(os.path.join(OUTPUT_DIR, 'missed_speakers.csv'))
     ambiguities_df.to_csv(os.path.join(OUTPUT_DIR, 'ambig_speakers.csv'))
 
