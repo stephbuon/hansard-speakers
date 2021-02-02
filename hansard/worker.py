@@ -25,6 +25,7 @@ def worker_function(inq: multiprocessing.Queue,
     pm_df = data.pm_df
     lord_chance_df = data.lord_chance_df
     ag_df = data.attorney_general_df
+    honorary_title_df = data.honorary_titles_df
 
     hitcount = 0
     missed_indexes = []
@@ -64,6 +65,12 @@ def worker_function(inq: multiprocessing.Queue,
                     query = match_term(lord_chance_df, speechdate)
                 elif 'attorney general' in target:
                     query = match_term(ag_df, speechdate)
+
+                if query is None:
+                    condition = (speechdate >= honorary_title_df['started_service']) &\
+                                (speechdate < honorary_title_df['ended_service']) &\
+                                (honorary_title_df['honorary_title'].str.contains(target))
+                    query = honorary_title_df[condition]
 
                 if query is not None:
                     if len(query) == 1:

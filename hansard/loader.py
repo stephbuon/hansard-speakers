@@ -37,6 +37,7 @@ class DataStruct:
         self.alias_dict: Dict[str, List[SpeakerReplacement]] = {}
 
         self.corrections: Dict[str, str] = {}
+        self.regex_corrections: Dict[str, str] = {}
 
         self.office_dict: Dict[int, Office] = {}
         self.holdings: List[OfficeHolding] = []
@@ -47,6 +48,7 @@ class DataStruct:
         self.pm_df: Optional[pd.DataFrame] = None
         self.lord_chance_df: Optional[pd.DataFrame] = None
         self.attorney_general_df: Optional[pd.DataFrame] = None
+        self.honorary_titles_df: Optional[pd.DataFrame] = None
 
     def load(self):
         self._load_speakers()
@@ -214,3 +216,13 @@ class DataStruct:
         self.lord_chance_df = self._load_office_position('lord_chancellors.csv')
         self.attorney_general_df = self._load_office_position('attorney_generals.csv')
         self.chief_sec_df = self._load_office_position('chief_secretary_ireland.csv')
+
+        office_title_dfs = [self.exchequer_df, self.pm_df, self.lord_chance_df,
+                            self.attorney_general_df, self.chief_sec_df]
+
+        temp_df = pd.concat(df[['corresponding_id', 'honorary_title', 'started_service', 'ended_service']]
+                            for df in office_title_dfs)
+        temp_df = temp_df[~(temp_df['honorary_title'].isna()) & ~(temp_df['corresponding_id'].isna())]
+        temp_df['honorary_title'] = temp_df['honorary_title'].str.lower()
+        temp_df['honorary_title'] = temp_df['honorary_title'].str.replace(r'[^a-zA-Z\- ]', '')
+        self.honorary_titles_df = temp_df.copy()
