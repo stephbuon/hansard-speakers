@@ -2999,7 +2999,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3608,Mr Matthew Elias Corbally,Corbally,Matthew,1797-01-01,1,1870-12-31,1
 3609,Mr John Basset,Basset,John,1791-01-01,1,1843-12-31,1
 3610,Mr Henry James Baillie,Baillie,Henry,1804-01-01,1,1885-12-31,1
-3611,Frederick Thesiger,Thesiger,Frederick,1794-01-01,1,1878-12-31,1
+3611,Sir Frederick Thesiger,Thesiger,Frederick,1794-01-01,1,1878-12-31,1
 3612,Sir Arthur Brinsley Brooke,Brooke,Arthur,1797-01-01,1,1854-12-31,1
 3613,Sir David Dundas,Dundas,David,1799-01-01,1,1877-12-31,1
 3614,Mr John Dawson Rawdon,Rawdon,John,1804-01-01,1,1866-12-31,1
@@ -3384,7 +3384,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4001,Mr Howel Gwyn,Gwyn,Howel,1806-01-01,1,1888-12-31,1
 4002,Mr Francis Mowatt,Mowatt,Francis,1803-01-01,1,1891-12-31,1
 4003,Hon. William George Cavendish,Cavendish,William,1815-01-01,1,1882-12-31,1
-4004,Roundell Palmer,Palmer,Roundell,1812-01-01,1,1895-12-31,1
+4004,Sir Roundell Palmer,Palmer,Roundell,1812-01-01,1,1895-12-31,1
 4005,Sir Samuel Martin,Martin,Samuel,1801-01-01,1,1883-12-31,1
 4006,Mr Francis Plunkett Dunne,Dunne,Francis,1802-01-01,1,1874-12-31,1
 4007,Mr Charles Pascoe Grenfell,Grenfell,Charles,1790-01-01,1,1867-12-31,1
@@ -4228,7 +4228,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4853,Mr Duncan McLaren,McLaren,Duncan,1800-01-01,1,1886-12-31,1
 4854,Sir Thomas Burch Western,Western,Thomas,1795-01-01,1,1873-12-31,1
 4855,Lord Eustace Henry Brownlow Gascoyne Cecil,Cecil,Eustace,1834-01-01,1,1921-07-03,0
-4856,Mr Henry John Selwin Ibbetson,Ibbetson,Henry,1826-01-01,1,1902-01-15,0
+4856,Mr Henry John Selwin-Ibbetson,Selwin-Ibbetson,Henry,1826-01-01,1,1902-01-15,0
 4857,Sir James Bourne,Bourne,James,1812-01-01,1,1882-12-31,1
 4858,Mr John Duke Coleridge,Coleridge,John,1820-01-01,1,1894-12-31,1
 4859,Sir Andrew Lusk,Lusk,Andrew,1812-01-01,1,1909-07-21,0
@@ -4543,7 +4543,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5169,Henry George Percy,Percy,Henry,1846-01-01,1,1918-05-14,0
 5170,Mr Charles Ichabod Wright,Wright,Charles,1828-01-01,1,1905-05-09,1
 5171,Mr Frederic Chatfield Smith,Smith,Frederic,1823-01-01,1,1905-04-21,1
-5172,Mr William George Granville Venables Vernon Harcourt,Harcourt,William,1827-01-01,1,1904-10-01,0
+5172,Sir William George Granville Venables Vernon Harcourt,Harcourt,William,1827-01-01,1,1904-10-01,0
 5173,Mr William Cornwallis Cartwright,Cartwright,William,1825-01-01,1,1915-11-08,0
 5174,Mr Thomas Charlton Meyrick,Meyrick,Thomas,1837-01-01,1,1921-07-30,0
 5175,Mr Edward Backhouse Eastwick,Eastwick,Edward,1814-01-01,1,1883-12-31,1
