@@ -28,6 +28,10 @@ class SpeakerReplacement:
             if title.endswith('.'):
                 self.titles[i] = title[:-1]
 
+        # Add Mr title by default.
+        if 'mr' not in self.titles:
+            self.titles.append('mr')
+
         self.middle_names = name_parts[fn_index + 1:ln_index]
 
         self.member_id = member_id
