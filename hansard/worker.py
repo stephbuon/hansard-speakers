@@ -39,6 +39,12 @@ def worker_function(inq: multiprocessing.Queue,
         for misspell in misspellings_dict:
             string_val = string_val.replace(misspell, misspellings_dict[misspell])
         string_val = cleanse_string(string_val)
+
+        if string_val.startswith('the '):
+            target = string_val[4:]
+
+        string_val = PARENTHESIS_REGEX.sub('', string_val)
+
         return string_val
 
     while True:
@@ -59,11 +65,6 @@ def worker_function(inq: multiprocessing.Queue,
                 ambiguity: bool = False
                 possibles = []
                 query = None
-
-                if target.startswith('the '):
-                    target = target[4:]
-
-                target = PARENTHESIS_REGEX.sub('', target)
 
                 if 'exchequer' in target:
                     query = match_term(exchaequer_df, speechdate)
