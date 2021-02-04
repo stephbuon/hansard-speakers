@@ -3,6 +3,9 @@ from queue import Empty
 from hansard.loader import DataStruct
 from datetime import datetime
 import pandas as pd
+import re
+
+PARENTHESIS_REGEX = re.compile(r'\([^()]+\)')
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
@@ -56,6 +59,11 @@ def worker_function(inq: multiprocessing.Queue,
                 ambiguity: bool = False
                 possibles = []
                 query = None
+
+                if target.startswith('the '):
+                    target = target[4:]
+
+                target = PARENTHESIS_REGEX.sub('', target)
 
                 if 'exchequer' in target:
                     query = match_term(exchaequer_df, speechdate)
