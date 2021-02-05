@@ -74,8 +74,8 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 663,Mr Evan Baillie,Baillie,Evan,1741-01-01,1,1835-06-28,0
 664,Mr Thomas Grenville,Grenville,Thomas,1755-12-31,0,1846-12-17,0
 665,Mr William Allen Proby,Proby,William,1779-06-19,0,1804-08-06,0
-666,Mr William Henry Cavendish Cavendish-Scott- Bentinck,Bentinck,William,1768-06-24,0,1854-03-27,0
-667,Mr Richard Temple-Nugent-Brydges-Chandos- Grenville,Grenville,Richard,1776-03-20,0,1839-01-17,0
+666,Mr William Henry Cavendish Cavendish-Scott-Bentinck,Bentinck,William,1768-06-24,0,1854-03-27,0
+667,Mr Richard Temple-Nugent-Brydges-Chandos-Grenville,Grenville,Richard,1776-03-20,0,1839-01-17,0
 668,Mr Frederick William Hervey,Hervey,Frederick,1769-06-02,0,1859-02-15,0
 669,Lord Charles Fitzroy,Fitzroy,Charles,1764-07-14,0,1829-12-20,0
 670,Sir John Sinclair,Sinclair,John,1754-05-10,0,1835-12-21,0
@@ -794,7 +794,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1385,Mr Henry Dawkins,Dawkins,Henry,1765-01-01,1,1852-10-25,0
 1386,Mr John Irving,Irving,John,1767-01-01,1,1845-11-10,0
 1387,Mr James Archibald Stuart-Wortley- Mackenzie,Mackenzie,James,1747-09-19,0,1818-03-01,0
-1388,The Earl of Ripon (Frederick John Robinson),Robinson,Frederick,1782-11-01,0,1859-01-28,0
+1388,Frederick John Robinson,Robinson,Frederick,1782-11-01,0,1859-01-28,0
 1389,Mr George Campbell,Campbell,George,1759-08-14,0,1821-01-23,0
 1390,Mr Richard Sharp,Sharp,Richard,1759-01-01,1,1835-03-30,0
 1391,Mr John Maxwell-Barry,Maxwell-Barry,John,1767-01-18,0,1838-09-20,0
@@ -1275,7 +1275,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1863,Mr James Dunlop,Dunlop,James,1759-06-19,0,1832-03-30,0
 1864,Mr Richard Bempde Johnstone Honyman,Honyman,Richard,1787-05-04,0,1842-02-23,0
 1865,Mr William Frederick Mackenzie,Mackenzie,William,1791-07-21,0,1814-08-25,0
-1866,Mr Gilbert Elliot-Murray-Kynynmound,Elliot-Murray-Kynynmound,Gilbert,1782-11-16,0,1859-07-31,0
 1867,Sir Samuel Romilly,Romilly,Samuel,1757-01-01,1,1818-11-02,0
 1868,Mr Robert William Newman,Newman,Robert,1776-08-18,0,1848-01-24,0
 1869,Mr Edward Wilbraham-Bootle,Wilbraham-Bootle,Edward,1771-03-07,0,1853-04-03,0
@@ -1373,7 +1372,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1963,Mr George William Coventry,Coventry,George,1784-10-16,0,1843-05-15,0
 1964,Hon. Henry Beauchamp Lygon,Lygon,Henry,1784-01-01,1,1863-12-31,1
 1965,Mr George Horatio Cholmondeley,Cholmondeley,George,1792-01-16,0,1870-05-08,0
-1966,Mr James Brownlow William Cecil,Cecil,James,1791-04-17,0,1868-04-12,0
+1966,Mr James Brownlow William Gascoyne Cecil,Cecil,James,1791-04-17,0,1868-04-12,0
 1967,Sir William Abdy,Abdy,William,1779-01-01,1,1868-04-18,0
 1968,Sir Adolphus John Dalrymple,Dalrymple,Adolphus,1784-01-01,1,1866-12-31,1
 1969,Mr Alexander Maconochie,Maconochie,Alexander,1777-03-02,0,1861-11-30,0
@@ -3149,7 +3148,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3760,Mr Thomas Bright Crosse,Crosse,Thomas,1796-01-01,1,1886-12-31,1
 3761,Mr Peter Greenall,Greenall,Peter,1796-01-01,1,1845-12-31,1
 3762,Viscount Dalrymple (John Dalrymple),Dalrymple,John,1819-01-01,1,1903-12-03,0
-3763,James Howard Fitzharris,Fitzharris,James,1807-01-01,1,1889-12-31,1
+3763,James Howard Harris,Harris,James,1807-01-01,1,1889-12-31,1
 3764,Mr Bickham Escott,Escott,Bickham,1800-01-01,1,1853-12-31,1
 3765,Mr Ralph Neville,Neville,Ralph,1817-01-01,1,1886-12-31,1
 3766,Mr James Arthur Taylor,Taylor,James,1817-01-01,1,1889-12-31,1
@@ -5841,7 +5840,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6470,Mr Valentine Browne,Browne,Valentine,1788-01-15,0,1853-10-31,0
 6471,Mr George Brudenell-Bruce,Brudenell-Bruce,George,1804-11-20,0,1878-01-06,0
 6472,Mr Charles Brudenell-Bruce,Brudenell-Bruce,Charles,1773-02-14,0,1856-01-04,0
-6473,Mr Ulick Burgh,Burgh,Ulick,1802-12-20,0,1874-04-10,0
+6473,Mr Ulick john de Burgh,Burgh,Ulick,1802-12-20,0,1874-04-10,0
 6474,Mr George Byron,Byron,George,1789-03-08,0,1868-03-03,0
 6475,Mr George Cadogan,Cadogan,George,1783-05-05,0,1864-09-15,0
 6476,Mr Archibald Campbell,Campbell,Archibald,1769-08-01,0,1846-07-23,0
@@ -5934,7 +5933,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6563,Mr Thomas Robinson,Robinson,Thomas,1781-12-08,0,1859-11-14,0
 6564,Mr John Rushout,Rushout,John,1770-02-16,0,1859-01-20,0
 6565,Mr George Sackville-West,Sackville-West,George,1791-10-26,0,1869-02-23,0
-6566,Mr Walter Scott,Scott,Walter,1806-11-25,0,1884-04-16,0
+6566,Mr Walter Francis Montagu Douglas Scott,Scott,Walter,1806-11-25,0,1884-04-16,0
 6567,Mr Washington Shirley,Shirley,Washington,1760-11-13,0,1842-10-02,0
 6568,Mr Percy Smythe,Smythe,Percy,1855-05-29,0,,0
 6569,Mr Charles Stanhope,Stanhope,Charles,1780-04-08,0,1851-03-03,0
@@ -5948,7 +5947,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6577,Mr George Townshend,Townshend,George,1778-12-13,0,1855-12-31,0
 6578,Mr William Trench,Trench,William,1803-09-21,0,1872-04-26,0
 6579,Mr William Vesey-FitzGerald,Vesey-FitzGerald,William,1843-05-11,0,,0
-6580,George Villiers,Villiers,George,1800-01-26,0,1870-06-27,0
+6580,George William Frederick Villiers,Villiers,George,1800-01-26,0,1870-06-27,0
 6581,Mr William Ward,Ward,William,1817-03-27,0,1885-05-07,0
 6582,Mr George Warren,Warren,George,1811-10-28,0,1887-10-19,0
 6583,Mr Richard Wellesley,Wellesley,Richard,1760-06-20,0,1842-09-26,0
@@ -6158,7 +6157,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6793,Mr Robert Brudenell,Brudenell,Robert,1760-04-25,0,1837-08-14,0
 6794,Mr Charles Compton,Compton,Charles,,0,1828-05-24,0
 6795,Mr Gilbert Elliot Murray Kynynmound,Elliot Murray Kynynmound,Gilbert,,0,1814-06-21,0
-6796,Lord Temple (Richard Temple-Nugent-Brydges-Chandos-Grenville),Temple-Nugent-Brydges-Chandos-Grenville,Richard,1776-03-20,0,1839-01-17,0
 6797,Mr Charles Whitworth,Whitworth,Charles,,0,1825-05-12,0
 6798,Mr George Elphinstone,Elphinstone,George,,0,1823-03-10,0
 6799,Mr John Hope,Hope,John,,0,1823-08-27,0
@@ -6265,7 +6263,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6900,Mr Hugh Henry Rose,Rose,Hugh,1801-04-06,0,1885-10-16,0
 6901,Mr James Sinclair,Sinclair,James,1821-12-16,0,1881-03-28,0
 6902,Mr Charles Wyndham Stanhope,Stanhope,Charles,1809-08-16,0,1881-06-26,0
-6903,The Earl of Kimberley (John Wodehouse),Wodehouse,John,1826-01-07,0,1902-04-08,0
+6903,John Wodehouse,Wodehouse,John,1826-01-07,0,1902-04-08,0
 6904,Mr Reginald Charles Edward Abbot,Abbot,Reginald,1842-02-13,0,1919-02-26,0
 6905,Mr Robert Adam Philips Haldane-Duncan,Haldane-Duncan,Robert,1841-05-28,0,1918-06-05,0
 6906,Mr James King,King,James,1800-04-08,0,1869-09-08,0
