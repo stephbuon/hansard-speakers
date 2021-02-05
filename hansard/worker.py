@@ -5,7 +5,8 @@ from datetime import datetime
 import pandas as pd
 import re
 
-PARENTHESIS_REGEX = re.compile(r'\([^()]+\)')
+PARENTHESIS_REGEX = r'(?:\([^()]+\))'
+THE_REGEX = r'(?:^THE\b)'
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
@@ -39,12 +40,6 @@ def worker_function(inq: multiprocessing.Queue,
         for misspell in misspellings_dict:
             string_val = string_val.replace(misspell, misspellings_dict[misspell])
         string_val = cleanse_string(string_val)
-
-        if string_val.startswith('the '):
-            target = string_val[4:]
-
-        string_val = PARENTHESIS_REGEX.sub('', string_val)
-
         return string_val
 
     while True:
@@ -57,8 +52,8 @@ def worker_function(inq: multiprocessing.Queue,
                 # This is our signal that we are done here. Every other worker thread will get a similar signal.
                 return
 
-            chunk['speaker_modified'] = chunk['speaker']
-            chunk['speaker_modified'] = chunk['speaker_modified'].map(preprocess)
+            chunk['speaker_modified'] = chunk['speaker'].map(preprocess)
+            chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{PARENTHESIS_REGEX}|{THE_REGEX}', '')
 
             for i, speechdate, unmodified_target, target in chunk.itertuples():
                 match = None
