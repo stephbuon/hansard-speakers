@@ -6,7 +6,7 @@ import pandas as pd
 import re
 
 PARENTHESIS_REGEX = r'(?:\([^()]+\))'
-THE_REGEX = r'(?:^THE\b)'
+THE_REGEX = r'(?:^the\b)'
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
@@ -53,7 +53,8 @@ def worker_function(inq: multiprocessing.Queue,
                 return
 
             chunk['speaker_modified'] = chunk['speaker'].map(preprocess)
-            chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{PARENTHESIS_REGEX}|{THE_REGEX}', '')
+            chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{PARENTHESIS_REGEX}', '')
+            chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{THE_REGEX}', '')
 
             for i, speechdate, unmodified_target, target in chunk.itertuples():
                 match = None
