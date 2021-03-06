@@ -52,8 +52,8 @@ def worker_function(inq: multiprocessing.Queue,
                 # This is our signal that we are done here. Every other worker thread will get a similar signal.
                 return
 
-            chunk['speaker_modified'] = chunk['speaker'].map(preprocess)
-            chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{PARENTHESIS_REGEX}', '')
+            chunk['speaker_modified'] = chunk['speaker'].str.replace(f'{PARENTHESIS_REGEX}', '')
+            chunk['speaker_modified'] = chunk['speaker_modified'].map(preprocess)
             chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{THE_REGEX}', '')
 
             for i, speechdate, unmodified_target, target in chunk.itertuples():
