@@ -7,7 +7,7 @@ SLACK_URL = 'https://hooks.slack.com/services/'
 class Blocks:
     @staticmethod
     def section(text):
-        return {'type': 'section', 'text': {'type:': 'mrkdwn', 'text': text}}
+        return {'type': 'section', 'text': {'type': 'mrkdwn', 'text': text}}
 
     @staticmethod
     def header(text):
