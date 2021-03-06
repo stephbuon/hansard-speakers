@@ -40,12 +40,22 @@ def init_logging():
 
 
 def export(output_queue):
+    import time
+
+    SLACK_SECRET = os.environ.get('SLACK_SECRET')
+    if not SLACK_SECRET:
+        print('export: Slack updates not enabled.')
+    else:
+        print('export: Using slack updates.')
+
     missed_df = pd.DataFrame()
     ambiguities_df = pd.DataFrame()
 
     hit = 0
     ambiguities = 0
     i = 0
+
+    t0 = time.time()
 
     # TODO: multiprocess logging.
 
@@ -65,11 +75,27 @@ def export(output_queue):
 
             print(f'Processed {i} chunks so far.')
 
+    from util.slackbot import Blocks, send_slack_post
+
     total = len(missed_df) + ambiguities + hit
+
+    hit_percent = hit/total * 100
+    ambig_percent = ambiguities/total * 100
+    missed_percent = len(missed_df)/total * 100
+
+    if SLACK_SECRET:
+        send_slack_post(SLACK_SECRET, [
+            Blocks.header('Job completed'),
+            Blocks.section(f'Duration: {time.time() - t0:.2f} seconds'),
+            Blocks.section(f'Hit percentage: {hit_percent:.2f}% ({hit}/{total} rows)'),
+            Blocks.section(f'Ambiguous percentage: {ambig_percent:.2f}%'),
+            Blocks.section(f'Missed percentage: {missed_percent:.2f}%'),
+        ])
+
     print('Exporting...')
-    print(f'{hit} hits ({hit/total * 100:.2f}%)...')
-    print(f'{ambiguities} ambiguities ({ambiguities/total * 100:.2f}%)...')
-    print(f'{len(missed_df)} misses ({len(missed_df)/total * 100:.2f}%)...')
+    print(f'{hit} hits ({hit_percent:.2f}%)...')
+    print(f'{ambiguities} ambiguities ({ambig_percent:.2f}%)...')
+    print(f'{len(missed_df)} misses ({missed_percent:.2f}%)...')
     print(f'Total rows processed: {total}')
     missed_df.to_csv(os.path.join(OUTPUT_DIR, 'missed_speakers.csv'))
     ambiguities_df.to_csv(os.path.join(OUTPUT_DIR, 'ambig_speakers.csv'))
