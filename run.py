@@ -39,14 +39,8 @@ def init_logging():
     logging.debug(f'Utilizing {CPU_CORES} cores...')
 
 
-def export(output_queue):
+def export(output_queue, slack_secret):
     import time
-
-    SLACK_SECRET = os.environ.get('SLACK_SECRET')
-    if not SLACK_SECRET:
-        print('export: Slack updates not enabled.')
-    else:
-        print('export: Using slack updates.')
 
     missed_df = pd.DataFrame()
     ambiguities_df = pd.DataFrame()
@@ -83,8 +77,8 @@ def export(output_queue):
     ambig_percent = ambiguities/total * 100
     missed_percent = len(missed_df)/total * 100
 
-    if SLACK_SECRET:
-        send_slack_post(SLACK_SECRET, [
+    if slack_secret:
+        send_slack_post(slack_secret, [
             Blocks.header('Job completed'),
             Blocks.section(f'Duration: {time.time() - t0:.2f} seconds'),
             Blocks.section(f'Hit percentage: {hit_percent:.2f}% ({hit}/{total} rows)'),
@@ -124,7 +118,13 @@ if __name__ == '__main__':
 
     logging.info('Loading text...')
 
-    export_process = Process(target=export, args=(outq,))
+    SLACK_SECRET = os.environ.get('SLACK_SECRET')
+    if not SLACK_SECRET:
+        print('export: Slack updates not enabled.')
+    else:
+        print('export: Using slack updates.')
+
+    export_process = Process(target=export, args=(outq, SLACK_SECRET))
     export_process.start()
 
     num_chunks = 0
