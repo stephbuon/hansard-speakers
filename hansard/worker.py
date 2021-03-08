@@ -19,14 +19,15 @@ def worker_function(inq: multiprocessing.Queue,
                     data: DataStruct):
     from . import cleanse_string
 
+    # Lookup optimization
     misspellings_dict = data.corrections
     holdings = data.holdings
     alias_dict = data.alias_dict
     terms_df = data.term_df
     speaker_dict = data.speaker_dict
-
     honorary_title_df = data.honorary_titles_df
     office_title_dfs = data.office_position_dfs
+    lord_titles_df = data.lord_titles_df
 
     hitcount = 0
     missed_indexes = []
@@ -70,6 +71,13 @@ def worker_function(inq: multiprocessing.Queue,
                     condition = (speechdate >= honorary_title_df['started_service']) &\
                                 (speechdate < honorary_title_df['ended_service']) &\
                                 (honorary_title_df['honorary_title'].str.contains(target))
+                    query = honorary_title_df[condition]
+
+                if query is None:
+                    # try aliases.
+                    condition = (speechdate >= lord_titles_df['start']) &\
+                                (speechdate < lord_titles_df['end']) &\
+                                (lord_titles_df['real_name'].str.contains(target))
                     query = honorary_title_df[condition]
 
                 if query is not None:
