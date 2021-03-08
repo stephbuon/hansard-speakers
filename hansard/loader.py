@@ -10,7 +10,10 @@ import calendar
 
 
 def fix_estimated_date(date_str, start=True):
-    date = date_str.split('/')
+    if type(date_str) == int:
+        date = [str(date_str, )]
+    else:
+        date = date_str.split('/')
 
     if len(date) == 3:
         # No changes as its already Year-Month-Day
@@ -29,6 +32,8 @@ def fix_estimated_date(date_str, start=True):
             year, month = map(int, date)
             # calendar.monthrange(year, month)[1] gives us the last day of the month, takes leap years into account.
             return f'{date_str}/{calendar.monthrange(year, month)[1]}'
+    elif not len(date):
+        raise ValueError('invalid date string')
 
 
 class DataStruct:
@@ -46,13 +51,43 @@ class DataStruct:
         self.term_df: Optional[pd.DataFrame] = None
         self.honorary_titles_df: Optional[pd.DataFrame] = None
         self.office_position_dfs: Dict[str, pd.DataFrame] = {}
+        self.lord_titles_df: Optional[pd.DataFrame] = None
+        self.aliases_df: Optional[pd.DataFrame] = None
+
+    @staticmethod
+    def _check_date_estimates(df, start_column, end_column):
+        df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True))
+        df[start_column] = pd.to_datetime(df[start_column], format=DATE_FORMAT2)
+
+        df[end_column] = df[end_column].map(lambda x: fix_estimated_date(x, start=False))
+        df[end_column] = pd.to_datetime(df[end_column], format=DATE_FORMAT2)
+        return df
 
     def load(self):
+        self._load_lord_titles()
         self._load_speakers()
         self._load_term_metadata()
         self._load_corrections()
 
+    def _load_lord_titles(self):
+        dfs = []
+        for csv in os.listdir('data/lord_titles'):
+            print('Loading lord title csv:', csv)
+            df = pd.read_csv('data/lord_titles/' + csv, sep=',')
+            dfs.append(df)
+
+        self.lord_titles_df = pd.concat(dfs)
+        self.lord_titles_df['real_name'] = self.lord_titles_df['real_name'].str.lower()
+        self.lord_titles_df['alias'] = self.lord_titles_df['alias'].str.lower()
+
+        self.lord_titles_df = self._check_date_estimates(self.lord_titles_df, 'start', 'end')
+
     def _load_speakers(self):
+        # aliases_df: pd.DataFrame = pd.read_csv('data/aliases.csv', sep=',')
+        # aliases_df['real_name'] = aliases_df['real_name'].str.lower()
+        # aliases_df['alias'] = aliases_df['alias'].str.lower()
+        # self.aliases_df = self._check_date_estimates(aliases_df, 'start', 'end')
+
         mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
         mps['mp.dod'] = mps['mp.dod'].fillna(datetime.now().strftime(DATE_FORMAT))
         mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
@@ -151,12 +186,7 @@ class DataStruct:
         start_column = 'started_service'
         end_column = 'ended_service'
 
-        df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True))
-        df[start_column] = pd.to_datetime(df[start_column], format=DATE_FORMAT2)
-
-        df[end_column] = df[end_column].map(lambda x: fix_estimated_date(x, start=False))
-        df[end_column] = pd.to_datetime(df[end_column], format=DATE_FORMAT2)
-        return df
+        return DataStruct._check_date_estimates(df, start_column, end_column)
 
     def _load_term_metadata(self):
         speaker_dict = self.speaker_dict
