@@ -1,6 +1,7 @@
+import os
 from typing import Dict, List, Optional
 import pandas as pd
-from hansard import DATE_FORMAT, DATE_FORMAT2, MP_ALIAS_PATTERN
+from hansard import DATE_FORMAT, DATE_FORMAT2, MP_ALIAS_PATTERN, cleanse_string
 from hansard.speaker import SpeakerReplacement, OfficeHolding, Office
 from hansard.exceptions import *
 from datetime import datetime
@@ -43,12 +44,8 @@ class DataStruct:
         self.holdings: List[OfficeHolding] = []
 
         self.term_df: Optional[pd.DataFrame] = None
-
-        self.exchequer_df: Optional[pd.DataFrame] = None
-        self.pm_df: Optional[pd.DataFrame] = None
-        self.lord_chance_df: Optional[pd.DataFrame] = None
-        self.attorney_general_df: Optional[pd.DataFrame] = None
         self.honorary_titles_df: Optional[pd.DataFrame] = None
+        self.office_position_dfs: Dict[str, pd.DataFrame] = {}
 
     def load(self):
         self._load_speakers()
@@ -128,26 +125,28 @@ class DataStruct:
         logging.info(f'{len(speakers)} speakers sucessfully loaded out of {len(mps)} rows.')
 
     def _load_corrections(self):
-        misspellings = pd.read_csv('data/misspellings_dictionary.csv', sep=',', encoding='ISO-8859-1')
+        folder = 'data/pre_corrections'
+
+        misspellings = pd.read_csv(f'{folder}/misspellings_dictionary.csv', sep=',', encoding='ISO-8859-1')
         misspellings['correct'] = misspellings['correct'].fillna('')
         misspellings_dict = {k.lower(): v for k, v in zip(misspellings['incorrect'], misspellings['correct'])}
         self.corrections.update(misspellings_dict)
 
-        misspellings2 = pd.read_csv('data/misspelled_given_names.tsv', sep='\t', encoding='ISO-8859-1')
+        misspellings2 = pd.read_csv(f'{folder}/misspelled_given_names.tsv', sep='\t', encoding='ISO-8859-1')
 
         if misspellings2['correct_name'].isnull().sum():
             raise ValueError('misspelled_given_names.tsv has an invalid entry')
 
         self.corrections.update({k.lower(): v for k, v in zip(misspellings2['misspelled_name'], misspellings2['correct_name'])})
 
-        ocr_title_errs: pd.DataFrame = pd.read_csv('data/common_OCR_errors_titles.csv', sep=',')
+        ocr_title_errs: pd.DataFrame = pd.read_csv(f'{folder}/common_OCR_errors_titles.csv', sep=',')
         ocr_title_errs['CORRECT'] = ocr_title_errs['CORRECT'].fillna('')
         ocr_err_dict = {k.lower(): v for k, v in zip(ocr_title_errs['INCORRECT'], ocr_title_errs['CORRECT'])}
         self.corrections.update(ocr_err_dict)
 
     @staticmethod
     def _load_office_position(filename: str) -> pd.DataFrame:
-        df = pd.read_csv(f'data/{filename}')
+        df = pd.read_csv(filename)
 
         start_column = 'started_service'
         end_column = 'ended_service'
@@ -215,17 +214,21 @@ class DataStruct:
         self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
         self.term_df['end_term'] = pd.to_datetime(self.term_df['end_term'], format=DATE_FORMAT)
 
-        self.exchequer_df = self._load_office_position('chancellor_of_the_exchequer.csv')
-        self.pm_df = self._load_office_position('prime_ministers.csv')
-        self.lord_chance_df = self._load_office_position('lord_chancellors.csv')
-        self.attorney_general_df = self._load_office_position('attorney_generals.csv')
-        self.chief_sec_df = self._load_office_position('chief_secretary_ireland.csv')
+        self._load_office_positions()
 
-        office_title_dfs = [self.exchequer_df, self.pm_df, self.lord_chance_df,
-                            self.attorney_general_df, self.chief_sec_df]
+    def _load_office_positions(self):
+        directory = 'data/office_titles'
+
+        self.office_position_dfs = {}
+
+        for csv in os.listdir(directory):
+            df = self._load_office_position(f'{directory}/{csv}')
+            name = cleanse_string(df['official_post'][0])
+            self.office_position_dfs[name] = df
+            print('Loaded office position:', name)
 
         temp_df = pd.concat(df[['corresponding_id', 'honorary_title', 'started_service', 'ended_service']]
-                            for df in office_title_dfs)
+                            for df in self.office_position_dfs.values())
         temp_df = temp_df[~(temp_df['honorary_title'].isna()) & ~(temp_df['corresponding_id'].isna())]
         temp_df['honorary_title'] = temp_df['honorary_title'].str.lower()
         temp_df['honorary_title'] = temp_df['honorary_title'].str.replace(r'[^a-zA-Z\- ]', '')

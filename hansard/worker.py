@@ -25,11 +25,8 @@ def worker_function(inq: multiprocessing.Queue,
     terms_df = data.term_df
     speaker_dict = data.speaker_dict
 
-    exchaequer_df = data.exchequer_df
-    pm_df = data.pm_df
-    lord_chance_df = data.lord_chance_df
-    ag_df = data.attorney_general_df
     honorary_title_df = data.honorary_titles_df
+    office_title_dfs = data.office_position_dfs
 
     hitcount = 0
     missed_indexes = []
@@ -62,16 +59,14 @@ def worker_function(inq: multiprocessing.Queue,
                 possibles = []
                 query = None
 
-                if 'exchequer' in target:
-                    query = match_term(exchaequer_df, speechdate)
-                elif 'prime minister' in target:
-                    query = match_term(pm_df, speechdate)
-                elif 'lord chancellor' in target:
-                    query = match_term(lord_chance_df, speechdate)
-                elif 'attorney general' in target:
-                    query = match_term(ag_df, speechdate)
+                # Try office position
+                for position in office_title_dfs:
+                    if position in target:
+                        query = match_term(office_title_dfs[position], speechdate)
+                        break
 
                 if query is None:
+                    # Try honorary title
                     condition = (speechdate >= honorary_title_df['started_service']) &\
                                 (speechdate < honorary_title_df['ended_service']) &\
                                 (honorary_title_df['honorary_title'].str.contains(target))
