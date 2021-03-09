@@ -53,6 +53,7 @@ def worker_function(inq: multiprocessing.Queue,
             chunk['speaker_modified'] = chunk['speaker'].str.replace(f'{PARENTHESIS_REGEX}', '')
             chunk['speaker_modified'] = chunk['speaker_modified'].map(preprocess)
             chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{THE_REGEX}', '')
+            chunk['speaker_modified'] = chunk['speaker_modified'].str.strip()
 
             for i, speechdate, unmodified_target, target in chunk.itertuples():
                 match = None
