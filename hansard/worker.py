@@ -33,6 +33,8 @@ def worker_function(inq: multiprocessing.Queue,
     missed_indexes = []
     ambiguities_indexes = []
 
+    MATCH_CACHE = {}
+
     def preprocess(string_val: str) -> str:
         string_val = cleanse_string(string_val)
         for misspell in misspellings_dict:
@@ -56,32 +58,33 @@ def worker_function(inq: multiprocessing.Queue,
             chunk['speaker_modified'] = chunk['speaker_modified'].str.strip()
 
             for i, speechdate, unmodified_target, target in chunk.itertuples():
-                match = None
+                match = MATCH_CACHE.get((target, speechdate), None)
                 ambiguity: bool = False
                 possibles = []
                 query = None
 
-                # Try office position
-                for position in office_title_dfs:
-                    if position in target:
-                        query = match_term(office_title_dfs[position], speechdate)
-                        break
+                if not match:
+                    # Try office position
+                    for position in office_title_dfs:
+                        if position in target:
+                            query = match_term(office_title_dfs[position], speechdate)
+                            break
 
-                if query is None:
+                if not match and query is None:
                     # Try honorary title
                     condition = (speechdate >= honorary_title_df['started_service']) &\
                                 (speechdate < honorary_title_df['ended_service']) &\
                                 (honorary_title_df['honorary_title'].str.contains(target))
                     query = honorary_title_df[condition]
 
-                if query is None:
+                if not match and query is None:
                     # try aliases.
                     condition = (speechdate >= lord_titles_df['start']) &\
                                 (speechdate < lord_titles_df['end']) &\
                                 (lord_titles_df['real_name'].str.contains(target))
                     query = honorary_title_df[condition]
 
-                if query is not None:
+                if not match and query is not None:
                     if len(query) == 1:
                         speaker_id = query.iloc[0]['corresponding_id']
                         if speaker_id != 'N/A':
@@ -121,6 +124,7 @@ def worker_function(inq: multiprocessing.Queue,
 
                 if match is not None:
                     hitcount += 1
+                    MATCH_CACHE[(target, speechdate)] = match
                 elif ambiguity:
                     ambiguities_indexes.append(i)
                 else:
