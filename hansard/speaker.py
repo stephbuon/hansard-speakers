@@ -46,10 +46,8 @@ class SpeakerReplacement:
 
     def _generate_aliases(self):
         for title in self.titles + ['']:
-            for fn in ('', self.first_name[0], self.first_name[0] + '.', self.first_name):
+            for fn in ('', self.first_name[0], self.first_name):
                 for mn in self.middle_possibilities:
-                    if title:
-                        yield re.sub(' +', ' ', f'{title + "."} {fn} {mn} {self.last_name}').strip(' ')
                     yield re.sub(' +', ' ', f'{title} {fn} {mn} {self.last_name}').strip(' ')
 
     def _generate_middle_parts(self, i):
@@ -57,14 +55,15 @@ class SpeakerReplacement:
             yield ''
             return
 
+        # First character of middle name part followed by space
         a = self.middle_names[i][0] + ' '
-        b = self.middle_names[i][0] + '.' + ' '
+
+        # Middle name part followed by space
         c = self.middle_names[i] + ' '
 
         for p in self._generate_middle_parts(i + 1):
             yield p
             yield a + p
-            yield b + p
             yield c + p
 
     def matches(self, speaker_name: str, speech_date: datetime, cleanse=True):
