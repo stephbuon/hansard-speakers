@@ -82,7 +82,7 @@ def worker_function(inq: multiprocessing.Queue,
                     condition = (speechdate >= lord_titles_df['start']) &\
                                 (speechdate < lord_titles_df['end']) &\
                                 (lord_titles_df['real_name'].str.contains(target))
-                    query = honorary_title_df[condition]
+                    query = lord_titles_df[condition]
 
                 if not match and query is not None:
                     if len(query) == 1:
