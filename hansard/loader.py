@@ -79,8 +79,9 @@ class DataStruct:
         self.lord_titles_df = pd.concat(dfs)
         self.lord_titles_df['real_name'] = self.lord_titles_df['real_name'].str.lower()
         self.lord_titles_df['alias'] = self.lord_titles_df['alias'].str.lower()
-
         self.lord_titles_df = self._check_date_estimates(self.lord_titles_df, 'start', 'end')
+        self.lord_titles_df = self.lord_titles_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+        self.lord_titles_df = self.lord_titles_df[~self.lord_titles_df['alias'].isnull()]
 
     def _load_speakers(self):
         # aliases_df: pd.DataFrame = pd.read_csv('data/aliases.csv', sep=',')
