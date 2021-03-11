@@ -74,14 +74,14 @@ def worker_function(inq: multiprocessing.Queue,
                     # Try honorary title
                     condition = (speechdate >= honorary_title_df['started_service']) &\
                                 (speechdate < honorary_title_df['ended_service']) &\
-                                (honorary_title_df['honorary_title'].str.contains(target))
+                                (honorary_title_df['honorary_title'].str.contains(target, regex=False))
                     query = honorary_title_df[condition]
 
                 if not match and not len(query):
                     # try aliases.
                     condition = (speechdate >= lord_titles_df['start']) &\
                                 (speechdate < lord_titles_df['end']) &\
-                                (lord_titles_df['alias'].str.contains(target))
+                                (lord_titles_df['alias'].str.contains(target, regex=False))
                     query = lord_titles_df[condition]
 
                 if not match:
