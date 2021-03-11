@@ -5,8 +5,21 @@ from datetime import datetime
 import pandas as pd
 import re
 
-PARENTHESIS_REGEX = r'(?:\([^()]+\))'
-THE_REGEX = r'(?:^the +)'
+
+compile_regex = lambda x: (re.compile(x[0]), x[1])
+
+
+REGEX_PRE_CORRECTIONS = [
+    (r'(?:\([^()]+\))', ''),  # Remove all text within parenthesis, including parenthesis
+]
+REGEX_PRE_CORRECTIONS = list(map(compile_regex, REGEX_PRE_CORRECTIONS))
+
+REGEX_POST_CORRECTIONS = [
+    (r'^the +', ''),  # Remove leading "the"
+    (r'^me +', 'mr '),  # Leading me -> mr
+    (r'^sat +', 'sat '),  # Leading sat -> sir
+]
+REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
@@ -35,12 +48,20 @@ def worker_function(inq: multiprocessing.Queue,
 
     MATCH_CACHE = {}
 
+    def postprocess(string_val: str) -> str:
+        for k, v in REGEX_POST_CORRECTIONS:
+            string_val = re.sub(k, v, string_val)
+        return string_val
+
     def preprocess(string_val: str) -> str:
+        for k, v in REGEX_PRE_CORRECTIONS:
+            string_val = re.sub(k, v, string_val)
+
         string_val = cleanse_string(string_val)
         for misspell in misspellings_dict:
             string_val = string_val.replace(misspell, misspellings_dict[misspell])
         string_val = cleanse_string(string_val)
-        return string_val
+        return postprocess(string_val)
 
     while True:
         try:
@@ -52,9 +73,7 @@ def worker_function(inq: multiprocessing.Queue,
                 # This is our signal that we are done here. Every other worker thread will get a similar signal.
                 return
 
-            chunk['speaker_modified'] = chunk['speaker'].str.replace(f'{PARENTHESIS_REGEX}', '')
             chunk['speaker_modified'] = chunk['speaker_modified'].map(preprocess)
-            chunk['speaker_modified'] = chunk['speaker_modified'].str.replace(f'{THE_REGEX}', '')
 
             for i, speechdate, unmodified_target, target in chunk.itertuples():
                 match = MATCH_CACHE.get((target, speechdate), None)
