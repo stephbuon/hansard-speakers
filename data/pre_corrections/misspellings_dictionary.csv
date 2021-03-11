@@ -1,4 +1,4 @@
-incorrect,correct
+INCORRECT,CORRECT
 BBNTINCK,BENTINCK
 CAMPBFLL-BANNERMAN,CAMPBELL-BANNERMAN
 CAVENDISH BBNTINCK,CAVENDISH BENTINCK
@@ -895,7 +895,7 @@ MR. G1NNELL,MR. GINNELL
 Earl of PORTS-MOUTH,Earl of PORTSMOUTH
 EARL OF POETSMOUTH,EARL OF PORTSMOUTH
 EARL OF DONOCJGHMORE,EARL OF DONOUGHMORE
-LOED CHANCELLOEÊ,LORD CHANCELLOR
+LOED CHANCELLOEï¿½,LORD CHANCELLOR
 Lord LOREBURN,Lord LOREBURN
 MR. AUSTEN CHAMBELAIN,MR. AUSTEN CHAMBERLAIN
 MR. COCHEANE,MR. COCHRANE
@@ -912,15 +912,15 @@ MR. FIENNKS,MR. FIENNES
 MR. B E R T R A M,MR. BERTRAM
 SIR. BRAMPTON GURDON,SIR. BRAMPTON GURDON
 LORD JAMES OK HEREFORD,LORD JAMES OF HEREFORD
-UNDERSECRETARY OF STATE FOR FOREIGN AFFAIRSÊ,UNDER SECRETARY OF STATE FOR FOREIGN AFFAIRSÊ
+UNDERSECRETARY OF STATE FOR FOREIGN AFFAIRSï¿½,UNDER SECRETARY OF STATE FOR FOREIGN AFFAIRSï¿½
 UNDER SECRETARY OF STATE FOE THE COLONIES,UNDER SECRETARY OF STATE FOR THE COLONIES
 A. J.BALPOUR,A. J. BALFOUR
 MR. CTTNINGHAME GRAHAM,MR. CUNNINGHAME GRAHAM
 HERSCHBLL,HERSCHEL
 Watorford,Waterford
-J. P. FAREELLÊ,J. P. FARRELL
+J. P. FAREELLï¿½,J. P. FARRELL
 J. CHAMBER-lain,J. CHAMBERlain
-HEDDERWTCKÊ,HEDDERWICK
+HEDDERWTCKï¿½,HEDDERWICK
 BRODBICK,BRODBECK
 EDMUNDROBERTSON(Dundee),EDMUND ROBERTSON (Dundee)
 MR. KEAELEY,MR. KEELEY
@@ -1057,7 +1057,7 @@ MR. WILLI AM ALLAN,Mr. William Allan
 DR. MACGNAMARA,Dr. Macnamara
 SECRETARY TO TUE LOCAL,Secretary to the Local
 CHAMHERLAIN,Chamberlain
-MR. DISLRAELI,Mr. DisraeliÊ
+MR. DISLRAELI,Mr. Disraeliï¿½
 MR. EITCHIE,Mr. Ritchie
 AUSTEN CHAMBER-LAIN,Austen Chamberlain
 WHITTAKEE,Whittaker
@@ -1106,7 +1106,7 @@ BALFOUK,Balfour
 BALFOUK,Balfour
 CAMPBEEL-BANNEERMAN,Campbell-Bannerman
 CAMPBELL-BANNEBMAN,Campbell-Bannerman
-CAMPBELL-BANNEEMANÊ,Campbell-Bannerman
+CAMPBELL-BANNEEMANï¿½,Campbell-Bannerman
 CAMPBELL-BANNER MAN,Campbell-Bannerman
 CAMPBELL-BANNER-MAN,Campbell-Bannerman
 CAMPBELL-BAXNERMAN,Campbell-Bannerman
@@ -1114,26 +1114,26 @@ CAMPBFLL-BANNERMAN,Campbell-Bannerman
 CHANCELLOR OF THE EN-CHEQUER,Chancellor of the Exchequer
 CHANCELLOR or THE EXCHEQUER,Chancellor of the Exchequer
 CHANCELLOR or the EXCHEQUER,Chancellor of the Exchequer
-FEEGUSSON,FergusonÊ
-FEE-GUSSON,FergusonÊ
-FERGHSSON,FergusonÊ
-FERGHSSON,FergusonÊ
-FERGUS-IRON,FergusonÊ
-FERGUSON,FergusonÊ
-FERGUSSON,FergusonÊ
+FEEGUSSON,Fergusonï¿½
+FEE-GUSSON,Fergusonï¿½
+FERGHSSON,Fergusonï¿½
+FERGHSSON,Fergusonï¿½
+FERGUS-IRON,Fergusonï¿½
+FERGUSON,Fergusonï¿½
+FERGUSSON,Fergusonï¿½
 GIBSON BOWLKS,Gibson Bowles
-LORD CRANBOKNE,Lord CranborneÊ
-Lord CRAN-BORNE,Lord CranborneÊ
-Lord CRAN-BORNE,Lord CranborneÊ
+LORD CRANBOKNE,Lord Cranborneï¿½
+Lord CRAN-BORNE,Lord Cranborneï¿½
+Lord CRAN-BORNE,Lord Cranborneï¿½
 MANCHERJEE BHOWKAGGREE,Mancherjee Bhownagree
 MANCHERJEE BHOWNAG GREE,Mancherjee Bhownagree
 MANCHERJEE BHOWNAG-GREE,Mancherjee Bhownagree
 MANCHERJEE BHOWNAG-GREK,Mancherjee Bhownagree
-SECEETABY TO THE ADMIRALTY,Secretary to the AdmiraltyÊ
+SECEETABY TO THE ADMIRALTY,Secretary to the Admiraltyï¿½
 SECRETA RY,Secretary
-SECRETAEY (secretary)Ê,SecretaryÊ
+SECRETAEY (secretary)ï¿½,Secretaryï¿½
 SECRETARY FOE IRE LAND,Secretary for Ireland
-SECRETARY FOR FORKIGN AFFAIRS,Secretary for Foreign AffairsÊ
+SECRETARY FOR FORKIGN AFFAIRS,Secretary for Foreign Affairsï¿½
 SECRETARY for IRE,Secretary for Ireland
 SECRETARY FOR IRE- [LAND,Secretary for Ireland
 SECRETARY FOR IRE LAND,Secretary for Ireland
@@ -1141,14 +1141,14 @@ SECRETARY FOR IRLLAND,Secretary for Ireland
 SECRETARY OF ST ATE FOR WAR,Secretary of State
 SECRETARY OF STALE,Secretary of State for War
 SECRETARY of STATE FOB THE,Secretary of State for the
-SECRETARY OF STATE FOE FOREIGN AFFAIRS,Secretary of State for Foreign AffairsÊ
+SECRETARY OF STATE FOE FOREIGN AFFAIRS,Secretary of State for Foreign Affairsï¿½
 SECRETARY OF STATE FOE THE,Secretary of State for the
 SECRETARY OF STATE FOE WAR,Secretary of State for War
-"SECRETARY OF STATE FOR FOREIGN""AFFAIRS",Secretary of State for Foreign AffairsÊ
-SECRETARY OF STATE JOB FOREIGN AFFAIRS,Secretary of State for Foreign AffairsÊ
+"SECRETARY OF STATE FOR FOREIGN""AFFAIRS",Secretary of State for Foreign Affairsï¿½
+SECRETARY OF STATE JOB FOREIGN AFFAIRS,Secretary of State for Foreign Affairsï¿½
 SECRETARY OF STATE TOR WAR,Secretary of State for War
 SECRETARY OF STATE. FOR WAR,Secretary of State for War
-SECRETARY OK STATE FOR FOREIGN,Secretary of State for Foreign AffairsÊ
+SECRETARY OK STATE FOR FOREIGN,Secretary of State for Foreign Affairsï¿½
 SECRETARY or STATE,Secretary of State
 SECRETARY or STATE,Secretary of State
 SECRETARY TO THE TREA SURY,Secretary to the Treasury
@@ -1163,41 +1163,41 @@ SIR MANCHERJEE BHOWNAGGREE,Sir Mancherjee Bhownagree
 SIR MANCHERJEE BHOWNAGGREE,Sir Mancherjee Bhownagree
 STATE JOB INDIA,State for India
 STATE TOR INDIA,State for India
-ATTORNEY GENEEAL,Attorney GeneralÊ
+ATTORNEY GENEEAL,Attorney Generalï¿½
 MR. MTTHEWS,Mr. Matthews
 STATE FOE WAR,State for war
-PRESIDENT OF. THE COUNCIL,President of the CouncilÊ
-LOED (change to lord)Ê,Lord
-FOE IRELAND,For IrelandÊ
+PRESIDENT OF. THE COUNCIL,President of the Councilï¿½
+LOED (change to lord)ï¿½,Lord
+FOE IRELAND,For Irelandï¿½
 MR. PABKER SMITH,Mr. Parker Smith
-BOAED (change to board)Ê,board
+BOAED (change to board)ï¿½,board
 MR. AKEES DOUGLAS,Mr. Akers Douglas
 COLNEL MILWARD,Colonel Milward
 MR. HAXBURY,Mr. Haxby
-LORD OF THE ADMLRALTY,Lord of the AdmiraltyÊ
+LORD OF THE ADMLRALTY,Lord of the Admiraltyï¿½
 GIBSON BOWLKS,Gibson Bowles
 STATE FOR AVAR,State for War
 COUNCIL ox EDUCATION,Council of Education
 SIR HOWARD VINCKNT,Sir Howard Vincent
 PRESIDENT or THE,President of the
-THE. SECRETARY OF THE,The Secretary of theÊ
-For IRE- LAND,For IrelandÊ
-PRESIDENT or THE (change to of)Ê,President of the
+THE. SECRETARY OF THE,The Secretary of theï¿½
+For IRE- LAND,For Irelandï¿½
+PRESIDENT or THE (change to of)ï¿½,President of the
 TIIE COMMITTEE,The Committee
 THE SECRETAR OF,The Secretary of
 MR. LLOYD-GEOEDE,Mr. Lloyd-George
-ANDBEW AGNEW,Andrew AgnewÊ
-MR. GOULD1NG,Mr. GouldingÊ
+ANDBEW AGNEW,Andrew Agnewï¿½
+MR. GOULD1NG,Mr. Gouldingï¿½
 MR. T. L. COKBETT,Mr. T.L. Corbett
 MR. T. L. COEBETT,Mr. T.L. Corbett
 PBESIDENT OF THE BOARD OFTRADE,President of the Board of Trade
 IRE-LAND,Ireland
 SECRETARY or STATE FOR SCOTLAND,Secretary of State for Scotland
 ARNOLD-FOKSTER,Arnold-Forster
-THE MARQUESS OF LONDON-DERRY,The Marquess of LondonderryÊ
+THE MARQUESS OF LONDON-DERRY,The Marquess of Londonderryï¿½
 SECRETARY you SCOTLAND,Secretary for Scotland
-LORD OP THE,Lord of theÊ
-ATTORNEY - GENERAL,Attorney GeneralÊ
+LORD OP THE,Lord of theï¿½
+ATTORNEY - GENERAL,Attorney Generalï¿½
 SECRETARY OP STATE,Secretary of State
 O'SHATHGHNESSY,O'Shaughnessy
 O'SIIAUGHNESSY,O'Shaughnessy
@@ -1207,90 +1207,90 @@ STATE FOB INDIA,State for India
 OFSTATE,of state
 PEESIDENT OF THE BOARD,President of the Board
 THE MARQUESS OF LANSDOVVNE,The Marquess of Lansdowne
-ATTORNEY - GENERAL,Attorney GeneralÊ
+ATTORNEY - GENERAL,Attorney Generalï¿½
 THE CHANCELLOR OF THE EX,The Chancellor of the Exchequer
 BOARD OK TRADE,Board of Trade
 Mr. ARNOLD-FORSTKR,Mr. Arnold-Forster
-FORTESCIJE FLANNERY,Fortescue FlanneryÊ
+FORTESCIJE FLANNERY,Fortescue Flanneryï¿½
 FORTESCUF,Fortescue
-STATE FOB (change to state for)Ê,State for
+STATE FOB (change to state for)ï¿½,State for
 STATE FOE,State for
-TEXNANT (tennant)Ê,tennant
+TEXNANT (tennant)ï¿½,tennant
 THE HOARD OF EDUCATION,The Board of Education
 MR. ARNOLD-FOESTER,Mr. Arnold-Forster
 MR. ARNOLD-FOESTER,Mr. Arnold-Forster
 STATE NOR WAR,State for War
 THE BOARD OK AGRICULTURE,The Board of Agriculture
-STATE FOE THE,State for theÊ
+STATE FOE THE,State for theï¿½
 'THE: SECRETARY OF STATE FOR,The Secretary of State for
-LORD BALFOUR OR BURLEIGH,Lord Balfour of BurleighÊ
-LORD BALFOUR OF BUELEIGH,Lord Balfour of BurleighÊ
-LORD OF TUB TREASURY,Lord of the TreasuryÊ
+LORD BALFOUR OR BURLEIGH,Lord Balfour of Burleighï¿½
+LORD BALFOUR OF BUELEIGH,Lord Balfour of Burleighï¿½
+LORD OF TUB TREASURY,Lord of the Treasuryï¿½
 THE SECRETARY' or STATE FOR INDIA,The Secretary of State for India
-STATE FOR AVAR (change to war)Ê,State for War
+STATE FOR AVAR (change to war)ï¿½,State for War
 PRESIDENT of the BOARD or TRADE,President of the Board of Trade
-UNDEB SECBETAEY of STATE FOR WAR,Under Secretary of State for WarÊ
+UNDEB SECBETAEY of STATE FOR WAR,Under Secretary of State for Warï¿½
 LORD OK THE TREASURY,Lord of the Treasury
 VICE-PEESIDENT OF THE BOAED of EDUCATION,Vice President of the Board of Education
-SECRETARY OF STATE FOR FOREIGN AFFAIESÊ,Secretary of State for Foreign AffairsÊ
+SECRETARY OF STATE FOR FOREIGN AFFAIESï¿½,Secretary of State for Foreign Affairsï¿½
 THE FINANCIAL SECRETAEY,The Financial Secretary
 THE FINANCIAL SECEETARY TO THE WAR,The Financial Secretary to the War
-PRYCE-JONES (make look like PRYCE - JONES)Ê,Pryce - Jones
+PRYCE-JONES (make look like PRYCE - JONES)ï¿½,Pryce - Jones
 EAEL SPENCER,Earl Spencer
-BRADLATUGH,BradlaughÊ
+BRADLATUGH,Bradlaughï¿½
 EARL BEATJCHAMP,Earl Beauchamp
-EARL OK DUNEAVEN,Earl of DunravenÊ
-FAEQUHARSON,FarquharsonÊ
+EARL OK DUNEAVEN,Earl of Dunravenï¿½
+FAEQUHARSON,Farquharsonï¿½
 LORD JAMES or HEREFORD,Lord James of Hereford
-WALTER FOSTEEÊ,Walter Foster
+WALTER FOSTEEï¿½,Walter Foster
 COMMITTEE OP COUNCIL,Committee of Council
 COMMISSIONER or WORKS,Commissioner for Works
-THE MARCHESS OE SALISBURY,The Marches of SalisburyÊ
-MR. LABOITCHERE,Mr. LabouchŽre
-MR. WILLIAM MREDMOND,Mr. William RedmondÊ
+THE MARCHESS OE SALISBURY,The Marches of Salisburyï¿½
+MR. LABOITCHERE,Mr. Labouchï¿½re
+MR. WILLIAM MREDMOND,Mr. William Redmondï¿½
 BLUXDELL MAPLE,Blundell Maple
 COMMANDR. BETHELL,Commander Bethell
-ARCHBISHOP OF CAN-TERBURY,Archbishop of CanterburyÊ
+ARCHBISHOP OF CAN-TERBURY,Archbishop of Canterburyï¿½
 SIR BRAMPTON GURD0N,Sir Brampton Gurdon
 CHAELES DILKE,Charles Dilke
 WHTTMORE,Whitmore
-THE DUKE OF NORTHUMBER-LAND,The Duke of NorthumberlandÊ
-LORD ASHBOUBNE,Lord AshbourneÊ
+THE DUKE OF NORTHUMBER-LAND,The Duke of Northumberlandï¿½
+LORD ASHBOUBNE,Lord Ashbourneï¿½
 MR. PATRICK O'BEIEN,Mr. Patrick O'Brien
-BISHOP OF MAN -CHESTER,Bishop of ManchesterÊ
-WILLIAM WEDDEEBURN,William WedderburnÊ
+BISHOP OF MAN -CHESTER,Bishop of Manchesterï¿½
+WILLIAM WEDDEEBURN,William Wedderburnï¿½
 SECRETARY OP STATE,Secretary of State
 DUKK OF NORTHUMBERLAND,Duke of Northumberland
-STATE FOB THE,State for theÊ
-ARCHBISHOP OP CANTERBURY,Archbishop of CanterburyÊ
+STATE FOB THE,State for theï¿½
+ARCHBISHOP OP CANTERBURY,Archbishop of Canterburyï¿½
 SECRETARY on STATE,Secretary of State
 THE [ATTORNEY-GENERAL,The Attorney General
 PEESIDENT,President
-STATE FOK INDIAÊ,State for India
+STATE FOK INDIAï¿½,State for India
 STATE FOK WAR,State for War
 STATF FOR,State for
 ADMIR ALTY,Admiralty
-ATTOENEY-GENERA,Attorney GeneralÊ
-ATTORNEY - GENERAL,Attorney GeneralÊ
-PRESIDENT OP THE,President of theÊ
+ATTOENEY-GENERA,Attorney Generalï¿½
+ATTORNEY - GENERAL,Attorney Generalï¿½
+PRESIDENT OP THE,President of theï¿½
 SECRETARY or STATE,Secretary of State
 SECRETARY OK STATE,Secretary of State
 SECRETARY VOR IRELAND,Secretary for Ireland
 PRESIDENT OV THE BOARD,President of the Board
 LOCAL GOVEKNMENT BOARD,Local Government Board
-AECHBISHOP OF CANTERBURY,Archbishop of CanterburyÊ
+AECHBISHOP OF CANTERBURY,Archbishop of Canterburyï¿½
 SECRETARY OV STATE,Secretary of State
-SECRETAEY TO THEÊ,Secretary to theÊ
+SECRETAEY TO THEï¿½,Secretary to theï¿½
 CAN TERBURY,Canterbury
-ATTORNE-GENERAL,Attorney GeneralÊ
-CHAIRMAN OF THE COMMIT TEES,Chairman of the CommitteesÊ
-MR. VICARYGIBBSMR.Ê,Mr. Vicary GibbsÊ
+ATTORNE-GENERAL,Attorney Generalï¿½
+CHAIRMAN OF THE COMMIT TEES,Chairman of the Committeesï¿½
+MR. VICARYGIBBSMR.ï¿½,Mr. Vicary Gibbsï¿½
 GIBSON BOAVLES,Gibson Bowles
-SIR HOWAED VINCENT,Sir Howard VincentÊ
+SIR HOWAED VINCENT,Sir Howard Vincentï¿½
 DUCK OF NORTHUMBERLAND,Duke of Northumberland
 DUCKE OF NORTHUMBERLAND,Duke of Northumberland
 SECEETAEY OF STATE,Secretary of State
-SIR HOWAKD VINCENT,Sir Howard VincentÊ
+SIR HOWAKD VINCENT,Sir Howard Vincentï¿½
 ARNOLD-FOKSTER,Arnold-Forster
 MR. ARNOLD-FORKTER,Mr. Arnold-Forster
 SECRETARY OP STATE FOR WAR,Secretary of State for War
@@ -1298,26 +1298,26 @@ ARNOLD - FORSTEE,Arnold-Forster
 ARNOLD-FOESTER,Arnold-Forster
 OF:STATE FOE WAR,of State for War
 BOAED OF EDUCATION,Board of Education
-PAELIAMENTARY SECRETARY,Parliamentry SecretaryÊ
-STATE FOE THE,State for theÊ
+PAELIAMENTARY SECRETARY,Parliamentry Secretaryï¿½
+STATE FOE THE,State for theï¿½
 MR. AENOLD-FORSTEE,Mr. Arnold-Forster
-BISHOP OF WINCHES TER,Bishop of ManchesterÊ
-SECEETAEY TO THE ADMIE-ALTY,Secretary to the AdmiraltyÊ
+BISHOP OF WINCHES TER,Bishop of Manchesterï¿½
+SECEETAEY TO THE ADMIE-ALTY,Secretary to the Admiraltyï¿½
 BISHOP OF SOUTH- WARK,Bishop of Southwark
-VISCOUNT CASTLEREAGH,Viscount CastlereaghÊ
-VISCOUNT CASTLEREAGH,Viscount CastlereaghÊ
-MR. VICAEY GIBBS,Mr. Vicary GibbsÊ
+VISCOUNT CASTLEREAGH,Viscount Castlereaghï¿½
+VISCOUNT CASTLEREAGH,Viscount Castlereaghï¿½
+MR. VICAEY GIBBS,Mr. Vicary Gibbsï¿½
 THE CHAIRMAN OFCOMMITTEES,The Chairman of Committees
-FINANCIAL SECRETARY TO HE WAR OFFICE,Financial Secretary to the War OfficeÊ
-Viscount CRAN-BORNE,Viscount CranborneÊ
+FINANCIAL SECRETARY TO HE WAR OFFICE,Financial Secretary to the War Officeï¿½
+Viscount CRAN-BORNE,Viscount Cranborneï¿½
 MEMEBER (change to member),member
-VISCOUNT CRANBOKNE,Viscount CranborneÊ
-LORD CRANEORNE,Lord CranborneÊ
-FINANCIAL SECRETARY TO; THE WAR OFFICE,Financial Secretary to the War OfficeÊ
-SECRETARY FOR IRE-LAND,Secretary for IrelandÊ
+VISCOUNT CRANBOKNE,Viscount Cranborneï¿½
+LORD CRANEORNE,Lord Cranborneï¿½
+FINANCIAL SECRETARY TO; THE WAR OFFICE,Financial Secretary to the War Officeï¿½
+SECRETARY FOR IRE-LAND,Secretary for Irelandï¿½
 SIRCHARLES DILKE,Sir Charles Dilke
 CHARLES. DILKE,Charles Dilke
-MARQUESS or LONDON-DERRY,The Marquess of LondonderryÊ
+MARQUESS or LONDON-DERRY,The Marquess of Londonderryï¿½
 MR. O'SHAUUHNESSY,Mr. O'Shaughnessy
 LLOYD-GFORGE,Lloyd-George
 MR. LLOYD-GEORGH,Mr. Lloyd-George
@@ -1330,28 +1330,28 @@ AUSTEN CHAMBEELAIN,Austen Chamberlain
 AUSTENCHAMBERLAIN,Austen Chamberlain
 CHAMBERLATN,Chamberlain
 BOAED OF TRADE,Board of Trade
-LOED CHANCELLOR,Lord ChancellorÊ
+LOED CHANCELLOR,Lord Chancellorï¿½
 BOARD or TRADE,Board of Trade
 LOED GEORGE,Lord George
 COUNCIL ON EDU-,Council of Education
 LOUD BISHOP OF WINCHESTER,Lord Bishop of Winchester
-MR. WILLIAM KEDMOND,Mr. William RedmondÊ
-MR. WILLIAM EEDMOND,Mr. William RedmondÊ
-MR. WILLIAM. REDMOND,Mr. William RedmondÊ
+MR. WILLIAM KEDMOND,Mr. William Redmondï¿½
+MR. WILLIAM EEDMOND,Mr. William Redmondï¿½
+MR. WILLIAM. REDMOND,Mr. William Redmondï¿½
 LORD HAWKESRURY,Lord Hawkesbury
 SYDNEY BUXTUN,Sydney Buxton
 SYDNEYBUXTON,Sydney Buxton
-THECHAIRMAN,The ChairmanÊ
+THECHAIRMAN,The Chairmanï¿½
 EARL OR DARTMOUTH,Earl of Dartmouth
-LORD OP THE,Lord of theÊ
+LORD OP THE,Lord of theï¿½
 FIRST' LORD,First Lord
 CARKINGTON,Carlington
-SIR EDWARD STRACHY,Sir Edward StracheyÊ
+SIR EDWARD STRACHY,Sir Edward Stracheyï¿½
 EDMUNDROBERTSON,Edmund Robertson
 EDMUND. ROBERTSON,Edmund Robertson
 MR. ADKINS,Mr. Atkins
 LORD BALCARKES,Lord Balcarres
-LORD. KINNAIRD,Lord KinnairdÊ
+LORD. KINNAIRD,Lord Kinnairdï¿½
 DR. COOPEE,Dr. Cooper
-SIR CARNERASCH,Sir Carne RaschÊ
-MR. RADFOED,Mr. RadfordÊ
+SIR CARNERASCH,Sir Carne Raschï¿½
+MR. RADFOED,Mr. Radfordï¿½
