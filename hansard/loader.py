@@ -1,5 +1,5 @@
 import os
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 import pandas as pd
 from hansard import DATE_FORMAT, DATE_FORMAT2, MP_ALIAS_PATTERN, cleanse_string
 from hansard.speaker import SpeakerReplacement, OfficeHolding, Office
@@ -7,6 +7,7 @@ from hansard.exceptions import *
 from datetime import datetime
 import logging
 import calendar
+import re
 
 
 def fix_estimated_date(date_str, start=True):
@@ -43,7 +44,6 @@ class DataStruct:
         self.alias_dict: Dict[str, List[SpeakerReplacement]] = {}
 
         self.corrections: Dict[str, str] = {}
-        self.regex_corrections: Dict[str, str] = {}
 
         self.office_dict: Dict[int, Office] = {}
         self.holdings: List[OfficeHolding] = []
@@ -160,13 +160,23 @@ class DataStruct:
         logging.info(f'{missing_sn_name} speakers with malformed surnames', )
         logging.info(f'{len(speakers)} speakers sucessfully loaded out of {len(mps)} rows.')
 
+    @staticmethod
+    def load_correction_csv_as_dict(filepath: str, encoding=None) -> dict:
+        misspellings = pd.read_csv(filepath, encoding=encoding)
+        misspellings['CORRECT'] = misspellings['CORRECT'].fillna('')
+        return {k.lower(): v for k, v in zip(misspellings['INCORRECT'], misspellings['CORRECT'])}
+
+    @staticmethod
+    def load_correction_regex_csv(filepath: str, encoding=None) -> list:
+        misspellings = pd.read_csv(filepath, encoding=encoding)
+        misspellings['CORRECT'] = misspellings['CORRECT'].fillna('')
+        return [(re.compile(k), v) for k, v in zip(misspellings['INCORRECT'], misspellings['CORRECT'])]
+
     def _load_corrections(self):
         folder = 'data/pre_corrections'
 
-        misspellings = pd.read_csv(f'{folder}/misspellings_dictionary.csv', sep=',', encoding='ISO-8859-1')
-        misspellings['correct'] = misspellings['correct'].fillna('')
-        misspellings_dict = {k.lower(): v for k, v in zip(misspellings['incorrect'], misspellings['correct'])}
-        self.corrections.update(misspellings_dict)
+        self.corrections.update(
+            DataStruct.load_correction_csv_as_dict(f'{folder}/misspellings_dictionary.csv', encoding='ISO-8859-1'))
 
         misspellings2 = pd.read_csv(f'{folder}/misspelled_given_names.tsv', sep='\t', encoding='ISO-8859-1')
 
@@ -175,10 +185,8 @@ class DataStruct:
 
         self.corrections.update({k.lower(): v for k, v in zip(misspellings2['misspelled_name'], misspellings2['correct_name'])})
 
-        ocr_title_errs: pd.DataFrame = pd.read_csv(f'{folder}/common_OCR_errors_titles.csv', sep=',')
-        ocr_title_errs['CORRECT'] = ocr_title_errs['CORRECT'].fillna('')
-        ocr_err_dict = {k.lower(): v for k, v in zip(ocr_title_errs['INCORRECT'], ocr_title_errs['CORRECT'])}
-        self.corrections.update(ocr_err_dict)
+        self.corrections.update(
+            DataStruct.load_correction_csv_as_dict(f'{folder}/common_OCR_errors_titles.csv'))
 
     @staticmethod
     def _load_office_position(filename: str) -> pd.DataFrame:
