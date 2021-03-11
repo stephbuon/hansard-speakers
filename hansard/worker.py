@@ -61,7 +61,7 @@ def worker_function(inq: multiprocessing.Queue,
                 match = MATCH_CACHE.get((target, speechdate), None)
                 ambiguity: bool = False
                 possibles = []
-                query = None
+                query = []
 
                 if not match:
                     # Try office position
@@ -70,21 +70,21 @@ def worker_function(inq: multiprocessing.Queue,
                             query = match_term(office_title_dfs[position], speechdate)
                             break
 
-                if not match and query is None:
+                if not match and not len(query):
                     # Try honorary title
                     condition = (speechdate >= honorary_title_df['started_service']) &\
                                 (speechdate < honorary_title_df['ended_service']) &\
                                 (honorary_title_df['honorary_title'].str.contains(target))
                     query = honorary_title_df[condition]
 
-                if not match and query is None:
+                if not match and not len(query):
                     # try aliases.
                     condition = (speechdate >= lord_titles_df['start']) &\
                                 (speechdate < lord_titles_df['end']) &\
-                                (lord_titles_df['real_name'].str.contains(target))
+                                (lord_titles_df['alias'].str.contains(target))
                     query = lord_titles_df[condition]
 
-                if not match and query is not None:
+                if not match:
                     if len(query) == 1:
                         speaker_id = query.iloc[0]['corresponding_id']
                         if speaker_id != 'N/A':
