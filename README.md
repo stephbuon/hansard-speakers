@@ -1,5 +1,19 @@
 # hansard-speakers
 
+The purpose of this repository is to 
+
+share speaker-name data 
+the 19th-century British Parliamentary debates (also known as Hansard) 
+
+
+For replicability, this repository shows the code
+as well as the speaker-name dictionaries 
+
+
+### Speaker Name Dictionaries 
+
+
+
 
 Preparing the Hansard data is done in multiple phases: 
 
@@ -15,6 +29,8 @@ Stage I outputs a data set (enter description)
 
 Stage II performs the following tasks: 
 
+largest known data sets for Parliamentary speaker name data 
+
 We obtained our original speaker name data from two major sources: 
 
 - the (dilpad)
@@ -22,7 +38,10 @@ We obtained our original speaker name data from two major sources:
 
 While these impressive and comprehensive data sets (enter) 
 
+They 
+
 for text mining. 
+
 
 
 Prolific members of parliament often held several office positions throughout their career. Consider William Gladstone who acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. During any of these periods parliamentarians may have addressed him using his office title, or with one of the many permutations of his name: William Gladstone, William Ewart Gladstone, W. Gladstone, W. E. Gladstone, William E. Gladstone, and so forth. 
