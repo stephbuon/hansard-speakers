@@ -30,15 +30,16 @@ Prolific members of parliament often held several office positions throughout th
 Another problem is this: several parliamentarians shared the same, or the same surname. __Mr. Gladstone__ might refer to __William Ewart Gladstone__ or __William Henry Gladstone__. 
 
 
-
 The purpose of this data set is to thus: 
 
 a) disambiguate between the different MPs who have held a particular office title and b) detect the permutations of a single name that way they are counted as the same. 
 
 
+We disambiguate between 
 
-##
+dates of birth and death (as provided by the DILPAD and spirling data) 
 
-Useful links: 
+and in some cases the dates of activity 
 
-Hansard People: https://api.parliament.uk/historic-hansard/people/index.html
+
+
