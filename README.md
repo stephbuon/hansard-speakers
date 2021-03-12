@@ -25,7 +25,15 @@ While these impressive and comprehensive data sets (enter)
 for text mining. 
 
 
-Prolific members of parliament often held several office positions throughout their career. Consider William Gladstone who acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. During any of these periods parliamentarians may have addressed him using his office title, or with one of the many permutations of his name: William Gladstone, William Eward Gladstone, W. Gladstone, W. E. Gladstone, William E. Gladstone, and so forth. 
+Prolific members of parliament often held several office positions throughout their career. Consider William Gladstone who acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. During any of these periods parliamentarians may have addressed him using his office title, or with one of the many permutations of his name: William Gladstone, William Ewart Gladstone, W. Gladstone, W. E. Gladstone, William E. Gladstone, and so forth. 
+
+Another problem is this: several parliamentarians shared the same, or the same surname. __Mr. Gladstone__ might refer to __William Ewart Gladstone__ or __William Henry Gladstone__. 
+
+
+
+The purpose of this data set is to thus: 
+
+a) disambiguate between the different MPs who have held a particular office title and b) detect the permutations of a single name that way they are counted as the same. 
 
 
 
