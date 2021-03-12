@@ -42,11 +42,19 @@ They
 
 for text mining. 
 
+We identify (X) major issues in speaker name disambiguation: 
+
+1) Prolific members of parliament often held several office positions throughout their time in Parliament. Consider William Ewart Gladstone who acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. (from the default UK data, could not differentiate between which Parliamentary was holding office at a particular time). 
+
+2) A single name might have several permutations within the debate text. Consider again William Ewart Gladstone who might have been called William Gladstone, W. Gladstone, W. E. Gladstone, William E. Gladstone, and so forth. 
 
 
-Prolific members of parliament often held several office positions throughout their career. Consider William Gladstone who acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. During any of these periods parliamentarians may have addressed him using his office title, or with one of the many permutations of his name: William Gladstone, William Ewart Gladstone, W. Gladstone, W. E. Gladstone, William E. Gladstone, and so forth. 
+he could have been called by his office title or a permutation of his name. 
 
-Another problem is this: several parliamentarians shared the same, or the same surname. __Mr. Gladstone__ might refer to __William Ewart Gladstone__ or __William Henry Gladstone__. 
+
+3) Several Parliamentarians shared the exact same name, like __Sir Robert Peel__--a name assigned to three different Parliamentarians, or speakers might share elements of thier name. __Mr. Gladstone__ or __Mr. W. Gladstone__, for instance, might refer to __William Ewart Gladstone__ or __William Henry Gladstone__. 
+
+
 
 
 The purpose of this data set is to thus: 
