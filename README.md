@@ -29,15 +29,6 @@ Stage I outputs a data set (enter description)
 
 Stage II performs the following tasks: 
 
-largest known data sets for Parliamentary speaker name data 
-
-We obtained our original speaker name data from two major sources: 
-
-- the (dilpad)
-- The Andy Eggers and Arthur Spirling database, which lists the MPs associated with (enter) 
-
-While these impressive and comprehensive data sets (enter) 
-
 They 
 
 for text mining. 
@@ -56,20 +47,35 @@ he could have been called by his office title or a permutation of his name.
 
 
 
+The purpose of our project is to thus: 
+a) disambiguate between the different MPs who have held a single office title 
+b) detect the permuations of a single name (so that permutations are counted as the same MP)
 
-The purpose of this data set is to thus: 
-
-a) disambiguate between the different MPs who have held a particular office title and b) detect the permutations of a single name that way they are counted as the same. 
 
 
-We disambiguate between 
+
+We disambiguate by: 
+
+
 
 dates of birth and death (as provided by the DILPAD and spirling data) 
 
 and in some cases the dates of activity 
 
 
-## Before and After
+## Compared to Existing data sets
+
+
+largest known data sets for Parliamentary speaker name data 
+
+We obtained our original set (the set before our collection and algorithm) of speaker name data from two major sources: 
+
+- An XML file derived from the Digging into Linked Parliamentary Data (DiLPD) project, located [here](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml). 
+- The Andy Eggers and Arthur Spirling database, which lists the MPs associated with (enter), located here. 
+
+While these impressive and comprehensive data sets offer a wealth of information about Parliamentary speakers, scraped from (enter), they lack don't have the identification required for text mining. 
+
+
 
 
 Before
