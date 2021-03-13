@@ -69,7 +69,7 @@ dates of birth and death (as provided by the DILPAD and spirling data)
 and in some cases the dates of activity 
 
 
-# Before and After
+## Before and After
 
 
 Before
