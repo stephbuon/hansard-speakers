@@ -15,10 +15,39 @@ REGEX_PRE_CORRECTIONS = [
 REGEX_PRE_CORRECTIONS = list(map(compile_regex, REGEX_PRE_CORRECTIONS))
 
 REGEX_POST_CORRECTIONS = [
+
+    # Regex for misspelled leading the
+    (r'^this +', 'the '),
+    ('^thr +', 'the '),
+    ('^then +', 'the '),
+    ('^tee +', 'the '),
+    ('^thh +', 'the '),
+    ('^tue +', 'the '),
+    ('^tmk +', 'the '),
+    ('^tub +', 'the '),
+
     (r'^the +', ''),  # Remove leading "the"
+
     (r'^me +', 'mr '),  # Leading me -> mr
-    (r'^sat +', 'sat '),  # Leading sat -> sir
+
+    ('^lerd +', 'lord '),
+    ('^lobd +', 'lord '),
+
+    ('^earb +', 'earl '),
+
+    ('^dike +', 'duke '),
+    
+    # Fix leading Sir
+    ('^sib +', 'sir '),
+    ('^sin +', 'sir '),
+    ('^sin +', 'sir '),
+    ('^sit +', 'sir '),
+    ('^sip +', 'sir '),
+    ('^siu +', 'sir '),
+    ('^sik +', 'sir '),
+    (r'^sat +', 'sir '), 
 ]
+
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
 
 
@@ -51,7 +80,7 @@ def worker_function(inq: multiprocessing.Queue,
     def postprocess(string_val: str) -> str:
         for k, v in REGEX_POST_CORRECTIONS:
             string_val = re.sub(k, v, string_val)
-        return string_val
+        return string_val.strip()
 
     def preprocess(string_val: str) -> str:
         for k, v in REGEX_PRE_CORRECTIONS:
