@@ -17,7 +17,7 @@ REGEX_PRE_CORRECTIONS = list(map(compile_regex, REGEX_PRE_CORRECTIONS))
 REGEX_POST_CORRECTIONS = [
 
     # Regex for misspelled leading the
-    (r'^this +', 'the '),
+    ('^this +', 'the '),
     ('^thr +', 'the '),
     ('^then +', 'the '),
     ('^tee +', 'the '),
@@ -26,9 +26,9 @@ REGEX_POST_CORRECTIONS = [
     ('^tmk +', 'the '),
     ('^tub +', 'the '),
 
-    (r'^the +', ''),  # Remove leading "the"
+    ('^the +', ''),  # Remove leading "the"
 
-    (r'^me +', 'mr '),  # Leading me -> mr
+    ('^me +', 'mr '),  # Leading me -> mr
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
@@ -36,7 +36,7 @@ REGEX_POST_CORRECTIONS = [
     ('^earb +', 'earl '),
 
     ('^dike +', 'duke '),
-    
+
     # Fix leading Sir
     ('^sib +', 'sir '),
     ('^sin +', 'sir '),
@@ -45,7 +45,7 @@ REGEX_POST_CORRECTIONS = [
     ('^sip +', 'sir '),
     ('^siu +', 'sir '),
     ('^sik +', 'sir '),
-    (r'^sat +', 'sir '), 
+    ('^sat +', 'sir '),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
@@ -76,6 +76,8 @@ def worker_function(inq: multiprocessing.Queue,
     ambiguities_indexes = []
 
     MATCH_CACHE = {}
+    MISS_CACHE = set()
+    AMBIG_CACHE = set()
 
     def postprocess(string_val: str) -> str:
         for k, v in REGEX_POST_CORRECTIONS:
@@ -105,6 +107,13 @@ def worker_function(inq: multiprocessing.Queue,
             chunk['speaker_modified'] = chunk['speaker'].map(preprocess)
 
             for i, speechdate, unmodified_target, target in chunk.itertuples():
+                if (target, speechdate) in MISS_CACHE:
+                    missed_indexes.append(i)
+                    continue
+                elif (target, speechdate) in AMBIG_CACHE:
+                    ambiguities_indexes.append(i)
+                    continue
+
                 match = MATCH_CACHE.get((target, speechdate), None)
                 ambiguity: bool = False
                 possibles = []
@@ -173,8 +182,10 @@ def worker_function(inq: multiprocessing.Queue,
                     hitcount += 1
                     MATCH_CACHE[(target, speechdate)] = match
                 elif ambiguity:
+                    AMBIG_CACHE.add((target, speechdate))
                     ambiguities_indexes.append(i)
                 else:
+                    MISS_CACHE.add((target, speechdate))
                     missed_indexes.append(i)
 
             outq.put((hitcount, chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :]))
