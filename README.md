@@ -78,6 +78,11 @@ While these impressive and comprehensive data sets offer a wealth of information
 
 
 
+We use edit distance carefully applied to different subsections: 
+1) last names and whatever else Alexander said 
+2) maybe office titles 
+
+
 Before
 
 using 
