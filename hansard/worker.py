@@ -1,5 +1,7 @@
 import multiprocessing
 from queue import Empty
+from typing import Tuple, Optional
+
 from hansard.loader import DataStruct
 from datetime import datetime
 import pandas as pd
@@ -54,6 +56,28 @@ REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
     return df[(date >= df['started_service']) & (date < df['ended_service'])]
+
+
+def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
+                           columns: Tuple[str, str, str]) -> Tuple[Optional[str], bool]:
+    start_col, end_col, search_col = columns
+
+    match = None
+    ambiguity = False
+
+    condition = (date >= df[start_col]) & (date < df[end_col])
+    query = df[condition]
+
+    for alias in query[search_col]:
+        if is_edit_distant_one(target, alias):
+            if match:
+                match = None
+                ambiguity = True
+                break
+            else:
+                match = alias
+
+    return match, ambiguity
 
 
 # This function will run per core.
@@ -126,13 +150,6 @@ def worker_function(inq: multiprocessing.Queue,
                 possibles = []
                 query = []
 
-                if not match:
-                    # Try office position
-                    for position in office_title_dfs:
-                        if position in target:
-                            query = match_term(office_title_dfs[position], speechdate)
-                            break
-
                 if not match and not len(query):
                     # Try honorary title
                     condition = (speechdate >= honorary_title_df['started_service']) &\
@@ -146,6 +163,13 @@ def worker_function(inq: multiprocessing.Queue,
                                 (speechdate < lord_titles_df['end']) &\
                                 (lord_titles_df['alias'].str.contains(target, regex=False))
                     query = lord_titles_df[condition]
+
+                if not match and not len(query):
+                    # Try office position
+                    for position in office_title_dfs:
+                        if position in target or is_edit_distant_one(position, target):
+                            query = match_term(office_title_dfs[position], speechdate)
+                            break
 
                 if not match:
                     if len(query) == 1:
@@ -175,10 +199,19 @@ def worker_function(inq: multiprocessing.Queue,
                         else:
                             ambiguity = True
 
-                # Try edit distance
+                # Try edit distance with lord titles.
+                if not match and not ambiguity:
+                    match, ambiguity = match_edit_distance_df(target, speechdate, lord_titles_df,
+                                                              ('start', 'end', 'alias'))
+
+                # Try edit distance with honorary titles.
+                if not match and not ambiguity:
+                    match, ambiguity = match_edit_distance_df(target, speechdate, honorary_title_df,
+                                                              ('started_service', 'ended_service', 'honorary_title'))
+
+                # Try edit distance with MP name permutations.
                 if not match and not ambiguity:
                     possibles = []
-
                     for alias in edit_distance_dict:
                         if len(possibles) > 1:
                             break
