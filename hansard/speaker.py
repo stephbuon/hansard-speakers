@@ -5,6 +5,46 @@ from . import cleanse_string
 import re
 
 
+def is_edit_distant_one(incorrect, correct):
+    if not incorrect:
+        return False
+
+    len_i = len(incorrect)
+    len_c = len(correct)
+
+    if abs(len_i - len_c) > 1:
+        return False
+
+    i = j = 0
+    count = 0
+    while i < len_i and j < len_c:
+        if incorrect[i] == correct[j]:
+            i += 1
+            j += 1
+        else:
+            # characters don't match
+            if count:
+                # Too many edits.
+                return False
+
+            if len_i == len_c:
+                # substitution
+                i += 1
+                j += 1
+            else:
+                # Increment if one string is longer than the other
+                i += len_i > len_c  # (Insertion)
+                j += len_c > len_i  # (Deletion)
+
+            count += 1
+
+    # Excess trailing character(s)
+    if i < len_i or j < len_c:
+        count += 1
+
+    return count == 1
+
+
 class SpeakerReplacement:
     def __init__(self, full_name, first_name, last_name, member_id, start, end):
         self.first_name = cleanse_string(first_name)
@@ -65,6 +105,11 @@ class SpeakerReplacement:
             yield p
             yield a + p
             yield c + p
+
+    def generate_edit_distance_aliases(self):
+        for title in self.titles + ['']:
+            for fn in ('', self.first_name):
+                yield re.sub(' +', ' ', f'{title} {fn} {self.last_name}').strip(' ')
 
     def matches(self, speaker_name: str, speech_date: datetime, cleanse=True):
         if not self.start_date <= speech_date <= self.end_date:

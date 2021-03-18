@@ -4,6 +4,7 @@ from hansard.loader import DataStruct
 from datetime import datetime
 import pandas as pd
 import re
+from hansard.speaker import is_edit_distant_one
 
 
 compile_regex = lambda x: (re.compile(x[0]), x[1])
@@ -78,6 +79,12 @@ def worker_function(inq: multiprocessing.Queue,
     MATCH_CACHE = {}
     MISS_CACHE = set()
     AMBIG_CACHE = set()
+
+    edit_distance_dict = {}  # alias -> list[speaker id's]
+
+    for speaker in data.speakers:
+        for alias in speaker.generate_edit_distance_aliases():
+            edit_distance_dict.setdefault(alias, []).append(speaker.member_id)
 
     def postprocess(string_val: str) -> str:
         for k, v in REGEX_POST_CORRECTIONS:
@@ -168,8 +175,26 @@ def worker_function(inq: multiprocessing.Queue,
                         else:
                             ambiguity = True
 
+                # Try edit distance
+                if not match and not ambiguity:
+                    possibles = []
+
+                    for alias in edit_distance_dict:
+                        if len(possibles) > 1:
+                            break
+                        if is_edit_distant_one(target, alias):
+                            for speaker_id in edit_distance_dict[alias]:
+                                speaker = speaker_dict[speaker_id]
+                                if speaker.start_date <= speechdate <= speaker.end_date:
+                                    possibles.append(speaker)
+
+                    if len(possibles) == 1:
+                        match = possibles[0]
+                    elif len(possibles) > 1:
+                        ambiguity = True
+
                 if ambiguity and possibles:
-                    speaker_ids = {speaker.id for speaker in possibles}
+                    speaker_ids = {speaker.member_id for speaker in possibles}
 
                     query = terms_df[(terms_df['member.id'].isin(speaker_ids)) &
                                      (terms_df['start_term'] <= speechdate) &
