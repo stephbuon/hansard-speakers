@@ -70,7 +70,7 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
     query = df[condition]
 
     for alias in query[search_col]:
-        if within_distance_two(target, alias):
+        if within_distance_two(target, alias, False):
             if match:
                 match = None
                 ambiguity = True
