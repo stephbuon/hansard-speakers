@@ -6,7 +6,8 @@ from hansard.loader import DataStruct
 from datetime import datetime
 import pandas as pd
 import re
-from hansard.speaker import is_edit_distant_one
+
+from util.edit_distance import within_distance_four, within_distance_two, is_distance_one
 
 
 compile_regex = lambda x: (re.compile(x[0]), x[1])
@@ -69,7 +70,7 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
     query = df[condition]
 
     for alias in query[search_col]:
-        if is_edit_distant_one(target, alias):
+        if within_distance_two(target, alias):
             if match:
                 match = None
                 ambiguity = True
@@ -167,7 +168,7 @@ def worker_function(inq: multiprocessing.Queue,
                 if not match and not len(query):
                     # Try office position
                     for position in office_title_dfs:
-                        if position in target or is_edit_distant_one(position, target):
+                        if within_distance_four(position, target, True):
                             query = match_term(office_title_dfs[position], speechdate)
                             break
 
@@ -215,7 +216,7 @@ def worker_function(inq: multiprocessing.Queue,
                     for alias in edit_distance_dict:
                         if len(possibles) > 1:
                             break
-                        if is_edit_distant_one(target, alias):
+                        if is_distance_one(target, alias):
                             for speaker_id in edit_distance_dict[alias]:
                                 speaker = speaker_dict[speaker_id]
                                 if speaker.start_date <= speechdate <= speaker.end_date:

@@ -2,7 +2,7 @@ from libc.stdlib cimport abs
 
 
 
-cdef bint _is_edit_distant_n(const char* incorrect,const char* correct, const int n):
+cdef bint _is_edit_distant_n(const char* incorrect,const char* correct, const int n, const bint allow_equal):
     cdef int len_i = len(incorrect)
     cdef int len_c = len(correct)
     
@@ -38,18 +38,23 @@ cdef bint _is_edit_distant_n(const char* incorrect,const char* correct, const in
     if i < len_i or j < len_c:
         count += abs(len_i - len_c)
 
-    return count <= n
+    return (allow_equal and not count) or (count and count <= n)
 
 
 cdef extern from "Python.h":
     const char* PyUnicode_AsUTF8(object unicode)
 
-cpdef within_distance_one(object incorrect,object correct):
+cpdef is_distance_one(object incorrect,object correct):
     cdef const char* a = PyUnicode_AsUTF8(incorrect)
     cdef const char* b = PyUnicode_AsUTF8(correct)
-    return _is_edit_distant_n(a, b, 1)
+    return _is_edit_distant_n(a, b, 1, 0)
 
-cpdef within_distance_four(object incorrect,object correct):
+cpdef within_distance_two(object incorrect,object correct, const bint allow_equal):
     cdef const char* a = PyUnicode_AsUTF8(incorrect)
     cdef const char* b = PyUnicode_AsUTF8(correct)
-    return _is_edit_distant_n(a, b, 4)
+    return _is_edit_distant_n(a, b, 2, allow_equal)
+
+cpdef within_distance_four(object incorrect,object correct, const bint allow_equal):
+    cdef const char* a = PyUnicode_AsUTF8(incorrect)
+    cdef const char* b = PyUnicode_AsUTF8(correct)
+    return _is_edit_distant_n(a, b, 4, allow_equal)
