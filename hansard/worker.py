@@ -168,7 +168,7 @@ def worker_function(inq: multiprocessing.Queue,
                 if not match and not len(query):
                     # Try office position
                     for position in office_title_dfs:
-                        if within_distance_four(position, target, True):
+                        if position in target or within_distance_four(position, target, True):
                             query = match_term(office_title_dfs[position], speechdate)
                             break
 
