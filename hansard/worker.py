@@ -43,6 +43,7 @@ REGEX_POST_CORRECTIONS = [
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
+    ('^loan +', 'lord '),
 
     ('^earb +', 'earl '),
 
