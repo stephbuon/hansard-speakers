@@ -30,6 +30,7 @@ REGEX_POST_CORRECTIONS = [
     ('^tue +', 'the '),
     ('^tmk +', 'the '),
     ('^tub +', 'the '),
+    ('^he +', 'the '),
 
     ('^the +', ''),  # Remove leading "the"
 
@@ -105,6 +106,14 @@ REGEX_POST_CORRECTIONS = [
     ('^bisliop +', 'bishop '),
     ('^bisiiop +', 'bishop '),
     ('^bistiop +', 'bishop '),
+    
+    ('^ge neral  +', 'general '),
+    ('^gen  +', 'general '),
+    ('^genebal  +', 'general '),
+    ('^generai  +', 'general '),
+    ('^genekal  +', 'general '),
+    ('^genenal  +', 'general '),
+    ('^genera  +', 'general '),
     
     ('chancellor of the e xciiequer', 'chancellor of the exchequer'),
     ('chancellor of the exchequer-chequer', 'chancellor of the exchequer'),
