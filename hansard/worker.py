@@ -119,6 +119,8 @@ REGEX_POST_CORRECTIONS = [
     (' ampc$', ''),
     (' i$', ''),
     
+    ('irelandland', 'ireland')
+    
     (' tiie ', ' the ')
     (' tile ', ' the ')
 ]
