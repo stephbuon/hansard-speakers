@@ -44,6 +44,12 @@ REGEX_POST_CORRECTIONS = [
     
     ('^marquis +', 'marquess '),
     ('^mauquess +', 'marquess '),
+    ('^manquess +', 'marquess '),
+    ('^marguess +', 'marquess '),
+    ('^marquees +', 'marquess '),
+    ('^marques +', 'marquess '),
+    ('^marquese +', 'marquess '),
+    ('^marquese +', 'marquess '),
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
