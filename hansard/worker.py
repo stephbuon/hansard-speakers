@@ -50,6 +50,7 @@ REGEX_POST_CORRECTIONS = [
     ('^marques +', 'marquess '),
     ('^marquese +', 'marquess '),
     ('^marquese +', 'marquess '),
+    ('^marquesss +', 'marquess '),
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
@@ -87,6 +88,7 @@ REGEX_POST_CORRECTIONS = [
     
     (' said$', ''),
     (' ampc$', ''),
+    (' i$', ''),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
