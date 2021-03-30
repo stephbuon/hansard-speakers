@@ -16,6 +16,7 @@ compile_regex = lambda x: (re.compile(x[0]), x[1])
 REGEX_PRE_CORRECTIONS = [
     (r'(?:\([^()]+\))', ''),  # Remove all text within parenthesis, including parenthesis
     (' said$', ''),
+    (' ampc$', ''),
 ]
 REGEX_PRE_CORRECTIONS = list(map(compile_regex, REGEX_PRE_CORRECTIONS))
 
