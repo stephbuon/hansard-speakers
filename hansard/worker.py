@@ -82,12 +82,28 @@ REGEX_POST_CORRECTIONS = [
     ('^abmiral +', 'admiral '),
     ('^admiraj +', 'admiral '),
     
+    ('^cafiain +', 'captain '),
+    ('^caftain +', 'captain '),
+    ('^caitain +', 'captain '),
+    ('^capain +', 'captain '),
+    ('^capatain +', 'captain '),
+    ('^capiain +', 'captain '),
+    ('^capt +', 'captain '),
+    
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
     
     ('^bistiop +', 'bishop '),
     ('^bisliop +', 'bishop '),
     ('^bisiiop +', 'bishop '),
+    ('^bistiop +', 'bishop '),
+    
+    ('chancellor of the e xciiequer', 'chancellor of the exchequer'),
+    ('chancellor of the exchequer-chequer', 'chancellor of the exchequer'),
+    ('changellor of the exche-quer', 'chancellor of the exchequer'),
+    ('chancellor the exchequee', 'chancellor of the exchequer'),
+    ('chancellor of theexche-quer', 'chancellor of the exchequer'),
+    ('chancellor of we exchequer', 'chancellor of the exchequer'),
     
     # ('memberconstituencymemberconstituency', '') # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
@@ -95,10 +111,16 @@ REGEX_POST_CORRECTIONS = [
     ('^and +', ''),
     ('^answered by +', '')
     ('^another +', '')
+    ('^both +', '')
+    ('^by +', '')
     
+    (' on$', ''),
     (' said$', ''),
     (' ampc$', ''),
     (' i$', ''),
+    
+    (' tiie ', ' the ')
+    (' tile ', ' the ')
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
