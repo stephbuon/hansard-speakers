@@ -14,10 +14,9 @@ compile_regex = lambda x: (re.compile(x[0]), x[1])
 
 
 REGEX_PRE_CORRECTIONS = [
-    (r'(?:\([^()]+\))', ''),  # Remove all text within parenthesis, including parenthesis
-    (' said$', ''),
-    (' ampc$', ''),
+    (r'(?:\([^()]+\))', ''),  # Remove all text within parenthesis, including parenthesis    
 ]
+
 REGEX_PRE_CORRECTIONS = list(map(compile_regex, REGEX_PRE_CORRECTIONS))
 
 REGEX_POST_CORRECTIONS = [
@@ -68,6 +67,11 @@ REGEX_POST_CORRECTIONS = [
     ('^sri +', 'sir '),
     ('^sr +', 'sir '),
     ('^str +', 'sir '),
+    
+    ('memberconstituencymemberconstituency', '')
+    
+    (' said$', ''),
+    (' ampc$', ''),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
