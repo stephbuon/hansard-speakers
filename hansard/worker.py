@@ -78,6 +78,7 @@ REGEX_POST_CORRECTIONS = [
     ('^abmiral +', 'admiral '),
     ('^admtral +', 'admiral '),
     ('^admieal +', 'admiral '),
+    ('^abmiral +', 'admiral '),
     
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
