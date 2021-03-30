@@ -74,6 +74,9 @@ REGEX_POST_CORRECTIONS = [
     ('^sr +', 'sir '),
     ('^str +', 'sir '),
     
+    ('^eirst +', 'first '),
+    ('^fiest +', 'first '),
+    
     ('memberconstituencymemberconstituency', '')
     
     (' said$', ''),
