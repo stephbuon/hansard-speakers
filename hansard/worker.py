@@ -73,6 +73,11 @@ REGEX_POST_CORRECTIONS = [
     ('^sri +', 'sir '),
     ('^sr +', 'sir '),
     ('^str +', 'sir '),
+    ('^air +', 'sir '),
+    
+    ('^abmiral +', 'admiral '),
+    ('^admtral +', 'admiral '),
+    ('^admieal +', 'admiral '),
     
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
