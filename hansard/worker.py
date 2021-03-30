@@ -33,6 +33,13 @@ REGEX_POST_CORRECTIONS = [
     ('^the +', ''),  # Remove leading "the"
 
     ('^me +', 'mr '),  # Leading me -> mr
+    ('^mb +', 'mr '),
+    ('^mer +', 'mr '),
+    ('^mh +', 'mr '),
+    ('^mil +', 'mr '),
+    ('^mk +', 'mr '),
+    ('^mp +', 'mr '),
+    ('^ma +', 'mr '),
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
