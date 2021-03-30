@@ -98,7 +98,6 @@ REGEX_POST_CORRECTIONS = [
     # Fix leading Sir
     ('^sib +', 'sir '),
     ('^sin +', 'sir '),
-    ('^sin +', 'sir '),
     ('^sit +', 'sir '),
     ('^sip +', 'sir '),
     ('^siu +', 'sir '),
