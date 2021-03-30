@@ -90,6 +90,14 @@ REGEX_POST_CORRECTIONS = [
     ('^capiain +', 'captain '),
     ('^capt +', 'captain '),
     
+    ('^col +', 'colonel '),
+    ('^colconel +', 'colonel '),
+    ('^coionel +', 'colonel '),
+    ('^colnel +', 'colonel '),
+    ('^colokel +', 'colonel '),
+    ('^colonal +', 'colonel '),
+    ('^colonbl +', 'colonel '),
+    
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
     
