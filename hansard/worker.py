@@ -63,6 +63,11 @@ REGEX_POST_CORRECTIONS = [
     ('^siu +', 'sir '),
     ('^sik +', 'sir '),
     ('^sat +', 'sir '),
+    ('^sie +', 'sir '),
+    ('^silt +', 'sir '),
+    ('^sri +', 'sir '),
+    ('^sr +', 'sir '),
+    ('^str +', 'sir '),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
