@@ -112,6 +112,7 @@ REGEX_POST_CORRECTIONS = [
     ('chancellor the exchequee', 'chancellor of the exchequer'),
     ('chancellor of theexche-quer', 'chancellor of the exchequer'),
     ('chancellor of we exchequer', 'chancellor of the exchequer'),
+    ('cbancellor of the exche-quer', 'chancellor of the exchequer'),
     
     # ('memberconstituencymemberconstituency', '') # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
