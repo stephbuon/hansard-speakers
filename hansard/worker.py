@@ -42,6 +42,7 @@ REGEX_POST_CORRECTIONS = [
     ('^mk +', 'mr '),
     ('^mp +', 'mr '),
     ('^ma +', 'mr '),
+    ('^mi +', 'mr '),
     
     ('^marquis +', 'marquess '),
     ('^mauquess +', 'marquess '),
@@ -52,10 +53,43 @@ REGEX_POST_CORRECTIONS = [
     ('^marquese +', 'marquess '),
     ('^marquese +', 'marquess '),
     ('^marquesss +', 'marquess '),
+    ('^mabquess +', 'marquess '),
+    ('^maeqttess +', 'marquess '),
+    ('^maequess +', 'marquess '),
+    ('^marqdess +', 'marquess '),
+    ('^marqiess +', 'marquess '),
+    ('^marqtjess +', 'marquess '),
+    
+    ('^vicount +', 'viscount '),
+    ('^vicsount +', 'viscount '),
+    ('^vis- count +', 'viscount '),
+    ('^viscocnt +', 'viscount '),
+    ('^viscodnt +', 'viscount '),
+    ('^viscolunt +', 'viscount '),
+    ('^viscotint +', 'viscount '),
+    ('^viscotjnt +', 'viscount '),
+    ('^viscouint +', 'viscount '),
+    ('^viscoun +', 'viscount '),
+    ('^viscouxt +', 'viscount '),
+    ('^viscwnt +', 'viscount '),
+    ('^visoount +', 'viscount '),
+    ('^vtscount +', 'viscount '),
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
     ('^loan +', 'lord '),
+    ('^load +', 'lord '),
+    ('^lokd +', 'lord '),
+    ('^lold +', 'lord '),
+    ('^lore +', 'lord '),
+    ('^lorn +', 'lord '),
+    ('^lorrd +', 'lord '),
+    ('^lors +', 'lord '),
+    ('^losd +', 'lord '),
+    ('^lose +', 'lord '),
+    ('^lour +', 'lord '),
+    ('^lrd +', 'lord '),
+    ('^ord +', 'lord '),
 
     ('^earb +', 'earl '),
 
@@ -133,6 +167,7 @@ REGEX_POST_CORRECTIONS = [
     ('^another +', '')
     ('^both +', '')
     ('^by +', '')
+    ('^here +', '')
     
     (' on$', ''),
     (' said$', ''),
