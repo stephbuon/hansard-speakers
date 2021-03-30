@@ -80,11 +80,21 @@ REGEX_POST_CORRECTIONS = [
     ('^admtral +', 'admiral '),
     ('^admieal +', 'admiral '),
     ('^abmiral +', 'admiral '),
+    ('^admiraj +', 'admiral '),
     
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
     
-    ('memberconstituencymemberconstituency', '')
+    ('^bistiop +', 'bishop '),
+    ('^bisliop +', 'bishop '),
+    ('^bisiiop +', 'bishop '),
+    
+    # ('memberconstituencymemberconstituency', '') # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
+    
+    ('^a +', ''),
+    ('^and +', ''),
+    ('^answered by +', '')
+    ('^another +', '')
     
     (' said$', ''),
     (' ampc$', ''),
