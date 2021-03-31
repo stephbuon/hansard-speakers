@@ -1291,7 +1291,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1882,Sir Thomas Brooke-Pechell,Brooke-Pechell,Thomas,1757-01-23,0,1826-06-18,0
 1883,Mr Joshua Spencer,Spencer,Joshua,1758-01-01,1,1829-12-31,1
 1884,Mr Robert Rickards,Rickards,Robert,1769-03-28,0,1836-06-30,0
-1885,Mr John Russell,Russell,John,1792-01-01,1,1878-12-31,1
+1885,Mr John Russell,Russell,John,1792-08-18,1,1878-05-28,1
 1886,Sir James Mackintosh,Mackintosh,James,1765-10-24,0,1832-05-30,0
 1887,Sir Valentine Blake,Blake,Valentine,1780-01-01,1,1847-12-31,1
 1888,Mr James Evan Baillie,Baillie,James,1781-01-01,1,1863-06-14,0
@@ -1619,7 +1619,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2210,Mr John Waring Maxwell,Maxwell,John,,1,1842-12-31,1
 2211,Mr Henry Metcalfe,Metcalfe,Henry,1781-01-01,1,1822-12-31,1
 2212,Mr George Henry Cherry,Cherry,George,1793-01-01,1,1848-01-01,0
-2213,Mr Henry Hardinge,Hardinge,Henry,1785-01-01,1,1856-12-31,1
+2213,Mr Henry Hardinge,Hardinge,Henry,1785-03-30,1,1856-09-24,1
 2214,Mr Archibald Farquharson,Farquharson,Archibald,1793-01-01,1,1841-12-31,1
 2215,Sir Ross Mahon,Mahon,Ross,1763-01-01,1,1835-08-10,0
 2216,Sir Miles Nightingall,Nightingall,Miles,1768-12-25,0,1829-09-12,0
@@ -1931,7 +1931,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2524,Mr James Sinclair,Sinclair,James,1797-01-01,1,1856-12-31,1
 2525,Mr Alexander Duff,Duff,Alexander,1777-01-01,1,1851-03-21,0
 2526,Mr Adam Hay,Hay,Adam,1795-12-14,0,1867-01-18,0
-2527,Hon. Henry Thomas Liddell,Liddell,Henry,1797-01-01,1,1878-12-31,1
+2527,Hon. Henry Thomas Liddell,Liddell,Henry,1797-03-10,1,1878-03-19,1
 2528,Mr John Hely-Hutchinson,Hely-Hutchinson,John,1795-01-01,1,1842-12-31,1
 2529,Mr Alexander Powell,Powell,Alexander,1782-01-01,1,1847-12-31,1
 2530,Mr Colin Macaulay,Macaulay,Colin,1760-01-01,1,1836-02-20,0
@@ -1989,7 +1989,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2582,Mr James Hewitt Massy Dawson,Dawson,James,,1,,1
 2583,Mr George De Lacy Evans,Evans,George,1787-01-01,1,1870-01-09,0
 2584,Mr George Grenville Wandisford Pigott,Pigott,George,1796-01-01,1,1865-12-31,1
-2585,William David Murray,Murray,William,1806-01-01,1,1898-12-31,1
+2585,Mr William David Murray,Murray,William,1806-02-21,1,1898-08-01,1
 2586,Lord Dudley Stuart,Stuart,Dudley,1803-01-01,1,1854-12-31,1
 2587,Mr Christopher Blackett,Blackett,Christopher,1788-01-01,1,1847-12-31,1
 2588,Mr Henry Burton-Peters,Burton-Peters,Henry,1792-01-01,1,1874-11-24,0
@@ -2132,7 +2132,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2728,Mr William Ogilvy,Ogilvy,William,1794-01-01,1,1871-04-10,0
 2729,Mr William Lyon,Lyon,William,1807-01-01,1,1892-12-31,1
 2730,Mr James Lewis Knight-Bruce,Knight-Bruce,James,1791-02-15,0,1866-11-07,0
-2731,John George Brabazon Ponsonby,Ponsonby,John,1809-01-01,1,1880-12-31,1
+2731,Mr John George Brabazon Ponsonby,Ponsonby,John,1809-01-01,1,1880-12-31,1
 2733,Mr William Venables,Venables,William,1786-01-01,1,1840-07-30,0
 2734,Mr William Mayhew,Mayhew,William,1787-01-01,1,1855-12-31,1
 2735,Mr Robert Henry Stanhope,Stanhope,Robert,1802-04-21,0,1839-03-02,0
@@ -2496,7 +2496,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3101,Mr Charles Watkin Williams Wynn,Wynn,Charles,1775-01-01,1,1850-12-31,1
 3102,Colonel Frederick George Howard,Howard,Fred,1805-01-01,1,1833-12-31,1
 3103,Mr John Hyacinth Talbot,Talbot,John,1794-01-01,1,1868-12-31,1
-3104,Mr William Ewart Gladstone,Gladstone,William,1809-01-01,1,1898-12-31,1
+3104,Mr William Ewart Gladstone,Gladstone,William,1809-12-29,1,1898-05-19,1
 3105,Mr William Farnworth Handley,Handley,William,1780-01-01,1,1851-12-31,1
 3106,Mr William Henry Miller,Miller,William,1789-01-01,1,1848-12-31,1
 3107,Mr William Henry Ord,Ord,William,1803-01-01,1,1838-12-31,1
@@ -3011,7 +3011,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3623,Charles Somers Somers-Cocks,Somers-Cocks,Charles,1819-01-01,1,1883-12-31,1
 3624,Hon. George Wentworth-Fitzwilliam,Wentworth-Fitzwilliam,George,1817-01-01,1,1874-12-31,1
 3625,Mr Edmund Antrobus,Antrobus,Edmund,1818-01-01,1,1899-12-31,1
-3626,Mr John Neilson Gladstone,Gladstone,John,1807-01-01,1,1863-12-31,1
+3626,Mr John Neilson Gladstone,Gladstone,John,1807-01-18,1,1863-02-07,1
 3627,Mr Hugh Hamilton Lindsay,Lindsay,Hugh,1802-01-01,1,1881-12-31,1
 3628,Mr Nathaniel Alexander,Alexander,Nathaniel,1815-01-01,1,1853-12-31,1
 3629,Mr Alexander Campbell,Campbell,Alexander,1814-01-01,1,1869-12-31,1
@@ -3381,7 +3381,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4001,Mr Howel Gwyn,Gwyn,Howel,1806-01-01,1,1888-12-31,1
 4002,Mr Francis Mowatt,Mowatt,Francis,1803-01-01,1,1891-12-31,1
 4003,Hon. William George Cavendish,Cavendish,William,1815-01-01,1,1882-12-31,1
-4004,Sir Roundell Palmer,Palmer,Roundell,1812-01-01,1,1895-12-31,1
+4004,Sir Roundell Palmer,Palmer,Roundell,1812-11-27,1,1895-05-04,1
 4005,Sir Samuel Martin,Martin,Samuel,1801-01-01,1,1883-12-31,1
 4006,Mr Francis Plunkett Dunne,Dunne,Francis,1802-01-01,1,1874-12-31,1
 4007,Mr Charles Pascoe Grenfell,Grenfell,Charles,1790-01-01,1,1867-12-31,1
@@ -3394,7 +3394,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4014,Mr William James Chaplin,Chaplin,William,1787-01-01,1,1859-12-31,1
 4015,Mr Charles William Grenfell,Grenfell,Charles,1823-01-01,1,1861-12-31,1
 4016,Lord Clarence Edward Paget,Paget,Clarence,1811-01-01,1,1895-12-31,1
-4017,Mr George Augustus Constantine Phipps,Phipps,George,1819-01-01,1,1890-12-31,1
+4017,Mr George Augustus Constantine Phipps,Phipps,George,1819-07-23,1,1890-04-03,1
 4018,Mr Edward Holmes Baldock,Baldock,Edward,1812-01-01,1,1875-12-31,1
 4019,Sir Alexander Hood,Hood,Alexander,1793-01-01,1,1851-12-31,1
 4020,Mr Charles Aaron Moody,Moody,Charles,1792-01-01,1,1867-12-31,1
@@ -3506,7 +3506,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4127,Mr James Johnstone,Johnstone,James,1801-01-01,1,1888-12-31,1
 4128,Mr David Salomons,Salomons,David,1797-01-01,1,1873-12-31,1
 4129,Mr Thomas Collins,Collins,Thomas,1825-01-01,1,1884-12-31,1
-4130,Hon. Charles Stewart Hardinge,Hardinge,Charles,1822-01-01,1,1894-12-31,1
+4130,Hon. Charles Stewart Hardinge,Hardinge,Charles,1822-09-02,1,1894-07-28,1
 4131,Mr Robert Milligan,Milligan,Robert,1786-01-01,1,1862-12-31,1
 4132,Sir Brook William Bridges,Bridges,Brook,1801-01-01,1,1875-12-31,1
 4134,Mr Crawshay Bailey,Bailey,Crawshay,1789-01-01,1,1872-12-31,1
@@ -3638,8 +3638,8 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4261,Mr George William Pierrepont Bentinck,Bentinck,George,1803-01-01,1,1886-12-31,1
 4262,Sir Rainald Knightley,Knightley,Rainald,1819-01-01,1,1895-12-31,1
 4263,Mr Wentworth Blackett Beaumont,Beaumont,Wentworth,1829-01-01,1,1907-02-13,0
-4264,Lord Eslington (Henry George Liddell),Liddell,Henry,1821-01-01,1,1903-07-22,0
-4265,William Coutts Keppel,Keppel,William,1832-01-01,1,1894-12-31,1
+4264,Mr Henry George Liddell,Liddell,Henry,1821-10-08,1,1903-07-22,0
+4265,Mr William Coutts Keppel,Keppel,William,1832-01-01,1,1894-12-31,1
 4266,Mr Edward Warner,Warner,Edward,1818-01-01,1,1875-12-31,1
 4267,Lord Robert Renebald Clinton,Clinton,Robert,1820-01-01,1,1867-12-31,1
 4268,Mr Sydney William Herbert Pierrepont,Pierrepont,Sydney,1825-01-01,1,1900-01-16,0
@@ -4195,7 +4195,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4823,Mr Edward Greene,Greene,Edward,1815-01-01,1,1891-12-31,1
 4824,Mr James Lamont,Lamont,James,1828-01-01,1,1913-07-29,0
 4825,Mr William Forsyth,Forsyth,William,1812-01-01,1,1899-12-31,1
-4826,Charles Phillip Yorke,Yorke,Charles,1836-01-01,1,1897-12-31,1
+4826,Mr Charles Phillip Yorke,Yorke,Charles,1836-01-01,1,1897-12-31,1
 4827,Mr Richard Young,Young,Richard,1808-01-01,1,1871-12-31,1
 4828,Sir John Walter Huddleston,Huddleston,John,1817-01-01,1,1890-12-31,1
 4829,Sir Thomas Davies Lloyd,Lloyd,Thomas,1820-01-01,1,1877-12-31,1
@@ -4269,7 +4269,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4897,Mr John Wright Treeby,Treeby,John,1809-01-01,1,1882-12-31,1
 4898,Mr Edward Sullivan,Sullivan,Edward,1822-01-01,1,1885-12-31,1
 4899,Mr Edward James,James,Edward,,1,1867-12-31,1
-4900,Lord Bingham (Charles George Bingham),Bingham,George,1830-01-01,1,1914-06-05,0
+4900,Mr Charles George Bingham,Bingham,George,1830-05-08,1,1914-06-05,0
 4901,Mr William Robert Maurice Wynne,Wynne,William,1840-01-01,1,1909-02-25,0
 4902,Hon. Vesey Dawson,Dawson,Vesey,1842-01-01,1,1920-12-31,1
 4903,Lord Arthur Pelham Clinton,Clinton,Arthur,1840-01-01,1,1870-12-31,1
@@ -4317,7 +4317,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4945,Mr John Hales Montagu Calcraft,Calcraft,John,1831-01-01,1,1868-12-31,1
 4946,Mr Arthur Wellesey Peel,Peel,Arthur,1829-01-01,1,1912-10-24,0
 4947,Mr Henry Christopher Wise,Wise,Henry,1806-01-01,1,1883-12-31,1
-4948,John Henry de la Poer Beresford,Beresford,John,1844-01-01,1,1895-12-31,1
+4948,Mr John Henry de la Poer Beresford,Beresford,John,1844-01-01,1,1895-12-31,1
 4949,Mr Arthur Divett Hayter,Hayter,Arthur,1835-01-01,1,1917-05-01,0
 4950,Hon. Algernon William Fulke Greville,Greville,Algernon,1841-01-01,1,1910-12-02,0
 4951,Hon. Robert Wellesey Grosvenor,Grosvenor,Robert,1834-01-01,1,1918-11-13,0
@@ -4340,9 +4340,9 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4968,Sir Frederick Acclom Milbank,Milbank,Frederick,1820-01-01,1,1898-12-31,1
 4969,Lord Frederick Charles Cavendish,Cavendish,Frederick,1836-01-01,1,1882-12-31,1
 4970,Mr Henry Frederick Beaumont,Beaumont,Henry,1833-01-01,1,1913-10-13,0
-4971,William Wentworth-Fitzwilliam,Wentworth-Fitzwilliam,William,1839-01-01,1,1877-12-31,1
+4971,Mr William Wentworth-Fitzwilliam,Wentworth-Fitzwilliam,William,1839-01-01,1,1877-12-31,1
 4972,Sir Joseph Neale McKenna,McKenna,Joseph,1819-01-01,1,1906-08-15,0
-4973,John Charles Pratt,Pratt,John,1840-01-01,1,1872-12-31,1
+4973,MR John Charles Pratt,Pratt,John,1840-01-01,1,1872-12-31,1
 4974,Mr Richard Arkwright,Arkwright,Richard,1835-01-01,1,1918-11-14,0
 4975,Mr John Candlish,Candlish,John,1816-01-01,1,1874-12-31,1
 4976,Sir Julian Goldsmid,Goldsmid,Julian,1838-01-01,1,1896-12-31,1
@@ -4363,7 +4363,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4991,Baron Robert Dimsdale,Dimsdale,Robert,1828-01-01,1,1898-12-31,1
 4992,Mr Philip Vanderbyl,Vanderbyl,Philip,1827-01-01,1,1892-12-31,1
 4993,Mr John Edward Walsh,Walsh,John,1816-01-01,1,1869-12-31,1
-4994,George William Barrington,Barrington,George,1824-01-01,1,1886-12-31,1
+4994,MR George William Barrington,Barrington,George,1824-01-01,1,1886-12-31,1
 4995,Mr William Nicholson,Nicholson,William,1824-01-01,1,1909-07-25,1
 4996,Mr John Major Henniker-Major,Henniker-Major,John,1842-01-01,1,1902-06-27,0
 4997,Hon. George Sholto Gordon Douglas-Pennant,Douglas-Pennant,George,1836-01-01,1,1907-03-10,0
@@ -4382,7 +4382,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5010,Mr Sackville George Stopford-Sackville,Stopford-Sackville,Sackville,1840-01-01,1,1926-10-06,0
 5011,Mr Frederick Snowdon Corrance,Corrance,Frederick,1822-01-01,1,1906-10-31,0
 5012,Mr George Morris,Morris,George,1835-01-01,1,1912-09-11,1
-5013,George Cecil Orlando Bridgeman,Bridgeman,George,1845-01-01,1,1915-01-02,0
+5013,Mr George Cecil Orlando Bridgeman,Bridgeman,George,1845-01-01,1,1915-01-02,0
 5014,Lord Ronald Charles Sutherland Leveson-Gower,Leveson-Gower,Ronald,1845-01-01,1,1916-03-09,0
 5015,Sir Henry Edwards,Edwards,Henry,1820-01-01,1,1897-12-31,1
 5016,Mr George Dixon,Dixon,George,1820-01-01,1,1898-12-31,1
@@ -5197,7 +5197,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5830,Sir Charles Benjamin Bright McLaren,McLaren,Charles,1850-01-01,1,1934-01-23,0
 5831,Mr William Summers,Summers,William,1853-01-01,1,1893-12-31,1
 5832,Mr Timothy Daniel Sullivan,Sullivan,Timothy,1827-01-01,1,1914-03-31,0
-5833,Mr Herbert John Gladstone,Gladstone,Herbert,1854-01-01,1,1930-03-06,0
+5833,Mr Herbert John Gladstone,Gladstone,Herbert,1854-01-07,1,1930-03-06,0
 5834,Mr Alan Henry Bellingham,Bellingham,Alan,1846-01-01,1,1921-06-09,0
 5835,Reverend Isaac Nelson,Nelson,Isaac,,1,1888-12-31,1
 5836,Mr Alexander Martin Sullivan,Sullivan,Alexander,1829-01-01,1,1884-12-31,1
@@ -5502,7 +5502,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6135,Mr William Boyle Barbour,Barbour,William,1828-01-01,1,1891-12-31,1
 6136,Mr Henry Charles Howard,Howard,Henry,1850-01-01,1,1914-08-04,0
 6137,Mr Robert Stewart Menzies,Menzies,Robert,1856-01-01,1,1889-12-31,1
-6138,William Waldegrave Palmer,Palmer,William,1859-01-01,1,1942-02-26,0
+6138,William Waldegrave Palmer,Palmer,William,1859-10-17,1,1942-02-26,0
 6139,Hon. Rowland Winn,Winn,Rowland,1857-01-01,1,1919-04-13,0
 6140,Sir William Crossman,Crossman,William,1830-01-01,1,1901-04-19,0
 6141,Mr Abel Buckley,Buckley,Abel,1835-01-01,1,1908-12-23,0
@@ -5770,7 +5770,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6402,Mr Edmund Francis Vesey Knox,Knox,Edmund,1865-01-01,1,1921-05-15,0
 6403,Mr James Alexander Rentoul,Rentoul,James,1854-01-01,1,1919-08-12,0
 6404,Mr Henry John Cockayne Cust,Cust,Henry,1861-01-01,1,1917-03-02,0
-6405,Mr David Lloyd-George,Lloyd-George,David,1863-01-01,1,1945-03-26,0
+6405,Mr David Lloyd-George,Lloyd-George,David,1863-01-17,1,1945-03-26,0
 6406,Sir Francis Tress Barry,Barry,Francis,1825-01-01,1,1907-02-28,0
 6407,Mr James Joseph Dalton,Dalton,James,1861-01-01,1,,1
 6408,Mr John Roche,Roche,John,1848-01-01,1,1914-08-27,0
@@ -5833,7 +5833,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6465,Mr John Bligh,Bligh,John,1827-04-16,0,1896-12-14,0
 6466,Mr Edmund Boyle,Boyle,Edmund,1767-10-21,0,1856-06-29,0
 6467,Mr George Boyle,Boyle,George,1765-03-26,0,1843-07-03,0
-6468,Mr John Brabazon,Brabazon,John,1772-04-09,0,1851-03-15,0
+6468,Mr John Chambre Brabazon,Brabazon,John,1772-04-09,0,1851-03-15,0
 6469,Mr George Bridgeman,Bridgeman,George,1789-10-23,0,1865-03-22,0
 6470,Mr Valentine Browne,Browne,Valentine,1788-01-15,0,1853-10-31,0
 6471,Mr George Brudenell-Bruce,Brudenell-Bruce,George,1804-11-20,0,1878-01-06,0
@@ -6154,7 +6154,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6792,Mr Charles Powlett,Powlett,Charles,1785-09-26,0,1823-08-02,0
 6793,Mr Robert Brudenell,Brudenell,Robert,1760-04-25,0,1837-08-14,0
 6794,Mr Charles Compton,Compton,Charles,,0,1828-05-24,0
-6795,Mr Gilbert Elliot Murray Kynynmound,Elliot Murray Kynynmound,Gilbert,,0,1814-06-21,0
+6795,Mr Gilbert Elliot Murray Kynynmound,Kynynmound,Gilbert,1751-04-23,0,1814-06-21,0
 6797,Mr Charles Whitworth,Whitworth,Charles,,0,1825-05-12,0
 6798,Mr George Elphinstone,Elphinstone,George,,0,1823-03-10,0
 6799,Mr John Hope,Hope,John,,0,1823-08-27,0
@@ -6163,7 +6163,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6802,Mr John Willoughby Cole,Cole,John,1768-03-23,0,1840-03-31,0
 6803,Mr Charles John Gardiner,Gardiner,Charles,1782-07-19,0,1829-05-25,0
 6804,Mr George Harris,Harris,George,,0,1829-05-19,0
-6805,Mr Peniston Lamb,Lamb,Peniston,,0,1828-07-22,0
+6805,Mr Peniston Lamb,Lamb,Peniston,1745-01-29,0,1828-07-22,0
 6806,Mr George Ramsay,Ramsay,George,1770-10-23,0,1838-03-21,0
 6807,Mr Richard Le Poer Trench,Trench,Richard,1767-05-18,0,1837-11-24,0
 6808,Mr Frederick North,North,Frederick,1766-02-07,0,1827-10-14,0
@@ -6177,7 +6177,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6816,Mr Richard Hely Hely Hutchinson,Hutchinson,Richard,1756-01-29,0,1825-08-22,0
 6817,Mr William Ker,Ker,William,,0,1824-04-27,0
 6818,Mr George King,King,George,1771-04-28,0,1839-10-18,0
-6819,Mr Thomas Pakenham,Pakenham,Thomas,,0,1835-05-24,0
+6819,Mr Thomas Pakenham,Pakenham,Thomas,1774-05-14,0,1835-05-24,0
 6820,Mr John Rous,Rous,John,,0,1827-08-27,0
 6821,Mr Edward Moore,Moore,Edward,1770-08-23,0,1837-02-06,0
 6822,Mr John Perceval,Perceval,John,1767-08-13,0,1835-12-31,0
@@ -6226,7 +6226,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6865,Mr Charles Robert Claude Wilde,Wilde,Charles,1816-11-01,0,1891-03-27,0
 6866,Mr Jacob Henry Delaval Astley,Astley,Jacob,1822-05-21,0,1871-03-08,0
 6867,Mr Alan Frederick Cathcart,Cathcart,Alan,1828-11-14,0,1905-10-30,0
-6868,Mr John Elphinstone,Elphinstone,John,,0,1860-07-19,0
+6868,Mr John Elphinstone,Elphinstone,John,1807-06-23,0,1860-07-19,0
 6869,Mr Sewallis Edward Shirley,Shirley,Sewallis,1847-01-24,0,1912-07-26,0
 6870,Mr George Wyndham,Wyndham,George,,0,1869-03-18,0
 6871,Mr George John James Hamilton-Gordon,Hamilton-Gordon,George,1816-09-28,0,1864-03-22,0
@@ -6397,7 +6397,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 7035,Mr Arthur William Cairns,Cairns,Arthur,1861-12-21,0,1890-01-14,0
 7036,Mr Charles John Colville,Colville,Charles,1818-11-23,0,1903-07-01,0
 7037,Mr Robert Offley Ashburton Crewe-Milnes,Crewe-Milnes,Robert,1858-01-12,0,1945-06-20,0
-7038,Mr William Buller Fullerton Elphinstone,Elphinstone,William,,0,1893-01-18,0
+7038,Mr William Buller Fullerton Elphinstone,Elphinstone,William,1828-11-18,0,1893-01-18,0
 7039,Mr Warner Francis John Plantagenet Hastings,Hastings,Warner,1868-07-08,0,1939-04-05,0
 7040,Mr Sidney Carr Hobart-Hampden-Mercer-Henderson,Hobart-Hampden-Mercer-Henderson,Sidney,1860-03-14,0,1930-01-15,0
 7041,Mr Arthur Hobhouse,Hobhouse,Arthur,1819-11-10,0,1904-12-06,0
@@ -7989,7 +7989,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 8643,Mr Christopher Thomas Needham,Needham,Christopher,1866-01-01,1,1944-04-29,0
 8644,Mr John Fitzgibbon,Fitzgibbon,John,1849-01-01,1,1919-09-08,0
 8645,Colonel Charles Edward Yate,Yate,Charles,1849-01-01,1,1940-02-29,0
-8646,Mr Roundell Cecil Palmer,Palmer,Roundell,1887-01-01,1,1971-09-03,0
+8646,Mr Roundell Cecil Palmer,Palmer,Roundell,1887-04-15,1,1971-09-03,0
 8647,Sir Arthur Shirley Benn,Benn,Arthur,1858-01-01,1,1937-06-13,0
 8648,Mr Frederick Handel Booth,Booth,Frederick,1867-01-01,1,1924-02-24,0
 8649,Mr Clement Anderson Barlow,Barlow,Anderson,1868-01-01,1,1951-05-31,0
@@ -8012,7 +8012,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 8666,Mr Henry Webb,Webb,Henry,1866-01-01,1,1940-10-29,0
 8667,Mr Daniel Turner Holmes,Holmes,Daniel,1863-01-01,1,1955-04-07,0
 8668,Lieut-Colonel William Ernest George Archibald Weigall,Weigall,William,1874-01-01,1,1952-06-03,0
-8669,Mr William Glynne Charles Gladstone,Gladstone,William,1885-01-01,1,1915-04-15,0
+8669,Mr William Glynne Charles Gladstone,Gladstone,William,1885-07-14,1,1915-04-13,0
 8670,Sir James Duncan Millar,Millar,James,1871-01-01,1,1932-12-10,0
 8671,Sir Edmund Robert Bartley Bartley-Denniss,Bartley-Denniss,Edmund,1854-01-01,1,1931-03-20,0
 8672,Sir James Ian Macpherson,Macpherson,James,1880-01-01,1,1937-08-14,0
@@ -8045,7 +8045,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 8699,Mr William Watson,Watson,William,1873-01-01,1,1948-06-13,0
 8700,Mr John William Pratt,Pratt,John,1873-01-01,1,1952-10-27,0
 8701,Mr David Cleghorn Hogg,Hogg,David,1840-01-01,1,1914-08-22,0
-8702,Captain John Cuthbert Denison Denison-Pender,Denison-Pender,John,1882-01-01,1,1949-12-04,0
+8702,Captain John Cuthbert Denison-Pender,Denison-Pender,John,1882-01-01,1,1949-12-04,0
 8703,Mr Patrick Joseph Meehan,Meehan,Patrick,1877-01-01,1,1929-07-05,1
 8704,Lieut-Colonel Leslie Orme Wilson,Wilson,Leslie,1876-01-01,1,1955-09-29,0
 8705,Mr George Butler Lloyd,Lloyd,George,1854-01-01,1,1930-03-28,0
@@ -8549,7 +8549,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 9203,Sir George Douglas Cochrane Newton,Newton,George,1879-01-01,1,1942-09-02,0
 9204,Lieut-Colonel Philip Wigham Richardson,Richardson,Philip,1865-01-01,1,1953-11-23,0
 9205,Mr Edward Charles Grenfell,Grenfell,Edward,1870-01-01,1,1941-11-26,0
-9206,Field Marshal Sir Henry Hughes Wilson,Wilson,Henry,1864-01-01,1,1922-06-22,0
+9206,Field-Marshal Henry Hughes Wilson,Wilson,Henry,1864-01-01,1,1922-06-22,0
 9207,Mr Hugh Hayes,Hayes,Hugh,,1,1928-09-05,0
 9208,Sir Murdoch Macdonald,Macdonald,Murdoch,1866-01-01,1,1957-04-24,0
 9209,Mr George Banton,Banton,George,1856-01-01,1,1932-04-19,0
@@ -9316,7 +9316,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 9991,Mr James Woolley Summers,Summers,James,1850-01-01,1,1913-01-01,1
 9992,Colonel Tatton Benvenuto Mark Sykes,Sykes,Mark,1879-03-16,0,1919-02-16,0
 9993,Mr Walter John Stanton,Stanton,Walter,1828-03-24,0,1913-08-31,1
-9994,Field Marshal Jan Christiaan Smuts,Smuts,Field,1870-05-24,0,1950-09-11,0
+9994,Field-Marshal Jan Christiaan Smuts,Smuts,Field,1870-05-24,0,1950-09-11,0
 9996,Mr Auberon Thomas Herbert,Herbert,Auberon,1876-05-25,0,1916-11-03,0
 9997,Mr William Hillier Onslow,Onslow,William,1853-03-07,0,1911-10-23,0
 9998,Mr Alexander Hugh Bruce,Bruce,Alexander,1849-01-13,0,1921-07-06,0
@@ -9952,4 +9952,14 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 12934,Mr Charles James Mathew,Mathew,Charles,1872-10-24,0,1923-01-08,0
 12936,Mr Charles Frederick Palmer,Palmer,Charles,1869-09-09,0,1920-10-25,0
 12937,Lieut-Colonel Charles Pinkham,Pinkham,Charles,1853-01-01,1,1938-12-31,1
-12938, 
+12938,Mr Gilbert John Elliot Murray Kynynmound,Kynynmound,Gilbert,1845-07-09,0,1914-03-01,0
+12939,Mr George Charles Herbert,Herbert,George,1862-06-24,1,1952-11-09,1
+12940,Mr Henry Charles Hardinge,Hardinge,Henry,1856-01-01,0,1924-12-31,0
+12941,Mr Anthony Ashley-Cooper,Ashley-Cooper,Anthony,1869-08-31,1,1961-03-25,1
+12942,Mr Edward Nugent Leeson,Leeson,Edward,1835-10-09,0,1890-05-30,0
+12943,Sir John Evelyn Gladstone,Gladstone,John,1855-11-23,1,1945-02-12,1
+12944,Sir Reginald Brabazon,Brabazon,Reginald,1841-07-31,0,1929-10-11,0
+12945,Mr David William Murray,Murray,David,1777-03-07,1,1840-02-18,1
+12946,Field-Marshal George Charles Bingham,Bingham,George,1800-04-16,0,1888-11-10,0
+12947,General William Lygon Pakenham,Pakenham,William,1819-01-31,1,1887-04-19,1
+12948,Sir Edward Michael Pakenham,Pakenham,Edward,1778-03-19,0,1815-01-08,0
