@@ -165,21 +165,22 @@ REGEX_POST_CORRECTIONS = [
     
     ('^a +', ''),
     ('^and +', ''),
-    ('^answered by +', '')
-    ('^another +', '')
-    ('^both +', '')
-    ('^by +', '')
-    ('^here +', '')
+    ('^answered by +', ''),
+    ('^another +', ''),
+    ('^both +', ''),
+    ('^by +', ''),
+    ('^here +', ''),
     
     (' on$', ''),
     (' said$', ''),
     (' ampc$', ''),
     (' i$', ''),
+    (' replied$', ''),
     
-    ('irelandland', 'ireland')
+    ('irelandland', 'ireland'),
     
-    (' tiie ', ' the ')
-    (' tile ', ' the ')
+    (' tiie ', ' the '),
+    (' tile ', ' the '),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
