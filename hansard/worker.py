@@ -95,6 +95,7 @@ REGEX_POST_CORRECTIONS = [
     ('^ord +', 'lord '),
 
     ('^earb +', 'earl '),
+    ('^ear +', 'earl '),
 
     ('^dike +', 'duke '),
 
