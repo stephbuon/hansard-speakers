@@ -142,6 +142,7 @@ REGEX_POST_CORRECTIONS = [
     ('^bisliop +', 'bishop '),
     ('^bisiiop +', 'bishop '),
     ('^bistiop +', 'bishop '),
+    ('^lord bishop +', 'bishop '),
     
     ('^ge neral  +', 'general '),
     ('^gen  +', 'general '),
