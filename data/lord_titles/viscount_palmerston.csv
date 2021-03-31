@@ -1,5 +1,5 @@
 corresponding_id,alias,real_name,alias_type,start,end,extra
-,Viscount Palmerston,Henry Temple,title,1757/06/11,1802/04/17,He does not have a corresponding id in mps.csv
-,Baron Temple,Henry Temple,title,1757/06/11,1802/04/17,He does not have a corresponding id in mps.csv
+,Viscount Palmerston,Henry Temple,title,1757/06/11,1802/04/17,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv"
+,Baron Temple,Henry Temple,title,1757/06/11,1802/04/17,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv"
 1584,Viscount Palmerston,Henry John Temple,title,1802/04/18,1865/10/18,
 1584,Baron Temple,Henry John Temple,title,1802/04/18,1865/10/18,

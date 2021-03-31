@@ -1,5 +1,5 @@
 corresponding_id,alias,alias_type,real_name,start,end,extra,extra_two,,
-,Earl of Roden,title,Robert Jocelyn,1797/06/22,1820/06/29,He does not have a number in mps.csv so we might need to add it,,,
+,Earl of Roden,title,Robert Jocelyn,1797/06/22,1820/06/29,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv",,,
 1439,Viscount Jocelyn,title,Robert Jocelyn,1797/06/22,1820/06/29,This is the grandfather until his father dies he is the viscount,,,
 1439,Earl of Roden,title,Robert Jocelyn,1820/06/30,1870/03/20,Now he has become Earl and he dies in 1870,,,3rd Earl
 1439,Baron Clanbrassill ,title,Robert Jocelyn,1820/06/30,1870/03/20,(this is another title that the Earl goes by),of Hyde Hall,,
@@ -11,5 +11,5 @@ corresponding_id,alias,alias_type,real_name,start,end,extra,extra_two,,
 6984,Earl of Roden,title,John Strange Jocelyn,1880/01/10,1897/07/03,,,,
 6984,Baron Clanbrassill,title,John Strange Jocelyn,1880/01/10,1897/07/03,,of Hyde Hall,,
 ,Viscount Jocelyn,title,William Henry Jocelyn,1897/07/04,1910,date unclear,,,
-,Earl of Roden,title,William Henry Jocelyn,1897/07/04,1910,He also does not have an entry in the mps.csv which might be a problem ,,,
+,Earl of Roden,title,William Henry Jocelyn,1897/07/04,1910,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv",,,
 ,Baron Clanbrassill,title,William Henry Jocelyn,1897/07/04,1910,,of Hyde Hall,,

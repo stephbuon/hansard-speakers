@@ -1,20 +1,20 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra
-,Earl of Rosebery,Neil Primrose,title,1765,1814,He does not have an entry inside of mps.csv
-,Lord Primrose and Dalmeny,Neil Primrose,title,1765,1814,He does not have an entry inside of mps.csv
-,Viscount of Rosebery,Neil Primrose,title,1765,1814,He does not have an entry inside of mps.csv
-,Lord Dalmeny,Neil Primrose,title,1765,1814,He does not have an entry inside of mps.csv
-,Viscount of Inverkeithing,Neil Primrose,title,1765,1814,He does not have an entry inside of mps.csv
-1257,Earl of Rosebery,Archibald John Primrose,title,1814,1868/03/04,
-1257,Baron Rosebery,Archibald John Primrose,title,1828/01/26,1868/03/04,
-1257,Lord Primrose and Dalmeny,Archibald John Primrose,title,1814,1868/03/04,
-1257,Viscount of Rosebery,Archibald John Primrose,title,1814,1868/03/04,
-1257,Lord Dalmeny,Archibald John Primrose,title,1814,1868/03/04,
-1257,Viscount of Inverkeithing,Archibald John Primrose,title,1814,1868/03/04,
-7306,The Earl of Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,
-7306,Earl of Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,
-7306,Baron Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,
-7306,Lord Primrose and Dalmeny,Archibald Philip Primrose,title,1868/03/04,1929/05/21,
-7306,Viscount of Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,
-7306,Lord Dalmeny,Archibald Philip Primrose,title,1868/03/04,1929/05/21,
-7306,Viscount of Inverkeithing,Archibald Philip Primrose,title,1868/03/04,1929/05/21,
-7306,Earl of Midlothian,Archibald Philip Primrose,,1911,1929/05/21,I can't find the exact date he was granted the title. It might not be important since he was granted it after 1910 but if we add it to the title we will know weaccounted for the Earl of Midlothian
+corresponding_id,alias,real_name,alias_type,start,end,extra,links
+,Earl of Rosebery,Neil Primrose,title,1765,1814,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv",He does not have a Wikipedia page
+,Lord Primrose and Dalmeny,Neil Primrose,title,1765,1814,,
+,Viscount of Rosebery,Neil Primrose,title,1765,1814,,
+,Lord Dalmeny,Neil Primrose,title,1765,1814,,
+,Viscount of Inverkeithing,Neil Primrose,title,1765,1814,,
+1257,Earl of Rosebery,Archibald John Primrose,title,1814,1868/03/04,,"https://en.wikipedia.org/wiki/Archibald_Primrose,_4th_Earl_of_Rosebery"
+1257,Baron Rosebery,Archibald John Primrose,title,1828/01/26,1868/03/04,,
+1257,Lord Primrose and Dalmeny,Archibald John Primrose,title,1814,1868/03/04,,
+1257,Viscount of Rosebery,Archibald John Primrose,title,1814,1868/03/04,,
+1257,Lord Dalmeny,Archibald John Primrose,title,1814,1868/03/04,,
+1257,Viscount of Inverkeithing,Archibald John Primrose,title,1814,1868/03/04,,
+7306,The Earl of Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,"Just for notes, he inherited the earldom from his grandfather since his father died before the grandfather. After checking there is no missed speaker entries or speechdates coinciding with the father so I did not add him to this list.","https://en.wikipedia.org/wiki/Archibald_Primrose,_5th_Earl_of_Rosebery"
+7306,Earl of Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,,
+7306,Baron Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,,
+7306,Lord Primrose and Dalmeny,Archibald Philip Primrose,title,1868/03/04,1929/05/21,,
+7306,Viscount of Rosebery,Archibald Philip Primrose,title,1868/03/04,1929/05/21,,
+7306,Lord Dalmeny,Archibald Philip Primrose,title,1868/03/04,1929/05/21,,
+7306,Viscount of Inverkeithing,Archibald Philip Primrose,title,1868/03/04,1929/05/21,,
+7306,Earl of Midlothian,Archibald Philip Primrose,,1911,1929/05/21,I can't find the exact date he was granted the title. It might not be important since he was granted it after 1910 but if we add it to the title of the csv we will know we accounted for the Earl of Midlothian,

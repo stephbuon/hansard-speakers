@@ -1,0 +1,9 @@
+corresponding_id,alias,real_name,alias_type,start,end,extra,links
+12945,Viscount of Stormont,David William Murray,title,1793/03/20,1796/09/01,,"https://en.wikipedia.org/wiki/David_William_Murray,_3rd_Earl_of_Mansfield"
+12945,Earl of Mansfield,David William Murray,title,1796/09/02,1840/02/18,,
+2585,Viscount of Stormont,William David Murray,title,1806/02/21,1840/02/18,,"https://en.wikipedia.org/wiki/William_Murray,_4th_Earl_of_Mansfield"
+2585,Earl of Mansfield,William David Murray,title,1840/02/19,1898/08/01,,
+,Viscount of Stormont,William David Murray,title,1860,1898/08/01,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv",He does not have a wikipedia page
+,Earl of Mansfield,William David Murray,title,1898/08/02,1906,,
+,Viscount of Stormont,Alan David Murray,title,1898/08/02,1906,,He does not have a wikipedia page
+,Earl of Mansfield,Alan David Murray,title,1906,1935,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv",
