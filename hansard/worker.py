@@ -113,6 +113,7 @@ REGEX_POST_CORRECTIONS = [
     ('^sr +', 'sir '),
     ('^str +', 'sir '),
     ('^air +', 'sir '),
+    ('^si +', 'sir '),
     
     ('^abmiral +', 'admiral '),
     ('^admtral +', 'admiral '),
