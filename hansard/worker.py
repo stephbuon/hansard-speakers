@@ -196,6 +196,7 @@ REGEX_POST_CORRECTIONS = [
     (' presumed$', ''),
     (' resumed$', ''),
     (' resuming$', ''),
+    (' also$', ''),
     
     ('irelandland', 'ireland'),
     
