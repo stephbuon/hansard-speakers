@@ -80,6 +80,11 @@ REGEX_POST_CORRECTIONS = [
     ('^viscwnt +', 'viscount '),
     ('^visoount +', 'viscount '),
     ('^vtscount +', 'viscount '),
+    ('^viscuont +', 'viscount '),
+    ('^viscoust +', 'viscount '),
+    ('^viscounty +', 'viscount '),
+    ('^visct +', 'viscount '),
+    ('^lord viscount +', 'viscount '),
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
@@ -117,6 +122,7 @@ REGEX_POST_CORRECTIONS = [
     ('^str +', 'sir '),
     ('^air +', 'sir '),
     ('^si +', 'sir '),
+    ('^sdi +', 'sir '),
     
     ('^abmiral +', 'admiral '),
     ('^admtral +', 'admiral '),
@@ -199,6 +205,7 @@ REGEX_POST_CORRECTIONS = [
     (' resumed$', ''),
     (' resuming$', ''),
     (' also$', ''),
+    (' felt$', ''),
     
     ('irelandland', 'ireland'),
     
