@@ -34,6 +34,7 @@ REGEX_POST_CORRECTIONS = [
     ('^tim +', 'the '),
     ('^tme +', 'the '),
     ('^tihe +', 'the '),
+    ('^thk +', 'the '),
 
     ('^the +', ''),  # Remove leading "the"
 
@@ -163,6 +164,18 @@ REGEX_POST_CORRECTIONS = [
     ('cbancellor of the exche-quer', 'chancellor of the exchequer'),
     ('\bchan of the exchequer\b', 'chancellor of the exchequer'),
     ('\bchancellor the exchequee\b', 'chancellor of the exchequer'),
+    ('\bchanc of the excheq\b', 'chancellor of the exchequer'),
+    ('\bchancellok of the exche-quek\b', 'chancellor of the exchequer'),
+    ('\bchancellor of the exchequerchequer\b', 'chancellor of the exchequer'),
+    ('\bchanc of the exchequer\b', 'chancellor of the exchequer'),
+    ('\bchanc of the exchequer\b', 'chancellor of the exchequer'),
+    ('\bchancelloe of the exche-quer\b', 'chancellor of the exchequer'),
+    ('\bchanc of tie excheq\b', 'chancellor of the exchequer'),
+    ('\bchanckllor of the exchequer\b', 'chancellor of the exchequer'),
+    ('\bchancellor of file exchequer\b', 'chancellor of the exchequer'),
+    ('\bchancelloerof the exche-quer\b', 'chancellor of the exchequer'),
+    ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
+    ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
     
     ('memberconstituencymemberconstituency', ''), # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
@@ -179,6 +192,10 @@ REGEX_POST_CORRECTIONS = [
     (' ampc$', ''),
     (' i$', ''),
     (' replied$', ''),
+    (' continued$', ''),
+    (' presumed$', ''),
+    (' resumed$', ''),
+    (' resuming$', ''),
     
     ('irelandland', 'ireland'),
     
