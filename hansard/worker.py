@@ -37,6 +37,7 @@ REGEX_POST_CORRECTIONS = [
     ('^thk +', 'the '),
     ('^thb +', 'the '),
     ('^tre +', 'the '),
+    ('^tile +', 'the '),
 
     ('^the +', ''),  # Remove leading "the"
 
@@ -184,6 +185,13 @@ REGEX_POST_CORRECTIONS = [
     ('\bchancelloerof the exche-quer\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
+    
+    ('\bchairman of committees of ways and means\b', 'chairman'),
+    ('\bchairman of ways and means\b', 'chairman'),
+    ('\bchairman ways and means\b', 'chairman'),
+    ('\bchat rman of ways and means\b', 'chairman'),
+    ('\bghairman of ways and means\b', 'chairman'),
+    ('\bchairman airman of ways and means\b', 'chairman'),
     
     ('memberconstituencymemberconstituency', ''), # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
