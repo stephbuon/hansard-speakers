@@ -83,11 +83,21 @@ class DataStruct:
         self.lord_titles_df = self.lord_titles_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
         self.lord_titles_df = self.lord_titles_df[~self.lord_titles_df['alias'].isnull()]
 
+    def _load_name_aliases(self):
+        dfs = []
+        for csv in os.listdir('data/name_aliases'):
+            print('Loading name alias csv:', csv)
+            df = pd.read_csv('data/name_aliases/' + csv, sep=',')
+            dfs.append(df)
+        self.aliases_df = pd.concat(dfs)
+        self.aliases_df['real_name'] = self.aliases_df['real_name'].str.lower()
+        self.aliases_df['alias'] = self.aliases_df['alias'].str.lower()
+        self.aliases_df = self._check_date_estimates(self.aliases_df, 'start', 'end')
+        self.aliases_df = self.aliases_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+        self.aliases_df = self.aliases_df[~self.aliases_df['alias'].isnull()]
+
     def _load_speakers(self):
-        # aliases_df: pd.DataFrame = pd.read_csv('data/aliases.csv', sep=',')
-        # aliases_df['real_name'] = aliases_df['real_name'].str.lower()
-        # aliases_df['alias'] = aliases_df['alias'].str.lower()
-        # self.aliases_df = self._check_date_estimates(aliases_df, 'start', 'end')
+        self._load_name_aliases()
 
         mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
         mps['mp.dod'] = mps['mp.dod'].fillna(datetime.now().strftime(DATE_FORMAT))

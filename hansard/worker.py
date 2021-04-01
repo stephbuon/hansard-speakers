@@ -164,7 +164,7 @@ REGEX_POST_CORRECTIONS = [
     ('\bchan of the exchequer\b', 'chancellor of the exchequer'),
     ('\bchancellor the exchequee\b', 'chancellor of the exchequer'),
     
-    # ('memberconstituencymemberconstituency', '') # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
+    ('memberconstituencymemberconstituency', ''), # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
     ('^a +', ''),
     ('^and +', ''),
@@ -230,6 +230,7 @@ def worker_function(inq: multiprocessing.Queue,
     honorary_title_df = data.honorary_titles_df
     office_title_dfs = data.office_position_dfs
     lord_titles_df = data.lord_titles_df
+    aliases_df = data.aliases_df
 
     hitcount = 0
     missed_indexes = []
@@ -293,11 +294,18 @@ def worker_function(inq: multiprocessing.Queue,
                     query = honorary_title_df[condition]
 
                 if not match and not len(query):
-                    # try aliases.
+                    # try lord/viscount/earl aliases.
                     condition = (speechdate >= lord_titles_df['start']) &\
                                 (speechdate < lord_titles_df['end']) &\
                                 (lord_titles_df['alias'].str.contains(target, regex=False))
                     query = lord_titles_df[condition]
+
+                if not match and not len(query):
+                    # try name aliases.
+                    condition = (speechdate >= aliases_df['start']) &\
+                                (speechdate < aliases_df['end']) &\
+                                (aliases_df['alias'].str.contains(target, regex=False))
+                    query = aliases_df[condition]
 
                 if not match and not len(query):
                     # Try office position
