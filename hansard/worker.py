@@ -52,6 +52,9 @@ REGEX_POST_CORRECTIONS = [
     ('^ma +', 'mr '),
     ('^mi +', 'mr '),
     
+    ('^dir +', 'dr '),
+    ('^dk +', 'dr '),
+    
     ('^marquis +', 'marquess '),
     ('^mauquess +', 'marquess '),
     ('^manquess +', 'marquess '),
@@ -106,6 +109,12 @@ REGEX_POST_CORRECTIONS = [
 
     ('^earb +', 'earl '),
     ('^ear +', 'earl '),
+    ('^ealr +', 'earl '),
+    ('^eari +', 'earl '),
+    ('^eaul +', 'earl '),
+    ('^early +', 'earl '),
+    ('^east +', 'earl '),
+    ('^eeal +', 'earl '),
 
     ('^dike +', 'duke '),
 
