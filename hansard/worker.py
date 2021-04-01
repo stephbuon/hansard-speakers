@@ -35,6 +35,8 @@ REGEX_POST_CORRECTIONS = [
     ('^tme +', 'the '),
     ('^tihe +', 'the '),
     ('^thk +', 'the '),
+    ('^thb +', 'the '),
+    ('^tre +', 'the '),
 
     ('^the +', ''),  # Remove leading "the"
 
