@@ -1,4 +1,4 @@
-# hansard-speakers
+# Hansard Speaker Disambiguation
 
 The purpose of this repository is to 
 
