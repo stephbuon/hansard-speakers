@@ -3,7 +3,7 @@
 (intro to the problem)
 
 Pre-processing the Hansard data for text mining is done in two major phases: 
-  1) Phase I: Importing the Hansard data from the raw XML files found on (enter). For code (enter) see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data)
+  1) Phase I: Importing the Hansard data from the raw XML files found on (enter). For code that imports and corrects the XML files, see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data).
   2) Phase II: 
 
 
