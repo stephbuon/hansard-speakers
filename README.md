@@ -5,7 +5,7 @@ the 19th-century British Parliamentary debates (also known as Hansard)
 
 Pre-processing the Hansard data for text mining is done in two major phases: 
   1) During phase I we scrape and correct the Hansard data provided by UK Parliament as raw XML files. We then export the corrected data as a TSV file for accessible text mining. For code the applies to phase I, see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data).
-  5) Phase II disambiguates the Parliamentary speakers. (enter). 
+  5) During phase II we disambiguate speakers. 
 
 This respository serves to a) document the problems associated with speaker name disambiguation, and b) provide our disambiguation pipeline. We also collected (data) to match with and replace speaker names, which will be addresssed in greater detail below. The data we used (enter) can be downloaded here: 
 
