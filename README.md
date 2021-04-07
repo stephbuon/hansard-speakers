@@ -38,9 +38,11 @@ for text mining.
 
 We identify (X) major issues in speaker name disambiguation: 
 
-1) Prolific members of parliament often held several office positions. Consider William Ewart Gladstone who acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. The original (UK data does not often disambiguate between the position title and whoever holds it). 
+1) Prolific members of parliament often held several office positions. 
+  - Consider William Ewart Gladstone who acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. The original (UK data does not often disambiguate between the position title and whoever holds it). 
 
-2) A single name appears in several permutations within the debate text. Consider again William Ewart Gladstone who might have been called William Gladstone, W. Gladstone, W. E. Gladstone, William E. Gladstone, and so forth. 
+2) A single name appears in several permutations within the debate text. 
+  - Consider again William Ewart Gladstone who might have been called William Gladstone, W. Gladstone, W. E. Gladstone, William E. Gladstone, and so forth. 
 
 
 he could have been called by his office title or a permutation of his name. 
