@@ -1,19 +1,10 @@
 # Hansard Speaker Disambiguation
 
+(intro to the problem)
 
-
-
-The purpose of this repository is to 
-
-share speaker-name data 
-the 19th-century British Parliamentary debates (also known as Hansard) 
-
-
-For replicability, this repository shows the code
-as well as the speaker-name dictionaries 
-
-
-### Speaker Name Dictionaries 
+Pre-processing the Hansard data for text mining is done in two major phases: 
+  1) Phase I: Importing the Hansard data from the raw XML files found on (enter). For code (enter) see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data)
+  2) Phase II: 
 
 
 
@@ -31,6 +22,38 @@ This repository is dedicated to Stage II, cleaning the Hansard speaker names.
 Stage I outputs a data set (enter description)
 
 Stage II performs the following tasks: 
+
+
+
+
+This respositories serves to a) document the problems associated with speaker name disambiguation, and b) provide our disambiguation pipeline. The data we collected to match with and replace speaker names can be downloaded here: 
+
+our data used to match with and replace speaker names can be downloaded here: 
+
+
+The algorithm works by (describe pipeline): 
+a) 
+b) 
+c) 
+
+
+
+
+
+
+
+
+share speaker-name data 
+the 19th-century British Parliamentary debates (also known as Hansard) 
+
+
+For replicability, this repository shows the code
+as well as the speaker-name dictionaries 
+
+
+### Speaker Name Dictionaries 
+
+
 
 They 
 
