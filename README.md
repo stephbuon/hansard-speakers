@@ -1,4 +1,4 @@
-# Hansard Speaker Disambiguation
+# Hansard Speaker Name Disambiguation
 
 (intro to the problem)
 the 19th-century British Parliamentary debates (also known as Hansard) 
