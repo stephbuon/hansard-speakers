@@ -52,6 +52,8 @@ REGEX_POST_CORRECTIONS = [
     ('^ma +', 'mr '),
     ('^mi +', 'mr '),
     
+    ('^m r +', 'mr '),  # Fix leading spaced out mr
+    
     ('^dir +', 'dr '),
     ('^dk +', 'dr '),
     
@@ -231,6 +233,14 @@ REGEX_POST_CORRECTIONS = [
     
     (' tiie ', ' the '),
     (' tile ', ' the '),
+    
+    (' de ', ' of '),
+    (' oe ', ' of '),
+    
+    ('under +secretary', 'under-secretary'),
+    ('under +- +secretary', 'under-secretary'),
+    
+    (r'lieutenant[\- ]?colonel +', )
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
@@ -289,7 +299,13 @@ def worker_function(inq: multiprocessing.Queue,
 
     edit_distance_dict = {}  # alias -> list[speaker id's]
 
+    extended_edit_distance_set = set()
+
     for speaker in data.speakers:
+        if len(speaker.last_name) > 8:
+            for alias in speaker.generate_edit_distance_aliases():
+                extended_edit_distance_set.add(alias)
+
         for alias in speaker.generate_edit_distance_aliases():
             edit_distance_dict.setdefault(alias, []).append(speaker.member_id)
 
@@ -405,7 +421,8 @@ def worker_function(inq: multiprocessing.Queue,
                     for alias in edit_distance_dict:
                         if len(possibles) > 1:
                             break
-                        if is_distance_one(target, alias):
+                        if (alias in extended_edit_distance_set and within_distance_two(target, alias, False)) or \
+                                is_distance_one(target, alias):
                             for speaker_id in edit_distance_dict[alias]:
                                 speaker = speaker_dict[speaker_id]
                                 if speaker.start_date <= speechdate <= speaker.end_date:
