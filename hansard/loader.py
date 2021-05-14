@@ -74,14 +74,19 @@ class DataStruct:
         for csv in os.listdir('data/lord_titles'):
             print('Loading lord title csv:', csv)
             df = pd.read_csv('data/lord_titles/' + csv, sep=',')
+
+            df['real_name'] = df['real_name'].str.lower()
+            df['alias'] = df['alias'].str.lower()
+            try:
+                df = self._check_date_estimates(df, 'start', 'end')
+            except AttributeError:
+                raise Exception(f'Invalid dates in file: {csv}')
+            df = df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+            df = df[~df['alias'].isnull()]
+
             dfs.append(df)
 
         self.lord_titles_df = pd.concat(dfs)
-        self.lord_titles_df['real_name'] = self.lord_titles_df['real_name'].str.lower()
-        self.lord_titles_df['alias'] = self.lord_titles_df['alias'].str.lower()
-        self.lord_titles_df = self._check_date_estimates(self.lord_titles_df, 'start', 'end')
-        self.lord_titles_df = self.lord_titles_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
-        self.lord_titles_df = self.lord_titles_df[~self.lord_titles_df['alias'].isnull()]
 
     def _load_name_aliases(self):
         dfs = []
@@ -263,6 +268,11 @@ class DataStruct:
         self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
         self.term_df['end_term'] = pd.to_datetime(self.term_df['end_term'], format=DATE_FORMAT)
 
+        term_df_additions = pd.read_csv('data/liparm_additions.csv', sep=',')
+        term_df_additions['start_term'] = pd.to_datetime(term_df_additions['start_term'], format=DATE_FORMAT)
+        term_df_additions['end_term'] = pd.to_datetime(term_df_additions['end_term'], format=DATE_FORMAT)
+        self.term_df = self.term_df.append(term_df_additions)
+
         self._load_office_positions()
 
     def _load_office_positions(self):
@@ -280,5 +290,5 @@ class DataStruct:
                             for df in self.office_position_dfs.values())
         temp_df = temp_df[~(temp_df['honorary_title'].isna()) & ~(temp_df['corresponding_id'].isna())]
         temp_df['honorary_title'] = temp_df['honorary_title'].str.lower()
-        temp_df['honorary_title'] = temp_df['honorary_title'].str.replace(r'[^a-zA-Z\- ]', '')
+        temp_df['honorary_title'] = temp_df['honorary_title'].str.replace(r'[^a-zA-Z\- ]', '', regex=True)
         self.honorary_titles_df = temp_df.copy()
