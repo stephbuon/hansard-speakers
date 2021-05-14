@@ -1,12 +1,13 @@
 import multiprocessing
 from queue import Empty
-from typing import Tuple, Optional
+from typing import Tuple, Optional, List, Dict
 
 from hansard.loader import DataStruct
 from datetime import datetime
 import pandas as pd
 import re
 
+from hansard.speaker import SpeakerReplacement
 from util.edit_distance import within_distance_four, within_distance_two, is_distance_one
 
 
@@ -240,7 +241,7 @@ REGEX_POST_CORRECTIONS = [
     ('under +secretary', 'under-secretary'),
     ('under +- +secretary', 'under-secretary'),
     
-    (r'lieutenant[\- ]?colonel +', )
+    (r'lieutenant[\- ]?colonel +', '')
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
@@ -270,6 +271,45 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
                 match = alias
 
     return match, ambiguity
+
+
+from util.jaro_distance import jaro_distance
+
+
+def find_best_jaro_dist_df(target: str, df: pd.DataFrame, speechdate: datetime, curr_best, col: str, date_start_col='start',
+                           date_end_col='end'):
+    condition = (speechdate >= df[date_start_col]) & \
+                (speechdate < df[date_end_col])
+    query = df[condition]
+
+    for row in query.itertuples(index=False):
+        dist = jaro_distance(target, getattr(row, col))
+        if dist > curr_best[1]:
+            curr_best = [getattr(row, col), dist]
+    return curr_best
+
+
+def find_best_jaro_dist(target: str, alias_dict: Dict[str, List[SpeakerReplacement]],
+                        honorary_title_df: pd.DataFrame,
+                        lord_titles_df: pd.DataFrame,
+                        aliases_df: pd.DataFrame,
+                        speechdate: datetime):
+    best_match = ['', 0.0]
+
+    best_match = find_best_jaro_dist_df(target, honorary_title_df, speechdate, best_match, 'honorary_title',
+                                        'started_service', 'ended_service')
+    best_match = find_best_jaro_dist_df(target, lord_titles_df, speechdate, best_match, 'alias')
+    best_match = find_best_jaro_dist_df(target, aliases_df, speechdate, best_match, 'alias')
+
+    for alias in alias_dict:
+        dist = jaro_distance(target, alias)
+        if dist > best_match[1]:
+            possibles = alias_dict[alias]
+            possibles = [speaker for speaker in possibles if speaker.matches(target, speechdate, cleanse=False)]
+            if len(possibles) == 1:
+                best_match = [alias, dist]
+
+    return best_match
 
 
 # This function will run per core.
@@ -450,6 +490,9 @@ def worker_function(inq: multiprocessing.Queue,
                     AMBIG_CACHE.add((target, speechdate))
                     ambiguities_indexes.append(i)
                 else:
+                    # TODO: fix this
+                    # best_guess = find_best_jaro_dist(target, alias_dict, honorary_title_df, lord_titles_df, aliases_df, speechdate)
+                    # print('Best Guess for ', target, ' : ', best_guess)
                     MISS_CACHE.add((target, speechdate))
                     missed_indexes.append(i)
 
