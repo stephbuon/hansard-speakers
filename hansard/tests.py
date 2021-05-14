@@ -3,6 +3,8 @@ import datetime
 
 from .speaker import SpeakerReplacement, Office
 
+from util.jaro_distance import jaro_distance
+
 
 class TestSpeakerReplacement(unittest.TestCase):
     def test_simple(self):
@@ -16,7 +18,7 @@ class TestSpeakerReplacement(unittest.TestCase):
         sp = SpeakerReplacement(full_name=full_name, first_name=first, last_name=surname, member_id=1,
                                 start=start, end=end)
 
-        self.assertEqual(len(sp.titles), 0)
+        self.assertEqual(sp.titles, ['mr'])
         self.assertEqual(len(sp.middle_names), 0)
         self.assertEqual(sp.middle_possibilities, [''])
 
@@ -51,7 +53,7 @@ class TestSpeakerReplacement(unittest.TestCase):
         self.assertEqual(sp.first_name, 'john')
         self.assertEqual(sp.last_name, 'smith')
 
-        self.assertEqual(len(sp.titles), 0)
+        self.assertEqual(sp.titles, ['mr'])
         self.assertEqual(len(sp.middle_names), 0)
         self.assertEqual(sp.middle_possibilities, [''])
 
@@ -76,7 +78,7 @@ class TestSpeakerReplacement(unittest.TestCase):
         self.assertEqual(sp.first_name, 'john')
         self.assertEqual(sp.last_name, 'johnson-smith')
 
-        self.assertEqual(len(sp.titles), 0)
+        self.assertEqual(sp.titles, ['mr'])
         self.assertEqual(len(sp.middle_names), 0)
         self.assertEqual(sp.middle_possibilities, [''])
 
@@ -117,7 +119,7 @@ class TestSpeakerReplacement(unittest.TestCase):
         self.assertEqual(sp.first_name, 'john')
         self.assertEqual(sp.last_name, 'smith')
 
-        self.assertEqual(len(sp.titles), 0)
+        self.assertEqual(sp.titles, ['mr'])
         self.assertEqual(sp.middle_names, ['doe'])
 
         self.assertTrue(sp.matches('J. Smith', speech_date))
@@ -179,6 +181,28 @@ class TestOffice(unittest.TestCase):
         self.assertFalse(office.matches('of the'))
         self.assertFalse(office.matches('Lord of'))
         self.assertFalse(office.matches('of the Treasury'))
+
+
+class TestJaroDistance(unittest.TestCase):
+    def test1(self):
+        candidates = ('a','bbbbb','cccasdwvs','mr jeffreys')
+        s = 'mr jeffreys in seconding the amendment'
+        distances = [jaro_distance(c, s) for c in candidates]
+
+        self.assertTrue(distances[0] == 0.0)
+        self.assertTrue(distances[1] == 0.0)
+        self.assertTrue(max(distances) == jaro_distance(candidates[3], s))
+        self.assertTrue(jaro_distance(s, s) == 1.0)
+
+    def test2(self):
+        distance = jaro_distance('CRATE', 'TRACE')
+        self.assertAlmostEqual(distance, 0.73, delta=0.01)
+
+    def test3(self):
+        candidates = ('jeff','mr juffreys','mr joffreys','mr jeffreys')
+        s = 'mr jefreys'
+        distances = [jaro_distance(c, s) for c in candidates]
+        self.assertTrue(max(distances) == jaro_distance('mr jeffreys', s))
 
 
 if __name__ == '__main__':
