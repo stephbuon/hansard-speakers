@@ -1,16 +1,13 @@
 corresponding_id,alias,real_name,alias_type,start,end,extra
-,Earl Grey,Charles Grey,title,1806/04/11,1807/11/14,
-,Baron Grey of Howick,Charles Grey,title,1801/06/23,1807/11/14,
-,Viscount Howick,Charles Grey,title,1806/04/11,1807/11/14,
-,Earl Grey,Charles Grey,title,1807/11/14,1845/07/17,
-,Baron Grey of Howick,Charles Grey,title,1807/11/14,1845/07/17,
-,Viscount Howick,Charles Grey,title,1807/11/14,1845/07/17,
-,Earl Grey,Henry George Grey,title,1845/07/18,1894/10/09,
-,Baron Grey of Howick,Henry George Grey,title,1845/07/18,1894/10/09,
-,Viscount Howick,Henry George Grey,title,1845/07/18,1894/10/09,
-,Earl Grey,Albert Henry George Grey,title,1894/10/10,1917/08/29,
-,Baron Grey of Howick,Albert Henry George Grey,title,1894/10/10,1917/08/29,
-,Viscount Howick,Albert Henry George Grey,title,1894/10/10,1917/08/29,
-1522,Earl Grey,Charles Grey,title,1807/12/31,1845/07/17,
-2516,Earl Grey,Henry George Grey,title,1845/07/18,1894/10/09,
-5118,Earl Grey,Albert Henry George Grey,title,1894/10/10,1917/08/29,
+6679,Earl Grey,Charles Grey,title,1806/04/11,1807/11/14,"https://en.wikipedia.org/wiki/Charles_Grey,_1st_Earl_Grey"
+6679,Baron Grey of Howick,Charles Grey,title,1801/06/23,1807/11/14,
+6679,Viscount Howick,Charles Grey,title,1806/04/11,1807/11/14,
+1522,Earl Grey,Charles Grey,title,1807/11/14,1845/07/17,"https://en.wikipedia.org/wiki/Charles_Grey,_2nd_Earl_Grey"
+1522,Baron Grey of Howick,Charles Grey,title,1807/11/14,1845/07/17,
+1522,Viscount Howick,Charles Grey,title,1807/11/14,1845/07/17,
+2516,Earl Grey,Henry George Grey,title,1845/07/18,1894/10/09,"https://en.wikipedia.org/wiki/Henry_Grey,_3rd_Earl_Grey"
+2516,Baron Grey of Howick,Henry George Grey,title,1845/07/18,1894/10/09,
+2516,Viscount Howick,Henry George Grey,title,1845/07/18,1894/10/09,
+5118,Earl Grey,Albert Henry George Grey,title,1894/10/10,1917/08/29,"https://en.wikipedia.org/wiki/Albert_Grey,_4th_Earl_Grey"
+5118,Baron Grey of Howick,Albert Henry George Grey,title,1894/10/10,1917/08/29,
+5118,Viscount Howick,Albert Henry George Grey,title,1894/10/10,1917/08/29,

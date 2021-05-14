@@ -1,24 +1,24 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra
-,Earl of Donoughmore of Knockloftly,Richard Hely Hely-Hutchinson,title,1800/12/31,1825/08/22,
-,Viscount Donoughmore of Knockloftly,Richard Hely Hely-Hutchinson,title,1797/11/20,1825/08/22,
-,Baron Donoughmore of Knockloftly,Richard Hely Hely-Hutchinson,title,1788/06/24,1825/08/22,
-,Viscount Hutchinson of Knockloftly,Richard Hely Hely-Hutchinson,title,1821/07/14,1825/08/22,
-,Earl of Donoughmore of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,
-,Viscount Donoughmore of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,
-,Baron Donoughmore of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,
-,Viscount Hutchinson of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,
-,Baron Hutchinson of Alexandria and Knockloftly,John Hely-Hutchinson,title,1801/12/05,1832/06/29,
-,Earl of Donoughmore of Knockloftly,John Hely-Hutchinson,title,1832/06/30,1851/08/14,
-,Viscount Hutchinson of Knockloftly,John Hely-Hutchinson,title,1832/06/30,1851/08/14,
-,Earl of Donoughmore of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,
-,Viscount Donoughmore of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,
-,Baron Donoughmore of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,
-,Viscount Hutchinson of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,
-,Earl of Donoughmore of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,
-,Viscount Donoughmore of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,
-,Baron Donoughmore of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,
-,Viscount Hutchinson of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,
-,Earl of Donoughmore of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,
-,Viscount Donoughmore of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,
-,Baron Donoughmore of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,
-,Viscount Hutchinson of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,
+corresponding_id,alias,real_name,alias_type,start,end,extra,link
+6816,Earl of Donoughmore of Knockloftly,Richard Hely Hely-Hutchinson,title,1800/12/31,1825/08/22,1st Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_1st_Earl_of_Donoughmore"
+6816,Viscount Donoughmore of Knockloftly,Richard Hely Hely-Hutchinson,title,1797/11/20,1825/08/22,1st Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_1st_Earl_of_Donoughmore"
+6816,Baron Donoughmore of Knockloftly,Richard Hely Hely-Hutchinson,title,1788/06/24,1825/08/22,1st Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_1st_Earl_of_Donoughmore"
+6816,Viscount Hutchinson of Knockloftly,Richard Hely Hely-Hutchinson,title,1821/07/14,1825/08/22,1st Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_1st_Earl_of_Donoughmore"
+6695,Earl of Donoughmore of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,2nd Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_2nd_Earl_of_Donoughmore"
+6695,Viscount Donoughmore of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,2nd Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_2nd_Earl_of_Donoughmore"
+6695,Baron Donoughmore of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,2nd Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_2nd_Earl_of_Donoughmore"
+6695,Viscount Hutchinson of Knockloftly,John Hely-Hutchinson,title,1825/08/23,1832/06/29,2nd Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_2nd_Earl_of_Donoughmore"
+6695,Baron Hutchinson of Alexandria and Knockloftly,John Hely-Hutchinson,title,1801/12/05,1832/06/29,2nd Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_2nd_Earl_of_Donoughmore"
+2505,Earl of Donoughmore of Knockloftly,John Hely-Hutchinson,title,1832/06/30,1851/08/14,3rd Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_3rd_Earl_of_Donoughmore"
+2505,Viscount Hutchinson of Knockloftly,John Hely-Hutchinson,title,1832/06/30,1851/08/14,3rd Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_3rd_Earl_of_Donoughmore"
+,Earl of Donoughmore of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,4th Earl of Donoughmore / NO ID,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_4th_Earl_of_Donoughmore"
+,Viscount Donoughmore of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,4th Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_4th_Earl_of_Donoughmore"
+,Baron Donoughmore of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,4th Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_4th_Earl_of_Donoughmore"
+,Viscount Hutchinson of Knockloftly,Richard John Hely-Hutchinson,title,1851/08/15,1866/02/22,4th Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_4th_Earl_of_Donoughmore"
+6898,Earl of Donoughmore of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,5th Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_5th_Earl_of_Donoughmore"
+6898,Viscount Donoughmore of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,5th Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_5th_Earl_of_Donoughmore"
+6898,Baron Donoughmore of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,5th Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_5th_Earl_of_Donoughmore"
+6898,Viscount Hutchinson of Knockloftly,John Luke George Hely-Hutchinson,title,1866/02/23,1900/12/05,5th Earl of Donoughmore,"https://en.wikipedia.org/wiki/John_Hely-Hutchinson,_5th_Earl_of_Donoughmore"
+7171,Earl of Donoughmore of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,6th Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_6th_Earl_of_Donoughmore"
+7171,Viscount Donoughmore of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,6th Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_6th_Earl_of_Donoughmore"
+7171,Baron Donoughmore of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,6th Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_6th_Earl_of_Donoughmore"
+7171,Viscount Hutchinson of Knockloftly,Richard Walter John Hely-Hutchinson,title,1900/12/06,1948/10/19,6th Earl of Donoughmore,"https://en.wikipedia.org/wiki/Richard_Hely-Hutchinson,_6th_Earl_of_Donoughmore"

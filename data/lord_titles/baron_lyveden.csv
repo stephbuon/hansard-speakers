@@ -1,4 +1,4 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra
-,Baron Lyveden,Robert Vernon Smith,title,1859,1873/11/10,
-,Baron Lyveden,Fitzpatrick Henry Vernon,title,1873/11/11,1900/02/25,
-,Baron Lyveden,Courtenay Robert Percy Vernon,title,1900/02/26,1926,
+corresponding_id,alias,real_name,alias_type,start,end,extra,link
+2569,Baron Lyveden,Robert Vernon Smith,title,1859,1873/11/10,,"https://en.wikipedia.org/wiki/Robert_Vernon,_1st_Baron_Lyveden"
+,Baron Lyveden,Fitzpatrick Henry Vernon,title,1873/11/11,1900/02/25,,"https://en.wikipedia.org/wiki/Fitzpatrick_Vernon,_2nd_Baron_Lyveden"
+,Baron Lyveden,Courtenay Robert Percy Vernon,title,1900/02/26,1926,,https://en.wikipedia.org/wiki/Baron_Lyveden

@@ -1,4 +1,4 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra
-,Earl of Ellenborough,Edward Law,title,1844/10/22,1871/12/22,
-,Viscount Southam,Edward Law,title,1844/10/22,1871/12/22,
-,Baron Ellenborough,Edward Law,title,1818/12/14,1871/12/22,
+corresponding_id,alias,real_name,alias_type,start,end,extra,links
+1875,Earl of Ellenborough,Edward Law,title,1844/10/22,1871/12/22,died in office,"https://en.wikipedia.org/wiki/Edward_Law,_1st_Earl_of_Ellenborough#Political_career,_1844%E2%80%931858"
+1875,Viscount Southam,Edward Law,title,1844/10/22,1871/12/22,,
+1875,Baron Ellenborough,Edward Law,title,1818/12/14,1871/12/22,,

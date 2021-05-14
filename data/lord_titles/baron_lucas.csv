@@ -1,11 +1,11 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra
-,Baroness Lucas,Amabel Hume-Campbell,title,1816,1833/03/04,
-,Countess de Grey,Amabel Hume-Campbell,title,1797/01/11,1833/03/04,
-,Baron Grantham,Thomas Philip de Grey,title,1786,1833/3/4,
-,Baron Lucas,Thomas Philip de Grey,title,1833/03/05,1859/11/14,
-,Earl de Grey,Thomas Philip de Grey,title,1833/03/05,1859/11/14,
-,Baroness Lucas,Anne Florence Cowper,title,1859/11/15,1880,
-,Viscount Fordwich,Francis Thomas de Grey Cowper,title,1837,1856/04/15,
-,Earl Cowper,Francis Thomas de Grey Cowper,title,1856/04/16,1880,
-,Baron Lucas,Francis Thomas de Grey Cowper,title,1880,1905/07/18,
-,Baron Lucas,Auberon Thomas Herbert,title,1905/07/19,1916/11/03,
+corresponding_id,alias,real_name,alias_type,start,end,extra,link
+,Baroness Lucas,Amabel Hume-Campbell,title,1816,1833/03/04,,"https://en.wikipedia.org/wiki/Amabel_Hume-Campbell,_1st_Countess_de_Grey"
+,Countess de Grey,Amabel Hume-Campbell,title,1797/01/11,1833/03/04,,"https://en.wikipedia.org/wiki/Amabel_Hume-Campbell,_1st_Countess_de_Grey"
+,Baron Grantham,Thomas Philip de Grey,title,1786,1833/3/4,,"https://en.wikipedia.org/wiki/Thomas_de_Grey,_2nd_Earl_de_Grey"
+,Baron Lucas,Thomas Philip de Grey,title,1833/03/05,1859/11/14,,"https://en.wikipedia.org/wiki/Thomas_de_Grey,_2nd_Earl_de_Grey"
+,Earl de Grey,Thomas Philip de Grey,title,1833/03/05,1859/11/14,,"https://en.wikipedia.org/wiki/Thomas_de_Grey,_2nd_Earl_de_Grey"
+,Baroness Lucas,Anne Florence Cowper,title,1859/11/15,1880,,https://en.wikipedia.org/wiki/Baron_Lucas
+6848,Viscount Fordwich,Francis Thomas de Grey Cowper,title,1837,1856/04/15,,"https://en.wikipedia.org/wiki/Francis_Cowper,_7th_Earl_Cowper"
+6848,Earl Cowper,Francis Thomas de Grey Cowper,title,1856/04/16,1880,,"https://en.wikipedia.org/wiki/Francis_Cowper,_7th_Earl_Cowper"
+6848,Baron Lucas,Francis Thomas de Grey Cowper,title,1880,1905/07/18,,"https://en.wikipedia.org/wiki/Francis_Cowper,_7th_Earl_Cowper"
+9996,Baron Lucas,Auberon Thomas Herbert,title,1905/07/19,1916/11/03,,"https://en.wikipedia.org/wiki/Auberon_Herbert,_9th_Baron_Lucas"

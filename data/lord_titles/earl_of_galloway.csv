@@ -1,13 +1,13 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra
-288,Earl of Galloway,John Stewart,title,1773/09/25,1806/11/13,
-,Lord Garlies,George Stewart,title,1773/09/25,1806/11/13,
-288,Earl of Galloway,George Stewart,title,1806/11/14,1834/03/27,
-,Viscount Garlies,Randolph Algernon Ronald Stewart,title,1806/11/14,1834/03/27,
-288,Earl of Galloway,Randolph Algernon Ronald Stewart,title,1834/03/28,1873/01/02,
-,Baron Stewart,Randolph Algernon Ronald Stewart,title,1834/3/28,1873/01/01,
-,Lord Garlies,Alan Plantagenet Stewart,title,1835/10/21,1873/01/02,
-288,Earl of Galloway,Alan Plantagenet Stewart,title,1873/01/03,1901/02/07,
-,Baron Stewart,Alan Plantagenet Stewart,title,1873/01/03,1901/02/07,
-,Lord Garlies,Randolph Henry Stewart,title,1873/01/03,1901/02/07,
-288,Earl of Galloway,Randolph Henry Stewart,title,1901/02/08,1920/02/07,
-,Baron Stewart,Randolph Henry Stewart,title,1901/02/08,1920/02/07,
+corresponding_id,alias,real_name,alias_type,start,end,extra,links
+1119,Earl of Galloway,John Stewart,title,1773/09/25,1806/11/13,died in office,"https://en.wikipedia.org/wiki/John_Stewart,_7th_Earl_of_Galloway"
+1119,Lord Garlies,George Stewart,title,1773/09/25,1806/11/13,,
+1246,Earl of Galloway,George Stewart,title,1806/11/14,1834/03/27,,"https://en.wikipedia.org/wiki/George_Stewart,_8th_Earl_of_Galloway"
+1246,Viscount Garlies,Randolph Algernon Ronald Stewart,title,1806/11/14,1834/03/27,,
+2409,Earl of Galloway,Randolph Algernon Ronald Stewart,title,1834/03/28,1873/01/02,,"https://en.wikipedia.org/wiki/Randolph_Stewart,_9th_Earl_of_Galloway"
+2409,Baron Stewart,Randolph Algernon Ronald Stewart,title,1834/3/28,1873/01/01,,
+5228,Lord Garlies,Alan Plantagenet Stewart,title,1835/10/21,1873/01/02,,"https://en.wikipedia.org/wiki/Alan_Stewart,_10th_Earl_of_Galloway"
+5228,Earl of Galloway,Alan Plantagenet Stewart,title,1873/01/03,1901/02/07,,
+5228,Baron Stewart,Alan Plantagenet Stewart,title,1873/01/03,1901/02/07,,
+7184,Lord Garlies,Randolph Henry Stewart,title,1873/01/03,1901/02/07,,"https://en.wikipedia.org/wiki/Randolph_Stewart,_11th_Earl_of_Galloway"
+7184,Earl of Galloway,Randolph Henry Stewart,title,1901/02/08,1920/02/07,,
+7184,Baron Stewart,Randolph Henry Stewart,title,1901/02/08,1920/02/07,,

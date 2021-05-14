@@ -1,9 +1,9 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra
-,Earl of Farnham,John James Maxwell,title,1800/10/08,1823/07/23,
-,Baron Farnham,John Maxwell-Barry,title,1823/07/24,1838/09/20,
-,Baron Farnham,Henry Maxwell,title,1839/09/21,1838/10/19,
-,Baron Farnham,Henry Maxwell,title,1838/10/20,1868/08/20,
-,Baron Farnham,Somerset Richard Maxell,title,1868/08/21,1884/06/04,
-,Baron Farnham,James Pierce Maxwell,title,1884/06/05,1896/10/26,
-,Baron Farnham,Somerset Henry Maxwell,title,1896/10/27,1900/11/22,
-,Baron Farnham,Arthur Kenlis Maxwell,title,1900/11/23,1957/02/05,
+corresponding_id,alias,real_name,alias_type,start,end,extra,link
+,Earl of Farnham,John James Maxwell,title,1800/10/08,1823/07/23,,"https://en.wikipedia.org/wiki/John_Maxwell,_2nd_Earl_of_Farnham"
+1391,Baron Farnham,John Maxwell-Barry,title,1823/07/24,1838/09/20,,"https://en.wikipedia.org/wiki/John_Maxwell-Barry,_5th_Baron_Farnham"
+,Baron Farnham,Henry Maxwell,title,1839/09/21,1838/10/19,,"https://en.wikipedia.org/wiki/Henry_Maxwell,_6th_Baron_Farnham"
+2909,Baron Farnham,Henry Maxwell,title,1838/10/20,1868/08/20,,"https://en.wikipedia.org/wiki/Henry_Maxwell,_7th_Baron_Farnham"
+3593,Baron Farnham,Somerset Richard Maxell,title,1868/08/21,1884/06/04,,"https://en.wikipedia.org/wiki/Somerset_Maxwell,_8th_Baron_Farnham"
+3801,Baron Farnham,James Pierce Maxwell,title,1884/06/05,1896/10/26,,"https://en.wikipedia.org/wiki/James_Maxwell,_9th_Baron_Farnham"
+,Baron Farnham,Somerset Henry Maxwell,title,1896/10/27,1900/11/22,,"https://en.wikipedia.org/wiki/Somerset_Maxwell,_10th_Baron_Farnham"
+,Baron Farnham,Arthur Kenlis Maxwell,title,1900/11/23,1957/02/05,,"https://en.wikipedia.org/wiki/Arthur_Maxwell,_11th_Baron_Farnham"
