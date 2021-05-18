@@ -1,4 +1,4 @@
-id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member.id
+id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member_id
 8,Mr Thomas Neville Abdy,Mr,Thomas Neville,Abdy,1847-07-29,1852-07-07,1810-12-21,1877-07-20,Lyme Regis,3986
 9,Mr George Ralph Abercromby,Mr,George Ralph,Abercromby,1841-06-29,1842-02-17,1800-05-30,1852-06-25,Clackmannanshire and Kinross-shire,6838
 3,Mr James Abercromby,Mr,James,Abercromby,1832-12-10,1839-05-15,1776-11-07,1858-04-17,Edinburgh,1741

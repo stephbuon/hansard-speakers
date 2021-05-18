@@ -1,4 +1,4 @@
-id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member.id
+id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member_id
 9200,Mr John Neilson Gladstone,Mr,John Neilson,Gladstone,1852-01-01,1857-03-26,1807-01-18,1863-02-17,Devizes,3626
 9201,Mr John Neilson Gladstone,Mr,John Neilson,Gladstone,1842-08-17,1847-07-29,1807-01-18,1863-02-17,Ipswich,3626
 9202,Mr John Neilson Gladstone,Mr,John Neilson,Gladstone,1841-02-04,1841-06-29,1807-01-18,1863-02-17,Walsall,3626
