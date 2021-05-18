@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Set
+from typing import Set, List
 from .exceptions import *
 from . import cleanse_string
 import re
@@ -45,6 +45,15 @@ def is_edit_distant_one(incorrect, correct):
     return count == 1
 
 
+from typing import NamedTuple
+
+class OfficeTerm(NamedTuple):
+    start: datetime
+    end: datetime
+    
+    def contains(self, target_date: datetime):
+        return self.start <= target_date < self.end
+
 class SpeakerReplacement:
     def __init__(self, full_name, first_name, last_name, member_id, start, end):
         self.first_name = cleanse_string(first_name)
@@ -84,6 +93,8 @@ class SpeakerReplacement:
         self.start_date: datetime = start
         self.end_date: datetime = end
 
+        self.terms: List[OfficeTerm] = []
+
     def _generate_aliases(self):
         for title in self.titles + ['']:
             for fn in ('', self.first_name[0], self.first_name):
@@ -119,6 +130,12 @@ class SpeakerReplacement:
             speaker_name = cleanse_string(speaker_name)
 
         return speaker_name in self.aliases
+
+    def is_in_office(self, speechdate: datetime):
+        for term in self.terms:
+            if term.contains(speechdate):
+                return True
+        return False
 
     def __repr__(self):
         return f'SpeakerReplacement({self.id}, {self.start_date}, {self.end_date})'

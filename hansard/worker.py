@@ -474,14 +474,17 @@ def worker_function(inq: multiprocessing.Queue,
                         ambiguity = True
 
                 if ambiguity and possibles:
+                    # Filters out duplicates.
                     speaker_ids = {speaker.member_id for speaker in possibles}
+                    possibles.clear()
+                    for speaker_id in speaker_ids:
+                        speaker = speaker_dict[speaker_id]
+                        if speaker.is_in_office(speechdate):
+                            possibles.append(speaker)
 
-                    query = terms_df[(terms_df['member.id'].isin(speaker_ids)) &
-                                     (terms_df['start_term'] <= speechdate) &
-                                     (speechdate <= terms_df['end_term'])]
-                    if len(query) == 1:
+                    if len(possibles) == 1:
                         ambiguity = False
-                        match = query.iloc[0]['fullname'].lower()
+                        match = possibles[0].id
 
                 if match is not None:
                     hitcount += 1

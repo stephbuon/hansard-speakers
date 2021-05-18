@@ -2,7 +2,7 @@ import os
 from typing import Dict, List, Optional, Tuple
 import pandas as pd
 from hansard import DATE_FORMAT, DATE_FORMAT2, MP_ALIAS_PATTERN, cleanse_string
-from hansard.speaker import SpeakerReplacement, OfficeHolding, Office
+from hansard.speaker import SpeakerReplacement, OfficeHolding, Office, OfficeTerm
 from hansard.exceptions import *
 from datetime import datetime
 import logging
@@ -273,6 +273,9 @@ class DataStruct:
         term_df_additions['end_term'] = pd.to_datetime(term_df_additions['end_term'], format=DATE_FORMAT)
         self.term_df = self.term_df.append(term_df_additions)
 
+        for row in self.term_df[(~self.term_df['member_id'].isnull()) & (self.term_df['member_id'] != -1)].itertuples(index=False):
+            speaker_dict[int(row.member_id)].terms.append(OfficeTerm(row.start_term, row.end_term))
+
         self._load_office_positions()
 
     def _load_office_positions(self):
@@ -284,6 +287,10 @@ class DataStruct:
             df = self._load_office_position(f'{directory}/{csv}')
             name = cleanse_string(df['official_post'][0])
             self.office_position_dfs[name] = df
+
+            for row in df[~df['corresponding_id'].isnull()].itertuples(index=False):
+                self.speaker_dict[int(row.corresponding_id)].terms.append(OfficeTerm(row.started_service, row.ended_service))
+
             print('Loaded office position:', name)
 
         temp_df = pd.concat(df[['corresponding_id', 'honorary_title', 'started_service', 'ended_service']]
