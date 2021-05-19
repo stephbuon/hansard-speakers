@@ -480,7 +480,14 @@ def worker_function(inq: multiprocessing.Queue,
                     for speaker_id in speaker_ids:
                         speaker = speaker_dict[speaker_id]
                         if speaker.is_in_office(speechdate):
-                            possibles.append(speaker)
+                            already_added = False
+                            for other in possibles:
+                                if other.member_id == speaker.member_id:
+                                    already_added = True
+                                    break
+
+                            if not already_added:
+                                possibles.append(speaker)
 
                     if len(possibles) == 1:
                         ambiguity = False
