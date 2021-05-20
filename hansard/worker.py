@@ -418,6 +418,7 @@ def worker_function(inq: multiprocessing.Queue,
                             break
 
                 if not match:
+                    query = query.drop_duplicates(subset=['corresponding_id'])
                     if len(query) == 1:
                         speaker_id = query.iloc[0]['corresponding_id']
                         if speaker_id != 'N/A':
