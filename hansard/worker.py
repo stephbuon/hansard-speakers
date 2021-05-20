@@ -229,19 +229,22 @@ REGEX_POST_CORRECTIONS = [
     (' resuming$', ''),
     (' also$', ''),
     (' felt$', ''),
-    
+
     ('irelandland', 'ireland'),
-    
+
     (' tiie ', ' the '),
     (' tile ', ' the '),
-    
+
     (' de ', ' of '),
     (' oe ', ' of '),
-    
+
     ('under +secretary', 'under-secretary'),
     ('under +- +secretary', 'under-secretary'),
-    
-    (r'lieutenant[\- ]?colonel +', '')
+
+    (r'lieutenant[\- ]?colonel +', ''),
+
+    (r'^right hon +', ''),
+    (r' +observed$', '')
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
