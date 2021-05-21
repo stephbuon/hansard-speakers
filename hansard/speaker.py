@@ -131,6 +131,10 @@ class SpeakerReplacement:
 
         return speaker_name in self.aliases
 
+    def age_at(self, speechdate: datetime):
+        difference = speechdate - self.start_date
+        return int(round(difference.days / 365))
+
     def is_in_office(self, speechdate: datetime):
         for term in self.terms:
             if term.contains(speechdate):

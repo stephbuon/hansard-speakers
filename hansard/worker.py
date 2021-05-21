@@ -483,6 +483,8 @@ def worker_function(inq: multiprocessing.Queue,
                     possibles.clear()
                     for speaker_id in speaker_ids:
                         speaker = speaker_dict[speaker_id]
+                        if speaker.age_at(speechdate) < 20:
+                            continue
                         if speaker.is_in_office(speechdate):
                             possibles.append(speaker)
 
