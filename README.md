@@ -1,6 +1,6 @@
 # Hansard Speaker Name Disambiguation
 
-Digital methods are becoming increasingly important in the interpretation of the 19th-century Parliamentary debates, also known as Hansard. Some analyses of Hansard, however, can be thwarted by messy data. For this reason we present a preprocessing pipeline that produces the cleanest known version of the Hansard data.
+Digital methods are becoming increasingly important in the interpretation of the 19th-century British Parliamentary debates, also known as Hansard. Analyses of Hansard, however, can be thwarted by messy data. For this reason we present a preprocessing pipeline that produces the cleanest known version of the Hansard data. The final dataset produced by this pipeline can be downloaded [here](). 
 
 Preprocessing the Hansard data is done in two major phases: 
 
