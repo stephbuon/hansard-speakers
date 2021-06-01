@@ -32,6 +32,13 @@ To address the above issues, we have developed a speaker disambiguation pipeline
 
 The algorithm works by (describe pipeline): 
 
+- cleaning ocr errors in the mr etc. 
+- removing certain types of titles
+- generating permutations of speaker names 
+- matching speakers (mention about corresponding ids) 
+- using levenshtein distance to enter
+
+
 We disambiguate by: 
 
 The purpose of our project is to thus: 
@@ -65,7 +72,10 @@ These impressive and comprehensive data sets were foundational to (enter). Howev
 
 
 
-### Speaker Name Inferences 
+
+
+
+Speaker Name Inferences 
 
 Even after collecting extensive metadata on (enter), (enter). (enter) a high number of conflicts where a 
 
