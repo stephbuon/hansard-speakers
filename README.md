@@ -56,12 +56,20 @@ Note that we hit less than 30 % (get exact number) even after I added permutatio
 
 ### About the Data 
 
-We also collected additional data to 
+Our data is from: 
+a) The [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml)
+b) The [Andy Eggers and Arthur Spirling database]()
+c) 
 
-(data) to match with and replace speaker names, which will be addresssed in greater detail in About the Data. The data we used (enter) can be downloaded here: 
 
 
-We obtained our original data sets from the DiLPD project, located [here](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and the Andy Eggers and Arthur Spirling database, located here. While these impressive and comprehensive data sets offer insight into Parliamentary speakers, they did not have the (standardization or identification) required for text mining speaker names. 
+
+We collected metadata to help us diambiguate speaker names, such as metadata on 
+
+
+Our metadata can be downloaded [here](). 
+
+While these impressive and comprehensive data sets offer insight into Parliamentary speakers, they did not have the (standardization or identification) required for text mining speaker names. 
 
 collected additional data from various online sources 
 from sources like Hansard People, etc. 
