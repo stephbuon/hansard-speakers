@@ -18,13 +18,11 @@ We identify and correct 5 major issues that cause ambiguities in speaker names:
 
 3) Several MPs shared the same name. Three different Parliamentarians, for example, were named Sir Robert Peel. In cases like this, metadata was collected to help make distinctions betweent the different speakers. Metadata may include the start and end dates of the diferent Sir Robert Peels. Another example might be that some speakers share elements of their name. Mr Gladstone or Mr. W. Gladstone might refer to William Ewart Gladstone or Willaim Henry Gladstone. 
 
-4) Many names have OCR errors. 
+4) Many MP names have OCR errors. The original debates were hand-recorded with inkwell pens (check). (present challenges for digitization). Many early debates were digitized and tagged using technology from the 1980s. (while important milestone, enter). 
 
-greater detail below. 
+5) Many MP names have inconsistent spelling. Sir Henry Campbell-Bannerman, for example, might be transcribed as "Campbell Bannerman," or "Campbell - Bannerman."
 
-5) spelling inconsistencies (campbell-bannerman) 
-
-To address the above issues, we have developed (enter). 
+To address the above issues, we have developed a speaker disambiguation pipeline (enter). 
 
 ### About the Hansard Speaker Disambiguation Pipeline
 
@@ -55,7 +53,9 @@ Note that we hit less than 30 % (get exact number) even after I added permutatio
 
 #### About the Data 
 
-Our pipeline uses data from existing data sets as well as (produces own -- generates permuataions and collect metadata). 
+Our pipeline calls data from existing sets as well as o
+
+(produces own -- generates permuataions and collect metadata). 
 
 The existing data sets our pipeline uses are from: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](). 
 
@@ -79,6 +79,8 @@ over 100,000 instances
 
 half a million 
 too much for a human interpreter. 
+
+These conflicts make up (enter)% of our data. 
 
 
 Therefore, we developed a set of assumptions 
