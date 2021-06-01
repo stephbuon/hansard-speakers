@@ -13,7 +13,7 @@ analyses having to do with speaker names
  
 - This repository documents the problems associated with ambiguous speaker names and presents our pipeline for (enter). 
 
-### Issues in Speaker Name Disambiguation
+### Issues that Cause Ambiguous Speaker Names
 
 We identify 5 major issues that cause ambiguities in speaker names: 
 
