@@ -1,12 +1,17 @@
 # Hansard Speaker Name Disambiguation
 
-Digital methods are becoming increasingly important in the interpretation of the 19th-century Parliamentary debates, also known as Hansard. Some analyses of Hansard, however, can be thwarted by messy data. For this reason we present a preprocessing pipeline that produces the cleanest known version of the Hansard data.
+Digital methods are becoming increasingly important in the interpretation of the 19th-century Parliamentary debates, also known as Hansard. Some analyses of Hansard, however, can be thwarted by messy data. For this reason we present a preprocessing pipeline that produces the cleanest version of the Hansard data.
 
 Preprocessing the Hansard data is done in two major phases: 
 
-- During phase I we scrape the Hansard data hosted by UK Parliament, transforming the raw XML files into a TSV file. We chose TSV because of it is a popular file format for digital tools from (text mining to data base). While scraping the data, our team discovered systematic issues in the XML tags (describe). For code the applies to phase I, see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data).
+- During phase I we scrape the Hansard data hosted by UK Parliament, transforming the raw XML files into a TSV file. We chose TSV because of it is a popular file format, used in applications from text mining to data base construction. While scrapin gthe Hansard data, our team discovered systematic issues in the XML tags (describe). For code the applies to phase I, see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data).
 
-- During phase II, for which this repository is dedicated, we disambiguate speakers. The following descriptions serve to: a) document the problems associated with ambiguous speaker names, and b) present our disambiguation pipleine, 
+- During phase II we disambiguate speakers. Even after correcting for systemtic issues in the data, some 
+
+such as 
+analyses having to do with speaker names 
+ 
+- This repository documents the problems associated with ambiguous speaker names and presents our pipeline for (enter). 
 
 ### Issues in Speaker Name Disambiguation
 
