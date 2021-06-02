@@ -47,7 +47,7 @@ The algorithm works by (describe pipeline):
 - generating permutations of speaker names 
 - matching speakers (mention about corresponding ids) 
 - using levenshtein distance to enter -- carefully and delibrerately applied to different subsections -- last names, office titles 
-
+- using inference. For a full list of our rules and assumptions, see our wiki page, [Infering Hansard Speaker Names]()
 
 
 
@@ -58,7 +58,9 @@ generated permutations
 Note that we hit less than 30 % (get exact number) even after I added permutations. Talk about that progression. 
 
 
-### Comparison of our Data 
+### Comparing the Results of our Pipeline with Results from Existing Data Sets
+
+Our pipeline improves (enter). 
 
 
 
