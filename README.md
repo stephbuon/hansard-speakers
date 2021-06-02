@@ -54,13 +54,6 @@ The algorithm works by (describe pipeline):
 
 
 
-### Comparing the Results of our Pipeline with Results from Existing Data Sets
-
-Our pipeline improves (enter). 
-
-
-Note that we hit less than 30 % (get exact number) even after I added permutations. Talk about that progression. 
-
 
 
 
@@ -93,4 +86,12 @@ Sometimes speakers
 
 
 
+### Comparing Results
+
+Our pipeline improves (enter). 
+
+Note that we hit less than 30 % (get exact number) even after I added permutations. Talk about that progression. 
+
+
+#### Precision and Recall of Hansard Speaker Names
 
