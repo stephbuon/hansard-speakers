@@ -8,7 +8,7 @@ Preprocessing the Hansard data is done in two major phases:
 
 - During phase II we disambiguate speakers. Even after correcting for systemtic issues in the data, accurate analysis of speakers was not possible because of ambiguities and inconsistencies in the names of MPs. This repository documents the problems associated with identifying the speakers of each sentence, and presents our pipeline for disambiguating speaker names by assigning a standardized name and unique ID to each speaker of a sentence.
 
-### Issues Causing Ambiguous Speakers
+### About the Problems Causing Ambiguous Speakers
 We identify and correct 5 major issues that cause ambiguities in speaker names: 
 
 1) Prolific members of parliament often held several office positions and the name of the MP who held a position is usually not mentioned. This problem becomes more pronounced in cases where a single MP held numerous offices. William Ewart Gladstone, for example, acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. The original XML usually only tags the position title (i.e. Prime Minister) as the full name of the speaker. 
