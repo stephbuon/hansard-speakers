@@ -38,7 +38,8 @@ Therefore, we collected additional metadata, MP names, as well as generated perm
 
 
 
-
+https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/B4D4H3
+https://data.stanford.edu/congress_text
 
 
 #### Algorithm
