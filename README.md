@@ -36,18 +36,9 @@ The algorithm works by (describe pipeline):
 - removing certain types of titles
 - generating permutations of speaker names 
 - matching speakers (mention about corresponding ids) 
-- using levenshtein distance to enter
+- using levenshtein distance to enter -- carefully and delibrerately applied to different subsections -- last names, office titles 
 
 
-We disambiguate by: 
-
-The purpose of our project is to thus: 
-a) disambiguate between the different MPs who have held a single office title 
-b) detect the permuations of a single name (so that permutations are counted as the same MP)
-
-We use edit distance carefully applied to different subsections: 
-1) last names and whatever else  
-2) maybe office titles 
 
 
 Thus we: 
