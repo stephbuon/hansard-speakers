@@ -30,7 +30,7 @@ We disambiguate speakers by: a) collecting extensive metadata about MPs, and b) 
 #### Data 
 Our pipeline identifies speakers by calling existing data sets, data sets collected by our research assistants, and data produced by our algorithm. 
 
-The existing data sets used by our pipeline were collected from: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](). 
+The existing data sets used by our pipeline were collected from: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](http://andy.egge.rs/eggers_spirling_database.html). 
 
 These impressive data sets are foundational to our work, providing speaker names and relevant metadata. These data sets, however, do not have the total information required to disambiguate speaker names. 
 
@@ -50,16 +50,16 @@ The algorithm works by (describe pipeline):
 - generating permutations of speaker names to include: enter 
 - matching speakers (mention about corresponding ids) 
 - using levenshtein distance to enter -- carefully and delibrerately applied to different subsections -- last names, office titles 
-- using inference. For a full list of our rules and assumptions, see our wiki page, [Hansard Speaker Names Inferences](https://github.com/stephbuon/hansard-speakers/wiki/Hansard-Speaker-Names-Inferences)
+- using inference. 
+  - Even after collecting extensive metadata on MPs, we had a high number of conflicts where, based on (dates), two or more MPs could be the speaker of a sentence. This was especially the case for high profile speakers whose multiple family members were active in Parliament, MPs such as (enter examples). 
 
 
 
+A full list of sentence IDs where we infered the speaker can be found here. 
 
 
 
-Speaker Name Inferences 
-
-Even after collecting extensive metadata on (enter), (enter). (enter) a high number of conflicts where a 
+For a full list of our rules and assumptions, see our wiki page, [Hansard Speaker Names Inferences](https://github.com/stephbuon/hansard-speakers/wiki/Hansard-Speaker-Names-Inferences)
 
 
 
