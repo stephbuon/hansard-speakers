@@ -50,7 +50,7 @@ The algorithm works by (describe pipeline):
 - generating permutations of speaker names to include: enter 
 - matching speakers (mention about corresponding ids) 
 - using levenshtein distance to enter -- carefully and delibrerately applied to different subsections -- last names, office titles 
-- using inference. For a full list of our rules and assumptions, see our wiki page, [Infering Hansard Speaker Names]()
+- using inference. For a full list of our rules and assumptions, see our wiki page, [Hansard Speaker Names Inferences](https://github.com/stephbuon/hansard-speakers/wiki/Hansard-Speaker-Names-Inferences)
 
 
 
