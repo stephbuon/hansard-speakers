@@ -34,7 +34,7 @@ The existing data sets used by our pipeline were collected from: a) the [DiLPD p
 
 These impressive data sets are foundational to our work, providing speaker names and relevant metadata. These data sets, however, do not have the total information required to disambiguate speaker names. 
 
-Therefore, we collected additional metadata, MP names, as well as generated permutations of speakers names within our algorithm. Our metadata was collected by RAs from various sources like [Hansard People](), enter, enter, and can be downloaded as CSV files here.
+Therefore, we collected additional metadata, MP names, as well as generated permutations of speakers names within our algorithm. Our metadata was collected by RAs from various sources like [the historic Hansard UK Parliament API](https://api.parliament.uk/historic-hansard/people/index.html), enter, enter, and can be downloaded as CSV files here.
 
 
 
