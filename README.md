@@ -27,7 +27,7 @@ To address the above issues, we have developed a speaker disambiguation pipeline
 
 We disambiguate speakers by: a) collecting extensive metadata about MPs, and b) running our `hansard-speakers` algorithm, which will be described in greater detail in the following section.  
 
-#### About the Data 
+#### Data 
 Our pipeline identifies speakers by calling existing data sets, data sets collected by our research assistants, and data produced by our algorithm. 
 
 The existing data sets used by our pipeline were collected from: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](). 
@@ -41,7 +41,7 @@ Therefore, we collected additional metadata, MP names, as well as generated perm
 
 
 
-#### About the Algorithm
+#### Algorithm
 
 The algorithm works by (describe pipeline): 
 
@@ -89,19 +89,6 @@ The full list of sentence IDs belonging to inferred speakers can be found here.
 
 
 Sometimes speakers 
-
-
-
-No I believe it is due to the position Gladstone had made for himself so he earned it out of respect I just checked and there does not seem to be any specific reason why a person is called right honorable. (So not synonymous with a position like prime minister)
-3:59
-He did not have a title so I guess in a way they gave him respect by adressing him like that
-3:59
-He is the only Gladstone who is called right honourable
-:+1:
-1
-
-4:00
-The only gladstone who has a title is Viscount Gladstone
 
 
 
