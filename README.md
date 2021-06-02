@@ -1,6 +1,6 @@
 # Hansard Speaker Name Disambiguation
 
-Digital methods are becoming increasingly important in the interpretation of the 19th-century British Parliamentary debates, also known as Hansard. Analyses of Hansard, however, can be thwarted by messy data. For this reason we present a preprocessing pipeline that produces the cleanest known version of the Hansard data. The final dataset produced by this pipeline can be downloaded [here](). 
+Digital methods are becoming increasingly important in the interpretation of the 19th-century British Parliamentary debates, also known as Hansard. Analyses of Hansard, however, can be thwarted by messy data. We present a preprocessing pipeline that produces the cleanest known version of the Hansard data. The final dataset produced by this pipeline can be downloaded [here](). 
 
 Preprocessing the Hansard data is done in two major phases: 
 
@@ -9,7 +9,6 @@ Preprocessing the Hansard data is done in two major phases:
 - During phase II we disambiguate speakers. Even after correcting for systemtic issues in the data, accurate analysis of speakers was not possible because of ambiguities and inconsistencies in the names of MPs. This repository documents the problems associated with identifying the speakers of each sentence, and presents our pipeline for disambiguating speaker names by assigning a standardized name and unique ID to each speaker of a sentence.
 
 ### Issues Causing Ambiguous Speakers
-
 We identify and correct 5 major issues that cause ambiguities in speaker names: 
 
 1) Prolific members of parliament often held several office positions and the name of the MP who held a position is usually not mentioned. This problem becomes more pronounced in cases where a single MP held numerous offices. William Ewart Gladstone, for example, acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. The original XML usually only tags the position title (i.e. Prime Minister) as the full name of the speaker. 
@@ -26,17 +25,21 @@ To address the above issues, we have developed a speaker disambiguation pipeline
 
 ### About the Hansard Speaker Disambiguation Pipeline
 
-We disambiguate speakers by: a) collecting metadata about MPs, and b) running our `hansard-speakers` algorithm. 
+We disambiguate speakers by: a) collecting extensive metadata about MPs, and b) running our `hansard-speakers` algorithm, which will be described in greater detail in the following section.  
 
 #### About the Data 
+Our pipeline identifies speakers by calling existing data sets, data sets collected by our research assistants, and data produced by our algorithm. 
 
-Our pipeline calls data from existing sets as well as o
+The existing data sets used by our pipeline were collected from: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](). 
 
-(produces own -- generates permuataions and collect metadata). 
+These impressive data sets are foundational to our work, providing speaker names and relevant metadata. These data sets, however, do not have the total information required to disambiguate speaker names. 
 
-The existing data sets our pipeline uses are from: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](). 
+Therefore, we collected additional metadata, MP names, as well as generated permutations of speakers names within our algorithm. Our metadata was collected by RAs from various sources like [Hansard People](), enter, enter, and can be downloaded as CSV files here.
 
-These impressive and comprehensive data sets were foundational to (enter). However, they did not have the (standardization or identification) required for text mining speaker names. Therefore, we: a) generated permuations of speaker names within algorithm amd b) collected metadata to help disambiguate speaker names, such as metadata on (enter). (sources like Hansard People, etc.) Our metadata can be downloaded [here](). 
+
+
+
+
 
 #### About the Algorithm
 
@@ -44,18 +47,11 @@ The algorithm works by (describe pipeline):
 
 - cleaning ocr errors in the mr etc. 
 - removing certain types of titles
-- generating permutations of speaker names 
+- generating permutations of speaker names to include: enter 
 - matching speakers (mention about corresponding ids) 
 - using levenshtein distance to enter -- carefully and delibrerately applied to different subsections -- last names, office titles 
 - using inference. For a full list of our rules and assumptions, see our wiki page, [Infering Hansard Speaker Names]()
 
-
-
-Thus we: 
-
-generated permutations
-
-Note that we hit less than 30 % (get exact number) even after I added permutations. Talk about that progression. 
 
 
 ### Comparing the Results of our Pipeline with Results from Existing Data Sets
@@ -63,6 +59,7 @@ Note that we hit less than 30 % (get exact number) even after I added permutatio
 Our pipeline improves (enter). 
 
 
+Note that we hit less than 30 % (get exact number) even after I added permutations. Talk about that progression. 
 
 
 
