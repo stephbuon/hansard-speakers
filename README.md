@@ -51,15 +51,12 @@ The algorithm works by (describe pipeline):
 - matching speakers (mention about corresponding ids) 
 - using levenshtein distance to enter -- carefully and delibrerately applied to different subsections -- last names, office titles 
 - using inference. 
-  - Even after collecting extensive metadata on MPs, we had a high number of conflicts where, based on (dates), two or more MPs could be the speaker of a sentence. This was especially the case for high profile speakers whose multiple family members were active in Parliament, MPs such as (enter examples). 
+  - Even after collecting extensive metadata on MPs, (enter percent of conflicts), based on (dates), two or more MPs could be the speaker of a sentence. This issue was more pronounced in the case of high profile MPs whose multiple family members were active in Parliament, MPs such as (enter examples). 
 
 
+Our Wiki documents (enter). 
 
-A full list of sentence IDs where we infered the speaker can be found here. 
-
-
-
-For a full list of our rules and assumptions, see our wiki page, [Hansard Speaker Names Inferences](https://github.com/stephbuon/hansard-speakers/wiki/Hansard-Speaker-Names-Inferences)
+A full list of sentence IDs where with infered speakers can be found [here](). A description of our rules and assumptions for infering speakers can be found [here](https://github.com/stephbuon/hansard-speakers/wiki/Hansard-Speaker-Names-Inferences)
 
 
 
