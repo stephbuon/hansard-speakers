@@ -92,7 +92,7 @@ Note that we hit less than 30 % (get exact number) even after I added permutatio
 Without any additions 
 
 
-![before_comparison](https://github.com/stephbuon/hansard-speakers/blob/main/images/before_viz.png)
+![before_comparison](https://github.com/stephbuon/hansard-speakers/blob/main/images/before_hansard_speakers.png)
 
 
 
