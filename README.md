@@ -81,10 +81,6 @@ The full list of sentence IDs belonging to inferred speakers can be found here.
 
 Sometimes speakers 
 
-![before_comparison](https://github.com/stephbuon/hansard-speakers/blob/main/images/before_viz.png)
-
-
-
 
 
 ### Comparing Results
@@ -93,6 +89,14 @@ Our pipeline improves (enter).
 
 Note that we hit less than 30 % (get exact number) even after I added permutations. Talk about that progression. 
 
+Without any additions 
+
+
+![before_comparison](https://github.com/stephbuon/hansard-speakers/blob/main/images/before_viz.png)
+
+
 
 #### Precision and Recall of Hansard Speaker Names
+
+
 
