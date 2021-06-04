@@ -344,6 +344,11 @@ def worker_function(inq: multiprocessing.Queue,
 
     extended_edit_distance_set = set()
 
+    i = 0
+    speechdate = None
+    target = None
+    debate_id = None
+
     for speaker in data.speakers:
         if len(speaker.last_name) > 8:
             for alias in speaker.generate_edit_distance_aliases():
@@ -379,7 +384,13 @@ def worker_function(inq: multiprocessing.Queue,
 
             chunk['speaker_modified'] = chunk['speaker'].map(preprocess)
 
-            for i, speechdate, unmodified_target, target in chunk.itertuples():
+            for row in chunk.itertuples():
+                i = row[0]
+                speechdate = row.speechdate
+                # unmodified_target = row.speaker
+                target = row.speaker_modified
+                debate_id = int(row.debate_id)
+
                 if (target, speechdate) in MISS_CACHE:
                     missed_indexes.append(i)
                     continue
@@ -391,6 +402,9 @@ def worker_function(inq: multiprocessing.Queue,
                 ambiguity: bool = False
                 possibles = []
                 query = []
+
+                if not match:
+                    match = data.inferences.get(debate_id, None)
 
                 if not match and not len(query):
                     # Try honorary title

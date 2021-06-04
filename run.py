@@ -132,7 +132,7 @@ if __name__ == '__main__':
     for chunk in pd.read_csv(DATA_FILE,
                              sep=',',
                              chunksize=CHUNK_SIZE,
-                             usecols=['speechdate', 'speaker']):  # type: pd.DataFrame
+                             usecols=['speechdate', 'speaker', 'debate_id']):  # type: pd.DataFrame
 
         chunk['speechdate'] = pd.to_datetime(chunk['speechdate'], format=DATE_FORMAT)
         inq.put(chunk)
