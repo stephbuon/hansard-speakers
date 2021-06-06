@@ -91,12 +91,17 @@ Note that we hit less than 30 % (get exact number) even after I added permutatio
 
 Without any additions 
 
- REMMEBER TO CHANGE THIS SO IT DOESNT INCLUDE NAMES LIKE WITNESS AS MISSES 
+ REMMEBER TO CHANGE THIS SO IT DOESNT INCLUDE NAMES LIKE WITNESS AS MISSES
+MAYBE HAVE TOTAL UNIDENIFIED SPEAKERS  
 ![before_comparison](https://github.com/stephbuon/hansard-speakers/blob/main/images/before_hansard_speakers.png)
 
 
 
 #### Precision and Recall of Hansard Speaker Names
 
+
+
+#### Other Unidentified Speakers 
+enter
 
 
