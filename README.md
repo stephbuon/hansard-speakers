@@ -101,7 +101,11 @@ MAYBE HAVE TOTAL UNIDENIFIED SPEAKERS
 
 
 
-#### Other Unidentified Speakers 
-enter
+#### Remaining Unidentified Speakers 
+Our project identified and standardized the names of MPs in the 19th-century British Parliamentary debates. 
+
+"Misses" refers to MPs whose name was not enter 
+
+
 
 
