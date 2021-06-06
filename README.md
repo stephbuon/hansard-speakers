@@ -91,7 +91,7 @@ Note that we hit less than 30 % (get exact number) even after I added permutatio
 
 Without any additions 
 
-
+ REMMEBER TO CHANGE THIS SO IT DOESNT INCLUDE NAMES LIKE WITNESS AS MISSES 
 ![before_comparison](https://github.com/stephbuon/hansard-speakers/blob/main/images/before_hansard_speakers.png)
 
 
