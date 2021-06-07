@@ -52,7 +52,14 @@ The algorithm works by (describe pipeline):
 - matching speakers (mention about corresponding ids) 
 - using levenshtein distance to enter -- carefully and delibrerately applied to different subsections -- last names, office titles 
 - using inference. 
+
+Infering Speakers 
+
+We saved this last bc inherent uncertainty 
+more certain methods. 
+
   - Even after collecting extensive metadata on MPs, (enter percent of conflicts), based on (dates), two or more MPs could be the speaker of a sentence. This issue was more pronounced in the case of high profile MPs whose multiple family members were active in Parliament, MPs such as (enter examples). 
+
 
 
 Our Wiki documents (enter). 
