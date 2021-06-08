@@ -1,19 +1,25 @@
 # Hansard Speaker Name Disambiguation
 
-Digital methods are becoming increasingly important in the interpretation of the 19th-century British Parliamentary debates, also known as Hansard. Analyses of Hansard, however, can be thwarted by messy data. We present a preprocessing pipeline that produces the cleanest known version of the Hansard data. The final dataset produced by this pipeline can be downloaded [here](). 
+Text mnining methods, such as topic modeling, collocate extraction, or word embeddings, are becoming increasingly important for interpreting the 19th-century British Parliamentary debates, also known as Hansard. Analyses of Hansard, however, can be thwarted by messy data. We present a preprocessing pipeline that produces the cleanest known version of the Hansard data. The final dataset produced by this pipeline can be downloaded [here](). 
 
-Preprocessing the Hansard data is done in two major phases: 
+Preprocessing the Hansard data is performed in two major phases: 
 
-- During phase I we scrape the Hansard data hosted by UK Parliament, transforming the raw XML files into a TSV file. We chose TSV because it is a popular file format used in computation. We discovered systemic issues in the XML tags while scraping the Hansard data. Debate text, for example, might be tagged as a debate title, while other sections might be missing tags in their entirety. For code that corrects these systematic issues and exports a clean TSV file, see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data).
+- During phase I we scrape the Hansard data hosted by UK Parliament, transforming the raw XML files into a TSV file. We chose TSV because it is a popular file format used in computation and within the digital humanities. While scraping the data, we discovered systematic issues in the XML tags. Debate text, for example, might be tagged as a debate title, while other sections might be missing tags in their entirety. In result (thought missing). For code that corrects these systematic issues and exports a clean TSV file, see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data).
 
-- During phase II we disambiguate speakers. Even after correcting for systemtic issues in the data, accurate analysis of speakers was not possible because of ambiguities and inconsistencies in the names of MPs. This repository documents the problems associated with identifying the speakers of each sentence, and presents our pipeline for disambiguating speaker names by assigning a standardized name and unique ID to each speaker of a sentence.
+- During phase II we disambiguate speakers. Even after correcting for systemtic issues in the data, accurate analysis of speakers was not possible because of ambiguities and inconsistencies in the names of members of Parliament (MPs). This repository documents the problems associated with identifying the speakers of each sentence, and presents a pipeline for disambiguating speaker names by assigning a standardized name and unique ID to each speaker of a sentence.
 
 ### About the Problems Causing Ambiguous Speakers
-We identify and correct 5 major issues that cause ambiguities in speaker names: 
+We identify and correct for 5 major issues that cause ambiguities in speaker names: 
 
-1) Prolific members of parliament often held several office positions and the name of the MP who held a position is usually not mentioned. This problem becomes more pronounced in cases where a single MP held numerous offices. William Ewart Gladstone, for example, acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. The original XML usually only tags the position title (i.e. Prime Minister) as the full name of the speaker. 
+1) Prolific members of parliament often held several office positions and the name of the MP holding the position is usually not mentioned. The XML hosted by the [historic Hansard UK Parliament API](https://api.parliament.uk/historic-hansard/people/index.html) often only tags the position title (i.e., Prime Minister) as the full name of the speaker. This problem is especially pronounced in cases where a single MP held numerous offices. William Ewart Gladstone, for example, acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. Determining which instances a title can be accredited to William Ewart Gladstone is paramount for accurate analyses of speakers. 
 
 2) A single name has several permutations. During a debate, William Ewart Gladstone might have been called William Gladstone, W. Gladstone, W. E. Gladstone, Wiliam E. Gladstone, and so forth. 
+
+Without detecting and 
+
+each permutation is a distinct name. 
+
+
 
 3) Several MPs shared the same name. Three different Parliamentarians, for example, were named Sir Robert Peel. In cases like this, metadata was collected to help make distinctions betweent the different speakers. Metadata may include the start and end dates of the different speakers named Sir Robert Peel. In other cases, some speakers share elements of their name, causing ambiguities. Mr Gladstone or Mr. W. Gladstone might refer to William Ewart Gladstone or Willaim Henry Gladstone. 
 
