@@ -112,7 +112,7 @@ based on dates?
 
 - using inference. 
 
-Lastly, we infer remaining speakers' true names. Even after collecting extensive amounts of metadata on MPs, (percent of conflicts) speakers could not, at this stage, be disambiguated. Either this was because (enter). This issue was especially pronounced in cases where the MP was highly active in Parliament and had multiple family members who were also Parliamentarians, MPs such as Mr. Gladstone, Mr. Hume, Mr. Disraeli, and more. Therefore (we disambiguate). These conflicts may occur up to 100,000 times per speaker, making determining the speaker by reading each debate nearly impossible. Instead, the true names of these remaining speakers are infered.
+Lastly, we infer remaining speakers' true names. Even after collecting extensive amounts of metadata on MPs, (percent of conflicts) speakers could not, at this stage, be disambiguated. Either this was because (enter). This issue was especially pronounced in cases where the MP was highly active in Parliament and had multiple family members who were also Parliamentarians, MPs such as Mr. Gladstone, Mr. Hume, Mr. Disraeli, and more. Therefore (we disambiguate). These conflicts may occur up to 100,000 sentences per MP name, making determining the speaker by reading each debate nearly impossible. Instead, the true names of these remaining speakers are infered.
 
 Conflicting speaker names can be downloaded [here](). 
 
@@ -139,7 +139,7 @@ MAYBE HAVE TOTAL UNIDENIFIED SPEAKERS
 
 
 #### About the Unidentified Speakers 
-Our pipeline disambiguates and standardizes the names of MPs in Hansard. Subsequently, speakers who are not MPs are not identified, as this problem is beyond the scope of the present project. These speakers (enter), or might simply be called by the name of "witness." It is important to note that these unidentified speakers serve an important role in the debates and that record of these speakers is crucial to history. Those who spoke in Parliament, but are not MPs, might include women, people of color, and people of another nationality than British. 
+Our pipeline disambiguates and standardizes the names of MPs in Hansard. Subsequently, speakers who are not MPs are not identified, as this problem is beyond the scope of the present project. These speakers (enter), or might simply be called by the name of "witness" or "voice from the Irish benches." It is important to note that these unidentified speakers serve an important role in the debates and that record of these speakers is crucial to history. Those who spoke in Parliament, but are not MPs, might include women, people of color, and people of another nationality than British. 
 
 A list of unidentified speakers (with their sentence ID, enter, enter) can be viewed [here](), or downloaded as a csv file [here]().
 
