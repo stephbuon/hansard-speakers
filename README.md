@@ -6,39 +6,46 @@ Preprocessing the Hansard data is performed in two major phases:
 
 - During phase I we scrape the Hansard data hosted by UK Parliament, transforming the raw XML files into a TSV file. We chose TSV because it is a popular file format used in computation and within the digital humanities. While scraping the data, we discovered systematic issues in the XML tags. Debate text, for example, might be tagged as a debate title, while other sections might be missing tags in their entirety. In result (thought missing). For code that corrects these systematic issues and exports a clean TSV file, see [Bulk Import and Cleaning of Hansard XML Data](https://github.com/stephbuon/import_hansard_data).
 
-- During phase II we disambiguate speakers. Even after correcting for systemtic issues in the data, accurate analysis of speakers was not possible because of ambiguities and inconsistencies in the names of members of Parliament (MPs). This repository documents the problems associated with identifying the speakers of each sentence, and presents a pipeline for disambiguating speaker names by assigning a standardized name and unique ID to each speaker of a sentence.
+- During phase II we disambiguate speakers. Even after correcting for systemtic issues in the data, accurate analysis of speakers was not possible because of ambiguities and inconsistencies in the names of members of Parliament (MPs). This repository documents the problems associated with identifying the speakers of each sentence, and presents a pipeline for disambiguating speaker names by assigning a unique name, comprised of a standardized name and unique ID, to each speaker of a sentence. 
 
 ### About the Problems Causing Ambiguous Speakers
 We identify and correct for 5 major issues that cause ambiguities in speaker names: 
 
 1) Prolific members of parliament often held several office positions and the name of the MP holding the position is usually not mentioned. The XML hosted by the [historic Hansard UK Parliament API](https://api.parliament.uk/historic-hansard/people/index.html) often only tags the position title (i.e., Prime Minister) as the full name of the speaker. This problem is especially pronounced in cases where a single MP held numerous offices. William Ewart Gladstone, for example, acted as Prime Minister four times, Chancellor of the Exchequer four times, Secretary of State for War and the Colonies, and President of the Board of Trade. Determining which instances a title can be accredited to William Ewart Gladstone is paramount for accurate analyses of speakers. 
 
-2) A single name has several permutations. During a debate, William Ewart Gladstone might have been called William Gladstone, W. Gladstone, W. E. Gladstone, Wiliam E. Gladstone, and so forth. 
+2) A single name has several permutations. During a debate, William Ewart Gladstone might have been called William Gladstone, W. Gladstone, W. E. Gladstone, Wiliam E. Gladstone, and so forth. Without detecting and replacing each permutation with a distinct, standardized name, the pervasiveness of permutations can be misleading for analysis. 
 
-Without detecting and 
+3) Several MPs shared the same name. Three different Parliamentarians, for example, were named Sir Robert Peel. In cases like this, metadata was collected to help make distinctions betweent the different speakers. Metadata may include the start and end dates of the different speakers with a shared name. In other cases, some speakers share elements of their name, causing ambiguity. Mr Gladstone or Mr. W. Gladstone, for example, might refer to William Ewart Gladstone or Willaim Henry Gladstone. 
 
-each permutation is a distinct name. 
+4) Many MP names have OCR errors. The original debates were hand-recorded with inkwell pens (check). Handwriting can pose challenges for digitization efforts. The technologies used to parse and tag the original, hand recorded debates developed over time, and many of the earlier 19th-century debates were digitized and tagged using now outdated technologies from the 1980s. While these early digitization efforts were important milestones for the production of the Hansard data, the output from these early technologies are prone to error. The number of distinct errors can be exacerbated by the permutations of speaker names, where each form of a name can contain OCR errors. 
 
+5) Many MP names have inconsistent spellings. "Sir Henry Campbell-Bannerman," for example, might be transcribed as "Campbell Bannerman," or "Campbell - Bannerman." While each spelling can be considered correct, these differences can erranously register as different speakers. 
 
-
-3) Several MPs shared the same name. Three different Parliamentarians, for example, were named Sir Robert Peel. In cases like this, metadata was collected to help make distinctions betweent the different speakers. Metadata may include the start and end dates of the different speakers named Sir Robert Peel. In other cases, some speakers share elements of their name, causing ambiguities. Mr Gladstone or Mr. W. Gladstone might refer to William Ewart Gladstone or Willaim Henry Gladstone. 
-
-4) Many MP names have OCR errors. The original debates were hand-recorded with inkwell pens (check). Old handwriting can pose challenges for digitization. To add: many 19th-century debates were digitized and tagged using technology from the 1980s. While these early digitization efforts were important milestones for the production of the Hansard data, the output is rife with errors. 
-
-5) Many MP names have inconsistent spellings. Sir Henry Campbell-Bannerman, for example, might be transcribed as "Campbell Bannerman," or "Campbell - Bannerman."
-
-To address the above issues, we have developed a speaker disambiguation pipeline that assigns a standardized name and unique ID to each speaker of a sentence. 
+To address the above issues we have developed a speaker disambiguation pipeline that assigns a unique name, comprised of a standardized name and unique ID, to each speaker of a sentence. 
 
 ### About the Hansard Speaker Disambiguation Pipeline
-
-We disambiguate speakers by: a) collecting extensive metadata about MPs, and b) running our `hansard-speakers` algorithm, which will be described in greater detail in the following section.  
+Our speaker disambiguation efforts include: a) collecting extensive metadata about MPs, b) adding missing MPs to existing data sets, and c) implementing our `hansard-speakers` algorithm, which will be described in greater detail in the following section. 
 
 #### Data 
-Our pipeline identifies speakers by calling existing data sets, data sets collected by our research assistants, and data produced by our algorithm. 
+An important step in disambiguating speakers is collecting additional metadata about speakers that can be used when matching unique names with the names of the speakers. Our pipeline identifies speakers using: a) existing data sets, b) new data sets aggregated by Democracy Lab's research assistants, and c) data generated by the Hansard speakers disambiguation algorithm. 
 
-The existing data sets used by our pipeline were collected from: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](http://andy.egge.rs/eggers_spirling_database.html). 
+The existing data sets used by our pipeline were generously provided by: a) the [DiLPD project](https://sas-space.sas.ac.uk/4315/16/westminster-members.xml), and b) the [Andy Eggers and Arthur Spirling database](http://andy.egge.rs/eggers_spirling_database.html). 
 
-These impressive data sets are foundational to our work, providing speaker names and relevant metadata. These data sets, however, do not have the total information required to disambiguate speaker names. 
+These impressive data sets are foundational to our work, providing speaker names and relevant metadata. On their own, however, these data sets do not contain the total information required to disambiguate speaker names. RAs collected metadata from various sources, such as [the historic Hansard UK Parliament API](https://api.parliament.uk/historic-hansard/people/index.html), (enter), (enter). This metadata, however, cannot account for the many permutations a 
+
+
+is unknown 
+and exhaustive list of every possible permutation for each MP name. 
+
+
+data is generated by the Hansard speakers disambiguation algorithm 
+
+
+
+is outlined 
+
+
+
 
 Therefore, we collected additional metadata, MP names, as well as generated permutations of speakers names within our algorithm. Our metadata was collected by RAs from various sources like [the historic Hansard UK Parliament API](https://api.parliament.uk/historic-hansard/people/index.html), enter, enter, and can be downloaded as CSV files here.
 
