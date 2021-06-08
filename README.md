@@ -114,6 +114,8 @@ based on dates?
 
 Lastly, we infer remaining speakers' true names. Even after collecting extensive amounts of metadata on MPs, (percent of conflicts) speakers could not, at this stage, be disambiguated. Either this was because (enter). This issue was especially pronounced in cases where the MP was highly active in Parliament and had multiple family members who were also Parliamentarians, MPs such as Mr. Gladstone, Mr. Hume, Mr. Disraeli, and more. Therefore (we disambiguate). These conflicts may occur up to 100,000 times per speaker, making determining the speaker by reading each debate nearly impossible. Instead, the true names of these remaining speakers are infered.
 
+Conflicting speaker names can be downloaded [here](). 
+
 This step was applied last because of the inherent uncertainties in infering the true names of speakers as opposed to the (relative certainty of the other methods). (with great care). 
 
 The `hansard-speakers` Wiki documents (enter). The rules and assumptions for infering speakers can be found [here](https://github.com/stephbuon/hansard-speakers/wiki/Hansard-Speaker-Names-Inferences). A full list of sentence IDs where the speaker was infered can be viewed on the Wiki [here](), or downloaded as a csv file [here](). 
