@@ -125,9 +125,9 @@ The `hansard-speakers` Wiki documents (enter). The rules and assumptions for inf
 ### Comparing Results
 Our pipeline significantly improves speaker recognition compared to existing data sets. The DiLPD data and the Eggers and Spirling data combined only matches with X% of the Hansard data. 
 
-Hits: percentage of speakers
-Misses: 
-Unidentified: percentage of speakers who are not MPs and are not identified by the present pipeline. 
+Hits: percentage of identified speakers
+Misses: percentage of unidentified speakers 
+Unidentified: percentage of speakers who are not MPs and are not identified by the present pipeline
 
 REMMEBER TO CHANGE THIS SO IT DOESNT INCLUDE NAMES LIKE WITNESS AS MISSES
 MAYBE HAVE TOTAL UNIDENIFIED SPEAKERS  
