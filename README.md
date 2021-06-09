@@ -1,6 +1,8 @@
 # Hansard Speaker Name Disambiguation
 
-Text mnining methods, such as topic modeling, collocate extraction, or word embeddings, are becoming increasingly important for interpreting the 19th-century British Parliamentary debates, also known as Hansard. Analyses of Hansard, however, can be thwarted by messy data. We present a preprocessing pipeline that produces the cleanest known version of the Hansard data. The final dataset produced by this pipeline can be downloaded [here](). 
+Text mnining methods, such as topic modeling, collocate extraction, or word embeddings, are becoming increasingly important for interpreting the 19th-century British Parliamentary debates, also known as Hansard (cite examples). Analyses of Hansard, however, can be thwarted by messy data. Analysis of Parliamentary speakers has been inhibited by (enter). 
+
+Democracy Lab presents a preprocessing pipeline that produces the cleanest known version of the Hansard data, (enter) and disambiguating speakers. The final dataset produced by this pipeline can be downloaded [here](). 
 
 Preprocessing the Hansard data is performed in two major phases: 
 
