@@ -43,6 +43,20 @@ These impressive data sets are foundational to our work, providing speaker names
 
 The metadata collected by RAs greatly improved the detection and disambiguation of speaker names. However, it does not help with the detection of the many permutations of a single MP name. The total number of permutations a single name might have is unknown. Therefore, the Hansard speakers disambiguation algorithm generates an exhaustive list of every possible permutation for each MP name.
 
+
+data standardization 
+- corresponding ID, alias, start and end date, optional: notes 
+
+categorize by folder 
+lords go into one
+named aliases into another
+each folder treated differently in the code
+
+unique ID assigned to 
+
+
+
+
 #### Algorithm
 The algorithm disambiguates speakers in (X) major steps: 
 
