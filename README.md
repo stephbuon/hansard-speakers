@@ -68,30 +68,27 @@ William H Ludlow Bruges
 
 After generating permutations, office term and office position data is loaded, where office term includes (enter), and office data includes (enter). MP's corresponding IDs are maped to office terms and office positions that have start and end dates. If the start date is missing a day or month, the start date will be assigned the first day of the year. If the end date is missing a day or month, it will be assigned the last date of the year. 
 
-At this point, the Hansard data is imported and chunked for parallel processing. Common OCR errors (enter). 
-
-(regexs). 
+At this point, the Hansard data is imported and chunked for parallel processing. Common OCR errors like (enter), are fixed w/ regexes and mispellings csv. All symbols, except hyphens, are discarded. 
 
 
+Apply a custom set of Levenshtein Distance rules 
+where each 
+is an edit 
 
-handle regexes we put in the pre-corrections section (Mr., the,  enter)  
+office titles 
+distance of 4 
 
-
-All symbols except hyphens are discarded. 
-
-look through misspellings csv and apply those 
-
-regexes in post corrections 
-
+found it more reliable than Jaro distance 
+funky results 
+controlled setting restrict 
 
 
 
-pre if you want to consider the speaker column w symbols included (such as if i want to edit parantheses text)
-post if you do not want symbols
+For efficency 
+has the tuple ofthe speaker name and speechdate already been processed (as the same speaker might be speaking multiple times in a day_ 
 
-go thru each row of the chunk of data - 
-has it already been done? (tuple of the speaker name and speechdate) (is it in th case)
-same speaker might be speaking multiple times in same day
+
+
 
 if not in the cast then we check to see if its in the inferences table (gladstone example) 
 debate ID to MP ID 
@@ -111,12 +108,15 @@ check aliases idctionary
 binary 1/0 match or ambiguous 
 no match: is a miss 
 
-if there's no match it will do edit distance of 2 against lords titles 
-then honorary titles edit distance of 2
-if there's still no match, use edit distance w/ dictionary of named aliases 
 
-for first and last name, or just last name 
-if the name is above edit distance of 2, 
+
+If the speaker name does not match with (enter), Levenshtein Distance is applied for fuzzy matching names (OCR ERROS). We found that (enter controlled setting) more effective than other popular distance measures, like Jaro distance, because (enter), whereas Jaro (enter). If there is still no match, apply a distance of 2 against lords titles, honorary titles, and then the dictionary of named aliases. 
+
+For first and last name, and just last name, an edit distance of 2 
+
+
+carefully and delibrerately applied to different subsections -- last names, office titles
+
 
 initials receive an  edit distance of 1
 
@@ -131,40 +131,14 @@ depending on the data we use diff edit distance
 whenever he looks for speaker name in dictionaries, we always have associated metadata (like dates)
 if the speakers have no term info, it will consider data of birth and death 
 
-if it's ambiguous at this point, it will look at all possible speakers and detect age
 
-if age is less than 20, not allowed as speakers 
-check if they're in office at the speechdate 
-check if there's only 1 possible speaker
-if so, it's a match 
 
-puts in cast and moves onto next row 
+
+If the name is still ambiguous at this point, MP's ages are detected. If the MP is less than 20 years old at the time of the debate, the MP is rejected as too young. 
 
 
 
 
-
-
-
-
-
-
-
-
-- matching speakers (mention corresponding ids) 
-
-After enter, we apply levenshtein distance 
-
-- using levenshtein distance to fuzzy match -- carefully and delibrerately applied to different subsections -- last names, office titles 
-
-
-
-We do not fuzzy match permutations of names with initials because  
-
-based on dates? 
-
-
-- using inference. 
 
 Lastly, we infer remaining speakers' true names. Even after collecting extensive amounts of metadata on MPs, resolving large amounts of OCR errors, and carefully reading the Hansard debates for information about speakers, (percent of conflicts) speakers could not by this stage be disambiguated because their recorded name matched another MP active during the same period. This problem was especially pronounced in cases where the MP was highly active in Parliament and had multiple family members who were also Parliamentarians, for example, Mr. Gladstone, Mr. Hume, Mr. Disraeli, and more. Some of these conflicts may occur from 5,000 up to 100,000 sentences per MP name, making the process of determining speaker by reading each sentence nearly impossible. Instead, the true names of these remaining speakers are infered using a carefully curated set of language-based assumptions derived from specialized domain knowledge of the Hansard data.
 
