@@ -57,6 +57,7 @@ REGEX_POST_CORRECTIONS = [
     
     ('^dir +', 'dr '),
     ('^dk +', 'dr '),
+    ('^de +','dr '),
     
     ('^marquis +', 'marquess '),
     ('^mauquess +', 'marquess '),
