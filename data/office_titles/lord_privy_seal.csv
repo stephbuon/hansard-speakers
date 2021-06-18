@@ -37,23 +37,23 @@ office_id,official_post,corresponding_id,real_name,honorary_title,party,started_
 37,Lord Privy Seal,6903,John Wodehouse,Earl of Kimberley,Liberal,1868/12/09,1870/07/06,
 37,Lord Privy Seal,2432,Charles Wood,Viscount Halifax,Liberal,1870/07/06,1874/02/17,Baronet
 37,Lord Privy Seal,3763,James Howard Harris,Earl of Malmesbury,Conservative,1874/02/21,1876/08/12,
-37,Lord Privy Seal,,Benjamin Disraeli,Earl of Beaconsfield,Conservative,1876/08/12,1878/02/04,Concurrently Prime Minister and First Lord of the Treasury
-37,Lord Privy Seal,,Algernon George Percy,Duke of Northumberland,Conservative,1878/02/04,1880/04/21,
-37,Lord Privy Seal,,Algernon George Percy,Baron Lovaine,Conservative,1878/02/04,1880/04/21,
-37,Lord Privy Seal,,George John Douglas Campbell,Duke of Argyll,Liberal,1880/04/28,1881/05/02,
-37,Lord Privy Seal,,Chichester Samuel Parkinson-Fortescue,Baron Carlingford,Liberal,1881/05/02,1885/03/05,
-37,Lord Privy Seal,,Archibald Philip Primrose,Baron Rosebery,Liberal,1885/03/05,1885/06/09,Concurrently First Commisioner of Works
-37,Lord Privy Seal,,Archibald Philip Primrose,Earl of Rosebery,Liberal,1885/03/05,1885/06/09,Concurrently First Commisioner of Works
-37,Lord Privy Seal,,Dudley Francis Stuart Ryder,Earl of Harrowby,Conservative,1885/06/24,1886/01/28,
-37,Lord Privy Seal,,William Ewart Gladstone,N/A,Liberal,1886/02/17,1886/07/20,"Prime Minister, First Lord of Treasury, Leader of House of Commons; MP for Midlothian"
-37,Lord Privy Seal,,George Henry Cadogan,Earl Cadogan,Conservative,1886/08/03,1892/08/11,
-37,Lord Privy Seal,,William Ewart Gladstone,N/A,Liberal,1892/08/20,1894/03/10,"Prime Minister, First Lord of Treasury, Leader of House of Commons; MP for Midlothian"
-37,Lord Privy Seal,,Edward Marjoribanks,Baron Tweedmouth,Liberal,1894/03/10,1895/06/21,Chancellor of the Duchy of Lancaster
-37,Lord Privy Seal,,Richard Assheton Cross,Viscount Cross,Conservative,1895/06/29,1900/11/12,Also R.A.
-37,Lord Privy Seal,,Robert Arthur Talbot Gascoyne-Cecil,Marquess of Salisbury,Conservative,1900/11/12,1902/07,"Prime Minister, Leader of the House of Lords"
-37,Lord Privy Seal,,Arthur James Balfour,N/A,Conservative,1902/07/14,1903/10,"MP for Manchester East; Prime Minister, First Lord of the Treasury, Leader of the House of Lords"
-37,Lord Privy Seal,,James Edward Gascoyne-Cecil,Marquess of Salisbury,Conservative,1903/10/17,1905/12,President of the Board of Trade
-37,Lord Privy Seal,,James Edward Gascoyne-Cecil,Baron Cecil,Conservative,1903/10/17,1905/12,President of the Board of Trade
-37,Lord Privy Seal,,George Frederick Samuel Robinson,Marquess of Ripon,Liberal,1905/12/10,1908/10,Leader of House of Lords
-37,Lord Privy Seal,,Robert Offley Ashburton Crewe-Milnes,Earl of Crewe,Liberal,1908/10/09,1911/10,"Leader of House of Lords, Secretary of State for Colonies, Secretary of State for India"
-37,Lord Privy Seal,,Robert Offley Ashburton Crewe-Milnes,Baron Houghton,Liberal,1908/10/09,1911/10,"Leader of House of Lords, Secretary of State for Colonies, Secretary of State for India"
+37,Lord Privy Seal,3523,Benjamin Disraeli,Earl of Beaconsfield,Conservative,1876/08/12,1878/02/04,Concurrently Prime Minister and First Lord of the Treasury
+37,Lord Privy Seal,2754,Algernon George Percy,Duke of Northumberland,Conservative,1878/02/04,1880/04/21,
+37,Lord Privy Seal,2754,Algernon George Percy,Baron Lovaine,Conservative,1878/02/04,1880/04/21,
+37,Lord Privy Seal,6592,George John Douglas Campbell,Duke of Argyll,Liberal,1880/04/28,1881/05/02,
+37,Lord Privy Seal,3984,Chichester Samuel Parkinson-Fortescue,Baron Carlingford,Liberal,1881/05/02,1885/03/05,
+37,Lord Privy Seal,7306,Archibald Philip Primrose,Baron Rosebery,Liberal,1885/03/05,1885/06/09,Concurrently First Commisioner of Works
+37,Lord Privy Seal,7306,Archibald Philip Primrose,Earl of Rosebery,Liberal,1885/03/05,1885/06/09,Concurrently First Commisioner of Works
+37,Lord Privy Seal,4406,Dudley Francis Stuart Ryder,Earl of Harrowby,Conservative,1885/06/24,1886/01/28,
+37,Lord Privy Seal,3104,William Ewart Gladstone,N/A,Liberal,1886/02/17,1886/07/20,"Prime Minister, First Lord of Treasury, Leader of House of Commons; MP for Midlothian"
+37,Lord Privy Seal,5324,George Henry Cadogan,Earl Cadogan,Conservative,1886/08/03,1892/08/11,
+37,Lord Privy Seal,3104,William Ewart Gladstone,N/A,Liberal,1892/08/20,1894/03/10,"Prime Minister, First Lord of Treasury, Leader of House of Commons; MP for Midlothian"
+37,Lord Privy Seal,5641,Edward Marjoribanks,Baron Tweedmouth,Liberal,1894/03/10,1895/06/21,Chancellor of the Duchy of Lancaster
+37,Lord Privy Seal,4534,Richard Assheton Cross,Viscount Cross,Conservative,1895/06/29,1900/11/12,Also R.A.
+37,Lord Privy Seal,4342,Robert Arthur Talbot Gascoyne-Cecil,Marquess of Salisbury,Conservative,1900/11/12,1902/07,"Prime Minister, Leader of the House of Lords"
+37,Lord Privy Seal,5410,Arthur James Balfour,N/A,Conservative,1902/07/14,1903/10,"MP for Manchester East; Prime Minister, First Lord of the Treasury, Leader of the House of Lords"
+37,Lord Privy Seal,5988,James Edward Hubert Gascoyne-Cecil,Marquess of Salisbury,Conservative,1903/10/17,1905/12,"https://en.wikipedia.org/wiki/James_Gascoyne-Cecil,_4th_Marquess_of_Salisbury"
+37,Lord Privy Seal,5988,James Edward Hubert Gascoyne-Cecil,Baron Cecil,Conservative,1903/10/17,1905/12,"https://en.wikipedia.org/wiki/James_Gascoyne-Cecil,_4th_Marquess_of_Salisbury"
+37,Lord Privy Seal,6939,George Frederick Samuel Robinson,Marquess of Ripon,Liberal,1905/12/10,1908/10,Leader of House of Lords
+37,Lord Privy Seal,7037,Robert Offley Ashburton Crewe-Milnes,Earl of Crewe,Liberal,1908/10/09,1911/10,"Leader of House of Lords, Secretary of State for Colonies, Secretary of State for India"
+37,Lord Privy Seal,7037,Robert Offley Ashburton Crewe-Milnes,Baron Houghton,Liberal,1908/10/09,1911/10,"Leader of House of Lords, Secretary of State for Colonies, Secretary of State for India"

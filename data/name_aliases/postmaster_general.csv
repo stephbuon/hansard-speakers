@@ -1,39 +1,41 @@
-corresponding_id,alias,real_name,start,end,extra,links
-,postmaster general,William Eden,1798,1804,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-,postmaster general,James Graham,1804,1806,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-6729,postmaster general,John Joshua Proby,1806,1807,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-6719,postmaster general,Thomas Pelham,1807,1823,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-857,postmaster general,Frederick Montagu,1826,1827,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-,postmaster general,William Montagu,1827,1830/11/15,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-6505,postmaster general,Charles Gordon-Lennox,1830/12/11,1834/07/05,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2121,postmaster general,Francis Nathaniel Conyngham,1834/07/05,1834/11/14,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-1023,postmaster general,William Wellesley-Pole,1834/11/14,1835/04/30,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2121,postmaster general,Francis Nathaniel Conyngham,1835/04/30,1835/05/22,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2047,postmaster general,Thomas William Anson,1835/05/22,1841/08/30,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-1652,postmaster general,William Lowther,1841/09/09,1845/12/30,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2454,postmaster general,Edward Granville Eliot,1845/12/30,1846/07/07,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-6473,postmaster general,Ulick John de Burgh,1846/07/07,1852/02/21,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2818,postmaster general,Charles Philip Yorke,1852/03/01,1852/12/17,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-3437,postmaster general,Charles John Canning,1853/01/05,1855/01/30,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-6592,postmaster general,George John Douglas Campbell,1855/11/30,1858/02/21,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-6452,postmaster general,Charles Abbot,1858/03/13,1859/06/11,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-6591,postmaster general,James Bruce,1859/06/11,1860,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2738,postmaster general,Edward John Stanley,1860,1866/07/19,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2365,postmaster general,James Graham,1866/07/19,1868/12/01,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-4497,postmaster general,Spencer Compton Cavendish,1868/12/09,1871/01/14,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-3977,postmaster general,William Monsell,1871/01/14,1873/11/18,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-5236,postmaster general,Lyon Playfair,1873/11/18,1874/02/17,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-3706,postmaster general,John James Robert Manners,1874/02/17,1880/05/03,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-4822,postmaster general,Henry Fawcett,1880/05/03,1884/11/06,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-4783,postmaster general,George John Shaw-Lefevre,1884/11/07,1885/06/09,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-3706,postmaster general,John James Robert Manners,1885/06/09,1886/02/17,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-4541,postmaster general,George Grenfell Glyn,1886/02/17,1886/07/20,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-5073,postmaster general,Henry Cecil Raikes,1886/08/19,1891/08/24,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-4369,postmaster general,James Fergusson,1891/08/24,1892/08/18,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-5837,postmaster general,Arnold Morley,1892/08/18,1895/06/21,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-,postmaster general,Henry Fitzalan-Howard,1895/07/06,1900/04/10,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-5600,postmaster general,Charles Vane-Tempest-Stewart,1900/04/10,1902/08/08,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-7689,postmaster general,Joseph Austen Chamberlain,1902/08/11,1903/10/09,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-2933,postmaster general,Edward Stanley,1903/10/09,1905/12/10,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-5880,postmaster general,Sydney Charles Buxton,1905/12/10,1910/02/14,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
-8060,postmaster general,Herbert Louis Samuel,1910/02/14,1914/02/11,,https://en.wikipedia.org/wiki/Postmaster_General_of_the_United_Kingdom
+corresponding_id,alias,real_name,alias_type,start,end,links
+,Postmaster General,William Eden,position,1798,1804,"https://en.wikipedia.org/wiki/William_Eden,_1st_Baron_Auckland"
+,Postmaster General,James Graham,position,1804,1806,"https://en.wikipedia.org/wiki/James_Graham,_3rd_Duke_of_Montrose"
+6729,Postmaster General,John Joshua Proby,position,1806,1807,"https://en.wikipedia.org/wiki/John_Proby,_1st_Earl_of_Carysfort"
+6719,Postmaster General,Thomas Pelham,position,1807,1826,"https://en.wikipedia.org/wiki/Thomas_Pelham,_2nd_Earl_of_Chichester"
+,Postmaster General,Charles Spencer,position,1801,1806,https://en.wikipedia.org/wiki/Lord_Charles_Spencer
+6690,Postmaster General,Robert Hobart,position,1806,1807,"https://en.wikipedia.org/wiki/Robert_Hobart,_4th_Earl_of_Buckinghamshire"
+,Postmaster General,John Montagu,position,1807,1807,"https://en.wikipedia.org/wiki/John_Montagu,_5th_Earl_of_Sandwich"
+6807,Postmaster General,Richard Le Poer Trench,position,1814,1816,"https://en.wikipedia.org/wiki/Richard_Trench,_2nd_Earl_of_Clancarty"
+,Postmaster General,James Cecil,position,1816,1823,"https://en.wikipedia.org/wiki/James_Cecil,_1st_Marquess_of_Salisbury"
+857,Postmaster General,Frederick Montagu,position,1826,1827,https://en.wikipedia.org/wiki/Lord_Frederick_Montagu
+,Postmaster General,William Montagu,position,1827,1830,"https://en.wikipedia.org/wiki/William_Montagu,_5th_Duke_of_Manchester"
+6505,Postmaster General,Charles Gordon-Lennox,position,1830,1834,"https://en.wikipedia.org/wiki/Charles_Gordon-Lennox,_5th_Duke_of_Richmond"
+2121,Postmaster General,Francis Nathaniel Conyngham,position,1834,1834,"https://en.wikipedia.org/wiki/Francis_Conyngham,_2nd_Marquess_Conyngham"
+2047,Postmaster General,Thomas William Anson,position,1835,1841,"https://en.wikipedia.org/wiki/Thomas_Anson,_1st_Earl_of_Lichfield"
+1652,Postmaster General,William Lowther,position,1841,1845,"https://en.wikipedia.org/wiki/William_Lowther,_2nd_Earl_of_Lonsdale"
+2454,Postmaster General,Edward Granville Eliot,position,1845,1846,"https://en.wikipedia.org/wiki/Edward_Eliot,_3rd_Earl_of_St_Germans"
+6473,Postmaster General,Ulick John de Burgh,position,1846,1852,"https://en.wikipedia.org/wiki/Ulick_de_Burgh,_1st_Marquess_of_Clanricarde"
+2818,Postmaster General,Charles Philip Yorke,position,1852,1852,"https://en.wikipedia.org/wiki/Charles_Yorke,_4th_Earl_of_Hardwicke"
+3437,Postmaster General,Charles John Canning,position,1853,1855,"https://en.wikipedia.org/wiki/Charles_Canning,_1st_Earl_Canning"
+6592,Postmaster General,George John Douglas Campbell,position,1855,1858,"https://en.wikipedia.org/wiki/George_Campbell,_8th_Duke_of_Argyll"
+6452,Postmaster General,Charles Abbot,position,1858,1859,"https://en.wikipedia.org/wiki/Charles_Abbot,_2nd_Baron_Colchester"
+3733,Postmaster General,James Bruce,position,1859,1860,"https://en.wikipedia.org/wiki/James_Bruce,_8th_Earl_of_Elgin"
+2738,Postmaster General,Edward John Stanley,position,1860,1866,"https://en.wikipedia.org/wiki/Edward_Stanley,_2nd_Baron_Stanley_of_Alderley"
+2365,Postmaster General,James Graham,position,1866,1868,"https://en.wikipedia.org/wiki/James_Graham,_4th_Duke_of_Montrose"
+4497,Postmaster General,Spencer Compton Cavendish,position,1868,1871,"https://en.wikipedia.org/wiki/Spencer_Cavendish,_8th_Duke_of_Devonshire"
+3977,Postmaster General,William Monsell,position,1871,1873,"https://en.wikipedia.org/wiki/William_Monsell,_1st_Baron_Emly"
+5236,Postmaster General,Lyon Playfair,position,1873,1874,"https://en.wikipedia.org/wiki/Lyon_Playfair,_1st_Baron_Playfair"
+3706,Postmaster General,John James Robert Manners,position,1874,1880,"https://en.wikipedia.org/wiki/John_Manners,_7th_Duke_of_Rutland"
+4822,Postmaster General,Henry Fawcett,position,1880,1884,https://en.wikipedia.org/wiki/Henry_Fawcett
+4541,Postmaster General,George Grenfell Glyn,position,1884,1884,"https://en.wikipedia.org/wiki/George_Glyn,_2nd_Baron_Wolverton"
+5073,Postmaster General,Henry Cecil Raikes,position,1886,1891,https://en.wikipedia.org/wiki/Henry_Cecil_Raikes
+3706,Postmaster General,John James Robert Manners,position,1885,1886,"https://en.wikipedia.org/wiki/John_Manners,_7th_Duke_of_Rutland"
+4783,Postmaster General,George John Shaw-Lefevre,position,1884,1885,https://en.wikipedia.org/wiki/George_John_Shaw-Lefevre
+4369,Postmaster General,James Fergusson,position,1890,1892,"https://en.wikipedia.org/wiki/Sir_James_Fergusson,_6th_Baronet"
+5837,Postmaster General,Arnold Morley,position,1892,1895,https://en.wikipedia.org/wiki/Arnold_Morley
+,Postmaster General,Henry Fitzalan-Howard,position,1895,1900,"https://en.wikipedia.org/wiki/Henry_Fitzalan-Howard,_15th_Duke_of_Norfolk"
+5600,Postmaster General,Charles Stewart Vane Tempest-Stewart,position,1900/11/02,1902/08/07,"https://en.wikipedia.org/wiki/Charles_Vane-Tempest-Stewart,_6th_Marquess_of_Londonderry"
+7689,Postmaster General,Austen Chamberlain,position,1902/08/08,1903/10/05,https://en.wikipedia.org/wiki/Austen_Chamberlain
+7255,Postmaster General,Edward George Villiers Stanley,position,1903/10/06,1905/12/09,"https://en.wikipedia.org/wiki/Edward_Stanley,_17th_Earl_of_Derby"
+5880,Postmaster General,Sydney Charles Buxton,position,1905/12/10,1910/02/13,"https://en.wikipedia.org/wiki/Sydney_Buxton,_1st_Earl_Buxton"
