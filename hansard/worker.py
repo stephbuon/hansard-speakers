@@ -386,10 +386,9 @@ def worker_function(inq: multiprocessing.Queue,
     debate_id = None
 
     for speaker in data.speakers:
-        if len(speaker.last_name) > 8:
-            for alias in speaker.generate_edit_distance_aliases():
-                extended_edit_distance_set.add(alias)
-
+        # if len(speaker.last_name) > 8:
+        #     for alias in speaker.generate_edit_distance_aliases():
+        #         extended_edit_distance_set.add(alias)
         for alias in speaker.generate_edit_distance_aliases():
             edit_distance_dict.setdefault(alias, []).append(speaker.member_id)
 
@@ -511,12 +510,16 @@ def worker_function(inq: multiprocessing.Queue,
 
                 # Try edit distance with MP name permutations.
                 if not match and not ambiguity:
+                    # Remove initials. (Even if we did consider initials, it would cause more unnecessary ambiguities.)
+                    target = re.sub(r'\b[a-z]\b', '', target)
+                    # Fix multiple whitespace from previous regex.
+                    target = re.sub(r'  +', ' ', target)
+
                     possibles = []
                     for alias in edit_distance_dict:
-                        if len(possibles) > 1:
-                            break
-                        if (alias in extended_edit_distance_set and within_distance_two(target, alias, False)) or \
-                                is_distance_one(target, alias):
+                        # if len(possibles) > 1:
+                        #     break
+                        if within_distance_two(target, alias, False):
                             for speaker_id in edit_distance_dict[alias]:
                                 speaker = speaker_dict[speaker_id]
                                 if speaker.start_date <= speechdate <= speaker.end_date:
