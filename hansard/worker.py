@@ -213,6 +213,8 @@ REGEX_POST_CORRECTIONS = [
     ('\bmr chairman\b', 'chairman'),
     ('\bchairman of wats and means\b', 'chairman'),
     
+    ('\bceairman\b', 'chairman'),
+    
     ('memberconstituencymemberconstituency', ''), # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
     ('^a +', ''),
