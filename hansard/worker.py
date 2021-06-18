@@ -164,6 +164,8 @@ REGEX_POST_CORRECTIONS = [
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
     
+    ('^archblsiiop','archbishop'),
+    
     ('^bistiop +', 'bishop '),
     ('^bisliop +', 'bishop '),
     ('^bisiiop +', 'bishop '),
