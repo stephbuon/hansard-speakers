@@ -223,7 +223,7 @@ REGEX_POST_CORRECTIONS = [
     ('\bchancelloerof the exche-quer\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
-    ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer')
+    ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer'),
     
     ('ex-chequer', 'exchequer'),
     ('excheque', 'exchequer'),
