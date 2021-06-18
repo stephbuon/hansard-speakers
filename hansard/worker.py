@@ -146,6 +146,14 @@ REGEX_POST_CORRECTIONS = [
     ('^abmiral +', 'admiral '),
     ('^admiraj +', 'admiral '),
     
+    ('^admtralty +', 'admiralty '),
+    ('^adralty +', 'admiralty '),
+    
+    ('^trea-iury +', 'treasury '),
+    ('^trea-treasury +', 'treasury '),
+    ('^treastry +', 'treasury '),
+    ('^trea sury +', 'treasury '),
+    
     ('^cafiain +', 'captain '),
     ('^caftain +', 'captain '),
     ('^caitain +', 'captain '),
@@ -162,6 +170,8 @@ REGEX_POST_CORRECTIONS = [
     ('^colonal +', 'colonel '),
     ('^colonbl +', 'colonel '),
     ('^coloxel +','colonel '),
+    ('^colonl +','colonel '),
+    ('^colosel +','colonel '),
     
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
@@ -203,6 +213,7 @@ REGEX_POST_CORRECTIONS = [
     ('\bchancelloerof the exche-quer\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
+    ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer')
     
     ('\bchairman of committees of ways and means\b', 'chairman'),
     ('\bchairman of ways and means\b', 'chairman'),
@@ -244,9 +255,12 @@ REGEX_POST_CORRECTIONS = [
 
     (' de ', ' of '),
     (' oe ', ' of '),
+    (' uf ', ' of '),
 
     ('under +secretary', 'under-secretary'),
     ('under +- +secretary', 'under-secretary'),
+    
+    ('secketay +','secretary'),
 
     (r'lieutenant[\- ]?colonel +', ''),
 
