@@ -200,7 +200,7 @@ REGEX_POST_CORRECTIONS = [
     ('^genenal  +', 'general '),
     ('^genera  +', 'general '),
     
-    ('peivy', 'privy')
+    ('peivy', 'privy'),
     
     ('chancellor of the e xciiequer', 'chancellor of the exchequer'),
     ('chancellor of the exchequer-chequer', 'chancellor of the exchequer'),
