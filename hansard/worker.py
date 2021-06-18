@@ -160,11 +160,12 @@ REGEX_POST_CORRECTIONS = [
     ('^colokel +', 'colonel '),
     ('^colonal +', 'colonel '),
     ('^colonbl +', 'colonel '),
+    ('^coloxel +','colonel '),
     
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
     
-    ('^archblsiiop','archbishop'),
+    ('^archblsiiop +','archbishop '),
     
     ('^bistiop +', 'bishop '),
     ('^bisliop +', 'bishop '),
