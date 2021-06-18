@@ -161,6 +161,7 @@ REGEX_POST_CORRECTIONS = [
     ('^capatain +', 'captain '),
     ('^capiain +', 'captain '),
     ('^capt +', 'captain '),
+    ('^vaptain +', 'captain '),
     
     ('^col +', 'colonel '),
     ('^colconel +', 'colonel '),
