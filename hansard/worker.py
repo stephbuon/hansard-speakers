@@ -147,7 +147,7 @@ REGEX_POST_CORRECTIONS = [
     ('^admieal +', 'admiral '),
     ('^abmiral +', 'admiral '),
     ('^admiraj +', 'admiral '),
-    ('^admibal +', 'admiral ')
+    ('^admibal +', 'admiral '),
     
     ('^admtralty +', 'admiralty '),
     ('^adralty +', 'admiralty '),
