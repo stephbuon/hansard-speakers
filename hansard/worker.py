@@ -185,6 +185,9 @@ REGEX_POST_CORRECTIONS = [
     ('^bistiop +', 'bishop '),
     ('^lord bishop +', 'bishop '),
     
+    ('^atiorney +', 'attorney'),
+    ('^attornby +', 'attorney'),
+    
     ('^ge neral  +', 'general '),
     ('^gen  +', 'general '),
     ('^genebal  +', 'general '),
