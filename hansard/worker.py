@@ -150,6 +150,7 @@ REGEX_POST_CORRECTIONS = [
     
     ('^admtralty +', 'admiralty '),
     ('^adralty +', 'admiralty '),
+    ('^admihalty +', 'admiralty '),
     
     ('^trea-iury +', 'treasury '),
     ('^trea-treasury +', 'treasury '),
