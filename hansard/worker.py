@@ -200,6 +200,8 @@ REGEX_POST_CORRECTIONS = [
     ('^genenal  +', 'general '),
     ('^genera  +', 'general '),
     
+    ('peivy', 'privy')
+    
     ('chancellor of the e xciiequer', 'chancellor of the exchequer'),
     ('chancellor of the exchequer-chequer', 'chancellor of the exchequer'),
     ('changellor of the exche-quer', 'chancellor of the exchequer'),
@@ -222,6 +224,9 @@ REGEX_POST_CORRECTIONS = [
     ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
     ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer')
+    
+    ('ex-chequer', 'exchequer'),
+    ('excheque', 'exchequer'),
     
     ('\bchairman of committees of ways and means\b', 'chairman'),
     ('\bchairman of ways and means\b', 'chairman'),
