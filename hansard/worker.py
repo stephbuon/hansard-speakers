@@ -252,6 +252,8 @@ REGEX_POST_CORRECTIONS = [
     (' resuming$', ''),
     (' also$', ''),
     (' felt$', ''),
+    
+    (' avar$', ' war'),
 
     ('irelandland', 'ireland'),
 
