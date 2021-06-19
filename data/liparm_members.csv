@@ -48,7 +48,7 @@ id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member
 754,Mr Claud Alexander,Mr,Claud,Alexander,1874-01-31,1885-11-24,1831-01-15,1888-05-23,Ayrshire Southern,5342
 6288,Mr John Alexander,Mr,John,Alexander,1853-01-20,1859-04-28,1802-07-26,,Carlow [borough],4324
 6289,Mr Nathaniel Alexander,Mr,Nathaniel,Alexander,1841-06-29,1853-01-05,1815-08-15,1853-01-05,Antrim,3628
-2997,Viscount John Hume Alford,Viscount,John Hume,Alford,1835-01-06,1847-07-29,1812-10-15,1851-01-03,Bedfordshire,-1
+2997,Viscount John Hume Alford,Viscount,John Hume,Alford,1835-01-06,1847-07-29,1812-10-15,1851-01-03,Bedfordshire,12969
 1819,Sir William Allan,Sir,William,Allan,1893-02-24,1903-12-28,1837-11-29,1903-12-28,Gateshead,7693
 3000,Mr John Derby Allcroft,Mr,John Derby,Allcroft,1878-03-28,1880-03-31,1822-07-19,1893-07-29,Worcester,5596
 755,Mr Charles Francis Egerton Allen,Mr,Charles Francis Egerton,Allen,1892-07-04,1895-07-13,1847-10-14,1927-12-31,Pembroke and Haverfordwest District of Boroughs,7637
@@ -1589,7 +1589,6 @@ id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member
 2118,Mr Herbert John Gladstone,Mr,Herbert John,Gladstone,1880-05-10,1885-11-24,1854-01-07,1930-03-06,Leeds,5833
 6819,Mr John Neilson Gladstone,Mr,John Neilson,Gladstone,1859-04-28,1863-02-17,1807-01-18,1863-02-17,Devizes,3626
 6820,Mr Thomas Gladstone,Mr,Thomas,Gladstone,1832-12-10,1835-01-06,1804-07-25,1889-03-20,Portarlington,2713
-1687,Mr William Ewart Gladstone,Mr,William Ewart,Gladstone,1868-11-17,1880-03-31,1809-12-29,1898-05-19,Greenwich,3104
 1688,Mr William Henry Gladstone,Mr,William Henry,Gladstone,1865-07-11,1868-11-17,1840-06-03,1891-07-04,Chester,4834
 4105,Sir Richard Atwood Glass,Sir,Richard Atwood,Glass,1868-11-17,,1820-07-03,1873-12-22,Bewdley,-1
 4114,Mr Edward Auchmuty Glover,Mr,Edward Auchmuty,Glover,1857-03-27,,,1862-03-17,Beverley,-1
@@ -3095,9 +3094,6 @@ id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member
 2103,Sir Edward Ebenezer Parkes,Sir,Edward Ebenezer,Parkes,,,1848-08-12,1919-06-29,,-1
 5323,Sir Albert Lindsay Parkinson,Sir,Albert Lindsay,Parkinson,,,1870-02-24,1936-02-03,,-1
 5322,Mr John Allen Parkinson,Mr,John Allen,Parkinson,,,1870-10-15,1941-12-07,,-1
-2727,Mr Charles Stewart Parnell,Mr,Charles Stewart,Parnell,,,1846-06-27,1891-10-06,,-1
-7105,Sir Henry Brook Parnell,Sir,Henry Brook,Parnell,,,1776-07-03,1842-06-08,,-1
-2728,Mr John Howard Parnell,Mr,John Howard,Parnell,,,1843-01-01,1923-05-03,,-1
 5327,Sir James Edward Parrott,Sir,James Edward,Parrott,,,1863-06-01,1921-04-05,,-1
 5329,Mr Jasper Parrott,Mr,Jasper,Parrott,,,,1866-12-15,,-1
 5328,Mr William Parrott,Mr,William,Parrott,,,1843-12-18,1905-11-09,,-1
