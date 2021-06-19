@@ -40,6 +40,7 @@ REGEX_POST_CORRECTIONS = [
     ('^tre +', 'the '),
     ('^tile +', 'the '),
     ('^tiie +', 'the '),
+    ('^t he +', 'the '),
 
     ('^the +', ''),  # Remove leading "the"
 
@@ -57,6 +58,7 @@ REGEX_POST_CORRECTIONS = [
     
     ('^dir +', 'dr '),
     ('^dk +', 'dr '),
+    ('^de +','dr '),
     
     ('^marquis +', 'marquess '),
     ('^mauquess +', 'marquess '),
@@ -120,6 +122,7 @@ REGEX_POST_CORRECTIONS = [
     ('^eeal +', 'earl '),
 
     ('^dike +', 'duke '),
+    ('^duek +', 'duke '),
 
     # Fix leading Sir
     ('^sib +', 'sir '),
@@ -137,12 +140,23 @@ REGEX_POST_CORRECTIONS = [
     ('^air +', 'sir '),
     ('^si +', 'sir '),
     ('^sdi +', 'sir '),
+    ('^slr +', 'sir '),
     
     ('^abmiral +', 'admiral '),
     ('^admtral +', 'admiral '),
     ('^admieal +', 'admiral '),
     ('^abmiral +', 'admiral '),
     ('^admiraj +', 'admiral '),
+    ('^admibal +', 'admiral '),
+    
+    ('^admtralty +', 'admiralty '),
+    ('^adralty +', 'admiralty '),
+    ('^admihalty +', 'admiralty '),
+    
+    ('^trea-iury +', 'treasury '),
+    ('^trea-treasury +', 'treasury '),
+    ('^treastry +', 'treasury '),
+    ('^trea sury +', 'treasury '),
     
     ('^cafiain +', 'captain '),
     ('^caftain +', 'captain '),
@@ -151,6 +165,7 @@ REGEX_POST_CORRECTIONS = [
     ('^capatain +', 'captain '),
     ('^capiain +', 'captain '),
     ('^capt +', 'captain '),
+    ('^vaptain +', 'captain '),
     
     ('^col +', 'colonel '),
     ('^colconel +', 'colonel '),
@@ -159,15 +174,23 @@ REGEX_POST_CORRECTIONS = [
     ('^colokel +', 'colonel '),
     ('^colonal +', 'colonel '),
     ('^colonbl +', 'colonel '),
+    ('^coloxel +','colonel '),
+    ('^colonl +','colonel '),
+    ('^colosel +','colonel '),
     
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
+    
+    ('^archblsiiop +','archbishop '),
     
     ('^bistiop +', 'bishop '),
     ('^bisliop +', 'bishop '),
     ('^bisiiop +', 'bishop '),
     ('^bistiop +', 'bishop '),
     ('^lord bishop +', 'bishop '),
+    
+    ('^atiorney +', 'attorney'),
+    ('^attornby +', 'attorney'),
     
     ('^ge neral  +', 'general '),
     ('^gen  +', 'general '),
@@ -176,6 +199,8 @@ REGEX_POST_CORRECTIONS = [
     ('^genekal  +', 'general '),
     ('^genenal  +', 'general '),
     ('^genera  +', 'general '),
+    
+    ('peivy', 'privy'),
     
     ('chancellor of the e xciiequer', 'chancellor of the exchequer'),
     ('chancellor of the exchequer-chequer', 'chancellor of the exchequer'),
@@ -198,6 +223,10 @@ REGEX_POST_CORRECTIONS = [
     ('\bchancelloerof the exche-quer\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
+    ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer'),
+    
+    ('ex-chequer', 'exchequer'),
+    ('excheque', 'exchequer'),
     
     ('\bchairman of committees of ways and means\b', 'chairman'),
     ('\bchairman of ways and means\b', 'chairman'),
@@ -207,6 +236,8 @@ REGEX_POST_CORRECTIONS = [
     ('\bchairman airman of ways and means\b', 'chairman'),
     ('\bmr chairman\b', 'chairman'),
     ('\bchairman of wats and means\b', 'chairman'),
+    
+    ('\bceairman\b', 'chairman'),
     
     ('memberconstituencymemberconstituency', ''), # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
@@ -229,6 +260,8 @@ REGEX_POST_CORRECTIONS = [
     (' resuming$', ''),
     (' also$', ''),
     (' felt$', ''),
+    
+    (' avar$', ' war'),
 
     ('irelandland', 'ireland'),
 
@@ -237,9 +270,12 @@ REGEX_POST_CORRECTIONS = [
 
     (' de ', ' of '),
     (' oe ', ' of '),
+    (' uf ', ' of '),
 
     ('under +secretary', 'under-secretary'),
     ('under +- +secretary', 'under-secretary'),
+    
+    ('secketay +','secretary'),
 
     (r'lieutenant[\- ]?colonel +', ''),
 
@@ -344,11 +380,15 @@ def worker_function(inq: multiprocessing.Queue,
 
     extended_edit_distance_set = set()
 
-    for speaker in data.speakers:
-        if len(speaker.last_name) > 8:
-            for alias in speaker.generate_edit_distance_aliases():
-                extended_edit_distance_set.add(alias)
+    i = 0
+    speechdate = None
+    target = None
+    debate_id = None
 
+    for speaker in data.speakers:
+        # if len(speaker.last_name) > 8:
+        #     for alias in speaker.generate_edit_distance_aliases():
+        #         extended_edit_distance_set.add(alias)
         for alias in speaker.generate_edit_distance_aliases():
             edit_distance_dict.setdefault(alias, []).append(speaker.member_id)
 
@@ -379,7 +419,13 @@ def worker_function(inq: multiprocessing.Queue,
 
             chunk['speaker_modified'] = chunk['speaker'].map(preprocess)
 
-            for i, speechdate, unmodified_target, target in chunk.itertuples():
+            for row in chunk.itertuples():
+                i = row[0]
+                speechdate = row.speechdate
+                # unmodified_target = row.speaker
+                target = row.speaker_modified
+                debate_id = int(row.debate_id)
+
                 if (target, speechdate) in MISS_CACHE:
                     missed_indexes.append(i)
                     continue
@@ -391,6 +437,9 @@ def worker_function(inq: multiprocessing.Queue,
                 ambiguity: bool = False
                 possibles = []
                 query = []
+
+                if not match:
+                    match = data.inferences.get(debate_id, None)
 
                 if not match and not len(query):
                     # Try honorary title
@@ -461,12 +510,16 @@ def worker_function(inq: multiprocessing.Queue,
 
                 # Try edit distance with MP name permutations.
                 if not match and not ambiguity:
+                    # Remove initials. (Even if we did consider initials, it would cause more unnecessary ambiguities.)
+                    target = re.sub(r'\b[a-z]\b', '', target)
+                    # Fix multiple whitespace from previous regex.
+                    target = re.sub(r'  +', ' ', target)
+
                     possibles = []
                     for alias in edit_distance_dict:
-                        if len(possibles) > 1:
-                            break
-                        if (alias in extended_edit_distance_set and within_distance_two(target, alias, False)) or \
-                                is_distance_one(target, alias):
+                        # if len(possibles) > 1:
+                        #     break
+                        if within_distance_two(target, alias, False):
                             for speaker_id in edit_distance_dict[alias]:
                                 speaker = speaker_dict[speaker_id]
                                 if speaker.start_date <= speechdate <= speaker.end_date:

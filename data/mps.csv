@@ -1934,7 +1934,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2527,Hon. Henry Thomas Liddell,Liddell,Henry,1797-03-10,1,1878-03-19,1
 2528,Mr John Hely-Hutchinson,Hely-Hutchinson,John,1795-01-01,1,1842-12-31,1
 2529,Mr Alexander Powell,Powell,Alexander,1782-01-01,1,1847-12-31,1
-2530,Mr Colin Macaulay,Macaulay,Colin,1760-01-01,1,1836-02-20,0
+2530,General Colin Macaulay,Macaulay,Colin,1760-01-01,1,1836-02-20,0
 2531,Mr Lawrence Peel,Peel,Lawrence,1801-01-01,1,1888-12-10,0
 2532,Mr Felix Thomas Tollemache,Tollemache,Felix,1796-01-01,1,1843-10-05,0
 2533,Mr Lionel William John Tollemache,Tollemache,Lionel,1794-11-18,0,1878-09-23,0
@@ -2484,7 +2484,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3088,Mr William Joseph O'Neill Daunt,Daunt,William,1807-01-01,1,1894-12-31,1
 3089,Charles John Howard,Howard,Charles,1804-01-01,1,1876-12-31,1
 3090,William Charles Fitzwilliam,Fitzwilliam,William,1812-01-01,1,1835-12-31,1
-3091,Lord Ernest Augustus Charles Bruce,Bruce,Ernest,1811-01-01,1,1886-12-31,1
+3091,Lord Ernest Augustus Charles Brudenell-Bruce,Brudenell-Bruce,Ernest,1811-01-01,1,1886-12-31,1
 3092,Mr John Browne,Browne,John,,1,1862-12-31,1
 3094,Mr Morgan O'Connell,O'Connell,Morgan,1804-01-01,1,1885-12-31,1
 3095,Sir Robert Williames Vaughan,Vaughan,Robert,1768-01-01,1,1843-12-31,1
@@ -6055,7 +6055,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6694,Mr John Howe,Howe,John,1754-08-22,0,1804-10-29,0
 6695,Mr John Hely Hutchinson,Hutchinson,John,1757-05-15,0,1832-06-29,0
 6696,Mr Frederick Irby,Irby,Frederick,1749-06-09,0,1825-03-23,0
-6697,Mr John Jervis,Jervis,John,,0,1823-03-13,0
+6697,Mr John Jervis,Jervis,John,1735-01-09,0,1823-03-13,0
 6698,Mr George Richard St. John,John,George,1761-03-05,0,1824-12-11,0
 6699,Mr William Knollys,Knollys,William,1763-03-02,0,1834-03-20,0
 6700,Mr Edward Lascelles,Lascelles,Edward,1740-06-07,0,1820-04-03,0
@@ -6081,7 +6081,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6720,Mr Thomas Pelham,Pelham,Thomas,1728-02-28,0,1805-01-08,0
 6721,Mr John James Perceval,Perceval,John,1738-01-23,0,1822-02-25,0
 6722,Mr William Petty Fitzmaurice,Fitzmaurice,William,1737-05-02,0,1805-05-07,0
-6723,Mr Henry Phipps,Phipps,Henry,,0,1831-04-07,0
+6723,Mr Henry Phipps,Phipps,Henry,1755-02-14,0,1831-04-07,0
 6724,Mr Charles Pierrepont,Pierrepont,Charles,1737-11-14,0,1816-06-17,0
 6725,Mr George Pitt,Pitt,George,,1,1803-05-07,0
 6726,Mr Thomas Pitt,Pitt,Thomas,1775-02-19,0,1804-03-10,0

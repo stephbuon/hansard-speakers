@@ -54,6 +54,9 @@ class DataStruct:
         self.lord_titles_df: Optional[pd.DataFrame] = None
         self.aliases_df: Optional[pd.DataFrame] = None
 
+        # Debate id -> member id
+        self.inferences: Dict[int, int] = {}
+
     @staticmethod
     def _check_date_estimates(df, start_column, end_column):
         df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True))
@@ -68,6 +71,9 @@ class DataStruct:
         self._load_speakers()
         self._load_term_metadata()
         self._load_corrections()
+
+        infer_df = pd.read_csv('data/inferences.csv')
+        self.inferences = dict(infer_df.itertuples(index=False))
 
     def _load_lord_titles(self):
         dfs = []
