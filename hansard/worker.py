@@ -286,6 +286,19 @@ REGEX_POST_CORRECTIONS = [
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
 
+IGNORE_KEYWORDS = (
+    'member',
+    'membee',
+    'membek',
+    'evicted tenant',
+    'voice'
+)
+
+IGNORE_PREFIXES = (
+    'mrs ',
+    'miss ',
+)
+
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
     return df[(date >= df['started_service']) & (date < df['ended_service'])]
@@ -372,10 +385,12 @@ def worker_function(inq: multiprocessing.Queue,
     hitcount = 0
     missed_indexes = []
     ambiguities_indexes = []
+    ignored_indexes = []
 
     MATCH_CACHE = {}
     MISS_CACHE = set()
     AMBIG_CACHE = set()
+    IGNORED_CACHE = set()
 
     edit_distance_dict = {}  # alias -> list[speaker id's]
 
@@ -433,6 +448,9 @@ def worker_function(inq: multiprocessing.Queue,
                 elif (target, speechdate) in AMBIG_CACHE:
                     ambiguities_indexes.append(i)
                     continue
+                elif target in IGNORED_CACHE:
+                    ignored_indexes.append(i)
+                    continue
 
                 match = MATCH_CACHE.get((target, speechdate), None)
                 ambiguity: bool = False
@@ -441,6 +459,20 @@ def worker_function(inq: multiprocessing.Queue,
 
                 if not match:
                     match = data.inferences.get(debate_id, None)
+
+                # check if we should ignore this row.
+                if not match:
+                    if len(target) < 35:  # temp check: some speaker column values contain debate text
+                        for kw in IGNORE_KEYWORDS:
+                            if kw in target:
+                                IGNORED_CACHE.add(target)
+                                ignored_indexes.append(i)
+                                continue
+                        for kw in IGNORE_PREFIXES:
+                            if target.startswith(kw):
+                                IGNORED_CACHE.add(target)
+                                ignored_indexes.append(i)
+                                continue
 
                 if not match and not len(query):
                     # Try honorary title
@@ -559,7 +591,8 @@ def worker_function(inq: multiprocessing.Queue,
                     MISS_CACHE.add((target, speechdate))
                     missed_indexes.append(i)
 
-            outq.put((hitcount, chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :]))
+            outq.put((hitcount, chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
             hitcount = 0
             del missed_indexes[:]
             del ambiguities_indexes[:]
+            del ignored_indexes[:]

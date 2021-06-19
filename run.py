@@ -44,9 +44,11 @@ def export(output_queue, slack_secret):
 
     missed_df = pd.DataFrame()
     ambiguities_df = pd.DataFrame()
+    ignored_df = pd.DataFrame()
 
     hit = 0
     ambiguities = 0
+    ignored = 0
     i = 0
 
     t0 = time.time()
@@ -59,19 +61,21 @@ def export(output_queue, slack_secret):
             print('Finished all chunks.')
             break
         else:
-            chunk_hitcount, chunk_missed_df, chunk_ambig_df = entry
+            chunk_hitcount, chunk_missed_df, chunk_ambig_df, chunk_ignored_df = entry
             hit += chunk_hitcount
             ambiguities += len(chunk_ambig_df)
+            ignored += len(chunk_ignored_df)
             i += 1
 
             missed_df = missed_df.append(chunk_missed_df)
             ambiguities_df = ambiguities_df.append(chunk_ambig_df)
+            ignored_df = chunk_ignored_df.append(chunk_ignored_df)
 
             print(f'Processed {i} chunks so far.')
 
     from util.slackbot import Blocks, send_slack_post
 
-    total = len(missed_df) + ambiguities + hit
+    total = len(missed_df) + ambiguities + hit - ignored
 
     hit_percent = hit/total * 100
     ambig_percent = ambiguities/total * 100
@@ -93,6 +97,7 @@ def export(output_queue, slack_secret):
     print(f'Total rows processed: {total}')
     missed_df.to_csv(os.path.join(OUTPUT_DIR, 'missed_speakers.csv'))
     ambiguities_df.to_csv(os.path.join(OUTPUT_DIR, 'ambig_speakers.csv'))
+    ignored_df.to_csv(os.path.join(OUTPUT_DIR, 'ignored_speakers.csv'))
 
 
 if __name__ == '__main__':
