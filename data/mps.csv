@@ -2816,7 +2816,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3426,Mr Stephen Woulfe,Woulfe,Stephen,1787-01-01,1,1840-12-31,1
 3427,Mr William Villiers Stuart,Stuart,William,1804-01-01,1,1873-12-31,1
 3428,Mr Robert Blagden Hale,Hale,Robert,1807-01-01,1,1883-12-31,1
-3429,Mr Nicholas Ball,Ball,Nicholas,,1,1865-12-31,1
+3429,Mr Nicholas Ball,Ball,Nicholas,1791-01-01,1,1865-12-31,1
 3430,Mr Edward Horsman,Horsman,Edward,1807-01-01,1,1876-12-31,1
 3431,Mr Charles William Packe,Packe,Charles,1792-01-01,1,1867-12-31,1
 3432,Mr Archibald Hastie,Hastie,Archibald,1791-01-01,1,1857-12-31,1
@@ -3259,7 +3259,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3878,Hon. Cecil John Lawless,Lawless,Cecil,1821-01-01,1,1853-12-31,1
 3879,Colonel William Mure,Mure,William,1799-01-01,1,1860-12-31,1
 3880,Sir Montagu John Cholmeley,Cholmeley,Montagu,1802-01-01,1,1874-12-31,1
-3881,Mr James Henry Monahan,Monahan,James,,1,1878-12-31,1
+3881,Mr James Henry Monahan,Monahan,James,1803-01-01,1,1878-12-31,1
 3882,Mr Richard Prime,Prime,Richard,1784-01-01,1,1866-12-31,1
 3883,Mr Robert Perfect,Perfect,Robert,1790-01-01,1,1875-12-31,1
 3884,Sir Thomas John Burke,Burke,Thomas,1813-01-01,1,1875-12-31,1
