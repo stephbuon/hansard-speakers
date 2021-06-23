@@ -291,7 +291,8 @@ IGNORE_KEYWORDS = (
     'membee',
     'membek',
     'evicted tenant',
-    'voice'
+    'voice',
+    'british statesman',
 )
 
 IGNORE_PREFIXES = (
@@ -400,6 +401,7 @@ def worker_function(inq: multiprocessing.Queue,
     speechdate = None
     target = None
     debate_id = None
+    ignored = False
 
     for speaker in data.speakers:
         # if len(speaker.last_name) > 8:
@@ -462,17 +464,23 @@ def worker_function(inq: multiprocessing.Queue,
 
                 # check if we should ignore this row.
                 if not match:
+                    ignored = False
+
                     if len(target) < 35:  # temp check: some speaker column values contain debate text
                         for kw in IGNORE_KEYWORDS:
                             if kw in target:
                                 IGNORED_CACHE.add(target)
                                 ignored_indexes.append(i)
-                                continue
+                                ignored = True
+                                break
                         for kw in IGNORE_PREFIXES:
                             if target.startswith(kw):
                                 IGNORED_CACHE.add(target)
                                 ignored_indexes.append(i)
-                                continue
+                                ignored = True
+                                break
+                    if ignored:
+                        continue  # continue onto the next speaker
 
                 if not match and not len(query):
                     # Try honorary title
