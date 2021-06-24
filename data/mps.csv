@@ -3435,7 +3435,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4055,Mr Christopher St.George,St.George,Christopher,1812-01-01,1,1877-11-13,0
 4057,Mr John George Smyth,Smyth,John,1815-01-01,1,1869-12-31,1
 4058,Lord Edward George Howard,Howard,Edward,1818-01-01,1,1883-12-31,1
-4059,Mr Michael Sullivan,Sullivan,Michael,,1,1878-12-31,1
+4059,Mr Michael Sullivan,Sullivan,Michael,1809,1,1878-12-31,1
 4060,Captain John Townshend,Townshend,John,1798-01-01,1,1863-12-31,1
 4061,Hon. Frederick William Child-Villiers,Child-Villiers,Frederick,1815-01-01,1,1871-12-31,1
 4062,Lieut-Colonel James Bucknall Bucknall-Estcourt,Bucknall-Estcourt,James,1802-01-01,1,1855-12-31,1
