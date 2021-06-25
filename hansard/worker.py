@@ -189,14 +189,10 @@ REGEX_POST_CORRECTIONS = [
     ('^bisliop +', 'bishop '),
     ('^bisiiop +', 'bishop '),
     ('^bistiop +', 'bishop '),
-    ('^biship +', 'bishop '),
     ('^lord bishop +', 'bishop '),
     
     ('^atiorney +', 'attorney'),
     ('^attornby +', 'attorney'),
-    ('^attorney +', 'attorney'),
-    ('^attorey +', 'attorney'),
-    ('^attoney +', 'attorney'),
     
     ('^ge neral  +', 'general '),
     ('^gen  +', 'general '),
@@ -205,8 +201,6 @@ REGEX_POST_CORRECTIONS = [
     ('^genekal  +', 'general '),
     ('^genenal  +', 'general '),
     ('^genera  +', 'general '),
-    
-    ('generl', 'general'),
     
     ('peivy', 'privy'),
     
@@ -232,12 +226,14 @@ REGEX_POST_CORRECTIONS = [
     ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
     ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer'),
+    ('\bchancellor ok the exchequerr\b','chancellor of the exchequer'),
+    ('\bchancellor of tub exchequerr\b','chancellor of the exchequer'),
     
     ('ex-chequer', 'exchequer'),
     ('excheque', 'exchequer'),
     
     ('\bchairman of committees of ways and means\b', 'chairman'),
-    ('\bchairman of ways and means\b', 'chairman'),
+    ('\bchairman of ways achancellor of tub exchequerrnd means\b', 'chairman'),
     ('\bchairman ways and means\b', 'chairman'),
     ('\bchat rman of ways and means\b', 'chairman'),
     ('\bghairman of ways and means\b', 'chairman'),
@@ -245,6 +241,8 @@ REGEX_POST_CORRECTIONS = [
     ('\bmr chairman\b', 'chairman'),
     ('\bchairman of wats and means\b', 'chairman'),
     ('\bceairman\b', 'chairman'),
+    
+    ('speaker-elect', 'speaker'),
     
     ('memberconstituencymemberconstituency', ''), # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
