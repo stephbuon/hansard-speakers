@@ -189,10 +189,14 @@ REGEX_POST_CORRECTIONS = [
     ('^bisliop +', 'bishop '),
     ('^bisiiop +', 'bishop '),
     ('^bistiop +', 'bishop '),
+    ('^biship +', 'bishop '),
     ('^lord bishop +', 'bishop '),
     
     ('^atiorney +', 'attorney'),
     ('^attornby +', 'attorney'),
+    ('^attorney +', 'attorney'),
+    ('^attorey +', 'attorney'),
+    ('^attoney +', 'attorney'),
     
     ('^ge neral  +', 'general '),
     ('^gen  +', 'general '),
@@ -201,6 +205,8 @@ REGEX_POST_CORRECTIONS = [
     ('^genekal  +', 'general '),
     ('^genenal  +', 'general '),
     ('^genera  +', 'general '),
+    
+    ('generl', 'general'),
     
     ('peivy', 'privy'),
     
