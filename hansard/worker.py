@@ -121,6 +121,7 @@ REGEX_POST_CORRECTIONS = [
     ('^east +', 'earl '),
     ('^eeal +', 'earl '),
     ('^arl +', 'earl '),
+    ('^eahl +', 'earl '),
 
     ('^dike +', 'duke '),
     ('^duek +', 'duke '),
