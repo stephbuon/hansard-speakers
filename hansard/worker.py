@@ -120,6 +120,8 @@ REGEX_POST_CORRECTIONS = [
     ('^early +', 'earl '),
     ('^east +', 'earl '),
     ('^eeal +', 'earl '),
+    ('^arl +', 'earl '),
+    ('^eahl +', 'earl '),
 
     ('^dike +', 'duke '),
     ('^duek +', 'duke '),
@@ -224,20 +226,23 @@ REGEX_POST_CORRECTIONS = [
     ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
     ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
     ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer'),
+    ('\bchancellor ok the exchequerr\b','chancellor of the exchequer'),
+    ('\bchancellor of tub exchequerr\b','chancellor of the exchequer'),
     
     ('ex-chequer', 'exchequer'),
     ('excheque', 'exchequer'),
     
     ('\bchairman of committees of ways and means\b', 'chairman'),
-    ('\bchairman of ways and means\b', 'chairman'),
+    ('\bchairman of ways achancellor of tub exchequerrnd means\b', 'chairman'),
     ('\bchairman ways and means\b', 'chairman'),
     ('\bchat rman of ways and means\b', 'chairman'),
     ('\bghairman of ways and means\b', 'chairman'),
     ('\bchairman airman of ways and means\b', 'chairman'),
     ('\bmr chairman\b', 'chairman'),
     ('\bchairman of wats and means\b', 'chairman'),
-    
     ('\bceairman\b', 'chairman'),
+    
+    ('speaker-elect', 'speaker'),
     
     ('memberconstituencymemberconstituency', ''), # is this necessary? Seems this pattern has been removed elsewhere. Check with Alexander. 
     
@@ -284,6 +289,20 @@ REGEX_POST_CORRECTIONS = [
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
+
+IGNORE_KEYWORDS = (
+    'member',
+    'membee',
+    'membek',
+    'evicted tenant',
+    'voice',
+    'british statesman',
+)
+
+IGNORE_PREFIXES = (
+    'mrs ',
+    'miss ',
+)
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
@@ -371,10 +390,12 @@ def worker_function(inq: multiprocessing.Queue,
     hitcount = 0
     missed_indexes = []
     ambiguities_indexes = []
+    ignored_indexes = []
 
     MATCH_CACHE = {}
     MISS_CACHE = set()
     AMBIG_CACHE = set()
+    IGNORED_CACHE = set()
 
     edit_distance_dict = {}  # alias -> list[speaker id's]
 
@@ -384,6 +405,7 @@ def worker_function(inq: multiprocessing.Queue,
     speechdate = None
     target = None
     debate_id = None
+    ignored = False
 
     for speaker in data.speakers:
         # if len(speaker.last_name) > 8:
@@ -432,6 +454,9 @@ def worker_function(inq: multiprocessing.Queue,
                 elif (target, speechdate) in AMBIG_CACHE:
                     ambiguities_indexes.append(i)
                     continue
+                elif target in IGNORED_CACHE:
+                    ignored_indexes.append(i)
+                    continue
 
                 match = MATCH_CACHE.get((target, speechdate), None)
                 ambiguity: bool = False
@@ -440,6 +465,26 @@ def worker_function(inq: multiprocessing.Queue,
 
                 if not match:
                     match = data.inferences.get(debate_id, None)
+
+                # check if we should ignore this row.
+                if not match:
+                    ignored = False
+
+                    if len(target) < 35:  # temp check: some speaker column values contain debate text
+                        for kw in IGNORE_KEYWORDS:
+                            if kw in target:
+                                IGNORED_CACHE.add(target)
+                                ignored_indexes.append(i)
+                                ignored = True
+                                break
+                        for kw in IGNORE_PREFIXES:
+                            if target.startswith(kw):
+                                IGNORED_CACHE.add(target)
+                                ignored_indexes.append(i)
+                                ignored = True
+                                break
+                    if ignored:
+                        continue  # continue onto the next speaker
 
                 if not match and not len(query):
                     # Try honorary title
@@ -558,7 +603,8 @@ def worker_function(inq: multiprocessing.Queue,
                     MISS_CACHE.add((target, speechdate))
                     missed_indexes.append(i)
 
-            outq.put((hitcount, chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :]))
+            outq.put((hitcount, chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
             hitcount = 0
             del missed_indexes[:]
             del ambiguities_indexes[:]
+            del ignored_indexes[:]
