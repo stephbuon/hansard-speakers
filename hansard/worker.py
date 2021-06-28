@@ -243,6 +243,7 @@ REGEX_POST_CORRECTIONS = [
     ('\bceairman\b', 'chairman'),
     ('\bchairman of committees\b', 'chairman'),
     ('\bchairman of ways and means\b', 'chairman'),
+    ('\bchairman of committees of ways and means\b', 'chairman'),
     
     ('speaker-elect', 'speaker'),
     
