@@ -389,6 +389,7 @@ def worker_function(inq: multiprocessing.Queue,
     office_title_dfs = data.office_position_dfs
     lord_titles_df = data.lord_titles_df
     aliases_df = data.aliases_df
+    title_df = data.title_df
 
     hitcount = 0
     missed_indexes = []
@@ -511,6 +512,13 @@ def worker_function(inq: multiprocessing.Queue,
                     query = aliases_df[condition]
 
                 if not match and not len(query):
+                    # try a lord title/alias
+                    condition = (speechdate >= title_df['start']) &\
+                                (speechdate < title_df['end']) &\
+                                (title_df['alias'].str.contains(target, regex=False))
+                    query = title_df[condition]
+
+                if not match and not len(query):
                     # Try office position
                     for position in office_title_dfs:
                         if position in target or within_distance_four(position, target, True):
@@ -549,6 +557,9 @@ def worker_function(inq: multiprocessing.Queue,
                 # Try edit distance with lord titles.
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, lord_titles_df,
+                                                              ('start', 'end', 'alias'))
+                if not match and not ambiguity:
+                    match, ambiguity = match_edit_distance_df(target, speechdate, title_df,
                                                               ('start', 'end', 'alias'))
 
                 # Try edit distance with honorary titles.
