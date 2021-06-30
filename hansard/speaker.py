@@ -47,17 +47,24 @@ def is_edit_distant_one(incorrect, correct):
 
 from typing import NamedTuple
 
+
 class OfficeTerm(NamedTuple):
     start: datetime
     end: datetime
-    
+
     def contains(self, target_date: datetime):
         return self.start <= target_date < self.end
+
 
 class SpeakerReplacement:
     def __init__(self, full_name, first_name, last_name, member_id, start, end):
         self.first_name = cleanse_string(first_name)
         self.last_name = cleanse_string(last_name)
+
+        if '-' in self.last_name:
+            self.last_name_parts = self.last_name.split('-')
+        else:
+            self.last_name_parts = []
 
         name_parts = cleanse_string(full_name).split()
 
@@ -88,6 +95,11 @@ class SpeakerReplacement:
 
         self.middle_possibilities = list(re.sub(' +', ' ', p.strip()) for p in self._generate_middle_parts(0))
 
+        if self.last_name_parts:
+            self.surname_possibilities = list(self.generate_last_name_parts(0))
+        else:
+            self.surname_possibilities = [self.last_name, ]
+
         self.aliases: Set[str] = set(self._generate_aliases())
 
         self.start_date: datetime = start
@@ -99,7 +111,8 @@ class SpeakerReplacement:
         for title in self.titles + ['']:
             for fn in ('', self.first_name[0], self.first_name):
                 for mn in self.middle_possibilities:
-                    yield re.sub(' +', ' ', f'{title} {fn} {mn} {self.last_name}').strip(' ')
+                    for sn in self.surname_possibilities:
+                        yield re.sub(' +', ' ', f'{title} {fn} {mn} {sn}').strip(' ')
 
     def _generate_middle_parts(self, i):
         if i >= len(self.middle_names):
@@ -116,6 +129,19 @@ class SpeakerReplacement:
             yield p
             yield a + p
             yield c + p
+
+    def generate_last_name_parts(self, i):
+        if i >= len(self.last_name_parts):
+            return
+
+        part = self.last_name_parts[i]
+        if i + 1 >= len(self.last_name_parts):
+            yield part
+
+        else:
+            for next_part in self.generate_last_name_parts(i + 1):
+                yield f'{part} {next_part}'
+                yield f'{part}-{next_part}'
 
     def generate_edit_distance_aliases(self):
         for title in self.titles + ['']:

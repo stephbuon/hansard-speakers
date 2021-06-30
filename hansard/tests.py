@@ -167,6 +167,21 @@ class TestSpeakerReplacement(unittest.TestCase):
         self.assertFalse(sp.matches('JJJD Smith', speech_date))
         self.assertFalse(sp.matches('John Doe-Smith', speech_date))
 
+    def test_hyphen_lastname(self):
+        first = 'Charles'
+        last = 'Smith-Abney-Hastings'
+        full = f'{first} {last}'
+
+        start = datetime.datetime(year=1800, month=1, day=1)
+        speech_date = datetime.datetime(year=1850, month=6, day=1)
+        end = datetime.datetime(year=1900, month=12, day=31)
+
+        sp = SpeakerReplacement(full_name=full, first_name=first, last_name=last, member_id=1,
+                                start=start, end=end)
+
+        self.assertIn('Smith Abney-Hastings'.lower(), sp.surname_possibilities)
+        self.assertIn('Smith-Abney-Hastings'.lower(), sp.surname_possibilities)
+
 
 class TestOffice(unittest.TestCase):
     def test1(self):
