@@ -80,6 +80,7 @@ class DataStruct:
         self.title_df = self.title_df.astype({'corresponding_id': int})
         self.title_df['start'] = pd.to_datetime(self.title_df['start'], format=DATE_FORMAT)
         self.title_df['end'] = pd.to_datetime(self.title_df['end'], format=DATE_FORMAT)
+        self.title_df['alias'] = self.title_df['alias'].str.lower().str.replace('\'', '', regex=False)
 
         infer_df = pd.read_csv('data/inferences.csv')
         self.inferences = dict(infer_df.itertuples(index=False))
