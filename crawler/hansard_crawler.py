@@ -194,6 +194,12 @@ def parse_date_string(dob, is_start):
         return f'{year}-{month:02}-{day:02}'
 
 
+def clean_alias(alias):
+    alias = re.sub(r'^[0-9]+(?:st|nd|rd|th) ', '', alias)
+    alias = re.sub(' +', ' ', alias)
+    return alias
+
+
 def main():
     outfile = open('hansard_titles.csv', 'w+')
     outfile.write('prefix,firstname,surname,dob,dod,alias_type,alias,start,end\n')
@@ -212,16 +218,33 @@ def main():
 
             for lord_title in person.lord_memberships:
                 lord_title, start, end = parse_title(lord_title)
+                start_year = int(start[:4])
+                if start_year > 1910:
+                    continue
+                lord_title = clean_alias(lord_title)
+
                 line = f'{temp},lord_membership,{lord_title},{start},{end}\n'
                 outfile.write(line)
 
             for alt_name in person.alternative_names:
                 alt_name, start, end = parse_title(alt_name)
+                start_year = int(start[:4])
+                if start_year > 1910:
+                    continue
+
+                alt_name = clean_alias(alt_name)
+
                 line = f'{temp},alternative_name,{alt_name},{start},{end}\n'
                 outfile.write(line)
 
             for alt_title in person.alternative_titles:
                 alt_title, start, end = parse_title(alt_title)
+                start_year = int(start[:4])
+                if start_year > 1910:
+                    continue
+
+                alt_title = clean_alias(alt_title)
+
                 line = f'{temp},alternative_title,{alt_title},{start},{end}\n'
                 outfile.write(line)
 
