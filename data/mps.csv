@@ -452,7 +452,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1042,Mr George Evans,Evans,George,1766-02-18,0,1804-12-31,0
 1043,Mr Thomas Davis Lamb,Lamb,Thomas,1775-08-11,0,1818-05-13,0
 1044,Mr William Hussey,Hussey,William,1725-01-01,0,1813-01-26,0
-1045,Mr William Pleydell Bouverie,Bouverie,William,1779-05-11,0,1869-04-09,0
+1045,Mr William Pleydell-Bouverie,Bouverie,William,1779-05-11,0,1869-04-09,0
 1046,Mr Robert Deverell,Deverell,Robert,1760-05-01,0,1841-11-29,0
 1047,Mr Matthew Russell,Russell,Matthew,1765-02-24,0,1822-05-08,0
 1048,Sir Philip Stephens,Stephens,Philip,1723-10-11,0,1809-11-20,0
@@ -3127,7 +3127,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3742,Mr David Ochterlony Dyce Sombre,Sombre,David,1809-01-01,1,1851-12-31,1
 3743,Mr Augustus Elliot Fuller,Fuller,Augustus,1777-01-01,1,1857-12-31,1
 3744,Colonel Charles Wyndham,Wyndham,Charles,1796-01-01,1,1866-12-31,1
-3745,Mr Charles Henry Gordon-Lennox,Gordon-Lennox,Charles,1818-01-01,1,1903-09-27,0
+3745,Lord Charles Henry Gordon-Lennox,Gordon-Lennox,Charles,1818-01-01,1,1903-09-27,0
 3746,Lord Edward Russell,Russell,Edward,1805-01-01,1,1887-12-31,1
 3747,Sir James Flower,Flower,James,1794-01-01,1,1850-12-31,1
 3748,Mr John Bell,Bell,John,1809-01-01,1,1851-12-31,1
@@ -4616,7 +4616,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5247,Lord Edward Hyde Villiers Hyde,Hyde,Edward,1846-01-01,1,1914-10-02,0
 5248,Mr Charles Henry Gordon-Lennox,Gordon-Lennox,Charles,1845-12-27,1,1928-01-18,0
 5249,Mr Montague John Guest,Guest,Montague,1839-01-01,1,1909-09-09,0
-5250,Mr Charles (Jr.) Seely,Seely,Charles,1833-01-01,1,1915-04-16,0
+5250,Mr Charles Seely,Seely,Charles,1833-01-01,1,1915-04-16,0
 5251,Hon. Reginald Arthur James Talbot,Talbot,Reginald,1841-01-01,1,1929-01-15,0
 5252,Captain Hugh de Grey Seymour,Seymour,Hugh,1843-10-22,1,1912-03-23,0
 5253,Sir John George Tollemache Sinclair,Sinclair,John,1824-01-01,1,1912-09-29,0
@@ -5627,7 +5627,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6261,Mr William M'Ewan,M'Ewan,William,1827-01-01,1,1913-05-12,0
 6262,Professor Robert Wallace,Wallace,Robert,1831-01-01,1,1899-12-31,1
 6263,Mr Charles Henry Anderson,Anderson,Charles,1838-01-01,1,1889-12-31,1
-6264,Mr Frederick Carne Rasch,Rasch,Frederick,1847-01-01,1,1914-09-26,0
+6264,Major Frederick Carne Rasch,Rasch,Frederick,1847-01-01,1,1914-09-26,0
 6265,Mr Herbert Henry Asquith,Asquith,Herbert,1852-01-01,1,1928-02-15,0
 6266,Mr James Rowlands,Rowlands,James,1851-01-01,1,1920-03-01,0
 6267,Thomas Henry Thynne,Thynne,Thomas,1862-01-01,1,1946-06-09,0
@@ -6033,7 +6033,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6674,Mr Hugh Fortescue,Fortescue,Hugh,1753-03-12,0,1841-06-16,0
 6675,Mr Alexander Gordon,Gordon,Alexander,1743-06-18,0,1827-06-17,0
 6676,Mr Charles Gough-Calthorpe,Gough-Calthorpe,Charles,1786-03-22,0,1807-06-05,0
-6677,Mr William Wyndham Grenville,Grenville,William,1759-10-25,0,1834-01-12,0
+6677,Lord William Wyndham Grenville,Grenville,William,1759-10-25,0,1834-01-12,0
 6678,Mr George Greville,Greville,George,1746-09-16,0,1816-05-02,0
 6679,Mr Charles Grey,Grey,Charles,1729-10-23,0,1807-11-14,0
 6680,Mr Richard Griffin,Griffin,Richard,1751-06-03,0,1825-02-28,0
