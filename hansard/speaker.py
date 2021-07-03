@@ -139,7 +139,6 @@ class SpeakerReplacement:
             yield part
 
         else:
-            yield part
             for next_part in self.generate_last_name_parts(i + 1):
                 yield f'{next_part}'
                 yield f'{part} {next_part}'
