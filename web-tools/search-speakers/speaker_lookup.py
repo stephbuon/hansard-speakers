@@ -2,7 +2,6 @@
 # If these URLs are not returned, the name is exported as a possible non-MP for an RA to validate.
 # export_dir = '/home/stephbuon/projects/speaker-search/possible_non_mps/'
 
-
 import os
 import re
 import sys
