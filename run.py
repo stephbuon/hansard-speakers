@@ -137,8 +137,11 @@ if __name__ == '__main__':
     for chunk in pd.read_csv(DATA_FILE,
                              sep=',',
                              chunksize=CHUNK_SIZE,
-                             usecols=['speechdate', 'speaker', 'debate_id']):  # type: pd.DataFrame
-
+                             usecols=['speechdate', 'speaker', 'debate_id', 'speaker_house']):  # type: pd.DataFrame
+        chunk['speaker_house'] = chunk['speaker_house'].str.replace('[^A-Za-z ]', '', regex=True)
+        is_commons = chunk['speaker_house'] == 'HOUSE OF COMMONS'
+        is_lords = chunk['speaker_house'] == 'HOUSE OF LORDS'
+        chunk['speaker_house'] = is_commons + (is_lords * 2)
         chunk['speechdate'] = pd.to_datetime(chunk['speechdate'], format=DATE_FORMAT)
         inq.put(chunk)
         num_chunks += 1

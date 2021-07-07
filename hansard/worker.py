@@ -2,6 +2,7 @@ import multiprocessing
 from queue import Empty
 from typing import Tuple, Optional, List, Dict
 
+from hansard.disambiguate import disambiguate
 from hansard.loader import DataStruct
 from datetime import datetime
 import pandas as pd
@@ -603,6 +604,13 @@ def worker_function(inq: multiprocessing.Queue,
                     if len(possibles) == 1:
                         ambiguity = False
                         match = possibles[0].id
+
+                if ambiguity:
+                    match = disambiguate(target, speechdate, row.speaker_house)
+                    if match == -1:
+                        match = None
+                    else:
+                        ambiguity = False
 
                 if match is not None:
                     hitcount += 1

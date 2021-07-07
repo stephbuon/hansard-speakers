@@ -220,5 +220,27 @@ class TestJaroDistance(unittest.TestCase):
         self.assertTrue(max(distances) == jaro_distance('mr jeffreys', s))
 
 
+from hansard.disambiguate import HOUSE_OF_LORDS, HOUSE_OF_COMMONS, disambiguate
+
+
+class TestDisambiguate(unittest.TestCase):
+    def test1(self):
+        target = 'mr liddell'
+        house = HOUSE_OF_COMMONS
+
+        speechdate = datetime.datetime(year=1855, month=7, day=4)
+        self.assertEqual(disambiguate(target, speechdate, house), 2527)
+
+        speechdate = datetime.datetime(year=1856, month=7, day=4)
+        self.assertEqual(disambiguate(target, speechdate, house), 4264)
+
+        house = HOUSE_OF_LORDS
+        speechdate = datetime.datetime(year=1856, month=7, day=4)
+        self.assertEqual(disambiguate(target, speechdate, house), 2527)
+
+        speechdate = datetime.datetime(year=1907, month=7, day=4)
+        self.assertEqual(disambiguate(target, speechdate, house), -1)
+
+
 if __name__ == '__main__':
     unittest.main()
