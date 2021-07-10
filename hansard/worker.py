@@ -283,13 +283,16 @@ REGEX_POST_CORRECTIONS = [
 
     ('under +secretary', 'under-secretary'),
     ('under +- +secretary', 'under-secretary'),
-    
+
     ('secketay +','secretary'),
 
     (r'lieutenant[\- ]?colonel +', ''),
 
     (r'^right hon +', ''),
-    (r' +observed$', '')
+    (r' +observed$', ''),
+
+    ('^general sir +', 'sir '),
+    ('^mr secretary +', 'mr '),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
@@ -301,6 +304,8 @@ IGNORE_KEYWORDS = (
     'evicted tenant',
     'voice',
     'british statesman',
+    'bishop',
+    'archbishop',
 )
 
 IGNORE_PREFIXES = (
