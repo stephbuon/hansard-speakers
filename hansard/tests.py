@@ -221,25 +221,29 @@ class TestJaroDistance(unittest.TestCase):
 
 
 from hansard.disambiguate import HOUSE_OF_LORDS, HOUSE_OF_COMMONS, disambiguate
+from hansard.loader import DataStruct
 
 
 class TestDisambiguate(unittest.TestCase):
     def test1(self):
+        data = DataStruct()
+        data._load_speakers()
+
         target = 'mr liddell'
         house = HOUSE_OF_COMMONS
 
         speechdate = datetime.datetime(year=1855, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house), 2527)
+        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), 2527)
 
         speechdate = datetime.datetime(year=1856, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house), 4264)
+        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), 4264)
 
         house = HOUSE_OF_LORDS
         speechdate = datetime.datetime(year=1856, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house), 2527)
+        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), 2527)
 
         speechdate = datetime.datetime(year=1907, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house), -1)
+        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), -1)
 
 
 if __name__ == '__main__':

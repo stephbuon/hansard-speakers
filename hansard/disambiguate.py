@@ -161,7 +161,7 @@ DisambiguateFunctions = {
 
     # Mr Hobhouse
     3229: AfterDateRequirement(year=1819) & BeforeDateRequirement(year=1851, month=12, day=31),
-    7539: AfterDateRequirement(year=1900)
+    7539: AfterDateRequirement(year=1900),
     
     # Mr. Healy
     5804: NoRequirement(),
@@ -173,7 +173,7 @@ DisambiguateFunctions = {
     # Mr. Whitbread
     7619: AfterDateRequirement(year=1906),
     624: AfterDateRequirement(year=1804) & BeforeDateRequirement(year=1815, month=12, day=31),
-    2852: AfterDateRequirement(year=1818) & BeforeDateRequirement(year=1820, month=12, day=31)
+    2852: AfterDateRequirement(year=1818) & BeforeDateRequirement(year=1820, month=12, day=31),
 
     # Mr. Canning
     1114: BeforeDateRequirement(year=1827, month=12, day=31),
