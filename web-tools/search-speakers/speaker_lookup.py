@@ -1,14 +1,13 @@
 # Google search missed speakers and see whether "Hansard People" or "Hansard Offices" is returned.
 # If these URLs are not returned, the name is exported as a possible non-MP for an RA to validate.
 # export_dir = '/home/stephbuon/projects/speaker-search/possible_non_mps/'
+# export_dir = '/scratch/group/pract-txt-mine/possible_non_mps/'
 
 import os
 import re
 import sys
 import pandas as pd
 from googlesearch import search # from the google package
-
-export_dir = '/scratch/group/pract-txt-mine/possible_non_mps/'
 
 def import_data(input_file):
     print('Importing data...')
@@ -47,8 +46,8 @@ def speaker_search(missed_speakers):
         else:
             misses.append(name)
 
-    export = pd.DataFrame(misses)
-    export.to_csv(export_dir + 'possible_non_mps.csv', index = False)
+    export = pd.DataFrame(misses, columns =['returns'])
+    export.to_csv(export_folder + 'possible_non_mps.csv', index = False)
 
 
 if __name__ == '__main__':
@@ -56,11 +55,11 @@ if __name__ == '__main__':
         input_file = sys.argv[1]
     except IndexError:
         exit('No file named ' + sys.argv[1])
-
-    export_folder = export_dir
+        
+    export_folder = 'search_returns' # export_dir
 
     if not os.path.exists(export_folder):
         os.mkdir(export_folder)
 
     missed_speakers = import_data(input_file)
-    speaker_search(missed_speakers)
+    speaker_search(missed_speakers, export_folder)
