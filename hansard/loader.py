@@ -1,5 +1,5 @@
 import os
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Set
 import pandas as pd
 from hansard import DATE_FORMAT, DATE_FORMAT2, MP_ALIAS_PATTERN, cleanse_string
 from hansard.speaker import SpeakerReplacement, OfficeHolding, Office, OfficeTerm
@@ -60,6 +60,9 @@ class DataStruct:
         # title string -> member id
         self.title_df: Optional[pd.DataFrame] = None
 
+        # ignored set of speaker names
+        self.ignored_set: Set[str] = set()
+
     @staticmethod
     def _check_date_estimates(df, start_column, end_column):
         df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True))
@@ -74,6 +77,8 @@ class DataStruct:
         self._load_speakers()
         self._load_term_metadata()
         self._load_corrections()
+
+        self.ignored_set = set(pd.read_csv('data/possible_non_mps.csv')['non_mps'].unique())
 
         self.title_df = pd.read_csv('data/hansard_titles.csv')
         self.title_df = self.title_df[~self.title_df['corresponding_id'].isna()]

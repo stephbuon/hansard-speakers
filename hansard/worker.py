@@ -314,6 +314,18 @@ IGNORE_PREFIXES = (
 )
 
 
+def is_ignored(target: str) -> bool:
+    if len(target) < 35:  # temp check: some speaker column values contain debate text
+        for kw in IGNORE_KEYWORDS:
+            if kw in target:
+                return True
+        for kw in IGNORE_PREFIXES:
+            if target.startswith(kw):
+                return True
+
+    return False
+
+
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
     return df[(date >= df['started_service']) & (date < df['ended_service'])]
 
@@ -478,22 +490,11 @@ def worker_function(inq: multiprocessing.Queue,
 
                 # check if we should ignore this row.
                 if not match:
-                    ignored = False
+                    ignored = is_ignored(target) or target in data.ignored_set
 
-                    if len(target) < 35:  # temp check: some speaker column values contain debate text
-                        for kw in IGNORE_KEYWORDS:
-                            if kw in target:
-                                IGNORED_CACHE.add(target)
-                                ignored_indexes.append(i)
-                                ignored = True
-                                break
-                        for kw in IGNORE_PREFIXES:
-                            if target.startswith(kw):
-                                IGNORED_CACHE.add(target)
-                                ignored_indexes.append(i)
-                                ignored = True
-                                break
                     if ignored:
+                        IGNORED_CACHE.add(target)
+                        ignored_indexes.append(i)
                         continue  # continue onto the next speaker
 
                 if not match and not len(query):
@@ -611,7 +612,7 @@ def worker_function(inq: multiprocessing.Queue,
                         match = possibles[0].id
 
                 if ambiguity:
-                    match = disambiguate(target, speechdate, row.speaker_house)
+                    match = disambiguate(target, speechdate, row.speaker_house, data.speaker_dict)
                     if match == -1:
                         match = None
                     else:
