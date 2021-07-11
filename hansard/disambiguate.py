@@ -37,6 +37,27 @@ class AfterDateRequirement(DateRequirement):
         return self.date < speechdate
 
 
+class YearRequirement(Requirement):
+    def __init__(self, year: int):
+        self.year: int = year
+
+    def __call__(self, speechdate, house):
+        return speechdate.year == self.year
+
+
+class WithinYearsRequirement(Requirement):
+    def __init__(self, startYear: int, endYear: int, inclusive=True):
+        self.startYear: int = startYear
+        self.endYear: int = endYear
+        self.inclusive: bool = inclusive
+
+    def __call__(self, speechdate, house):
+        if self.inclusive:
+            return self.startYear <= speechdate.year <= self.endYear
+        else:
+            return self.startYear < speechdate.year < self.endYear
+
+
 class HouseRequirement(Requirement):
     def __init__(self, house):
         self.house = house
@@ -207,7 +228,7 @@ DisambiguateFunctions = {
     981: AfterDateRequirement(year=1819) & BeforeDateRequirement(year=1820),
     2123: AfterDateRequirement(year=1821) & BeforeDateRequirement(year=1826),
     3099: AfterDateRequirement(year=1831) & BeforeDateRequirement(year=1832),
-    2937: AfterDateRequirement(year=1837) & BeforeDateRequirement(year=1838),
+    2937: YearRequirement(1837) | YearRequirement(1834) | WithinYearsRequirement(1836, 1839),  # Also Mr. Wynn
     3313: AfterDateRequirement(year=1850) & BeforeDateRequirement(year=1865),
     5084: AfterDateRequirement(year=1869) & BeforeDateRequirement(year=1870),
     
@@ -259,6 +280,61 @@ DisambiguateFunctions = {
     
     # Mr. Markham
     7991: AfterDateRequirement(year=1900) & BeforeDateRequirement(year=1911),
+
+    # Mr. Bennet
+    1463: AfterDateRequirement(year=1812) & BeforeDateRequirement(year=1825),
+    6026: AfterDateRequirement(year=1886) & BeforeDateRequirement(year=1887),
+    8381: AfterDateRequirement(year=1906) & BeforeDateRequirement(year=1910),
+
+    # Mr. Robinson
+    639: (AfterDateRequirement(year=1819) & BeforeDateRequirement(year=1820)) |
+         (AfterDateRequirement(year=1808) & BeforeDateRequirement(year=1813)),
+    2241: (AfterDateRequirement(year=1820) & BeforeDateRequirement(year=1822)) |
+          (AfterDateRequirement(year=1828) & BeforeDateRequirement(year=1833)),
+    3247: AfterDateRequirement(year=1832) & BeforeDateRequirement(year=1838),
+    5691: AfterDateRequirement(year=1886) & BeforeDateRequirement(year=1887),
+    8129: AfterDateRequirement(year=1906) & BeforeDateRequirement(year=1909),
+
+    # Mr. Lefroy
+    2995: WithinYearsRequirement(startYear=1838, endYear=1841) |
+          (AfterDateRequirement(year=1833, month=1, day=1) & BeforeDateRequirement(year=1833, month=6, day=1)),
+    2663: WithinYearsRequirement(startYear=1830, endYear=1832) |
+          WithinYearsRequirement(startYear=1834, endYear=1836) |
+          WithinYearsRequirement(startYear=1842, endYear=1847) |
+          (AfterDateRequirement(year=1833, month=6, day=1) & BeforeDateRequirement(year=1834, month=1, day=1)),
+
+    # Mr. Morton
+    6397: WithinYearsRequirement(startYear=1890, endYear=1910),
+
+    # Mr. Pease
+    2966: WithinYearsRequirement(startYear=1833, endYear=1839),
+    4572: WithinYearsRequirement(startYear=1857, endYear=1865),
+    4851: WithinYearsRequirement(startYear=1866, endYear=1882),
+    7390: WithinYearsRequirement(startYear=1896, endYear=1910),
+
+    # Mr. Wynn
+    1610: YearRequirement(1809),
+    3101: YearRequirement(1812) |
+          WithinYearsRequirement(1822, 1826) |
+          YearRequirement(1831) |
+          YearRequirement(1833) |
+          YearRequirement(1835) |
+          YearRequirement(1841),
+    2398: WithinYearsRequirement(1826, 1830),
+    3658: WithinYearsRequirement(1842, 1845),
+    4758: AfterDateRequirement(year=1868),
+
+    # Mr. Ponsonby
+    8432: WithinYearsRequirement(1908, 1910),
+
+    # Mr. Whalley
+    5756: WithinYearsRequirement(1880, 1881),
+    4339: WithinYearsRequirement(1853, 1877),
+
+    # Mr. Lambert
+    2538: WithinYearsRequirement(1830, 1832),
+    6438: WithinYearsRequirement(1893, 1910),
+
 }
 
 
