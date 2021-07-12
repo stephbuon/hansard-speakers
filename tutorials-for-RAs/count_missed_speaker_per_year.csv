@@ -1,0 +1,17 @@
+### or from the speaker_modified column: 
+library("tidyverse")
+library("lubridate")
+
+#setwd("/scratch/group/pract-txt-mine/")
+setwd("~/")
+
+hansard <- read_csv("missed_speakers.csv")
+
+hansard <- hansard %>%
+  mutate(year = year(as.Date(hansard$speechdate)))
+
+hansard <- hansard %>%
+  select(speaker_modified, year) 
+
+hansard <- hansard %>%
+  count(speaker_modified, year)
