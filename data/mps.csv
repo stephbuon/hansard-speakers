@@ -1725,7 +1725,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2320,Mr William Meade Smythe,Smythe,William,1786-01-01,1,1866-12-31,1
 2321,Mr John Williams,Williams,John,1777-02-10,0,1846-09-15,0
 2322,Lord Robert Grosvenor,Grosvenor,Robert,1801-01-01,1,1893-12-31,1
-2323,Mr William Russell,Russell,William,1798-01-01,1,1850-12-31,1
 2324,Mr Sheldon Cradock,Cradock,Sheldon,1777-01-01,1,1852-02-19,0
 2325,Mr John Walpole,Walpole,John,1787-11-17,0,1859-12-10,0
 2326,Earl of Derby (Edward George Geoffrey Stanley),Stanley,Edward,1799-01-01,1,1869-12-31,1
@@ -2028,7 +2027,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2626,Mr James Ewing,Ewing,James,1775-01-01,1,1853-12-31,1
 2627,Mr William Henry Lytton Earle Bulwer,Bulwer,William,1801-02-13,0,1872-05-23,0
 2628,Philip Henry Stanhope,Stanhope,Philip,1805-01-01,1,1875-12-31,1
-2629,Mr George Lowther Thompson,Thompson,George,1786-01-01,1,1841-12-31,1
 2630,Sir James Carnegie,Carnegie,James,1799-01-01,1,1849-01-30,0
 2631,Mr Stephens Lyne-Stephens,Lyne-Stephens,Stephens,1801-01-01,1,1860-02-28,0
 2632,Mr George Tudor,Tudor,George,1792-01-01,1,1857-12-24,0
@@ -2132,7 +2130,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2733,Mr William Venables,Venables,William,1786-01-01,1,1840-07-30,0
 2734,Mr William Mayhew,Mayhew,William,1787-01-01,1,1855-12-31,1
 2735,Mr Robert Henry Stanhope,Stanhope,Robert,1802-04-21,0,1839-03-02,0
-2736,Mr John Charles George Savile,Savile,John,1810-06-04,0,1899-08-17,0
 2737,Mr Charles Francis Norton,Norton,Charles,1807-02-04,0,1834-10-27,0
 2738,Mr Edward John Stanley,Stanley,Edward,1802-11-13,0,1869-06-16,0
 2739,Hon. Edward Robert Petre,Petre,Edward,1795-01-01,1,1848-12-31,1
@@ -2343,7 +2340,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2949,Mr John Waring Maxwell,Maxwell,John,1788-01-01,1,1869-12-31,1
 2950,Mr Andrew Carew O'Dwyer,O'Dwyer,Andrew,,1,1877-12-31,1
 2951,Mr John Hodgetts Foley,Foley,John,1797-01-01,1,1861-12-31,1
-2952,Mr Edward Southwell Ruthven,Ruthven,Edward,1772-01-01,1,1836-03-31,1
 2953,Mr George Evans,Evans,George,1771-01-01,1,1842-12-31,1
 2954,Mr Christopher Fitzsimon,Fitzsimon,Christopher,,1,1856-12-31,1
 2955,Mr Thomas Lefroy,Lefroy,Thomas,1776-01-01,1,1869-12-31,1
@@ -2842,7 +2838,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3456,Mr James Gibson,Gibson,James,,1,1880-12-31,1
 3457,Mr William Keppel Barrington,Barrington,William,1793-01-01,1,1867-12-31,1
 3458,Mr Richard Hodgson,Hodgson,Richard,1812-01-01,1,1877-12-31,1
-3459,Mr William Holmes,Holmes,William,1779-01-01,1,1861-12-31,1
 3460,Sir James Duke,Duke,James,1792-01-01,1,1873-12-31,1
 3462,Mr Charles Douglas Richard Hanbury Tracy,Tracy,H.,1840-01-01,1,1889-12-31,1
 3463,Mr Philip Courtenay,Courtenay,Philip,,1,1842-12-31,1
@@ -8424,7 +8419,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 9083,Lieut-Colonel Henry Kenyon Stephenson,Stephenson,Henry,1865-01-01,1,1947-09-20,0
 9084,Mr Henry Norman Rae,Rae,Henry,1860-01-01,1,1928-12-31,0
 9085,Lieut-Colonel Richard Foulis Roundell,Roundell,Richard,1872-01-01,1,1940-01-05,0
-9086,Mr John Joseph Clancy,Clancy,John,1847-01-01,1,,1
 9087,Mr Alexander MacCabe,MacCabe,Alexander,,1,,1
 9088,Mr John Emanuel Davison,Davison,John,1870-01-01,1,1927-03-02,0
 9089,Mr James Brown,Brown,James,1862-01-01,1,1939-03-21,0
@@ -9927,7 +9921,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 12907,Mrs Helen McElhone,McElhone,Mrs,,0,,0
 12913,Mr Arthur French,French,Arthur,1764-01-01,1,1820-11-24,1
 12914,Sir Francis Nathaniel Burton,Burton,Francis,1766-12-16,0,1832-01-20,0
-12915,Mr Henry Boyle,Boyle,Henry,1771-08-08,0,1842-04-22,0
 12916,Mr Edward Herbert,Herbert,Edward,1785-03-22,0,1848-01-17,0
 12917,Mr Lyndon Evelyn,Evelyn,Lyndon,1759-01-01,1,1859-04-30,0
 12918,Mr Lyndon Evelyn,Evelyn,Lyndon,1759-01-01,1,1839-04-30,0
