@@ -1070,7 +1070,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 11034, William Brabazon Ponsonby,Ponsonby,William,1744-09-15,0,1806-11-05,0
 1662,Mr Horatio Walpole,Walpole,Horatio,1783-06-14,0,1858-12-29,0
 1663,Mr Francis Russell,Russell,Francis,1788-05-13,0,1861-05-14,0
-1664,Sir Robert Peel,Peel,Robert,1788-01-01,1,1850-12-31,1
+1664,Sir Robert Peel,Peel,Robert,1788-02-05,1,1850-07-02,1
 1665,Mr Charles Arbuthnot,Arbuthnot,Charles,1767-03-14,0,1850-08-18,0
 1666,Mr Samuel Farmer,Farmer,Samuel,1748-01-01,1,1839-05-14,0
 1667,Sir Leonard Thomas Worsley-Holmes,Worsley-Holmes,Leonard,1787-07-16,0,1825-01-10,0
@@ -1921,7 +1921,11 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2520,Hon. William Duncombe,Duncombe,William,1798-01-01,1,1867-12-31,1
 2521,Mr Richard Fountayne-Wilson,Fountayne-Wilson,Richard,1783-01-01,1,1847-07-24,0
 2522,Mr John Marshall,Marshall,John,1765-01-01,1,1845-06-06,0
+<<<<<<< Updated upstream
 2523,Mr James Balfour,Balfour,James,1775-01-01,1,1845-12-31,1
+=======
+2523,Mr James Balfour,Balfour,James,1775-01-01,1,1845-04-19,1
+>>>>>>> Stashed changes
 2524,Mr James Sinclair,Sinclair,James,1797-01-01,1,1856-12-31,1
 2525,Mr Alexander Duff,Duff,Alexander,1777-01-01,1,1851-03-21,0
 2526,Mr Adam Hay,Hay,Adam,1795-12-14,0,1867-01-18,0
@@ -2753,7 +2757,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3372,Mr Thomas Philip Maunsell,Maunsell,Thomas,1781-01-01,1,1866-12-31,1
 3373,Sir Charles Knightley,Knightley,Charles,1781-01-01,1,1864-12-31,1
 3374,Hon. Robert Campbell Scarlett,Scarlett,Robert,1794-01-01,1,1861-12-31,1
-3375,Mr Thomas Balfour,Balfour,Thomas,1810-01-01,1,1838-12-31,1
+3375,Mr Thomas Balfour,Balfour,Thomas,1810-04-02,1,1838-03-30,1
 3376,Mr Donald Maclean,Maclean,Donald,1800-01-01,1,1874-12-31,1
 3377,Mr Alexander Graham Speirs,Speirs,Alexander,,1,1847-12-31,1
 3378,Hon. Fox Maule,Maule,Fox,1801-01-01,1,1874-12-31,1
@@ -3049,7 +3053,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3672,Lord John Frederick Gordon,Gordon,John,1799-01-01,1,1878-12-31,1
 3673,Lord Elcho (Francis Richard Charteris),Charteris,Francis,1818-01-01,1,1914-06-30,0
 3674,Mr Ross Donnelly Mangles,Mangles,Ross,1801-01-01,1,1877-12-31,1
-3675,Mr James Maitland Balfour,Balfour,James,1820-01-01,1,1856-12-31,1
+3675,Mr James Maitland Balfour,Balfour,James,1820-01-05,1,1856-02-23,1
 3676,Mr John Attwood,Attwood,John,,1,1865-12-31,1
 3677,Mr William Beresford,Beresford,William,1797-01-01,1,1883-12-31,1
 3678,Mr Henry William Hobhouse,Hobhouse,Henry,1791-01-01,1,1868-12-31,1
@@ -4304,7 +4308,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 4943,Sir George Otto Trevelyan,Trevelyan,George,1838-07-20,1,1928-08-17,0
 4944,Sir Charles Wentworth Dilke,Dilke,Charles,1810-01-01,1,1869-12-31,1
 4945,Mr John Hales Montagu Calcraft,Calcraft,John,1831-01-01,1,1868-12-31,1
-4946,Mr Arthur Wellesey Peel,Peel,Arthur,1829-08-03,1,1912-10-24,0
+4946,Mr Arthur Wellesley Peel,Peel,Arthur,1829-08-03,1,1912-10-24,0
 4947,Mr Henry Christopher Wise,Wise,Henry,1806-01-01,1,1883-12-31,1
 4948,Mr John Henry de la Poer Beresford,Beresford,John,1844-01-01,1,1895-12-31,1
 4949,Mr Arthur Divett Hayter,Hayter,Arthur,1835-01-01,1,1917-05-01,0
@@ -4674,7 +4678,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5315,Mr Lawrence Dundas,Dundas,Lawrence,1844-01-01,1,1929-03-11,0
 5316,Mr Joseph Philip Ronayne,Ronayne,Joseph,1822-01-01,1,1876-12-31,1
 5317,Mr James William Barclay,Barclay,James,1832-01-01,1,1907-02-26,0
-5318,Sir George Balfour,Balfour,George,1809-01-01,1,1894-12-31,1
+5318,Sir George Balfour,Balfour,George,1809-12-08,1,1894-03-12,1
 5319,Sir Richard Wallace,Wallace,Richard,1818-01-01,1,1890-12-31,1
 5320,Mr John Torr,Torr,John,1813-01-01,1,1880-12-31,1
 5321,Mr Robert Vans-Agnew,Vans-Agnew,Robert,1817-01-01,1,1893-12-31,1
@@ -4766,7 +4770,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5407,Mr John Crossley,Crossley,John,1812-01-01,1,1879-12-31,1
 5408,Mr Thomas Richardson,Richardson,Thomas,1821-01-01,1,1890-12-31,1
 5409,Mr Daniel Peploe Peploe,Peploe,Daniel,1829-01-01,1,1887-12-31,1
-5410,Mr Arthur James Balfour,Balfour,Arthur,1848-01-01,1,1930-03-19,0
+5410,Mr Arthur James Balfour,Balfour,Arthur,1848-07-25,1,1930-03-19,0
 5411,Mr Thomas Frederick Halsey,Halsey,Thomas,1839-01-01,1,1927-02-12,0
 5412,Mr Charles Fraser-Mackintosh,Fraser-Mackintosh,Charles,1828-01-01,1,1901-01-25,0
 5413,Mr James Redford Bulwer,Bulwer,James,1820-01-01,1,1899-12-31,1
@@ -5145,7 +5149,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5788,Mr William Woodall,Woodall,William,1832-01-01,1,1901-04-08,0
 5789,Mr William Biddell,Biddell,William,1825-01-01,1,1900-10-25,0
 5790,Mr William St John Fremantle Brodrick,Brodrick,William,1856-01-01,1,1942-02-13,0
-5791,Mr Jabez Spencer Balfour,Balfour,Jabez,1843-01-01,1,1910-02-23,0
+5791,Mr Jabez Spencer Balfour,Balfour,Jabez,1843-09-04,1,1910-02-23,0
 5792,Sir William Palliser,Palliser,William,1830-01-01,1,1882-12-31,1
 5793,Hon. Lewis Payan Dawnay,Dawnay,Lewis,1846-01-01,1,1910-07-30,0
 5794,Mr John Dillon,Dillon,John,1851-01-01,1,1927-08-04,0
@@ -5197,7 +5201,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5841,Mr F. Lehmann,Lehmann,Frederick,1826-01-01,1,1891-08-22,0
 5842,Mr Theophilus John Levett,Levett,Theophilus,1829-01-01,1,1899-12-31,1
 5843,Mr Richard Biddulph Martin,Martin,Richard,1838-01-01,1,1916-08-23,0
-5844,Mr John Blair Balfour,Balfour,John,1837-01-01,1,1905-01-22,0
+5844,Mr John Blair Balfour,Balfour,John,1837-07-11,1,1905-01-22,0
 5845,Mr John McLaren,McLaren,John,1831-01-01,1,1910-04-06,0
 5846,Mr John Edward Redmond,Redmond,John,1856-01-01,1,1918-03-06,0
 5847,Mr Pickering Phipps,Phipps,Pickering,1827-01-01,1,1890-12-31,1
@@ -5432,7 +5436,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6076,Mr Donald Crawford,Crawford,Donald,1837-01-01,1,1919-01-01,0
 6077,Mr John Baird,Baird,John,1852-01-01,1,1900-07-08,0
 6078,Mr George Heneage Marton,Marton,George,1839-01-01,1,1905-08-18,0
-6079,Mr Gerald William Balfour,Balfour,Gerald,1853-01-01,1,1945-01-14,0
+6079,Hon. Gerald William Balfour,Balfour,Gerald,1853-04-09,1,1945-01-14,0
 6080,Mr Richard Dawson,Dawson,Richard,1855-01-01,1,1923-05-26,1
 6081,Mr Charles Crompton,Crompton,Charles,1833-01-01,1,1890-12-31,1
 6082,Mr Caleb Wright,Wright,Caleb,1810-01-01,1,1898-12-31,1
@@ -6649,7 +6653,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 7302,Mr William Thomas Lewis,Lewis,William,,0,1914-08-27,0
 7303,Mr James Lyle Mackay,Mackay,James,,0,1932-05-23,0
 7304,Mr Montolieu Fox Oliphant Murray,Murray,Montolieu,1840-04-27,0,1927-02-20,0
-7305,Hon. William Robert Wellesley Peel,Peel,William,1867-01-01,1,1937-09-28,0
+7305,Hon. William Robert Wellesley Peel,Peel,William,1867-01-07,1,1937-09-28,0
 7306,Archibald Philip Primrose,Primrose,Archibald,1847-05-07,0,1929-05-21,0
 7307,Mr Edward Strachey,Strachey,Edward,,0,1936-07-25,0
 7308,Mr Thomas Ashburnham,Ashburnham,Thomas,1855-04-08,0,1924-05-12,0
@@ -7260,7 +7264,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 7925,Mr Thomas James Macnamara,Macnamara,Thomas,1861-01-01,1,1931-12-03,0
 7926,Mr Alfred Davies,Davies,Alfred,1848-01-01,1,1907-09-27,0
 7927,Mr Thomas McGovern,McGovern,Thomas,1851-01-01,1,1904-04-06,0
-7928,Mr Kenneth Robert Balfour,Balfour,Kenneth,1863-01-01,1,1936-09-07,0
+7928,Lieut-Colonel Kenneth Robert Balfour,Balfour,Kenneth,1863-12-14,1,1936-09-07,0
 7929,Sir Joseph Dimsdale,Dimsdale,Joseph,1849-01-01,1,1912-08-09,0
 7930,Mr John Scurrah Randles,Randles,John,1857-01-01,1,1945-02-11,0
 7931,Mr James Tomkinson,Tomkinson,James,1840-01-01,1,1910-04-10,0
@@ -7299,7 +7303,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 7964,Mr John Stanhope Arkwright,Arkwright,John,1872-01-01,1,1954-09-19,0
 7965,Hon. Oswald Partington,Partington,Oswald,1872-01-01,1,1935-03-23,0
 7966,Mr Arthur Stanley Wilson,Wilson,Arthur,1868-01-01,1,1938-04-12,0
-7967,Mr Charles Barrington Balfour,Balfour,Charles,1862-01-01,1,1921-08-31,0
+7967,Captain Charles Barrington Balfour,Balfour,Charles,1862-02-20,1,1921-08-31,0
 7968,Mr George Charles Montagu,Montagu,George,1874-01-01,1,1962-06-15,0
 7969,Mr Edward Chapman,Chapman,Edward,1839-01-01,1,1906-07-26,0
 7970,Major-General John Edward Bernard Seely,Seely,John,1868-01-01,1,1947-11-07,0
@@ -7622,7 +7626,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 8287,Mr William Clive Bridgeman,Bridgeman,William,1864-01-01,1,1935-08-14,0
 8288,Mr Leo George Chiozza Money,Money,Leo,1870-01-01,1,1944-09-25,0
 8289,Sir John Mills McCallum,McCallum,John,1847-01-01,1,1920-01-10,0
-8290,Mr Robert Balfour,Balfour,Robert,1844-01-01,1,1929-11-04,0
+8290,Sir Robert Balfour,Balfour,Robert,1844-03-06,1,1929-11-04,0
 8291,Sir Owen Cosby Philipps,Philipps,Owen,1863-01-01,1,1937-06-05,0
 8292,Mr David Charles Erskine,Erskine,David,1866-01-01,1,1922-05-26,0
 8293,Sir Granville George Greenwood,Greenwood,Granville,1850-01-01,1,1928-10-27,0
@@ -9209,7 +9213,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 9888,Dr Sidney John Peters,Peters,Sidney,1885-01-01,1,1976-01-09,0
 9889,Mr Gordon Macdonald,Macdonald,Gordon,1888-01-01,1,1966-01-20,0
 9890,Mr James Armand Edmond de Rothschild,Rothschild,James de,1878-01-01,1,1957-05-07,0
-9891,Mr Harold Harington Balfour,Balfour,Harold,1897-01-01,1,1988-09-20,0
+9891,Mr Harold Harington Balfour,Balfour,Harold,1897-11-01,1,1988-09-20,0
 9892,Dr Ethel Bentham,Bentham,Ethel,1861-01-01,1,1931-01-19,0
 9893,Mr Robert Stanley Young,Young,Robert,1891-01-01,1,,1
 9894,Mr Fielding Reginald West,West,Fielding,1892-01-01,1,1935-10-06,0
@@ -9809,7 +9813,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 10788,Mr Cyril Walter Dumpleton,Dumpleton,Cyril,1897-01-01,1,1966-10-01,0
 10790,Mr George House,House,George,1892-01-01,1,1949-02-08,0
 10791,Dr Santo Wayburn Jeger,Jeger,Santo,1898-01-01,1,1953-09-24,0
-10795,Mr Alfred Balfour,Balfour,Alfred,1885-01-01,1,1963-01-26,0
+10795,Mr Alfred Balfour,Balfour,Alfred,1885-09-07,1,1963-01-26,0
 10797,Mr David Weitzman,Weitzman,David,1898-01-01,1,1987-05-06,1
 10799,Sir Barnett Stross,Stross,Barnett,1899-01-01,1,1967-05-13,0
 10801,Mr Arthur Moyle,Moyle,Arthur,1894-01-01,1,1974-12-23,0

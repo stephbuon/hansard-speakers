@@ -194,12 +194,12 @@ id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member
 1158,Mr Enoch Baldwin,Mr,Enoch,Baldwin,1880-07-13,1885-11-24,1822-08-05,1905-06-11,Bewdley,5840
 6523,Dr Herbert Baldwin,Dr,Herbert,Baldwin,1835-04-18,1837-07-24,1782-06-24,1861-01-17,Cork [borough],2926
 2186,Mr Arthur James Balfour,Mr,Arthur James,Balfour,1885-11-24,1906-01-12,1848-07-25,1930-03-19,Manchester East,5410
-1159,Sir George Balfour,Sir,George,Balfour,1872-12-10,1892-07-04,1809-12-08,1894-03-12,Kincardineshire,8953
+1159,Sir George Balfour,Sir,George,Balfour,1872-12-10,1892-07-04,1809-12-08,1894-03-12,Kincardineshire,5318
 1988,Mr Gerald William Balfour,Mr,Gerald William,Balfour,1885-11-24,1906-01-12,1853-04-09,1945-01-14,Leeds Central,6079
-1160,Mr Jabez Spencer Balfour,Mr,Jabez Spencer,Balfour,1889-02-27,,1843-09-04,1910-02-23,Burnley,-1
-6524,Mr James Balfour,Mr,James,Balfour,1832-12-10,1835-01-06,,1845-04-19,Haddingtonshire,3675
+1160,Mr Jabez Spencer Balfour,Mr,Jabez Spencer,Balfour,1889-02-27,,1843-09-04,1910-02-23,Burnley,5791
+6524,Mr James Balfour,Mr,James,Balfour,1830-01-10,1835-01-06,1775-01-01,1845-04-19,Haddingtonshire,2523
 6525,Mr James Maitland Balfour,Mr,James Maitland,Balfour,1841-06-29,1847-07-29,1820-01-05,1856-02-23,Haddingtonshire,3675
-1161,Mr John Blair Balfour,Mr,John Blair,Balfour,1880-12-01,,1837-07-11,1905-01-22,Clackmannanshire and Kinross-shire,-1
+1161,Mr John Blair Balfour,Mr,John Blair,Balfour,1880-09-01,1895-12-31,1837-07-11,1905-01-22,Clackmannanshire and Kinross-shire,5844
 6526,Mr Thomas Balfour,Mr,Thomas,Balfour,1835-01-06,1837-07-24,1810-04-02,1838-03-30,Orkney and Shetland,3375
 6527,Mr Edward Ball,Mr,Edward,Ball,1852-07-07,,1793-12-08,1865-11-09,Cambridgeshire,-1
 1162,Mr John Thomas Ball,Mr,John Thomas,Ball,1868-11-17,1875-01-01,1815-07-24,1898-03-17,Dublin University,5095
@@ -3140,16 +3140,16 @@ id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member
 5350,Sir Samuel John Brooke Pechell,Sir,Samuel John Brooke,Pechell,,,1785-09-01,1849-11-03,,-1
 2738,Mr John Dick Peddie,Mr,John Dick,Peddie,,,1824-02-24,1891-03-12,,-1
 2739,Sir Henry William Peek,Sir,Henry William,Peek,1868-11-17,1884-06-22,1825-02-26,1898-08-26,Surrey Mid,5209
-2740,Mr Arthur Wellesey Peel,Mr,Arthur Wellesey,Peel,,,1829-08-03,1912-10-24,,-1
+2740,Mr Arthur Wellesley Peel,Mr,Arthur Wellesley,Peel,1885-11-24,1895-08-07,1829-08-03,1912-10-24,Warwick and Leamington,4946
 7615,Hon. Arthur George Villiers Peel,Hon.,Arthur George Villiers,Peel,,,1868-02-27,1956-04-25,,-1
 7110,Mr Edmund Peel,Mr,Edmund,Peel,,,1791-08-08,1850-11-01,,-1
 7111,Sir Frederick Peel,Sir,Frederick,Peel,,,1823-10-26,1906-06-06,,-1
 7112,Mr John Peel,Mr,John,Peel,,,1804-02-04,1872-07-27,,-1
 7113,Mr Jonathan Peel,Mr,Jonathan,Peel,,,1799-10-12,1879-02-13,,-1
 2741,Sir Robert Peel,Sir,Robert,Peel,,,1822-05-04,1895-05-09,,-1
-6462,Sir Robert Peel,Sir,Robert,Peel,1832-12-10,1850-07-02,1788-02-05,1850-07-02,Tamworth,4101
+6462,Sir Robert Peel,Sir,Robert,Peel,1832-12-10,1850-07-02,1788-02-05,1850-07-02,Tamworth,1664
 8213,Lieut-Colonel Robert Francis Peel,Lieut-Colonel,Robert Francis,Peel,,1920-07-07,1874-04-30,1924-08-10,Woodbridge,-1
-8242,Lieut-Colonel Hon. Sidney Cornwallis Peel,Lieut-Colonel Hon.,Sidney Cornwallis,Peel,,,1870-06-03,1938-12-19,,-1
+8242,Lieut-Colonel Hon. Sidney Cornwallis Peel,Lieut-Colonel Hon.,Sidney Cornwallis,Peel,1918-01-01,1920-05-01,1870-06-03,1938-12-19,,9111
 7114,Mr William Yates Peel,Mr,William Yates,Peel,,,1789-08-03,1858-06-01,,-1
 2742,Lord Walter John Pelham Pelham,Lord,Walter John Pelham,Pelham,1865-07-11,1874-01-31,1838-09-22,1902-05-28,Lewes,-1
 6256,Hon. Charles Worsley Anderson Pelham,Hon.,Charles Worsley Anderson,Pelham,1832-12-10,1846-09-05,1809-04-12,1862-01-07,"Lincolnshire, parts of Lindsey",-1
