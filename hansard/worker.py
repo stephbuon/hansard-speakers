@@ -293,6 +293,10 @@ REGEX_POST_CORRECTIONS = [
 
     ('^general sir +', 'sir '),
     ('^mr secretary +', 'mr '),
+    
+    ('^vice-president of the council +', 'vice-president of the committee of council on education '),
+    ('^vice president of the council +', 'vice-president of the committee of council on education '),    
+    
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
