@@ -261,6 +261,7 @@ REGEX_POST_CORRECTIONS = [
     (' on$', ''),
     (' said$', ''),
     (' ampc$', ''),
+    ('ampc$', ''),
     (' i$', ''),
     (' replied$', ''),
     (' continued$', ''),
