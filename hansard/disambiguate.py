@@ -200,8 +200,6 @@ DisambiguateFunctions = {
     8268: NoRequirement(),
     # mr dalziel
     7489: NoRequirement(),
-    # colonel sykes
-    4571: NoRequirement(),
     # mr patrick obrien
     6238: NoRequirement(),
     # mr illingworth
@@ -270,9 +268,6 @@ DisambiguateFunctions = {
     
     # Mr. Denman
     2118: NoRequirement(),
-    
-    # Dr. Cameron
-    5403: NoRequirement(),
     
     # Mr. Villiers
     6580: HouseRequirement(HOUSE_OF_LORDS),
@@ -420,7 +415,15 @@ SpecificAliasFunctions = {
               (DebateRequirement(SIR_PEEL_APPRENTICE_DEBATES) | DebateRequirement(SIR_PEEL_COTTON_DEBATES) | DebateRequirement(SIR_PEEL_LANCASHIRE_DEBATES)),
         1664: (OnDateRequirement(year=1815, month=3, day=6) & DebateRequirement(SIR_PEEL_CORN_DEBATES)) |
               (AfterDateRequirement(year=1830, month=10, day=26) & BeforeDateRequirement(year=1849, month=12, day=31))
-    }
+    },
+
+    'dr cameron': {
+        5403: NoRequirement(),
+    },
+
+    'colonel sykes': {
+        4571: NoRequirement(),
+    },
 }
 
 
