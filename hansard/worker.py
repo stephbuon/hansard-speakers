@@ -617,7 +617,7 @@ def worker_function(inq: multiprocessing.Queue,
                         match = possibles[0].id
 
                 if ambiguity:
-                    match = disambiguate(target, speechdate, row.speaker_house, data.speaker_dict)
+                    match = disambiguate(target, speechdate, row.speaker_house, row.debate_id, data.speaker_dict)
                     if match == -1:
                         match = None
                     else:

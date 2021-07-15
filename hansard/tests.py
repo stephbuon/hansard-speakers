@@ -231,19 +231,20 @@ class TestDisambiguate(unittest.TestCase):
 
         target = 'mr liddell'
         house = HOUSE_OF_COMMONS
+        debate_id = 0
 
         speechdate = datetime.datetime(year=1855, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), 2527)
+        self.assertEqual(disambiguate(target, speechdate, house, debate_id, data.speaker_dict), 2527)
 
         speechdate = datetime.datetime(year=1856, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), 4264)
+        self.assertEqual(disambiguate(target, speechdate, house, debate_id, data.speaker_dict), 4264)
 
         house = HOUSE_OF_LORDS
         speechdate = datetime.datetime(year=1856, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), 2527)
+        self.assertEqual(disambiguate(target, speechdate, house, debate_id, data.speaker_dict), 2527)
 
         speechdate = datetime.datetime(year=1907, month=7, day=4)
-        self.assertEqual(disambiguate(target, speechdate, house, data.speaker_dict), -1)
+        self.assertEqual(disambiguate(target, speechdate, house, debate_id, data.speaker_dict), -1)
 
 
 if __name__ == '__main__':
