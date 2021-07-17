@@ -295,8 +295,8 @@ REGEX_POST_CORRECTIONS = [
     ('^general sir +', 'sir '),
     ('^mr secretary +', 'mr '),
     
-    ('^vice-president of the council +', 'vice-president of the committee of council on education '),
-    ('^vice president of the council +', 'vice-president of the committee of council on education '),    
+    ('^vice-president of the council +', 'vice-president of the committee of council on education'),
+    ('^vice president of the council +', 'vice-president of the committee of council on education'),    
     
 ]
 
