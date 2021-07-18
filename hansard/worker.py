@@ -233,6 +233,7 @@ REGEX_POST_CORRECTIONS = [
     ('^chancellor of tub exchequerr$','chancellor of the exchequer'),
     ('^chancellor ok thk exchequerr$','chancellor of the exchequer'),
     ('^chancellob of the exchequerr$','chancellor of the exchequer'),
+    ('^chancelor of the exchequerr$','chancellor of the exchequer'),
     
     ('ex-chequer', 'exchequer'),
     ('excheque', 'exchequer'),
