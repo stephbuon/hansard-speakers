@@ -61,6 +61,8 @@ REGEX_POST_CORRECTIONS = [
     ('^dk +', 'dr '),
     ('^de +','dr '),
     
+    (' image srcsvpi colcol', ''),
+    
     ('^marquis +', 'marquess '),
     ('^mauquess +', 'marquess '),
     ('^manquess +', 'marquess '),
@@ -257,6 +259,7 @@ REGEX_POST_CORRECTIONS = [
     
     ('^chairman of committees$', 'chairman'),
     ('^chairman of commhtees$', 'chairman'),
+    ('^chairman of commitmees$', 'chairman'),
     
     ('^ceairman$', 'chairman'),
     ('^mr chairman$', 'chairman'),
