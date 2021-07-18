@@ -233,6 +233,8 @@ REGEX_POST_CORRECTIONS = [
     ('ex-chequer', 'exchequer'),
     ('excheque', 'exchequer'),
     
+    ('mrjor', 'major'),
+    
     ('\bchairman of committees of ways and means\b', 'chairman'),
     ('\bchairman of ways achancellor of tub exchequerrnd means\b', 'chairman'),
     ('\bchairman ways and means\b', 'chairman'),
