@@ -96,6 +96,8 @@ REGEX_POST_CORRECTIONS = [
     ('^viscounty +', 'viscount '),
     ('^visct +', 'viscount '),
     ('^lord viscount +', 'viscount '),
+    
+    ('^lord speaker +', 'speaker '),
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
