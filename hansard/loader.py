@@ -228,6 +228,9 @@ class DataStruct:
     def _load_office_position(filename: str) -> pd.DataFrame:
         df = pd.read_csv(filename)
 
+        if "honorary_title" not in df:
+            df['honorary_title'] = None
+
         start_column = 'started_service'
         end_column = 'ended_service'
 
