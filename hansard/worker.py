@@ -314,10 +314,22 @@ REGEX_POST_CORRECTIONS = [
 
     ('^general sir +', 'sir '),
     ('^mr secretary +', 'mr '),
-    
+
     ('^vice-president of the council +', 'vice-president of the committee of council on education'),
-    ('^vice president of the council +', 'vice-president of the committee of council on education'),    
-    
+    ('^vice president of the council +', 'vice-president of the committee of council on education'),
+
+    ('^secretary of state for war +', ''),
+    ('^president of the local government board +', ''),
+    ('^president of the board of agriculture +', ''),
+    ('^president of the board of trade +', ''),
+    ('^secretary of state for the home department +', ''),
+    ('^secretary of state for the colonies +', ''),
+    ('^secretary to the treasurey +', ''),
+    ('^first commissioner of works +', ''),
+    ('^secretary to the admiralty +', ''),
+    ('^secretary of state for india +', ''),
+    ('^secretary to the local government board +', ''),
+    ('^parliamentary secretary to the local government board +', ''),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
