@@ -1117,7 +1117,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1709,Sir George Shiffner,Shiffner,George,1762-11-17,0,1842-02-01,0
 1710,Sir Robert Moorsom,Moorsom,Robert,1760-06-01,0,1835-05-14,0
 1711,Henry George Bathurst,Bathurst,Henry,1790-01-01,1,1866-12-31,1
-1712,Mr Joseph Hume,Hume,Joseph,1777-01-01,1,1855-12-31,1
+1712,Mr Joseph Hume,Hume,Joseph,1777-01-22,1,1855-02-20,1
 1713,Mr George Harley Drummond,Drummond,George,1783-11-23,0,1855-03-21,0
 1714,Mr George William Gunning,Gunning,George,1763-02-15,0,1823-04-07,0
 1715,Mr James Andrew John Lawrence Charles Drummond,Drummond,James,1767-03-24,0,1851-05-14,0
@@ -3122,7 +3122,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3742,Mr David Ochterlony Dyce Sombre,Sombre,David,1809-01-01,1,1851-12-31,1
 3743,Mr Augustus Elliot Fuller,Fuller,Augustus,1777-01-01,1,1857-12-31,1
 3744,Colonel Charles Wyndham,Wyndham,Charles,1796-01-01,1,1866-12-31,1
-3745,Lord Charles Henry Gordon-Lennox,Gordon-Lennox,Charles,1818-01-01,1,1903-09-27,0
+3745,Lord Charles Henry Gordon-Lennox,Gordon-Lennox,Charles,1818-02-27,1,1903-09-27,0
 3746,Lord Edward Russell,Russell,Edward,1805-01-01,1,1887-12-31,1
 3747,Sir James Flower,Flower,James,1794-01-01,1,1850-12-31,1
 3748,Mr John Bell,Bell,John,1809-01-01,1,1851-12-31,1
@@ -5345,7 +5345,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5985,Mr John Hooper,Hooper,John,1846-01-01,1,1897-12-31,1
 5986,Mr James Peter Gilhooly,Gilhooly,James,1845-01-01,1,1916-10-16,0
 5987,Mr George William Latham,Latham,George,1827-01-01,1,1886-12-31,1
-5988,James Edward Hubert Gascoyne-Cecil,Gascoyne-Cecil,James,1861-01-01,1,1947-04-04,0
+5988,Mr James Edward Hubert Gascoyne-Cecil,Gascoyne-Cecil,James,1861-10-23,1,1947-04-04,0
 5989,Hon. George Thomas Kenyon,Kenyon,George,1840-01-01,1,1908-01-26,0
 5990,Mr William Cornwallis West,West,William,1835-01-01,1,1917-07-04,0
 5991,Sir James Alfred Jacoby,Jacoby,James,1852-01-01,1,1909-06-23,0
@@ -6594,7 +6594,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 7241,Mr Henry Bligh Fortescue Parnell,Parnell,Henry,1890-09-06,0,1914-11-10,0
 7242,Mr William James Pirrie,Pirrie,William,1847-05-31,0,1924-06-06,0
 7243,Mr Edward Ponsonby,Ponsonby,Edward,1851-03-01,0,1920-12-01,0
-7244,Edward Turnour,Turnour,Edward,1883-01-01,1,1962-08-26,0
+7244,Mr Edward Turnour,Turnour,Edward,1883-04-04,1,1962-08-26,0
 7245,Hon. Charles Henry Wellesley Wilson,Wilson,Charles,1875-01-01,1,1924-08-15,0
 7246,Mr Edgar Clifford Arundell,Arundell,Edgar,1859-12-20,0,1921-12-08,0
 7247,Mr James Blyth,Blyth,James,1841-09-10,0,1925-02-08,0
@@ -6939,7 +6939,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 7600,Sir Charles Ernest Tritton,Tritton,Charles,1845-01-01,1,1918-12-28,0
 7601,Mr Graeme Alexander Lockhart Whitelaw,Whitelaw,Graeme,1863-01-01,1,1928-07-23,0
 7602,Mr Thomas Owen,Owen,Thomas,1840-01-01,1,1898-12-31,1
-7603,Mr John Lawson Walton,Walton,John,1852-01-01,1,1908-01-19,0
+7603,Sir John Lawson Walton,Walton,John,1852-08-04,1,1908-01-19,0
 7604,Mr Charles Bill,Bill,Charles,1843-01-01,1,1915-12-09,0
 7605,Sir James Whitehead,Whitehead,James,1834-01-01,1,1917-10-20,0
 7606,Mr Patrick Aloysius M'Hugh,M'Hugh,Patrick,1858-01-01,1,1909-05-30,0
