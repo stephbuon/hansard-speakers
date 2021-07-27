@@ -1,4 +1,5 @@
 from datetime import datetime
+from enum import IntEnum
 from typing import Dict
 
 from hansard.speaker import SpeakerReplacement
@@ -9,7 +10,7 @@ HOUSE_OF_LORDS = 2
 
 
 class Requirement:
-    def __call__(self, speechdate, house):
+    def __call__(self, speechdate, house, debate_id):
         raise NotImplementedError
 
     def __and__(self, other):
@@ -17,53 +18,6 @@ class Requirement:
 
     def __or__(self, other):
         return ORRequirement(self, other)
-
-
-class DateRequirement(Requirement):
-    def __init__(self, year, month=1, day=1):
-        self.date = datetime(year=year, month=month, day=day)
-
-    def __call__(self, speechdate, house):
-        raise NotImplementedError
-
-
-class BeforeDateRequirement(DateRequirement):
-    def __call__(self, speechdate, house):
-        return speechdate < self.date
-
-
-class AfterDateRequirement(DateRequirement):
-    def __call__(self, speechdate, house):
-        return self.date < speechdate
-
-
-class YearRequirement(Requirement):
-    def __init__(self, year: int):
-        self.year: int = year
-
-    def __call__(self, speechdate, house):
-        return speechdate.year == self.year
-
-
-class WithinYearsRequirement(Requirement):
-    def __init__(self, startYear: int, endYear: int, inclusive=True):
-        self.startYear: int = startYear
-        self.endYear: int = endYear
-        self.inclusive: bool = inclusive
-
-    def __call__(self, speechdate, house):
-        if self.inclusive:
-            return self.startYear <= speechdate.year <= self.endYear
-        else:
-            return self.startYear < speechdate.year < self.endYear
-
-
-class HouseRequirement(Requirement):
-    def __init__(self, house):
-        self.house = house
-
-    def __call__(self, speechdate, house):
-        return self.house == house
 
 
 class NoRequirement(Requirement):
@@ -75,9 +29,9 @@ class ANDRequirement(Requirement):
     def __init__(self, *args):
         self.requirements = args
 
-    def __call__(self, speechdate, house):
+    def __call__(self, speechdate, house, debate_id):
         for requirement in self.requirements:
-            if not requirement(speechdate, house):
+            if not requirement(speechdate, house, debate_id):
                 return False
 
         return True
@@ -87,12 +41,114 @@ class ORRequirement(Requirement):
     def __init__(self, *args):
         self.requirements = args
 
-    def __call__(self, speechdate, house):
+    def __call__(self, speechdate, house, debate_id):
         for requirement in self.requirements:
-            if requirement(speechdate, house):
+            if requirement(speechdate, house, debate_id):
                 return True
 
         return False
+
+
+class DateRequirement(Requirement):
+    def __init__(self, year, month=1, day=1):
+        self.date = datetime(year=year, month=month, day=day)
+
+    def __call__(self, speechdate, house, debate_id):
+        raise NotImplementedError
+
+
+class BeforeDateRequirement(DateRequirement):
+    def __call__(self, speechdate, house, debate_id):
+        return speechdate < self.date
+
+
+class AfterDateRequirement(DateRequirement):
+    def __call__(self, speechdate, house, debate_id):
+        return self.date < speechdate
+
+
+class OnDateRequirement(DateRequirement):
+    def __call__(self, speechdate, house, debate_id):
+        return self.date == speechdate
+
+
+class YearRequirement(Requirement):
+    def __init__(self, year: int):
+        self.year: int = year
+
+    def __call__(self, speechdate, house, debate_id):
+        return speechdate.year == self.year
+
+
+class WithinYearsRequirement(Requirement):
+    def __init__(self, startYear: int, endYear: int, inclusive=True):
+        self.startYear: int = startYear
+        self.endYear: int = endYear
+        self.inclusive: bool = inclusive
+
+    def __call__(self, speechdate, house, debate_id):
+        if self.inclusive:
+            return self.startYear <= speechdate.year <= self.endYear
+        else:
+            return self.startYear < speechdate.year < self.endYear
+
+
+class HouseRequirement(Requirement):
+    def __init__(self, house):
+        self.house = house
+
+    def __call__(self, speechdate, house, debate_id):
+        return self.house == house
+
+
+class DebateRequirement(Requirement):
+    def __init__(self, debate_ids):
+        if type(debate_ids) in (list, tuple, set):
+            self.debate_ids = debate_ids
+        else:
+            self.debate_ids = [debate_ids, ]
+
+    def __call__(self, speechdate, house, debate_id):
+        return debate_id in self.debate_ids
+
+##################
+# Debate ID Sets #
+##################
+
+
+# query: debate title contains "corn "
+SIR_PEEL_CORN_DEBATES = {1251, 2233, 15472, 15585, 15644, 15672, 15682, 15703, 15737, 15739, 15740, 15747, 15783, 15863,
+                         15869, 15906, 17774, 18602, 18136, 18259, 18678, 18741, 18743, 18745, 18750, 18754, 18767,
+                         18773, 18776, 18788, 18794, 18937, 18959}
+
+# query: sentence entities contains "ireland"
+SIR_PEEL_IRELAND_DEBATES = {1251, 7005, 7073, 7205, 7326, 7499, 7599, 7625, 7626, 7703, 7900, 15417, 15438, 15469,
+                            15612, 15626, 15667, 15679, 15702, 15708, 15766, 15822, 15832, 15849, 15854, 15863, 15906,
+                            15910, 15947, 15953, 16070, 16081, 16098, 16129, 16133, 16206, 16505, 16521, 16256, 16278,
+                            16294, 16336, 16337, 16416, 16446, 16892, 16999, 17003, 17019, 17029, 17066, 17068, 17081,
+                            17083, 17091, 17168, 17201, 17207, 17221, 17247, 17318, 17320, 17322, 17335, 17408, 17415,
+                            17416, 17417, 17435, 17436, 17567, 17579, 17580, 17581, 17591, 17637, 17647, 17654, 17681,
+                            17711, 17726, 17732, 17769, 17774, 17789, 17811, 17813, 17817, 17829, 17834, 17919, 17945,
+                            17951, 17960, 18013, 18050, 18054, 18057, 18060, 18066, 18071, 18320, 18407, 18410, 18415,
+                            18418, 18420, 18488, 18556, 18591, 18599, 18602, 18615, 18640, 18110, 18118, 18126, 18138,
+                            18156, 18160, 18174, 18250, 18251, 18252, 18257, 18259, 18271, 18275, 18283, 18300, 18678,
+                            18687, 18698, 18736, 18741, 18750, 18766, 18771, 18788, 18826, 18830, 18833, 18835, 18862,
+                            18865, 18876, 18881, 18888, 18891, 18903, 18935, 18936, 18937, 18943, 18959, 18974, 18986,
+                            18991, 19064, 19077, 19079, 19081, 19089, 19348, 19404, 19503, 19571, 19591, 19679, 19828,
+                            19859, 20024, 20274, 20289, 20645, 20678, 20767, 20965, 20972, 21028, 21120, 21254, 21268,
+                            21304, 21305, 21407, 21472, 21694, 21760, 22089, 22107}
+
+# query: debate title contains "apprentice"
+SIR_PEEL_APPRENTICE_DEBATES = {1496, }
+
+
+# query: debate title contains "cotton"
+SIR_PEEL_COTTON_DEBATES = {1464, 1472, 1488, 2944, 3056, 3572}
+
+# query: sentence entities contains "lancashire"
+SIR_PEEL_LANCASHIRE_DEBATES = {2233, 7959, 8811, 15417, 15477, 15667, 15687, 15926, 16098,
+                               16180, 16951, 18488, 18591, 18750, 18789, 18937, 19571, 19775,
+                               19859, 20678, 21254, 21280, 21788}
 
 
 DisambiguateFunctions = {
@@ -144,8 +200,6 @@ DisambiguateFunctions = {
     8268: NoRequirement(),
     # mr dalziel
     7489: NoRequirement(),
-    # colonel sykes
-    4571: NoRequirement(),
     # mr patrick obrien
     6238: NoRequirement(),
     # mr illingworth
@@ -214,9 +268,6 @@ DisambiguateFunctions = {
     
     # Mr. Denman
     2118: NoRequirement(),
-    
-    # Dr. Cameron
-    5403: NoRequirement(),
     
     # Mr. Villiers
     6580: HouseRequirement(HOUSE_OF_LORDS),
@@ -338,13 +389,58 @@ DisambiguateFunctions = {
 }
 
 
-def disambiguate(target: str, speechdate: datetime, house: int, speaker_dict: Dict[int, SpeakerReplacement]) -> int:
+SpecificAliasFunctions = {
+    'mr peel': {
+      1664: (AfterDateRequirement(year=1810, month=1, day=23) & BeforeDateRequirement(year=1815, month=7, day=4)) |
+            (AfterDateRequirement(year=1823, month=4, day=25) & BeforeDateRequirement(year=1828, month=12, day=31)),
+      4946: AfterDateRequirement(year=1886, month=1, day=1) & BeforeDateRequirement(year=1886, month=12, day=31),
+      7305: AfterDateRequirement(1900, month=1, day=1) & BeforeDateRequirement(year=1910, month=7, day=25),
+},
+
+    'sir r peel': {
+        1664: (
+                  (AfterDateRequirement(year=1810, month=1, day=1) & BeforeDateRequirement(year=1815, month=12, day=31)) &
+                  (DebateRequirement(SIR_PEEL_COTTON_DEBATES) | DebateRequirement(SIR_PEEL_CORN_DEBATES) | DebateRequirement(SIR_PEEL_IRELAND_DEBATES))
+              ) |
+              (
+                  (AfterDateRequirement(year=1830, month=11, day=2) & BeforeDateRequirement(year=1850, month=6, day=17))
+              )
+        ,
+        1098: (AfterDateRequirement(year=1810, month=1, day=1) & BeforeDateRequirement(year=1815, month=12, day=31)) &
+              (DebateRequirement(SIR_PEEL_APPRENTICE_DEBATES) | DebateRequirement(SIR_PEEL_COTTON_DEBATES) | DebateRequirement(SIR_PEEL_LANCASHIRE_DEBATES)),
+    },
+
+    'sir robert peel': {
+        1098: (AfterDateRequirement(year=1811, month=3, day=11) & BeforeDateRequirement(year=1815, month=6, day=6)) &
+              (DebateRequirement(SIR_PEEL_APPRENTICE_DEBATES) | DebateRequirement(SIR_PEEL_COTTON_DEBATES) | DebateRequirement(SIR_PEEL_LANCASHIRE_DEBATES)),
+        1664: (OnDateRequirement(year=1815, month=3, day=6) & DebateRequirement(SIR_PEEL_CORN_DEBATES)) |
+              (AfterDateRequirement(year=1830, month=10, day=26) & BeforeDateRequirement(year=1849, month=12, day=31))
+    },
+
+    'dr cameron': {
+        5403: NoRequirement(),
+    },
+
+    'colonel sykes': {
+        4571: NoRequirement(),
+    },
+}
+
+
+def disambiguate(target: str, speechdate: datetime, house: int, debate_id: int, speaker_dict: Dict[int, SpeakerReplacement]) -> int:
     possibles = []
 
-    for member_id in DisambiguateFunctions.keys():
-        if target in speaker_dict[member_id].aliases:
-            if DisambiguateFunctions[member_id](speechdate, house):
+    function_dictionary = SpecificAliasFunctions.get(target)
+
+    if function_dictionary is not None:
+        for member_id, function in function_dictionary.items():
+            if function(speechdate, house, debate_id):
                 possibles.append(member_id)
+    else:
+        for member_id in DisambiguateFunctions.keys():
+            if target in speaker_dict[member_id].aliases:
+                if DisambiguateFunctions[member_id](speechdate, house, debate_id):
+                    possibles.append(member_id)
 
     if len(possibles) == 1:
         return possibles[0]

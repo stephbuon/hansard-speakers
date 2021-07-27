@@ -228,6 +228,9 @@ class DataStruct:
     def _load_office_position(filename: str) -> pd.DataFrame:
         df = pd.read_csv(filename)
 
+        if "honorary_title" not in df:
+            df['honorary_title'] = None
+
         start_column = 'started_service'
         end_column = 'ended_service'
 
@@ -295,7 +298,12 @@ class DataStruct:
         self.term_df = self.term_df.append(term_df_additions)
 
         for row in self.term_df[(~self.term_df['member_id'].isnull()) & (self.term_df['member_id'] != -1)].itertuples(index=False):
-            speaker_dict[int(row.member_id)].terms.append(OfficeTerm(row.start_term, row.end_term))
+            try:
+                speaker_dict[int(row.member_id)].terms.append(OfficeTerm(row.start_term, row.end_term))
+            except KeyError as e:
+                print('Invalid corresponding speaker id: %d' % row.member_id)
+                print(row)
+                raise e
 
         self._load_office_positions()
 

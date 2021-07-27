@@ -61,6 +61,8 @@ REGEX_POST_CORRECTIONS = [
     ('^dk +', 'dr '),
     ('^de +','dr '),
     
+    (' image srcsvpi colcol', ''),
+    
     ('^marquis +', 'marquess '),
     ('^mauquess +', 'marquess '),
     ('^manquess +', 'marquess '),
@@ -96,6 +98,8 @@ REGEX_POST_CORRECTIONS = [
     ('^viscounty +', 'viscount '),
     ('^visct +', 'viscount '),
     ('^lord viscount +', 'viscount '),
+    
+    ('^lord speaker +', 'speaker '),
 
     ('^lerd +', 'lord '),
     ('^lobd +', 'lord '),
@@ -212,39 +216,55 @@ REGEX_POST_CORRECTIONS = [
     ('chancellor of theexche-quer', 'chancellor of the exchequer'),
     ('chancellor of we exchequer', 'chancellor of the exchequer'),
     ('cbancellor of the exche-quer', 'chancellor of the exchequer'),
-    ('\bchan of the exchequer\b', 'chancellor of the exchequer'),
-    ('\bchancellor the exchequee\b', 'chancellor of the exchequer'),
-    ('\bchanc of the excheq\b', 'chancellor of the exchequer'),
-    ('\bchancellok of the exche-quek\b', 'chancellor of the exchequer'),
-    ('\bchancellor of the exchequerchequer\b', 'chancellor of the exchequer'),
-    ('\bchanc of the exchequer\b', 'chancellor of the exchequer'),
-    ('\bchanc of the exchequer\b', 'chancellor of the exchequer'),
-    ('\bchancelloe of the exche-quer\b', 'chancellor of the exchequer'),
-    ('\bchanc of tie excheq\b', 'chancellor of the exchequer'),
-    ('\bchanckllor of the exchequer\b', 'chancellor of the exchequer'),
-    ('\bchancellor of file exchequer\b', 'chancellor of the exchequer'),
-    ('\bchancelloerof the exche-quer\b', 'chancellor of the exchequer'),
-    ('\bchancelloe of the ex-chequee\b', 'chancellor of the exchequer'),
-    ('\bchancelloe of the exchequer\b', 'chancellor of the exchequer'),
-    ('\bchancellor of the ex-cheqner\b','chancellor of the exchequer'),
-    ('\bchancellor ok the exchequerr\b','chancellor of the exchequer'),
-    ('\bchancellor of tub exchequerr\b','chancellor of the exchequer'),
+    ('^chan of the exchequer$', 'chancellor of the exchequer'),
+    ('^chancellor the exchequee$', 'chancellor of the exchequer'),
+    ('^chanc of the excheq$', 'chancellor of the exchequer'),
+    ('^chancellok of the exche-quek$', 'chancellor of the exchequer'),
+    ('^chancellor of the exchequerchequer$', 'chancellor of the exchequer'),
+    ('^chanc of the exchequer$', 'chancellor of the exchequer'),
+    ('^chanc of the exchequer$', 'chancellor of the exchequer'),
+    ('^chancelloe of the exche-quer$', 'chancellor of the exchequer'),
+    ('^chanc of tie excheq$', 'chancellor of the exchequer'),
+    ('^chanckllor of the exchequer$', 'chancellor of the exchequer'),
+    ('^chancellor of file exchequer$', 'chancellor of the exchequer'),
+    ('^chancelloerof the exche-quer$', 'chancellor of the exchequer'),
+    ('^chancelloe of the ex-chequee$', 'chancellor of the exchequer'),
+    ('^chancelloe of the exchequer$', 'chancellor of the exchequer'),
+    ('^chancellor of the ex-cheqner$','chancellor of the exchequer'),
+    ('^chancellor ok the exchequerr$','chancellor of the exchequer'),
+    ('^chancellor of tub exchequerr$','chancellor of the exchequer'),
+    ('^chancellor ok thk exchequerr$','chancellor of the exchequer'),
+    ('^chancellob of the exchequerr$','chancellor of the exchequer'),
+    ('^chancelor of the exchequerr$','chancellor of the exchequer'),
+    ('^chancelloe of the exche-quer$','chancellor of the exchequer'),
     
     ('ex-chequer', 'exchequer'),
     ('excheque', 'exchequer'),
     
-    ('\bchairman of committees of ways and means\b', 'chairman'),
-    ('\bchairman of ways achancellor of tub exchequerrnd means\b', 'chairman'),
-    ('\bchairman ways and means\b', 'chairman'),
-    ('\bchat rman of ways and means\b', 'chairman'),
-    ('\bghairman of ways and means\b', 'chairman'),
-    ('\bchairman airman of ways and means\b', 'chairman'),
-    ('\bmr chairman\b', 'chairman'),
-    ('\bchairman of wats and means\b', 'chairman'),
-    ('\bceairman\b', 'chairman'),
-    ('\bchairman of committees\b', 'chairman'),
-    ('\bchairman of ways and means\b', 'chairman'),
-    ('\bchairman of committees of ways and means\b', 'chairman'),
+    ('mrjor', 'major'),
+    
+    ('^chairman of ways achancellor of tub exchequerrnd means$', 'chairman'),
+    ('^chairman ways and means$', 'chairman'),
+    ('^chat rman of ways and means$', 'chairman'),
+    ('^ghairman of ways and means$', 'chairman'),
+    ('^chairman airman of ways and means$', 'chairman'),
+    ('^chairman of wats and means$', 'chairman'),
+    ('^chairman of ways and means$', 'chairman'),
+    ('^chairman of was and means$', 'chairman'),
+    ('^chairman ways and means$', 'chairman'),
+    ('^chat rman of ways and means$', 'chairman'),
+    ('^chairman airman of ways and means$', 'chairman'),
+    
+    ('^chairman of committees of ways and means$', 'chairman'),
+    
+    ('^chairman of committees$', 'chairman'),
+    ('^chairman of commhtees$', 'chairman'),
+    ('^chairman of commitmees$', 'chairman'),
+    
+    ('^ceairman$', 'chairman'),
+    ('^mr chairman$', 'chairman'),
+    ('^ceairman$', 'chairman'),
+    ('^chair man$', 'chairman'),
     
     ('speaker-elect', 'speaker'),
     
@@ -294,10 +314,22 @@ REGEX_POST_CORRECTIONS = [
 
     ('^general sir +', 'sir '),
     ('^mr secretary +', 'mr '),
-    
-    ('^vice-president of the council +', 'vice-president of the committee of council on education '),
-    ('^vice president of the council +', 'vice-president of the committee of council on education '),    
-    
+
+    ('^vice-president of the council +', 'vice-president of the committee of council on education'),
+    ('^vice president of the council +', 'vice-president of the committee of council on education'),
+
+    ('^secretary of state for war +', ''),
+    ('^president of the local government board +', ''),
+    ('^president of the board of agriculture +', ''),
+    ('^president of the board of trade +', ''),
+    ('^secretary of state for the home department +', ''),
+    ('^secretary of state for the colonies +', ''),
+    ('^secretary to the treasurey +', ''),
+    ('^first commissioner of works +', ''),
+    ('^secretary to the admiralty +', ''),
+    ('^secretary of state for india +', ''),
+    ('^secretary to the local government board +', ''),
+    ('^parliamentary secretary to the local government board +', ''),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
@@ -617,7 +649,7 @@ def worker_function(inq: multiprocessing.Queue,
                         match = possibles[0].id
 
                 if ambiguity:
-                    match = disambiguate(target, speechdate, row.speaker_house, data.speaker_dict)
+                    match = disambiguate(target, speechdate, row.speaker_house, row.debate_id, data.speaker_dict)
                     if match == -1:
                         match = None
                     else:

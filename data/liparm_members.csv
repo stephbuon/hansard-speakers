@@ -1202,7 +1202,7 @@ id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member
 6439,Hon. Arthur Duncombe,Hon.,Arthur,Duncombe,1851-10-07,1868-11-17,1806-03-24,1889-02-06,Yorkshire (East Riding),2651
 1523,Hon. Hubert Ernest Valentine Duncombe,Hon.,Hubert Ernest Valentine,Duncombe,1895-07-13,1900-10-01,1862-02-14,1918-10-21,Egremont,7759
 1524,Hon. Octavius Duncombe,Hon.,Octavius,Duncombe,1867-03-04,1874-01-31,1817-04-08,1879-12-03,Yorkshire (North Riding),3778
-3350,Mr Thomas Slingsby Duncombe,Mr,Thomas Slingsby,Duncombe,1834-07-02,1861-11-13,1796-01-01,1861-11-13,Finsbury,3277
+3350,Mr Thomas Slingsby Duncombe,Mr,Thomas Slingsby,Duncombe,1834-07-02,1861-11-13,1796-01-01,1861-11-13,Finsbury,2438
 6739,Hon. William Duncombe,Hon.,William,Duncombe,1832-12-10,1841-07-16,1798-01-14,1867-02-11,Yorkshire (North Riding),4193
 6740,Hon. William Ernest Duncombe,Hon.,William Ernest,Duncombe,1859-04-28,1867-02-11,1829-01-28,1915-01-13,Yorkshire (North Riding),4193
 3812,Mr John Duncuft,Mr,John,Duncuft,1847-07-29,1852-07-27,,1852-07-27,Oldham,-1
@@ -3594,7 +3594,7 @@ id,fullname,title,first_name,surname,start_term,end_term,dob,dod,location,member
 808,Mr Joseph Ruston,Mr,Joseph,Ruston,1884-06-16,1886-07-01,1835-01-01,1897-06-11,Lincoln,5901
 7183,Mr Andrew Rutherfurd,Mr,Andrew,Rutherfurd,1839-04-29,1851-04-13,1791-06-21,1854-12-13,Leith District of Burghs,3597
 5645,Mr Edward Ruthven,Mr,Edward,Ruthven,1832-12-10,1837-07-24,1796-01-01,,Kildare,-1
-5646,Mr Edward Southwell Ruthven,Mr,Edward Southwell,Ruthven,1832-12-10,1836-05-16,1773-11-03,1836-12-31,Dublin [borough],2952
+5646,Mr Edward Southwell Ruthven,Mr,Edward Southwell,Ruthven,1832-12-10,1836-05-16,1773-11-03,1836-12-31,Dublin [borough],-1
 809,Mr Granville Richard Ryder,Mr,Granville Richard,Ryder,1874-01-31,1880-03-31,1833-09-22,1901-08-03,Salisbury,5466
 7184,Hon. Granville Dudley Ryder,Hon.,Granville Dudley,Ryder,1841-06-29,1847-07-29,1799-11-26,1879-11-24,Hertfordshire,2625
 7510,Mr John Herbert Dudley Ryder,Mr,John Herbert Dudley,Ryder,1898-07-13,1900-10-01,1864-08-22,1956-03-30,Gravesend,7166

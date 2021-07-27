@@ -334,7 +334,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 923,Mr John Kingston,Kingston,John,1736-01-01,1,1820-12-31,1
 924,Sir Matthew Bloxham,Bloxham,Matthew,1744-08-10,0,1822-10-16,0
 925,Mr John Hodsdon Durand,Durand,John,1761-01-01,1,1830-02-28,0
-926,Mr Joseph Holden Strutt Charles Callis Western,Western,Joseph,1758-11-21,0,1845-02-18,0
+926,Mr Joseph Holden Strutt,Strutt,Joseph,1758-11-21,0,1845-02-18,0
 927,Mr Denham Jephson,Jephson,Denham,1748-01-01,1,1813-05-09,0
 928,Mr Claude Scott,Scott,Claude,1742-05-11,0,1830-03-27,0
 929,Mr Samuel Scott,Scott,Samuel,1772-04-29,0,1849-09-30,0
@@ -367,7 +367,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 956,Sir Charles Morice Pole,Pole,Charles,1757-01-18,0,1830-09-06,0
 957,Sir Matthew White Ridley,Ridley,Matthew,1745-10-28,0,1813-04-16,0
 958,Mr Charles John Brandling,Brandling,Charles,1769-02-04,0,1826-02-01,0
-959,Mr Edward Wilbraham Bootle,Bootle,Edward,1771-03-07,0,1853-04-03,0
 960,Sir Robert Lawley,Lawley,Robert,1768-01-01,1,1834-04-10,0
 961,Mr William Northey,Northey,William,1753-01-01,1,1826-01-19,0
 962,Mr Joseph Richardson,Richardson,Joseph,1755-01-01,1,1803-06-09,0
@@ -1532,7 +1531,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2127,Mr Charles Brownlow,Brownlow,Charles,1795-04-17,0,1847-04-30,0
 2128,Mr James Montgomerie,Montgomerie,James,1755-02-26,0,1829-04-13,0
 2129,Mr John Duff,Duff,John,1776-10-06,0,1857-03-09,0
-2130,Mr William Vesey Fitzgerald,Fitzgerald,William,1782-01-01,1,1843-05-11,0
 2131,Mr Roderick Macleod,Macleod,Roderick,1786-01-01,1,1853-12-31,1
 2132,Mr Robert Grant,Grant,Robert,1780-01-01,1,1838-12-31,1
 2133,Mr William Edward Rouse-Boughton,Rouse-Boughton,William,1788-09-14,0,1856-05-22,0
@@ -1921,11 +1919,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2520,Hon. William Duncombe,Duncombe,William,1798-01-01,1,1867-12-31,1
 2521,Mr Richard Fountayne-Wilson,Fountayne-Wilson,Richard,1783-01-01,1,1847-07-24,0
 2522,Mr John Marshall,Marshall,John,1765-01-01,1,1845-06-06,0
-<<<<<<< Updated upstream
-2523,Mr James Balfour,Balfour,James,1775-01-01,1,1845-12-31,1
-=======
 2523,Mr James Balfour,Balfour,James,1775-01-01,1,1845-04-19,1
->>>>>>> Stashed changes
 2524,Mr James Sinclair,Sinclair,James,1797-01-01,1,1856-12-31,1
 2525,Mr Alexander Duff,Duff,Alexander,1777-01-01,1,1851-03-21,0
 2526,Mr Adam Hay,Hay,Adam,1795-12-14,0,1867-01-18,0
@@ -2063,7 +2057,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2661,Mr John Wilson-Patten,Wilson-Patten,John,1802-01-01,1,1892-12-31,1
 2662,Sir James Willoughby Gordon,Gordon,James,1772-10-21,0,1851-01-04,0
 2663,Mr Anthony Lefroy,Lefroy,Anthony,1800-01-01,1,1890-12-31,1
-2664,Mr William Vesey-Fitzgerald,Vesey-Fitzgerald,William,1769-01-01,1,1843-05-11,0
 2665,Mr George Stevens Byng,Byng,George,1769-11-07,0,1845-02-01,0
 2666,Mr John Heywood Hawkins,Hawkins,John,1802-01-01,1,1877-12-31,1
 2667,Mr Lloyd Kenyon,Kenyon,Lloyd,1805-04-01,0,1869-07-14,0
@@ -2166,7 +2159,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 2768,Mr George Charles Pratt,Pratt,George,1799-05-02,0,1866-08-08,0
 2769,Sir Hedworth Williamson,Williamson,Hedworth,1797-01-01,1,1861-12-31,1
 2770,Sir William Gordon Gordon-Cumming,Gordon-Cumming,William,1787-07-20,0,1854-11-25,0
-2771,Mr William Vesey Fitzgerald,Fitzgerald,William,1783-01-01,1,1843-05-11,0
 2772,Mr John James Bodkin,Bodkin,John,1801-01-01,1,1882-01-01,0
 2773,Mr Joseph Dixon,Dixon,Joseph,1800-01-01,1,1844-01-15,0
 2774,Hon. Henry George Francis Moreton,Moreton,Henry,1802-01-01,1,1853-12-31,1
@@ -2660,7 +2652,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3274,Sir Daniel Keyte Sandford,Sandford,Daniel,1798-01-01,1,1838-12-31,1
 3275,Mr Samuel Crompton,Crompton,Samuel,1785-01-01,1,1849-12-31,1
 3276,Lord George Henry Cavendish,Cavendish,George,1810-01-01,1,1880-12-31,1
-3277,Mr Thomas Slingsby Duncombe,Duncombe,Thomas,1796-01-01,1,1861-12-31,1
 3278,Mr Edward Lucas,Lucas,Edward,1787-01-01,1,1871-12-31,1
 3279,Lieut-General Edward Barnes,Barnes,Edward,1776-01-01,1,1838-12-31,1
 3280,Mr Cadwallader Waddy,Waddy,Cadwallader,1783-01-01,1,1843-12-31,1
@@ -2752,7 +2743,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3367,Mr Patrick Chalmers,Chalmers,Patrick,1802-01-01,1,1854-12-31,1
 3368,Sir Thomas Wilde,Wilde,Thomas,1782-01-01,1,1858-12-31,1
 3369,Mr Denis Caulfield Brady,Brady,Denis,,1,1886-12-31,1
-3370,Mr Edmond Wodehouse,Wodehouse,Edmond,1784-01-01,1,1855-12-31,1
 3371,Mr Horatio William Walpole,Walpole,Horatio,1813-01-01,1,1894-12-31,1
 3372,Mr Thomas Philip Maunsell,Maunsell,Thomas,1781-01-01,1,1866-12-31,1
 3373,Sir Charles Knightley,Knightley,Charles,1781-01-01,1,1864-12-31,1
@@ -2990,7 +2980,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3608,Mr Matthew Elias Corbally,Corbally,Matthew,1797-01-01,1,1870-12-31,1
 3609,Mr John Basset,Basset,John,1791-01-01,1,1843-12-31,1
 3610,Mr Henry James Baillie,Baillie,Henry,1804-01-01,1,1885-12-31,1
-3611,Sir Frederick Thesiger,Thesiger,Frederick,1794-04-25,1,1878-10-05,1
+3611,Sir Frederic Thesiger,Thesiger,Frederic,1794-04-25,1,1878-10-05,1
 3612,Sir Arthur Brinsley Brooke,Brooke,Arthur,1797-01-01,1,1854-12-31,1
 3613,Sir David Dundas,Dundas,David,1799-01-01,1,1877-12-31,1
 3614,Mr John Dawson Rawdon,Rawdon,John,1804-01-01,1,1866-12-31,1
@@ -5937,7 +5927,6 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6576,Mr John Thynne,Thynne,John,1831-03-01,0,1896-04-20,0
 6577,Mr George Townshend,Townshend,George,1778-12-13,0,1855-12-31,0
 6578,Mr William Trench,Trench,William,1803-09-21,0,1872-04-26,0
-6579,Mr William Vesey-FitzGerald,Vesey-FitzGerald,William,1843-05-11,0,,0
 6580,George William Frederick Villiers,Villiers,George,1800-01-26,0,1870-06-27,0
 6581,Mr William Ward,Ward,William,1817-03-27,0,1885-05-07,0
 6582,Mr George Fleming Warren,Warren,George,1811-10-28,0,1887-10-19,0
