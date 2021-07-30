@@ -386,6 +386,278 @@ DisambiguateFunctions = {
     2538: WithinYearsRequirement(1830, 1832),
     6438: WithinYearsRequirement(1893, 1910),
 
+    # Mr. ODoherty
+    5994: AfterDateRequirement(1886, 1, 1) & BeforeDateRequirement(1889, 12, 31),
+    7934: AfterDateRequirement(1901, 1, 1) & BeforeDateRequirement(1905, 12, 31),
+    8164: AfterDateRequirement(1906, 1, 1) & BeforeDateRequirement(1910, 12, 31),
+
+    # Mr. Abercromy
+    1741: NoRequirement(),
+
+    # Mr. Lonsdale
+    7413: NoRequirement(),
+
+    # Mr. Ricardo
+    2149: AfterDateRequirement(1817, 1, 1) & BeforeDateRequirement(1823, 12, 31),
+    3740: AfterDateRequirement(1847, 1, 1) & BeforeDateRequirement(1858, 12, 31),
+
+    # Mr. Seely
+    3978: NoRequirement(),
+
+    # Mr. Knox
+    1841: AfterDateRequirement(1814, 1, 1) & BeforeDateRequirement(1819, 12, 31),
+    6402: AfterDateRequirement(1890, 1, 1) & BeforeDateRequirement(1895, 12, 31),
+    4110: AfterDateRequirement(1851, 1, 1) & BeforeDateRequirement(1853, 12, 31),
+
+    # Mr. Harvey
+    2026: AfterDateRequirement(1830, 1, 1) & BeforeDateRequirement(1834, 12, 31),
+    8306: AfterDateRequirement(1906, 1, 1) & BeforeDateRequirement(1910, 12, 31),
+
+    # Mr. Blake
+    1887: AfterDateRequirement(1819, 1, 1) & BeforeDateRequirement(1820, 12, 31),
+    3261: (AfterDateRequirement(1838, 1, 1) & BeforeDateRequirement(1841, 12, 31)) |
+          (AfterDateRequirement(1855, 1, 1) & BeforeDateRequirement(1856, 12, 31)),
+    4558: AfterDateRequirement(1857, 1, 1) & BeforeDateRequirement(1887, 12, 31),
+
+    # Mr. Barnes
+    4158: (AfterDateRequirement(1862, 1, 1) & BeforeDateRequirement(1867, 12, 31)),
+    5670: (AfterDateRequirement(1887, 1, 1) & BeforeDateRequirement(1891, 12, 31)),
+    8197: (AfterDateRequirement(1906, 1, 1) & BeforeDateRequirement(1910, 12, 31)),
+
+    # Mr. Whitmore
+    2196: AfterDateRequirement(1821) & BeforeDateRequirement(1832, 12, 31),
+    4163: AfterDateRequirement(1853),
+
+    # Mr. Whitey
+    5626: NoRequirement(),
+
+    # Mr. Whitelaw
+    5404: AfterDateRequirement(1875),
+
+    # Mr. Whitehead
+    8187: NoRequirement(),
+
+    # Mr. White
+    4530: AfterDateRequirement(1857) & BeforeDateRequirement(1876, 12, 31),
+    3057: AfterDateRequirement(1837) & BeforeDateRequirement(1839, 12, 31),
+
+    # Mr. Wharton
+    636: NoRequirement(),
+
+    # Mr. Western
+    1510: NoRequirement(),
+
+    # Mr. West
+    5129: AfterDateRequirement(1869) & BeforeDateRequirement(1885, 12, 31),
+    740: AfterDateRequirement(1804) & BeforeDateRequirement(1806, 12, 31),
+    2416: AfterDateRequirement(1826) & BeforeDateRequirement(1832, 12, 31),
+
+    # Mr Weguelin
+    4418: NoRequirement(),
+
+    # Mr. Vivian
+    4304: AfterDateRequirement(1860, 1, 1) & BeforeDateRequirement(1868, 12, 31),
+    8120: AfterDateRequirement(1906, 1, 1) & BeforeDateRequirement(1910, 12, 31),
+
+    # Mr. Verney
+    8136: NoRequirement(),
+
+    # Mr. Vansittart
+    989: AfterDateRequirement(1803, 1, 1) & BeforeDateRequirement(1811, 12, 31),
+    4570: AfterDateRequirement(1857, 1, 1) & BeforeDateRequirement(1858, 12, 31),
+
+    # Mr. Trelawny
+    3806: NoRequirement(),
+
+    # Mr. Tottenham
+    5722: NoRequirement(),
+
+    # Mr. Thorne
+    8371: NoRequirement(),
+
+    # Mr Thesiger
+    3611: NoRequirement(),
+
+    # Mr. Tenneyson
+    2046: NoRequirement(),
+
+    # Mr Talbot
+    1215: YearRequirement(1804),
+    2989: AfterDateRequirement(1831, 1, 1) & BeforeDateRequirement(1833, 12, 31),
+    5132: AfterDateRequirement(1894, 1, 1) & BeforeDateRequirement(1909, 12, 31),
+
+    # Mr. Younger
+    8108: AfterDateRequirement(1906) & BeforeDateRequirement(1911),
+
+    # Mr. Yerburgh
+    6254: AfterDateRequirement(1894) & BeforeDateRequirement(1911),
+
+    # Mr. Woods
+    7587: AfterDateRequirement(1894) & BeforeDateRequirement(1901),
+
+    # Mr. Wodehouse
+    1974: AfterDateRequirement(1818) & BeforeDateRequirement(1854),
+    5640: AfterDateRequirement(1880) & BeforeDateRequirement(1887),
+
+    # Mr. Wilse
+    4293: AfterDateRequirement(1852) & BeforeDateRequirement(1860),
+
+    # Mr. Williamson
+    5781: AfterDateRequirement(1880) & BeforeDateRequirement(1893),
+    7518: AfterDateRequirement(1907) & BeforeDateRequirement(1910),
+
+    # Mr. Wilbraham
+    1869: AfterDateRequirement(1811) & BeforeDateRequirement(1816),
+    2033: AfterDateRequirement(1819) & BeforeDateRequirement(1822),
+    2499: AfterDateRequirement(1828) & BeforeDateRequirement(1842),
+
+    # Mr. Stoehron
+    2559: NoRequirement(),
+
+    # Mr. Snowden
+    8121: NoRequirement(),
+
+    # Mr. Smollett
+    4632: NoRequirement(),
+
+    # Mr. Sloan
+    8058: NoRequirement(),
+
+    # Mr. Simon
+    8362: NoRequirement(),
+
+    # Mr. Shirley
+    5993: NoRequirement(),
+
+    # Mr. Sheridan
+    1078: AfterDateRequirement(1809) & BeforeDateRequirement(1813),
+    3834: AfterDateRequirement(1846) & BeforeDateRequirement(1868),
+
+    # Mr. Sheehan
+    6061: YearRequirement(1893),
+    8052: AfterDateRequirement(1901) & BeforeDateRequirement(1911),
+
+    # Mr. Sears
+    8146: NoRequirement(),
+
+    # Mr. Scarlett
+    2148: AfterDateRequirement(1819) & BeforeDateRequirement(1836),
+
+    # Mr. Sandford
+    4209: AfterDateRequirement(1874) & BeforeDateRequirement(1879),
+    
+    # Mr. Ruthven
+    1399: AfterDateRequirement(1830) & BeforeDateRequirement(1836),
+    
+    # Mr. Russell
+    6331: AfterDateRequirement(1889) & BeforeDateRequirement(1910),
+    1885: YearRequirement(1832),
+    
+    # Mr. Rowlands
+    6266: NoRequirement(),
+    
+    # Mr. Rose
+    709: AfterDateRequirement(1803) & BeforeDateRequirement(1819),
+    8070: AfterDateRequirement(1903) & BeforeDateRequirement(1910),
+    1066: YearRequirement(1819),
+    
+    # Mr. Rodgers
+    8161: AfterDateRequirement(1906) & BeforeDateRequirement(1910),
+    
+    # Mr. Roche
+    3063: AfterDateRequirement(1838) & BeforeDateRequirement(1856),
+    
+    # Mr. Rocher
+    6408: AfterDateRequirement(1890) & BeforeDateRequirement(1910),
+    
+    # Mr Robertson
+    4606: AfterDateRequirement(1863) & BeforeDateRequirement(1874),
+    4756: AfterDateRequirement(1874) & BeforeDateRequirement(1886),
+    5959: AfterDateRequirement(1886) & BeforeDateRequirement(1892),
+    7775: AfterDateRequirement(1892) & BeforeDateRequirement(1909),
+    
+    # Mr. Ridley
+    1244: AfterDateRequirement(1824) & BeforeDateRequirement(1838),
+    3722: AfterDateRequirement(1841) & BeforeDateRequirement(1847),
+    5168: AfterDateRequirement(1870) & BeforeDateRequirement(1878),
+    7916: YearRequirement(1910),
+    
+    # Mr. Richardson
+    7566: NoRequirement(),
+    
+    # Mr. Renwick
+    8003: NoRequirement(),
+    
+    # Mr. Remnant
+    7949: NoRequirement(),
+    
+    # Mr. Redmond
+    5846: AfterDateRequirement(1881) & BeforeDateRequirement(1883),
+    5883: AfterDateRequirement(1892) & BeforeDateRequirement(1910),
+    
+    # Mr. Rea
+    7955: NoRequirement(),
+    
+    # Mr. Rawlinson
+    8141: NoRequirement(),
+    
+    # Mr. Rathbone
+    5150: NoRequirement(),
+    
+    # Mr. Rankin
+    5723: NoRequirement(),
+    
+    # Mr. Ramsay
+    5033: NoRequirement(),
+    
+    # Mr. Radford
+    8227: NoRequirement(),
+    
+    # Mr. Quilter
+    6182: AfterDateRequirement(1886) & BeforeDateRequirement(1898),
+    8585: YearRequirement(1910),
+    
+    # Mr. O'Sullivan
+    5431: AfterDateRequirement(1879) & BeforeDateRequirement(1886),
+    8516: YearRequirement(1910),
+    
+    # Mr. O'Shaugnessy
+    7984: NoRequirement(),
+    
+    # Mr. Osborne
+    3768: AfterDateRequirement(1846) & BeforeDateRequirement(1874),
+    
+    # Mr. O'Mara
+    7974: NoRequirement(),
+    
+    # Mr. O'Kelly
+    5765: NoRequirement(),
+    
+    # Mr. O'Conor
+    3148: YearRequirement(1839),
+    4708: AfterDateRequirement(1870) & BeforeDateRequirement(1881),
+    
+    # Mr. O'Brien
+    2548: AfterDateRequirement(1828) & BeforeDateRequirement(1840),
+    2920: YearRequirement(1855),
+    5870: AfterDateRequirement(1889) & BeforeDateRequirement(1911),
+    
+    # Mr. O'Beirne
+    4831: NoRequirement(),
+    
+    # Mr. North
+    2352: NoRequirement(),
+    
+    # Mr. Nolan
+    6099: NoRequirement(),
+    
+    # Mr. O'Connor
+    2929: AfterDateRequirement(1831) & BeforeDateRequirement(1852),
+    5689: AfterDateRequirement(1889) & BeforeDateRequirement(1911),
+    
+    # Mr. Hume
+    1712: AfterDateRequirement(1812) & BeforeDateRequirement(1855),
+    
 }
 
 
@@ -423,6 +695,191 @@ SpecificAliasFunctions = {
 
     'colonel sykes': {
         4571: NoRequirement(),
+    },
+
+    'mr james hope': {
+        8023: NoRequirement(),
+    },
+    'james hope': {
+        8023: NoRequirement(),
+    },
+
+    'mr john oconnor': {
+        5912: NoRequirement(),
+    },
+    'john oconnor': {
+        5912: NoRequirement(),
+    },
+
+    'sir earlley wilmot': {
+        3218: NoRequirement(),
+    },
+
+    'sir carles russell': {
+        4815: NoRequirement(),
+    },
+
+    'sir andrew agnewe': {
+        3240: AfterDateRequirement(1831, 1, 1) & BeforeDateRequirement(1837, 12, 31),
+        7942: AfterDateRequirement(1901, 1, 1) & BeforeDateRequirement(1905, 12, 31),
+    },
+
+    'sir h cotton': {
+        8284: NoRequirement(),
+    },
+
+    'mr gladstone': {
+        3104: NoRequirement(),
+    },
+
+    'mr oconnell': {
+        2552: NoRequirement(),
+    },
+
+    'mr white ridley': {
+        7202: NoRequirement(),
+    },
+
+    'mr vesey fitzgerald': {
+        2561: NoRequirement(),
+    },
+
+    'mr v fitzgerald': {
+        2561: NoRequirement(),
+    },
+
+    'mr vernon harcourt': {
+        3122: YearRequirement(1840),
+        5172: AfterDateRequirement(1869, 1, 1) & BeforeDateRequirement(1873, 12, 31),
+    },
+
+    'mr thomas duncombe': {
+        2438: NoRequirement(),
+    },
+
+    'mr t wilson': {
+        2024: AfterDateRequirement(1819, 1, 1) & BeforeDateRequirement(1826, 12, 31),
+    },
+
+    'mr t shaw': {
+        7261: NoRequirement(),
+    },
+
+    'mr t brassey': {
+        4806: NoRequirement(),
+    },
+
+    'mr t baring': {
+        337: NoRequirement(),
+    },
+
+    'sir william scott': {
+        996: AfterDateRequirement(1803, 1, 1) & BeforeDateRequirement(1821, 12, 31),
+    },
+
+    'sir william molesworth': {
+        2930: AfterDateRequirement(1853, 1, 1) & BeforeDateRequirement(1855, 12, 31),
+    },
+
+    'sir w lawson': {
+        4614: AfterDateRequirement(1889, 1, 1) & BeforeDateRequirement(1899, 12, 31),
+    },
+
+    'sir stratford canning': {
+        2549: AfterDateRequirement(1831) & BeforeDateRequirement(1838, 12, 31),
+    },
+
+    'sir s romilly': {
+        1298: AfterDateRequirement(1808) & BeforeDateRequirement(1817, 12, 31),
+    },
+    'sir samuel romilly': {
+        1298: AfterDateRequirement(1808) & BeforeDateRequirement(1817, 12, 31),
+    },
+
+    'sir s lushington': {
+        1417: AfterDateRequirement(1839) & BeforeDateRequirement(1841, 12, 31),
+    },
+
+    'sir thomas acland': {
+        3550: AfterDateRequirement(1872) & BeforeDateRequirement(1886, 12, 31),
+    },
+
+    'sir stafford northcote': {
+        5686: AfterDateRequirement(1888) & BeforeDateRequirement(1889, 12, 31),
+    },
+
+    'sir r ferguson': {
+        1046: AfterDateRequirement(1818) & BeforeDateRequirement(1839, 12, 31),
+    },
+
+    'sir m w ridley': {
+        957: YearRequirement(1809),
+        1803: AfterDateRequirement(1814) & BeforeDateRequirement(1832, 12, 31),
+    },
+
+    'sir joseph yorke': {
+        1364: AfterDateRequirement(1812) & BeforeDateRequirement(1831, 12, 31)
+    },
+    'sir j yorke': {
+        1364: AfterDateRequirement(1812) & BeforeDateRequirement(1831, 12, 31)
+    },
+
+    'sir john newport': {
+        1127: AfterDateRequirement(1803) & BeforeDateRequirement(1832, 12, 31),
+    },
+    'sir j newport': {
+        1127: AfterDateRequirement(1803) & BeforeDateRequirement(1832, 12, 31),
+    },
+    'sir john brydges': {
+        2820: AfterDateRequirement(1823) & BeforeDateRequirement(1832, 12, 31),
+    },
+    'sir hussey vivian': {
+        4304: AfterDateRequirement(1882) & BeforeDateRequirement(1892, 12, 31),
+    },
+    'sir henry fletcher': {
+        5704: AfterDateRequirement(1881) & BeforeDateRequirement(1902, 12, 31),
+    },
+    'mr william smith': {
+        981: AfterDateRequirement(1804) & BeforeDateRequirement(1831),
+        7632: YearRequirement(1895),
+    },
+    
+    'mr shaw lefevre': {
+        1030: AfterDateRequirement(1808) & BeforeDateRequirement(1822),
+        3007: AfterDateRequirement(1830) & BeforeDateRequirement(1834),
+        3783: AfterDateRequirement(1876) & BeforeDateRequirement(1897),
+    },
+    
+    'mr sharman crawford': {
+        3325: NoRequirement(),
+    },
+    
+    'mr scott dickson': {
+        7953: NoRequirement(),
+    },
+    
+    'mr russell rea': {
+        7955: NoRequirement(),
+    },
+    'mr robert ward': {
+        723: NoRequirement(),
+    },
+    'mr robert wallace': {
+        3001: AfterDateRequirement(1833) & BeforeDateRequirement(1835),
+        6262: YearRequirement(1899),
+    },
+    'mr r ward': {
+        723: NoRequirement(),
+    },
+    'mr r palmer': {
+        2368: NoRequirement(),
+    },
+    'mr r duncan': {
+        8203: NoRequirement(),
+    },
+    'mr ormsby-gore': {
+        7950: AfterDateRequirement(1901) & BeforeDateRequirement(1903),
+        8472: YearRequirement(1910),
     },
 }
 
