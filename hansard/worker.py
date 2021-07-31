@@ -330,6 +330,11 @@ REGEX_POST_CORRECTIONS = [
     ('^secretary of state for india +', ''),
     ('^secretary to the local government board +', ''),
     ('^parliamentary secretary to the local government board +', ''),
+
+    ('^-attorney', 'attorney'),
+    ('^mr attorney-?general', 'attorney-general'),
+    ('^she attorney', '^attorney'),
+    ('^attorney-general sir [a-z ]+', 'attorney-general'),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
