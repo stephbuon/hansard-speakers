@@ -5,3 +5,6 @@ data/hansard_justnine_12192019.csv
 data/hansard_1970_79.csv
 *.c
 *.pyd
+
+# Pycharm
+./idea
