@@ -1,10 +1,18 @@
+
+# Python bytecode
 *.pyc
-logs/
-tmp/
-data/hansard_justnine_12192019.csv
-data/hansard_1970_79.csv
-*.c
 *.pyd
 
+# Compiled Cython files
+*.c
+
 # Pycharm
-./idea
+.idea
+
+# Temp folders
+logs/
+tmp/
+
+# Large data files
+data/hansard_justnine_12192019.csv
+data/hansard_1970_79.csv
