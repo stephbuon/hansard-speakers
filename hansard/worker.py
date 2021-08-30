@@ -335,6 +335,9 @@ REGEX_POST_CORRECTIONS = [
     ('^mr attorney-?general', 'attorney-general'),
     ('^she attorney', 'attorney'),
     ('^attorney-?general sir [a-z ]+', 'attorney-general'),
+
+    # Fix hyphen surrounded by spaces.
+    (' + - +', '-'),
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))

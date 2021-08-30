@@ -150,6 +150,8 @@ SIR_PEEL_LANCASHIRE_DEBATES = {2233, 7959, 8811, 15417, 15477, 15667, 15687, 159
                                16180, 16951, 18488, 18591, 18750, 18789, 18937, 19571, 19775,
                                19859, 20678, 21254, 21280, 21788}
 
+# query: debate title contains "drains", "fiscal system", "parliamentary franchise"
+MR_BRYCE_DEBATES = {161496, 169249, 170530, 170602, 171855, 172114, 172191, 172193, 172617, 173084}
 
 DisambiguateFunctions = {
     # mr macaulay
@@ -657,7 +659,73 @@ DisambiguateFunctions = {
     
     # Mr. Hume
     1712: AfterDateRequirement(1812) & BeforeDateRequirement(1855),
-    
+
+    # Mr. Brodrick
+    5790: WithinYearsRequirement(1886, 1905),
+
+    # Mr. Disraeli
+    3523: WithinYearsRequirement(1869, 1873),
+
+    # Mr. Brougham
+    1679: WithinYearsRequirement(1811, 1834),
+
+    # Mr. Bryce
+    5795: WithinYearsRequirement(1886, 1905),
+    8225: WithinYearsRequirement(1909, 1910) & DebateRequirement(MR_BRYCE_DEBATES),
+
+    # Mr. Wilberforce
+    1181: WithinYearsRequirement(1803, 1824),
+
+    # Mr. Whitaker
+    7661: WithinYearsRequirement(1897, 1906),
+
+    # Mr. Webster
+    5920: YearRequirement(1885),
+    6320: WithinYearsRequirement(1886, 1899),
+
+    # Mr. Watt
+    8200: WithinYearsRequirement(1906, 1910),
+
+    # Mr. Watson
+    1948: WithinYearsRequirement(1821, 1831),
+    3685: WithinYearsRequirement(1841, 1856),
+
+    # Mr. Warren
+    2168: WithinYearsRequirement(1819, 1820),
+    4397: WithinYearsRequirement(1856, 1858),
+
+    # Mr. Warner
+    4266: WithinYearsRequirement(1860, 1868),
+    7656: WithinYearsRequirement(1893, 1895),
+
+    # Mr. Walter
+    8273: YearRequirement(1909),
+    6256: YearRequirement(1910),
+
+    # Mr. Sykes
+    2231: WithinYearsRequirement(1820, 1831),
+    4571: YearRequirement(1869),
+    9985: YearRequirement(1910),
+
+    # Mr. Sutherland
+    5908: WithinYearsRequirement(1885, 1890),
+    6340: WithinYearsRequirement(1892, 1894),
+    8184: WithinYearsRequirement(1906, 1910),
+
+    # Mr. Summers
+    5831: WithinYearsRequirement(1881, 1892),
+
+    # Mr. Strutt
+    2595: WithinYearsRequirement(1830, 1856),
+    5088: YearRequirement(1870),
+    5884: WithinYearsRequirement(1885, 1903),
+
+    # Mr. Stirling
+    4272: WithinYearsRequirement(1854, 1865),
+
+    # Mr. Stevenson
+    5194: WithinYearsRequirement(1869, 1885),
+    6229: WithinYearsRequirement(1889, 1905),
 }
 
 
@@ -881,6 +949,54 @@ SpecificAliasFunctions = {
         7950: AfterDateRequirement(1901) & BeforeDateRequirement(1903),
         8472: YearRequirement(1910),
     },
+
+    'mr lloyd-george': {
+        6405: WithinYearsRequirement(1894, 1908),
+    },
+    'mr lloyd george': {
+        6405: WithinYearsRequirement(1894, 1908),
+    },
+
+    'mr hicks-beach': {
+        8347: WithinYearsRequirement(1906, 1910),
+    },
+
+    'mr w smith': {
+        981: WithinYearsRequirement(1805, 1830),
+        5521: YearRequirement(1873),
+        7632: WithinYearsRequirement(1893, 1895),
+    },
+
+    'mr w peel': {
+        1975: WithinYearsRequirement(1830, 1832),
+        4946: WithinYearsRequirement(1909, 1910),
+    },
+
+    'mr w fagan': {
+        3917: WithinYearsRequirement(1848, 1851),
+    },
+
+    'mr w ewart': {
+        2551: WithinYearsRequirement(1855, 1866),
+    },
+
+    'mr w courtenay': {
+        1765: WithinYearsRequirement(1813, 1825),
+    },
+
+    'mr w cartwright': {
+        5173: WithinYearsRequirement(1869, 1880),
+    },
+
+    'mr sturges bourne': {
+        710: WithinYearsRequirement(1804, 1830),
+    },
+
+    'mr staurt wortley': {
+        3339: WithinYearsRequirement(1846, 1859),
+        5829: WithinYearsRequirement(1884, 1910),
+    }
+
 }
 
 
