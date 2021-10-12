@@ -726,6 +726,135 @@ DisambiguateFunctions = {
     # Mr. Stevenson
     5194: WithinYearsRequirement(1869, 1885),
     6229: WithinYearsRequirement(1889, 1905),
+
+    # Mr. Spicer
+    6057: YearRequirement(1886),
+    7625: WithinYearsRequirement(1893, 1906),
+
+    # Mr. Salter
+    8386: WithinYearsRequirement(1906, 1910),
+
+    # Mr. Pugh
+    4576: WithinYearsRequirement(1858, 1868),
+    5821: WithinYearsRequirement(1880, 1884),
+
+    # Mr. Protheroe
+    1738: WithinYearsRequirement(1812, 1819),
+    2426: WithinYearsRequirement(1830, 1847),
+
+    # Mr. Potter
+    1947: YearRequirement(1828),
+    3238: WithinYearsRequirement(1833, 1837),
+    4237: YearRequirement(1854),
+    4739: WithinYearsRequirement(1862, 1867),
+    4804: WithinYearsRequirement(1875, 1883),
+
+    # Mr. Portman
+    645: YearRequirement(1808),
+    2335: WithinYearsRequirement(1860, 1862),
+    4287: WithinYearsRequirement(1855, 1885),
+    6228: WithinYearsRequirement(1886, 1888),
+
+    # Mr. Plunkett
+    7561: WithinYearsRequirement(1893, 1900),
+    5512: WithinYearsRequirement(1875, 1876),
+
+    # Mr. Pim
+    4848: WithinYearsRequirement(1866, 1873),
+
+    # Mr. Pigott
+    2584: WithinYearsRequirement(1831, 1832),
+
+    # Mr. Phillips
+    6443: YearRequirement(1834),
+    2059: YearRequirement(1835),
+    4435: WithinYearsRequirement(1857, 1877),
+    7900: YearRequirement(1904),
+    6372: WithinYearsRequirement(1888, 1903),
+
+    # Mr. Pemberton
+    2744: WithinYearsRequirement(1831, 1841),
+    8034: WithinYearsRequirement(1902, 1905),
+
+    # Mr. Palk
+    1996: WithinYearsRequirement(1854, 1860),
+
+    # Mr. Packe
+    4659: WithinYearsRequirement(1859, 1867),
+
+    # Mr. Lynch
+    8305: WithinYearsRequirement(1906, 1909),
+    8053: YearRequirement(1910),
+
+    # Mr. Lygon
+    1300: YearRequirement(1813),
+    4450: WithinYearsRequirement(1857, 1865),
+
+    # Mr. Lyell
+    8091: WithinYearsRequirement(1904, 1910),
+
+    # Mr. Lundon
+    7983: WithinYearsRequirement(1901, 1908),
+    8527: WithinYearsRequirement(1909, 1910),
+
+    # Mr. Lopes
+    5031: WithinYearsRequirement(1869, 1873),
+
+    # Mr. Logan
+    6423: WithinYearsRequirement(1891, 1902),
+
+    # Mr. Litton
+    3474: WithinYearsRequirement(1837, 1842),
+
+    # Mr. Littleton
+    1727: WithinYearsRequirement(1819, 1843),
+
+    # Mr. Leycester
+    940: WithinYearsRequirement(1808, 1812),
+    2312: WithinYearsRequirement(1822, 1828),
+
+    # Mr. Levy
+    7988: WithinYearsRequirement(1901, 1907),
+
+    # Mr. Lennard
+    2282: WithinYearsRequirement(1820, 1837),
+
+    # Mr. Leeman
+    4966: WithinYearsRequirement(1866, 1868),
+
+    # Mr. Leatham
+    4696: WithinYearsRequirement(1866, 1868),
+    4642: WithinYearsRequirement(1869, 1886),
+
+    # Mr. Leader
+    2658: WithinYearsRequirement(1830, 1832),
+    3293: WithinYearsRequirement(1835, 1847),
+
+    # Mr. Lambton
+    1893: WithinYearsRequirement(1814, 1825),
+    5680: WithinYearsRequirement(1901, 1909),
+
+    # Mr. Kirk
+    4260: WithinYearsRequirement(1852, 1858),
+    5523: YearRequirement(1876),
+
+    # Mr. Kirkwood
+    8488: YearRequirement(1897) | YearRequirement(1910),
+
+    # Mr. Kenny
+    5866: WithinYearsRequirement(1882, 1885),
+
+    # Mr. Kelly
+    3350: WithinYearsRequirement(1835, 1841),
+
+    # Mr. Kavanagh
+    5003: WithinYearsRequirement(1869, 1880),
+
+    # Mr. Jessel
+    5094: WithinYearsRequirement(1869, 1870),
+
+    # Mr. Jervis
+    2911: WithinYearsRequirement(1833, 1845),
 }
 
 
@@ -995,8 +1124,130 @@ SpecificAliasFunctions = {
     'mr staurt wortley': {
         3339: WithinYearsRequirement(1846, 1859),
         5829: WithinYearsRequirement(1884, 1910),
-    }
+    },
 
+    'mr stavely hill': {
+        5081: WithinYearsRequirement(1874, 1895),
+    },
+
+    'mr samuel storey': {
+        5850: YearRequirement(1910),
+    },
+
+    'mr samuel roberts': {
+        8071: WithinYearsRequirement(1902, 1910),
+    },
+
+    'mr samuel hoare': {
+        6300: WithinYearsRequirement(1889, 1898),
+        8461: YearRequirement(1910),
+    },
+
+    'mr s wortley': {
+        3339: WithinYearsRequirement(1846, 1853),
+        5829: YearRequirement(1890),
+    },
+
+    'mr s hoare': {
+        6300: WithinYearsRequirement(1889, 1898),
+    },
+
+    'mr s evans': {
+        6398: YearRequirement(1898),
+    },
+
+    'mr philip stanhope': {
+        6341: WithinYearsRequirement(1886, 1904),
+    },
+
+    'mr peter moore': {
+        1195: WithinYearsRequirement(1804, 1826),
+    },
+
+    'mr p stanhope': {
+        6341: WithinYearsRequirement(1886, 1896),
+    },
+
+    'mr p obrien': {
+        6184: WithinYearsRequirement(1853, 1854),
+        6328: WithinYearsRequirement(1886, 1910),
+    },
+
+    'mr p moore': {
+        1195: WithinYearsRequirement(1805, 1826),
+    },
+
+    'mr p miles': {
+        3466: WithinYearsRequirement(1846, 1851),
+    },
+
+    'mr p mdonald': {
+        6164: WithinYearsRequirement(1886, 1890),
+    },
+
+    'mr lyulph stanley': {
+        5828: WithinYearsRequirement(1880, 1885),
+        8180: WithinYearsRequirement(1908, 1909),
+    },
+
+    'mr lea': {
+        2080: YearRequirement(1824),
+        2658: WithinYearsRequirement(1830, 1832),
+        3293: WithinYearsRequirement(1835, 1847),
+        4696: WithinYearsRequirement(1866, 1868),
+        4642: WithinYearsRequirement(1869, 1880),
+        5133: WithinYearsRequirement(1880, 1892),
+        8466: YearRequirement(1910),
+    },
+
+    'justin mcarthy': {
+        5619: WithinYearsRequirement(1879, 1899),
+    },
+
+    'mr john williams': {
+        2321: WithinYearsRequirement(1822, 1832),
+        8204: WithinYearsRequirement(1909, 1910),
+    },
+
+    'mr john stuart': {
+        3856: WithinYearsRequirement(1851, 1952),
+    },
+
+    'mr john stanley': {
+        2738: WithinYearsRequirement(1831, 1836),
+    },
+
+    'mr john oconnell': {
+        3253: WithinYearsRequirement(1833, 1854),
+    },
+
+    'mr john gordon': {
+        2514: YearRequirement(1831),
+        7987: WithinYearsRequirement(1901, 1910),
+    },
+
+    'mr john bright': {
+        3812: WithinYearsRequirement(1875, 1885),
+    },
+
+    'mr james stuart': {
+        687: YearRequirement(1807),
+        3339: YearRequirement(1843),
+        5909: WithinYearsRequirement(1885, 1909),
+    },
+
+    'mr james rankin': {
+        5723: WithinYearsRequirement(1896, 1898),
+    },
+
+    'mr james oconnor': {
+        7687: WithinYearsRequirement(1901, 1909),
+    },
+
+    'mr james campbell': {
+        5629: WithinYearsRequirement(1886, 1890),
+        7485: WithinYearsRequirement(1906, 1908),
+    }
 }
 
 
