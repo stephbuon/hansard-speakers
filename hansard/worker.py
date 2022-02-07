@@ -2,6 +2,8 @@ import multiprocessing
 from queue import Empty
 from typing import Tuple, Optional, List, Dict
 
+import numpy
+
 from hansard.disambiguate import disambiguate
 from hansard.loader import DataStruct
 from datetime import datetime
@@ -18,6 +20,9 @@ compile_regex = lambda x: (re.compile(x[0]), x[1])
 REGEX_PRE_CORRECTIONS = [
     (r'(?:\([^()]+\))', ''),  # Remove all text within parenthesis, including parenthesis    
 ]
+
+PARENTHESIS_REGEX = re.compile(r'(?:\(([^()]+)\))')
+
 
 REGEX_PRE_CORRECTIONS = list(map(compile_regex, REGEX_PRE_CORRECTIONS))
 
@@ -376,7 +381,7 @@ def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
 
 
 def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
-                           columns: Tuple[str, str, str]) -> Tuple[Optional[str], bool]:
+                           columns: Tuple[str, str, str], speaker_dict: Dict[int, SpeakerReplacement]) -> Tuple[Optional[str], bool]:
     start_col, end_col, search_col = columns
 
     match = None
@@ -385,14 +390,19 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
     condition = (date >= df[start_col]) & (date < df[end_col])
     query = df[condition]
 
-    for alias in query[search_col]:
+    for i, alias in enumerate(query[search_col]):
         if within_distance_two(target, alias, False):
             if match:
                 match = None
                 ambiguity = True
                 break
             else:
-                match = alias
+                match = query.iloc[i]['corresponding_id']
+                if numpy.isnan(match):
+                    match = alias
+                else:
+                    match = speaker_dict[match]
+                # print('edit distance found. target=%s match=%s' % (target, repr(match)))
 
     return match, ambiguity
 
@@ -455,6 +465,7 @@ def worker_function(inq: multiprocessing.Queue,
     title_df = data.title_df
 
     hitcount = 0
+    matched_indexes = []
     missed_indexes = []
     ambiguities_indexes = []
     ignored_indexes = []
@@ -487,6 +498,14 @@ def worker_function(inq: multiprocessing.Queue,
         return string_val.strip()
 
     def preprocess(string_val: str) -> str:
+        # Decide whether to use the text inside parenthesis or not.
+
+        p_match = re.search(PARENTHESIS_REGEX, string_val)
+        if p_match:
+            inner_string = postprocess(cleanse_string(p_match.group(1)))
+            if inner_string in alias_dict:  # is this a speaker name?
+                return inner_string
+
         for k, v in REGEX_PRE_CORRECTIONS:
             string_val = re.sub(k, v, string_val)
 
@@ -529,9 +548,6 @@ def worker_function(inq: multiprocessing.Queue,
                 ambiguity: bool = False
                 possibles = []
                 query = []
-
-                if not match:
-                    match = data.inferences.get(debate_id, None)
 
                 # check if we should ignore this row.
                 if not match:
@@ -581,12 +597,18 @@ def worker_function(inq: multiprocessing.Queue,
                     query = query.drop_duplicates(subset=['corresponding_id'])
                     if len(query) == 1:
                         speaker_id = query.iloc[0]['corresponding_id']
-                        if speaker_id != 'N/A':
+                        if speaker_id != 'N/A' and not numpy.isnan(speaker_id):
                             # TODO: setup logging to keep track of when == n/a
                             # TODO: fix IDs missing due to being malformed entries in mps.csv
                             # match = speaker_dict[int(speaker_id)]
                             # for now use speaker_id to ensure this counts as a match
-                            match = speaker_id
+                            try:
+                                match = speaker_dict[int(speaker_id)]
+                            except KeyError as e:
+                                print('failed lookup', query)
+                                match = None
+                                ambiguity = False
+
                     elif len(query) > 1:
                         ambiguity = True
 
@@ -594,7 +616,7 @@ def worker_function(inq: multiprocessing.Queue,
                 if not match:
                     for holding in holdings:
                         if holding.matches(target, speechdate, cleanse=False):
-                            match = holding
+                            match = speaker_dict[int(holding.member_id)]
                             break
 
                 if not match:
@@ -603,21 +625,23 @@ def worker_function(inq: multiprocessing.Queue,
                         possibles = [speaker for speaker in possibles if speaker.matches(target, speechdate, cleanse=False)]
                         if len(possibles) == 1:
                             match = possibles[0]
+                            ambiguity = False
                         else:
                             ambiguity = True
 
                 # Try edit distance with lord titles.
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, lord_titles_df,
-                                                              ('start', 'end', 'alias'))
+                                                              ('start', 'end', 'alias'), speaker_dict)
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, title_df,
-                                                              ('start', 'end', 'alias'))
+                                                              ('start', 'end', 'alias'), speaker_dict)
 
                 # Try edit distance with honorary titles.
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, honorary_title_df,
-                                                              ('started_service', 'ended_service', 'honorary_title'))
+                                                              ('started_service', 'ended_service', 'honorary_title'),
+                                                              speaker_dict)
 
                 # Try edit distance with MP name permutations.
                 if not match and not ambiguity:
@@ -638,8 +662,18 @@ def worker_function(inq: multiprocessing.Queue,
 
                     if len(possibles) == 1:
                         match = possibles[0]
+                        ambiguity = False
+                        flag = 5
                     elif len(possibles) > 1:
                         ambiguity = True
+
+                if ambiguity and possibles:
+                    match = speaker_dict.get(data.inferences.get(debate_id, None), None)
+                    if match not in possibles:
+                        match = None
+                    else:
+                        ambiguity = False
+                        possibles = []
 
                 if ambiguity and possibles:
                     # Filters out duplicates.
@@ -654,7 +688,8 @@ def worker_function(inq: multiprocessing.Queue,
 
                     if len(possibles) == 1:
                         ambiguity = False
-                        match = possibles[0].id
+                        match = possibles[0]
+                        flag = 6
 
                 if ambiguity:
                     match = disambiguate(target, speechdate, row.speaker_house, row.debate_id, data.speaker_dict)
@@ -662,10 +697,16 @@ def worker_function(inq: multiprocessing.Queue,
                         match = None
                     else:
                         ambiguity = False
+                        match = speaker_dict.get(match, match)
 
                 if match is not None:
                     hitcount += 1
+                    if isinstance(match, SpeakerReplacement):
+                        chunk.loc[i, 'speaker_modified'] = match.id
+                    else:
+                        chunk.loc[i, 'speaker_modified'] = match
                     MATCH_CACHE[(target, speechdate)] = match
+                    matched_indexes.append(i)
                 elif ambiguity:
                     AMBIG_CACHE.add((target, speechdate))
                     ambiguities_indexes.append(i)
@@ -676,8 +717,9 @@ def worker_function(inq: multiprocessing.Queue,
                     MISS_CACHE.add((target, speechdate))
                     missed_indexes.append(i)
 
-            outq.put((hitcount, chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
+            outq.put((chunk.loc[matched_indexes, ['sentence_id', 'speaker_modified']], chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
             hitcount = 0
+            del matched_indexes[:]
             del missed_indexes[:]
             del ambiguities_indexes[:]
             del ignored_indexes[:]
