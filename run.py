@@ -7,6 +7,7 @@ import argparse
 from hansard import *
 from hansard.loader import DataStruct
 from datetime import datetime
+import requests
 
 
 CPU_CORES = 2
@@ -45,6 +46,11 @@ def export(output_queue, slack_secret):
     missed_df = pd.DataFrame()
     ambiguities_df = pd.DataFrame()
     ignored_df = pd.DataFrame()
+    output_fp = os.path.join(OUTPUT_DIR, 'output_.csv')
+
+    # Overwrite the file temporarily.
+    with open(output_fp, 'w+'):
+        pass
 
     hit = 0
     ambiguities = 0
@@ -61,16 +67,16 @@ def export(output_queue, slack_secret):
             print('Finished all chunks.')
             break
         else:
-            chunk_hitcount, chunk_missed_df, chunk_ambig_df, chunk_ignored_df = entry
-            hit += chunk_hitcount
+            chunk_matched_df, chunk_missed_df, chunk_ambig_df, chunk_ignored_df = entry
+            hit += len(chunk_matched_df)
             ambiguities += len(chunk_ambig_df)
             ignored += len(chunk_ignored_df)
             i += 1
 
             missed_df = missed_df.append(chunk_missed_df)
             ambiguities_df = ambiguities_df.append(chunk_ambig_df)
-            ignored_df = chunk_ignored_df.append(chunk_ignored_df)
-
+            ignored_df = ignored_df.append(chunk_ignored_df)
+            chunk_matched_df.to_csv(output_fp, mode='a', header=False, index=False)
             print(f'Processed {i} chunks so far.')
 
     from util.slackbot import Blocks, send_slack_post
@@ -137,7 +143,7 @@ if __name__ == '__main__':
     for chunk in pd.read_csv(DATA_FILE,
                              sep=',',
                              chunksize=CHUNK_SIZE,
-                             usecols=['speechdate', 'speaker', 'debate_id', 'speaker_house']):  # type: pd.DataFrame
+                             usecols=['sentence_id', 'speechdate', 'speaker', 'debate_id', 'speaker_house']):  # type: pd.DataFrame
         chunk['speaker_house'] = chunk['speaker_house'].str.replace('[^A-Za-z ]', '', regex=True)
         is_commons = chunk['speaker_house'] == 'HOUSE OF COMMONS'
         is_lords = chunk['speaker_house'] == 'HOUSE OF LORDS'
