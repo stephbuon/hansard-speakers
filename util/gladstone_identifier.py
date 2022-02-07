@@ -92,6 +92,7 @@ def main(target_speeches_filepath, hansard_filepath, output_filepath):
     print('Preprocessing...')
     df = pd.concat(chunks)
     df['speaker'] = df['speaker'].str.lower()
+    df = df['speaker'].str.contains('gladstone')
     df['text'] = df['text'].str.lower()
 
     query = df['speaker'].notna()

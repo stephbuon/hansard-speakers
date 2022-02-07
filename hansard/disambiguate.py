@@ -745,7 +745,8 @@ DisambiguateFunctions = {
     # Mr. Potter
     1947: YearRequirement(1828),
     3238: WithinYearsRequirement(1833, 1837),
-    4237: YearRequirement(1854),
+    # TODO: fix missing speaker
+    # 4237: YearRequirement(1854),
     4739: WithinYearsRequirement(1862, 1867),
     4804: WithinYearsRequirement(1875, 1883),
 
