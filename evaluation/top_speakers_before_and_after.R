@@ -11,9 +11,11 @@ hansard <- fread("/scratch/group/pract-txt-mine/hansard_c19_improved_speaker_nam
 tokenized_hansard <- hansard %>%
   unnest_tokens(word, text)
 
+
+
 words_per_day <- tokenized_hansard %>%
   group_by(decade, speaker) %>%
-  summarize(words_per_day = n())
+  summarize(words_per_decade = n())
 
 words_per_day <- words_per_day %>%
   group_by(decade) %>%
@@ -29,7 +31,7 @@ filter(!str_detect(new_speaker, "^NA$"))
 
 words_per_day <- tokenized_hansard_2 %>%
   group_by(decade, new_speaker) %>%
-  summarize(words_per_day = n())
+  summarize(words_per_decade = n())
 
 words_per_day <- words_per_day %>%
   group_by(decade) %>%
