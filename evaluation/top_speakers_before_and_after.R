@@ -24,7 +24,10 @@ top_speakers <- words_per_day %>%
 
 write_csv(top_speakers, "top_speakers_eval.csv")
 
-words_per_day <- tokenized_hansard %>%
+tokenized_hansard_2 <- tokenized_hansard %>%
+filter(!str_detect(new_speaker, "^NA$")) 
+
+words_per_day <- tokenized_hansard_2 %>%
   group_by(decade, new_speaker) %>%
   summarize(words_per_day = n())
 
