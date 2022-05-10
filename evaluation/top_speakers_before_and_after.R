@@ -8,6 +8,9 @@ hansard <- fread("/home/steph/Downloads/hansard_c19_improved_speaker_names_2.csv
   mutate(decade = year - year %% 10) %>%
   select(-year, -speechdate)
 
+hansard$speaker <- tolower(hansard$speaker)
+hansard$new_speaker <- tolower(hansard$new_speaker)
+
 hansard <- hansard %>%
   unnest_tokens(word, text)
 
