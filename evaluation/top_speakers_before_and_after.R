@@ -33,7 +33,7 @@ words_per_day <- hansard %>%
 
 words_per_day <- words_per_day %>%
   group_by(decade) %>%
-  mutate(sp_ranking_decade = rank(desc(words_per_day)))
+  mutate(sp_ranking_decade = rank(desc(words_per_decade)))
 
 top_speakers <- words_per_day %>%
   filter(sp_ranking_decade <= 5)
