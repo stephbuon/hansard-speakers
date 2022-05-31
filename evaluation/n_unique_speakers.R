@@ -34,7 +34,8 @@ plot_ly(data = all_data,
             name = "Disambiguated Speakers",
             text = ~disambig_speaker, textposition = 'top',
             marker = list(color = 'rgb(204,204,204)')) %>%
-  layout(xaxis = list(title = "Decade", tickvals= ~decade, ticktext = ~decade),
+  layout(title = "Number of Unique Speaker Names Before and After Disambiguation by Decade", 
+         xaxis = list(title = "Decade", tickvals= ~decade, ticktext = ~decade),
          yaxis = list(title = "Number of Unique Speaker Names")) %>%
   config(displayModeBar = F)
   
