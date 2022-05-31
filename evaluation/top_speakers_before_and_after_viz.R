@@ -23,14 +23,15 @@ ggplot(top_speakers,
   xlab("Decade") +
   ggtitle("Top Speakers Per Decade and Their Word Counts",
           subtitle = "From the Original Hansard Speaker Field") +
-  geom_text_repel(force = 1) +
+  geom_text_repel(size = 5, 
+                  force = 1) +
   geom_point(size = 3, 
              color = "#4682b4") +
   theme_gray(base_size = 16) +
   scale_y_continuous(labels = comma) + 
   scale_x_continuous(breaks = top_speakers$decade)
 
-ggsave("~/projects/hansard-speakers/evaluation/evalutaion-images/top_speakers_before.png", width = 20, height = 12, dpi = 500)
+ggsave("~/projects/hansard-speakers/evaluation/evalutaion-images/top_speakers_before.png", width = 20, height = 15, dpi = 500)
 
 top_new_speakers <- fread("~/projects/hansard-speakers/evaluation-data/top_new_speakers_eval.csv") %>%
   arrange(desc(words_per_decade)) %>%
@@ -52,12 +53,13 @@ ggplot(top_new_speakers,
   xlab("Decade") +
   ggtitle("Top Speakers Per Decade and Their Word Counts",
           subtitle = "From the Disambiguated Speaker Field") +
-  geom_text_repel(force = 1) +
+  geom_text_repel(size = 5, 
+                  force = 1) +
   geom_point(size = 3, 
              color = "#4682b4") +
   theme_gray(base_size = 16) +
   scale_y_continuous(labels = comma) + 
   scale_x_continuous(breaks = top_speakers$decade)
 
-ggsave("~/projects/hansard-speakers/evaluation/evalutaion-images/top_speakers_after.png", width = 20, height = 12, dpi = 500)
+ggsave("~/projects/hansard-speakers/evaluation/evalutaion-images/top_speakers_after.png", width = 20, height = 15, dpi = 500)
 
