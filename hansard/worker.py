@@ -313,6 +313,8 @@ REGEX_POST_CORRECTIONS = [
     ('secketay +','secretary'),
 
     (r'lieutenant[\- ]?colonel +', ''),
+    (r'lieut(.*)col', ''),
+    (r'lieut', ''),
 
     (r'^right hon +', ''),
     (r' +observed$', ''),
