@@ -345,6 +345,13 @@ REGEX_POST_CORRECTIONS = [
 
     # Fix hyphen surrounded by spaces.
     (' + - +', '-'),
+
+    # Remove words preceding a title word such as (viscount, sir, mr):
+    ('^.+ viscount', 'viscount'),
+    ('^.+ sir ', 'sir '),
+    ('^.+ mr ', 'mr '),
+
+
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
