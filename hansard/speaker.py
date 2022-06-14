@@ -111,6 +111,9 @@ class SpeakerReplacement:
         for title in self.titles + ['']:
             for fn in ('', self.first_name[0], self.first_name):
                 for mn in self.middle_possibilities:
+                    if not fn and mn:
+                        continue
+
                     for sn in self.surname_possibilities:
                         yield re.sub(' +', ' ', f'{title} {fn} {mn} {sn}').strip(' ')
 
