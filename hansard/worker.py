@@ -386,7 +386,7 @@ def is_ignored(target: str) -> bool:
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
-    return df[(date >= df['started_service']) & (date < df['ended_service'])]
+    return df[(date >= df['start']) & (date < df['end'])]
 
 
 def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
@@ -440,7 +440,7 @@ def find_best_jaro_dist(target: str, alias_dict: Dict[str, List[SpeakerReplaceme
     best_match = ['', 0.0]
 
     best_match = find_best_jaro_dist_df(target, honorary_title_df, speechdate, best_match, 'honorary_title',
-                                        'started_service', 'ended_service')
+                                        'start', 'end')
     best_match = find_best_jaro_dist_df(target, lord_titles_df, speechdate, best_match, 'alias')
     best_match = find_best_jaro_dist_df(target, aliases_df, speechdate, best_match, 'alias')
 
@@ -569,8 +569,8 @@ def worker_function(inq: multiprocessing.Queue,
 
                 if not match and not len(query):
                     # Try honorary title
-                    condition = (speechdate >= honorary_title_df['started_service']) &\
-                                (speechdate < honorary_title_df['ended_service']) &\
+                    condition = (speechdate >= honorary_title_df['start']) &\
+                                (speechdate < honorary_title_df['end']) &\
                                 (honorary_title_df['honorary_title'].str.contains(target, regex=False))
                     query = honorary_title_df[condition]
 
@@ -649,7 +649,7 @@ def worker_function(inq: multiprocessing.Queue,
                 # Try edit distance with honorary titles.
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, honorary_title_df,
-                                                              ('started_service', 'ended_service', 'honorary_title'),
+                                                              ('start', 'end', 'honorary_title'),
                                                               speaker_dict)
 
                 # Try edit distance with MP name permutations.
