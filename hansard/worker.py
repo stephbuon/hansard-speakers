@@ -581,12 +581,12 @@ def worker_function(inq: multiprocessing.Queue,
                                 (lord_titles_df['alias'].str.contains(target, regex=False))
                     query = lord_titles_df[condition]
 
-                if not match and not len(query):
-                    # try name aliases.
-                    condition = (speechdate >= aliases_df['start']) &\
-                                (speechdate < aliases_df['end']) &\
-                                (aliases_df['alias'].str.contains(target, regex=False))
-                    query = aliases_df[condition]
+                # if not match and not len(query):
+                #     # try name aliases.
+                #     condition = (speechdate >= aliases_df['start']) &\
+                #                 (speechdate < aliases_df['end']) &\
+                #                 (aliases_df['alias'].str.contains(target, regex=False))
+                #     query = aliases_df[condition]
 
                 if not match and not len(query):
                     # try a lord title/alias
