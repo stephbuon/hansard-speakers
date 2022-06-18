@@ -410,7 +410,7 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
                 if numpy.isnan(match):
                     match = alias
                 else:
-                    match = speaker_dict[match]
+                    match = speaker_dict[int(match)]
                 # print('edit distance found. target=%s match=%s' % (target, repr(match)))
 
     return match, ambiguity
