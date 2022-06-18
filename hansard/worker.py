@@ -608,7 +608,7 @@ def worker_function(inq: multiprocessing.Queue,
                         speaker_id = query.iloc[0]['corresponding_id']
                         if speaker_id != 'N/A' and not numpy.isnan(speaker_id):
                             # TODO: setup logging to keep track of when == n/a
-                            # TODO: fix IDs missing due to being malformed entries in mps.csv
+                            # TODO: fix IDs missing due to being malformed entries in speakers.csv
                             # match = speaker_dict[int(speaker_id)]
                             # for now use speaker_id to ensure this counts as a match
                             try:

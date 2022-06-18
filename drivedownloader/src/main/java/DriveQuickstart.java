@@ -12,8 +12,11 @@ import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
+import org.mortbay.util.IO;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
@@ -29,6 +32,8 @@ public class DriveQuickstart {
      */
     private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_READONLY);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
+
+    private static Drive service = null;
 
     /**
      * Creates an authorized Credential object.
@@ -54,10 +59,18 @@ public class DriveQuickstart {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
+    public static String getFolderFilter(String parentFolderId){
+        return String.format("mimeType = 'application/vnd.google-apps.folder' and parents in '%s'", parentFolderId);
+    }
+
+    public static String getSpreadsheetFilter(String parentFolderId) {
+        return String.format("mimeType='application/vnd.google-apps.spreadsheet' and parents in '%s'", parentFolderId);
+    }
+
     public static void main(String... args) throws IOException, GeneralSecurityException {
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        Drive service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
+        service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
                 .build();
 
@@ -76,24 +89,36 @@ public class DriveQuickstart {
 //            }
 //        }
 
-        String lordTitlesFolder = "1zgNd4AQpQ0HsDcZvdT6lBN2Uks996nam";
-
-        String q = String.format("mimeType='application/vnd.google-apps.spreadsheet' and parents in '%s'", lordTitlesFolder);
-
-        FileList result = service.files().list().setQ(q).execute();
-
-        for(File f: result.getFiles()){
-            downloadAndSave(service, f);
-        }
-
+        String mainFolder = "1q07pTfF59pNJr_rSw5trncV8iI9KuQcX";
+        handleFolder(mainFolder, "/");
     }
 
-    public static void downloadAndSave(Drive drive, File f) {
-        System.out.printf("%s (%s)\n", f.getName(), f.getId());
+    public static void handleFolder(String folderId, String currentDir) throws IOException {
+        System.out.printf("folder: %s id=%s\n", currentDir, folderId);
+        FileList subFolders = service.files().list().setQ(getFolderFilter(folderId)).execute();
+
+        for(File f: subFolders.getFiles()){
+            handleFolder(f.getId(), currentDir + "/" +  f.getName());
+        }
+
+        FileList spreadsheets = service.files().list().setQ(getSpreadsheetFilter(folderId)).execute();
+
+        for(File f: spreadsheets.getFiles()){
+            handleSpreadsheet(f, currentDir);
+        }
+    }
+
+    public static void handleSpreadsheet(File f, String directory) throws IOException {
+        System.out.printf("file: %s/%s (%s)\n", directory, f.getName(), f.getId());
+
+        String outputDirectory = "./output" + directory;
+        String outputFilePath =  outputDirectory + "/" + f.getName() + ".csv";
+
+        Files.createDirectories(Paths.get(outputDirectory));
 
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-        try(OutputStream outputStream = new FileOutputStream(f.getName() + ".csv")) {
-            drive.files().export(f.getId(), "text/csv").executeMediaAndDownloadTo(outputStream);
+        try(OutputStream outputStream = new FileOutputStream(outputFilePath)) {
+            service.files().export(f.getId(), "text/csv").executeMediaAndDownloadTo(outputStream);
             outputStream.close();
             byteStream.writeTo(outputStream);
         } catch (FileNotFoundException e) {
