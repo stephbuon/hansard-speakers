@@ -322,6 +322,7 @@ REGEX_POST_CORRECTIONS = [
 
     ('^vice-president of the council +', 'vice-president of the committee of council on education'),
     ('^vice president of the council +', 'vice-president of the committee of council on education'),
+    ('^the vice president of the council +', 'vice-president of the committee of council on education'),
 
     ('^secretary of state for war +', ''),
     ('^president of the local government board +', ''),
