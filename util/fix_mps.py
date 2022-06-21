@@ -4,7 +4,7 @@ from datetime import datetime
 import re
 
 
-mps: pd.DataFrame = pd.read_csv('mps.csv', sep=',')
+mps: pd.DataFrame = pd.read_csv('speakers.csv', sep=',')
 
 mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
 
@@ -100,4 +100,4 @@ missing_dob.to_csv('missing_dob.csv')
 
 mps['mp.dob_approximate'] = mps['mp.dob_approximate'].fillna(0.0).astype(int)
 mps['mp.dod_approximate'] = mps['mp.dod_approximate'].fillna(0.0).astype(int)
-mps.to_csv('mps.csv')
+mps.to_csv('speakers.csv')

@@ -75,7 +75,14 @@ class SpeakerReplacement:
             raise FirstNameMissingError
 
         try:
-            ln_index = name_parts.index(self.last_name)
+            if ' ' in self.last_name:
+                last_name_words = self.last_name.split(' ')
+                ln_first_index = name_parts.index(last_name_words[0])
+                name_parts[ln_first_index] = ' '.join(name_parts[ln_first_index:])
+                name_parts = name_parts[:ln_first_index + 1]
+                ln_index = ln_first_index
+            else:
+                ln_index = name_parts.index(self.last_name)
         except ValueError:
             raise LastNameMissingError
 
@@ -92,6 +99,7 @@ class SpeakerReplacement:
 
         self.member_id = member_id
         self.id = f'{self.first_name}_{self.last_name}_{member_id}'
+        self.id = self.id.replace(' ', '-')
 
         self.middle_possibilities = list(re.sub(' +', ' ', p.strip()) for p in self._generate_middle_parts(0))
 
@@ -111,6 +119,9 @@ class SpeakerReplacement:
         for title in self.titles + ['']:
             for fn in ('', self.first_name[0], self.first_name):
                 for mn in self.middle_possibilities:
+                    if not fn and mn:
+                        continue
+
                     for sn in self.surname_possibilities:
                         yield re.sub(' +', ' ', f'{title} {fn} {mn} {sn}').strip(' ')
 

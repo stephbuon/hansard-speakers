@@ -78,7 +78,11 @@ class DataStruct:
         self._load_term_metadata()
         self._load_corrections()
 
-        self.ignored_set = set(pd.read_csv('data/possible_non_mps.csv')['non_mps'].unique())
+        self.ignored_set = set()
+        for dirpath, _, filenames in os.walk('data/non-mps/other'):
+            for fn in filenames:
+                filepath = dirpath + "/" + fn
+                self.ignored_set = self.ignored_set.union(set(pd.read_csv(filepath)['non_mps'].unique()))
 
         self.title_df = pd.read_csv('data/hansard_titles.csv')
         self.title_df = self.title_df[~self.title_df['corresponding_id'].isna()]
@@ -92,9 +96,9 @@ class DataStruct:
 
     def _load_lord_titles(self):
         dfs = []
-        for csv in os.listdir('data/lord_titles'):
+        for csv in os.listdir('data/mps/peerage-titles'):
             print('Loading lord title csv:', csv)
-            df = pd.read_csv('data/lord_titles/' + csv, sep=',')
+            df = pd.read_csv('data/mps/peerage-titles/' + csv, sep=',')
 
             df['real_name'] = df['real_name'].str.lower()
             df['alias'] = df['alias'].str.lower()
@@ -110,22 +114,23 @@ class DataStruct:
         self.lord_titles_df = pd.concat(dfs)
 
     def _load_name_aliases(self):
-        dfs = []
-        for csv in os.listdir('data/name_aliases'):
-            print('Loading name alias csv:', csv)
-            df = pd.read_csv('data/name_aliases/' + csv, sep=',')
-            dfs.append(df)
-        self.aliases_df = pd.concat(dfs)
-        self.aliases_df['real_name'] = self.aliases_df['real_name'].str.lower()
-        self.aliases_df['alias'] = self.aliases_df['alias'].str.lower()
-        self.aliases_df = self._check_date_estimates(self.aliases_df, 'start', 'end')
-        self.aliases_df = self.aliases_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
-        self.aliases_df = self.aliases_df[~self.aliases_df['alias'].isnull()]
+        self.aliases_df = pd.DataFrame()
+        # dfs = []
+        # for csv in os.listdir('data/name_aliases'):
+        #     print('Loading name alias csv:', csv)
+        #     df = pd.read_csv('data/name_aliases/' + csv, sep=',')
+        #     dfs.append(df)
+        # self.aliases_df = pd.concat(dfs)
+        # self.aliases_df['real_name'] = self.aliases_df['real_name'].str.lower()
+        # self.aliases_df['alias'] = self.aliases_df['alias'].str.lower()
+        # self.aliases_df = self._check_date_estimates(self.aliases_df, 'start', 'end')
+        # self.aliases_df = self.aliases_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+        # self.aliases_df = self.aliases_df[~self.aliases_df['alias'].isnull()]
 
     def _load_speakers(self):
         self._load_name_aliases()
 
-        mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
+        mps: pd.DataFrame = pd.read_csv('data/mps/speakers/speakers.csv', sep=',')
         mps['mp.dod'] = mps['mp.dod'].fillna(datetime.now().strftime(DATE_FORMAT))
         mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
         mps['mp.dod'] = pd.to_datetime(mps['mp.dod'], format=DATE_FORMAT)
@@ -231,8 +236,8 @@ class DataStruct:
         if "honorary_title" not in df:
             df['honorary_title'] = None
 
-        start_column = 'started_service'
-        end_column = 'ended_service'
+        start_column = 'start'
+        end_column = 'end'
 
         return DataStruct._check_date_estimates(df, start_column, end_column)
 
@@ -242,7 +247,7 @@ class DataStruct:
         holdings = self.holdings
 
         logging.info('Loading offices...')
-        offices_df = pd.read_csv('data/offices.csv', sep=',')
+        offices_df = pd.read_csv('data/titles/office_titles.csv', sep=',')
         offices_df = offices_df.astype({'office_id': int})
         for index, row in offices_df.iterrows():
             office = Office(row['office_id'], row['name'])
@@ -288,14 +293,9 @@ class DataStruct:
         logging.debug(f'{unknown_offices} office holding rows had unknown offices.')
         logging.debug(f'{len(holdings)} office holdings successfully loaded out of {len(holdings_df)} rows.')
 
-        self.term_df = pd.read_csv('data/liparm_members.csv', sep=',')
+        self.term_df = pd.read_csv('data/mps/speakers/speakers_terms.csv', sep=',')
         self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
         self.term_df['end_term'] = pd.to_datetime(self.term_df['end_term'], format=DATE_FORMAT)
-
-        term_df_additions = pd.read_csv('data/liparm_additions.csv', sep=',')
-        term_df_additions['start_term'] = pd.to_datetime(term_df_additions['start_term'], format=DATE_FORMAT)
-        term_df_additions['end_term'] = pd.to_datetime(term_df_additions['end_term'], format=DATE_FORMAT)
-        self.term_df = self.term_df.append(term_df_additions)
 
         for row in self.term_df[(~self.term_df['member_id'].isnull()) & (self.term_df['member_id'] != -1)].itertuples(index=False):
             try:
@@ -308,21 +308,25 @@ class DataStruct:
         self._load_office_positions()
 
     def _load_office_positions(self):
-        directory = 'data/office_titles'
+        directory = 'data/mps/offices'
 
         self.office_position_dfs = {}
 
         for csv in os.listdir(directory):
-            df = self._load_office_position(f'{directory}/{csv}')
-            name = cleanse_string(df['official_post'][0])
-            self.office_position_dfs[name] = df
+            try:
+                df = self._load_office_position(f'{directory}/{csv}')
+                name = cleanse_string(df['alias'][0])
+                self.office_position_dfs[name] = df
 
-            for row in df[~df['corresponding_id'].isnull()].itertuples(index=False):
-                self.speaker_dict[int(row.corresponding_id)].terms.append(OfficeTerm(row.started_service, row.ended_service))
+                for row in df[~df['corresponding_id'].isnull()].itertuples(index=False):
+                    self.speaker_dict[int(row.corresponding_id)].terms.append(OfficeTerm(row.start, row.end))
+            except Exception as e:
+                print('Error while parsing file:', csv)
+                raise e
 
             print('Loaded office position:', name)
 
-        temp_df = pd.concat(df[['corresponding_id', 'honorary_title', 'started_service', 'ended_service']]
+        temp_df = pd.concat(df[['corresponding_id', 'honorary_title', 'start', 'end']]
                             for df in self.office_position_dfs.values())
         temp_df = temp_df[~(temp_df['honorary_title'].isna()) & ~(temp_df['corresponding_id'].isna())]
         temp_df['honorary_title'] = temp_df['honorary_title'].str.lower()

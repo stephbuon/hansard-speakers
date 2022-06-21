@@ -313,6 +313,8 @@ REGEX_POST_CORRECTIONS = [
     ('secketay +','secretary'),
 
     (r'lieutenant[\- ]?colonel +', ''),
+    (r'lieut(.*)col', ''),
+    (r'lieut', ''),
 
     (r'^right hon +', ''),
     (r' +observed$', ''),
@@ -344,6 +346,13 @@ REGEX_POST_CORRECTIONS = [
 
     # Fix hyphen surrounded by spaces.
     (' + - +', '-'),
+
+    # Remove words preceding a title word such as (viscount, sir, mr):
+    ('^.+ viscount', 'viscount'),
+    ('^.+ sir ', 'sir '),
+    ('^.+ mr ', 'mr '),
+
+
 ]
 
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
@@ -378,7 +387,7 @@ def is_ignored(target: str) -> bool:
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
-    return df[(date >= df['started_service']) & (date < df['ended_service'])]
+    return df[(date >= df['start']) & (date < df['end'])]
 
 
 def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
@@ -402,7 +411,7 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
                 if numpy.isnan(match):
                     match = alias
                 else:
-                    match = speaker_dict[match]
+                    match = speaker_dict[int(match)]
                 # print('edit distance found. target=%s match=%s' % (target, repr(match)))
 
     return match, ambiguity
@@ -432,7 +441,7 @@ def find_best_jaro_dist(target: str, alias_dict: Dict[str, List[SpeakerReplaceme
     best_match = ['', 0.0]
 
     best_match = find_best_jaro_dist_df(target, honorary_title_df, speechdate, best_match, 'honorary_title',
-                                        'started_service', 'ended_service')
+                                        'start', 'end')
     best_match = find_best_jaro_dist_df(target, lord_titles_df, speechdate, best_match, 'alias')
     best_match = find_best_jaro_dist_df(target, aliases_df, speechdate, best_match, 'alias')
 
@@ -561,8 +570,8 @@ def worker_function(inq: multiprocessing.Queue,
 
                 if not match and not len(query):
                     # Try honorary title
-                    condition = (speechdate >= honorary_title_df['started_service']) &\
-                                (speechdate < honorary_title_df['ended_service']) &\
+                    condition = (speechdate >= honorary_title_df['start']) &\
+                                (speechdate < honorary_title_df['end']) &\
                                 (honorary_title_df['honorary_title'].str.contains(target, regex=False))
                     query = honorary_title_df[condition]
 
@@ -573,12 +582,12 @@ def worker_function(inq: multiprocessing.Queue,
                                 (lord_titles_df['alias'].str.contains(target, regex=False))
                     query = lord_titles_df[condition]
 
-                if not match and not len(query):
-                    # try name aliases.
-                    condition = (speechdate >= aliases_df['start']) &\
-                                (speechdate < aliases_df['end']) &\
-                                (aliases_df['alias'].str.contains(target, regex=False))
-                    query = aliases_df[condition]
+                # if not match and not len(query):
+                #     # try name aliases.
+                #     condition = (speechdate >= aliases_df['start']) &\
+                #                 (speechdate < aliases_df['end']) &\
+                #                 (aliases_df['alias'].str.contains(target, regex=False))
+                #     query = aliases_df[condition]
 
                 if not match and not len(query):
                     # try a lord title/alias
@@ -600,7 +609,7 @@ def worker_function(inq: multiprocessing.Queue,
                         speaker_id = query.iloc[0]['corresponding_id']
                         if speaker_id != 'N/A' and not numpy.isnan(speaker_id):
                             # TODO: setup logging to keep track of when == n/a
-                            # TODO: fix IDs missing due to being malformed entries in mps.csv
+                            # TODO: fix IDs missing due to being malformed entries in speakers.csv
                             # match = speaker_dict[int(speaker_id)]
                             # for now use speaker_id to ensure this counts as a match
                             try:
@@ -641,7 +650,7 @@ def worker_function(inq: multiprocessing.Queue,
                 # Try edit distance with honorary titles.
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, honorary_title_df,
-                                                              ('started_service', 'ended_service', 'honorary_title'),
+                                                              ('start', 'end', 'honorary_title'),
                                                               speaker_dict)
 
                 # Try edit distance with MP name permutations.

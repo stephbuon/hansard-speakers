@@ -1,10 +1,14 @@
 
+.DS_Store
+
 # Python bytecode
 *.pyc
 *.pyd
+*.so
 
 # Compiled Cython files
 *.c
+&
 
 # Pycharm
 .idea
@@ -12,7 +16,10 @@
 # Temp folders
 logs/
 tmp/
+util/build/
 
 # Large data files
 data/hansard_justnine_12192019.csv
 data/hansard_1970_79.csv
+
+drivedownloader

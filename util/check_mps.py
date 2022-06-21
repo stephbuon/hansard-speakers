@@ -2,7 +2,7 @@ import pandas as pd
 from hansard import DATE_FORMAT
 from datetime import datetime
 
-mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
+mps: pd.DataFrame = pd.read_csv('data/speakers.csv', sep=',')
 mps.set_index('member.id', inplace=True)
 
 is_missing_info = mps['mp.dob'].isnull() | mps['mp.dod'].isnull() | mps['mp.fname'].isnull() | mps['mp.sname'].isnull() | mps['mp.name'].isnull()

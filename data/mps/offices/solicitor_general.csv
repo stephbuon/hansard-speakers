@@ -1,0 +1,63 @@
+office_id,corresponding_id,alias,real_name,honorary_title,party,start,end,editing_issues,details,links
+42,975,solicitor general,Spencer Perceval ,The Right Honourable Spencer Perceval,Tory,1801,1802,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,955,solicitor general,Thomas Manners-Sutton ,The Lord Manners,N/A,1802,1805,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1236,solicitor general,Vicary Gibbs,N/A,Conservative,1805,1806,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1298,solicitor general,Samuel Romilly,N/A,N/A,1806,1807,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1540,solicitor general,Thomas Plumer,N/A,N/A,1807,1812,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1254,solicitor general,William Garrow ,The Right Honourable Sir William Garrow,Whig,1812,1813,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,944,solicitor general,Robert Dallas,N/A,Tory,1813,1813,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1901,solicitor general,Samuel Shepherd,The Right Honourable Sir Samuel Shepherd,N/A,1813,1817,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1973,solicitor general,Robert Gifford,N/A,N/A,1817,1819,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1987,solicitor general,John Singleton Copley,The Lord Lyndhurst,Tory,1819,1824,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1873,solicitor general,Charles Wetherell ,N/A,N/A,1824,1826,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,2354,solicitor general,Nicholas Conyngham Tindal ,The Right Honourable Sir Nicolas Conyngham Tindal,Tory,1826,1829,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,2547,solicitor general,Edward Burtenshaw Sugden ,The Lord Saint Leonards,Tory,1829,1830,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,1774,solicitor general,William Horne,N/A,Liberal,1830,1832,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,2622,solicitor general,John Campbell ,The Lord Campbell,Whig,1832,1834,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,2817,solicitor general,Charles Christopher Pepys ,The Earl of Cottenham,Whig,1834,1834,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3126,solicitor general,Robert Monsey Rolfe,The Lord Cranworth,Liberal,1834,1834,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3331,solicitor general,William Webb Follett,N/A,Conservative,1834,1835,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3126,solicitor general,Robert Monsey Rolfe,The Lord Cranworth,Liberal,1835,1839,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,12921,solicitor general,Thomas Wilde ,The Lord Truro,Whig,1839,1841,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3331,solicitor general,William Webb Follett,N/A,Conservative,1841,1844,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3611,solicitor general,Frederic Thesiger ,The Lord Chelmsford,Conservative,1844,1845,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3350,solicitor general,Fitzroy Kelly ,The Right Honourable Sir Fitzroy Kelly,Tory,1845,1846,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,2911,solicitor general,John Jervis ,N/A,Liberal,1846,1846,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3613,solicitor general,David Dundas ,N/A,Liberal,1846,1848,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,2881,solicitor general,John Romilly,The Lord Romilly,Whig,1848,1850,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4021,solicitor general,Alexander James Edmund Cockburn,The Right Honourable Sir Alexander Cockburn,Liberal,1850,1851,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4000,solicitor general,William Page Wood ,The Lord Hatherley,Liberal,1851,1852,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3350,solicitor general,Fitzroy Kelly ,The Right Honourable Sir Fitzroy Kelly,Tory,1852,1852,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4117,solicitor general,Richard Bethell ,The Lord Westbury,Liberal,1852,1856,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,3339,solicitor general,James Archibald Stuart-Wortley,N/A,Conservative,1856,1857,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4279,solicitor general,Henry Singer Keating,N/A,Liberal,1857,1858,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4149,solicitor general,Hugh McCalmont Cairns,The Earl Cairns,Conservative,1858,1859,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4279,solicitor general,Henry Singer Keating,N/A,Liberal,1859,1859,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4192,solicitor general,William Atherton,N/A,Liberal,1859,1861,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4004,solicitor general,Roundell Palmer,The Earl of Selborne,Liberal,1861,1863,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4273,solicitor general,Robert Porrett Collier,The Lord Monkswell,Liberal,1863,1866,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4478,solicitor general,William Bovill,The Right Honourablem Sir William Bovill,N/A,1866,1866,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5006,solicitor general,John Burgess Karslake,N/A,Conservative,1866,1867,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4613,solicitor general,Charles Jasper Selwyn,N/A,Conservative,1867,1868,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4981,solicitor general,William Baliol Brett,The Viscount Esher,Conservative,1868,1868,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4869,solicitor general,Richard Baggallay,The Right Honourable Sir Richard Baggallay,Conservative,1868,1868,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4858,solicitor general,John Duke Coleridge,The Lord Coleridge,Liberal,1868,1871,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5094,solicitor general,George Jessel,The Right Honourable Sir George Jessel,Liberal,1871,1873,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5237,solicitor general,Henry James,The Lord James of Hereford,Liberal,1873,1873,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5172,solicitor general,William George Granville Venables Vernon Harcourt,The Right Honourable Sir William Harcourt,Liberal,1873,1874,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4869,solicitor general,Richard Baggallay ,The Right Honourable Sir Richard Baggallay,Conservative,1874,1874,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5312,solicitor general,John Holker ,N/A,Conservative,1874,1875,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5579,solicitor general,Hardinge Stanley Giffard,The Earl of Halsbury,Conservative,1875,1880,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5529,solicitor general,Farrer Herschell ,The Lord Herschell,Liberal,1880,1885,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,4980,solicitor general,John Eldon Gorst ,The Right Honourable Sir John Eldon Gorst,Conservative,1866,1885,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5657,solicitor general,Horace Davey ,N/A,Liberal,1866,1866,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5627,solicitor general,Edward George Clarke ,N/A,Conservative,1866,1892,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,6215,solicitor general,John Rigby,N/A,Liberal,1892,1894,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,5702,solicitor general,Robert Threshie Reid ,The Earl Loreburn,Liberal,1894,1894,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,6224,solicitor general,Frank Lockwood ,N/A,Liberal,1894,1895,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,6055,solicitor general,Robert Bannatyne Finlay,The Viscount Finlay,Liberal Unionist,1895,1900,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,7486,solicitor general,Edward Henry Carson,The Lord Carson,Irish Unionist,1900/05/07,1905/12/04,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,6188,solicitor general,William Snowdon Robson,N/A,Liberal,1905/12/12,1908/01/28,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,6398,solicitor general,Samuel Thomas Evans,N/A,Liberal,1908/01/28,1910/03/06,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,7318,solicitor general,Rufus Daniel Isaacs,The Marquess of Reading,Liberal,1908/03/06,1910/10/07,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales
+42,8362,solicitor general,John Allsebrook Simon,The Viscount Simon,Liberal,1910/10/07,1913/10/19,,,https://en.wikipedia.org/wiki/Solicitor_General_for_England_and_Wales

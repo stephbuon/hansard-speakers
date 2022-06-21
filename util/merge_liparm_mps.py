@@ -8,7 +8,7 @@ DATE_FORMAT = '%Y-%m-%d'
 DATE_FORMAT2 = '%Y/%m/%d'
 
 
-mps: pd.DataFrame = pd.read_csv('data/mps.csv', sep=',')
+mps: pd.DataFrame = pd.read_csv('data/speakers.csv', sep=',')
 mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
 mps['mp.dod'] = pd.to_datetime(mps['mp.dod'], format=DATE_FORMAT)
 mps = mps[mps['mp.dob'].notnull() & mps['mp.dod'].notnull() & mps['mp.fname'].notnull() & mps['mp.sname'].notnull()]
