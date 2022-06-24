@@ -1,13 +1,13 @@
-office_id,corresponding_id,alias,real_name,honorary_title,party,start,end,editing_issues,details,links
-77,2822,deputy speaker,Henry Fitzroy,The Right Honorable,Conservative,1855/07/20,1859/06/01,,,https://en.wikipedia.org/wiki/Henry_FitzRoy_(politician)
-77,4259,deputy speaker,William Nathaniel Massey,The Right Honorable,Liberal,1859/06/01,1865/02/01,,,https://en.wikipedia.org/wiki/William_Nathaniel_Massey
-77,4548,deputy speaker,John George Dodson,The Lord Monk Bretton,Liberal,1865/02/01,1872/04/01,,,"https://en.wikipedia.org/wiki/John_George_Dodson,_1st_Baron_Monk_Bretton"
-77,4051,deputy speaker,John Bonham Carter,N/A,Liberal,1872/04/01,1874,,,https://en.wikipedia.org/wiki/John_Bonham-Carter_(1817%E2%80%931884)
-77,5073,deputy speaker,Henry Cecil Raikes,The Right Honorable,Conservative,1874,1880,,,https://en.wikipedia.org/wiki/Henry_Cecil_Raikes
-77,4294,deputy speaker,Arthur John Otway,The Right Honorable,Liberal,1833,1885,,,https://en.wikipedia.org/wiki/Arthur_Otway
-77,5575,deputy speaker,Leonard Henry Courtney,The Lord Courtney of Penwith,Liberal,1866,1893,,,"https://en.wikipedia.org/wiki/Leonard_Courtney,_1st_Baron_Courtney_of_Penwith"
-77,5693,deputy speaker,John William Mellor ,N/A,Liberal,1893,1895,,,https://en.wikipedia.org/wiki/John_William_Mellor
-77,5885,deputy speaker,James William Lowther ,The Viscount Ullswater,Conservative,1895,1905/06/01,,,"https://en.wikipedia.org/wiki/James_Lowther,_1st_Viscount_Ullswater"
-77,7671,deputy speaker,John Grant Lawson,N/A,Conservative,1905,1906,,,"https://en.wikipedia.org/wiki/Sir_John_Lawson,_1st_Baronet,_of_Knavesmire_Lodge"
-77,7281,deputy speaker,Alfred Emmott,The Lord Emmott,Liberal,1906,1911,,,"https://en.wikipedia.org/wiki/Alfred_Emmott,_1st_Baron_Emmott"
-77,7961,deputy speaker,John Henry Whitley,The Right Honorable,Liberal,1911,1921,,,https://en.wikipedia.org/wiki/John_Henry_Whitley
+office_id,corresponding_id,alias,real_name,start,end
+77,2822,deputy speaker,Henry Fitzroy,1855/07/20,1859/06/01
+77,4259,deputy speaker,William Nathaniel Massey,1859/06/01,1865/02/01
+77,4548,deputy speaker,John George Dodson,1865/02/01,1872/04/01
+77,4051,deputy speaker,John Bonham Carter,1872/04/01,1874
+77,5073,deputy speaker,Henry Cecil Raikes,1874,1880
+77,4294,deputy speaker,Arthur John Otway,1833,1885
+77,5575,deputy speaker,Leonard Henry Courtney,1866,1893
+77,5693,deputy speaker,John William Mellor ,1893,1895
+77,5885,deputy speaker,James William Lowther ,1895,1905/06/01
+77,7671,deputy speaker,John Grant Lawson,1905,1906
+77,7281,deputy speaker,Alfred Emmott,1906,1911
+77,7961,deputy speaker,John Henry Whitley,1911,1921

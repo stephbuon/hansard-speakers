@@ -1,19 +1,19 @@
-office_id,corresponding_id,alias,real_name,honorary_title,party,start,end,editing_issues,details,links
-229,1840,chairman,Alexander Cray Grant,,Tory,1826/01/01,1831/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,2072,chairman,Ralph Bernal,,Whig,1831/01/01,1841/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,3051,chairman,Thomas Greene,,Peelite,1841/01/01,1847/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,2072,chairman,Ralph Bernal,,Whig,1847/01/01,1852/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,2661,chairman,John Wilson-Patten,The Lord Winmarleigh,Conservative,1852/01/01,1853/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,3822,chairman,Edward Pleydell-Bouverie,The Right Honorable,Liberal,1853/04/01,1855/03/01,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,2822,chairman,Henry FitzRoy,The Right Honorable,,1855/03/01,1859/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,4259,chairman,William Nathaniel Massey,The Right Honorable,Liberal,1859/01/01,1864/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,4548,chairman,John George Dodson,The Lord Monk Bretton,Liberal,1865/02/01,1872/04/01,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,4051,chairman,John Bonham Carter,,Liberal,1872/04/01,1874/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,5073,chairman,Henry Cecil Raikes,The Right Honorable,Conservative,1874/01/01,1880/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,5236,chairman,Lyon Playfair,The Lord Playfair,Liberal,1880/01/01,1883/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,4294,chairman,Arthur John Otway,The Right Honorable,Liberal,1883/01/01,1885/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,5575,chairman,Leonard Henry Courtney,The Lord Courtney of Penwith,Liberal,1886/01/01,1893/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,5693,chairman,John William Mellor,,Liberal,1893/01/01,1895/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,5885,chairman,James William Lowther,The Viscount Ullswater,Conservative,1895/01/01,1905/06/01,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,7671,chairman,John Grant Lawson,,Unionist,1905/06/01,1906/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
-229,7281,chairman,Alfred Emmott,The Lord Emmott,Liberal,1906/01/01,1911/12/31,,,https://en.wikipedia.org/wiki/Chairman_of_Ways_and_Means
+office_id,corresponding_id,alias,real_name,start,end
+229,1840,chairman,Alexander Cray Grant,1826/01/01,1831/12/31
+229,2072,chairman,Ralph Bernal,1831/01/01,1841/12/31
+229,3051,chairman,Thomas Greene,1841/01/01,1847/12/31
+229,2072,chairman,Ralph Bernal,1847/01/01,1852/12/31
+229,2661,chairman,John Wilson-Patten,1852/01/01,1853/12/31
+229,3822,chairman,Edward Pleydell-Bouverie,1853/04/01,1855/03/01
+229,2822,chairman,Henry FitzRoy,1855/03/01,1859/12/31
+229,4259,chairman,William Nathaniel Massey,1859/01/01,1864/12/31
+229,4548,chairman,John George Dodson,1865/02/01,1872/04/01
+229,4051,chairman,John Bonham Carter,1872/04/01,1874/12/31
+229,5073,chairman,Henry Cecil Raikes,1874/01/01,1880/12/31
+229,5236,chairman,Lyon Playfair,1880/01/01,1883/12/31
+229,4294,chairman,Arthur John Otway,1883/01/01,1885/12/31
+229,5575,chairman,Leonard Henry Courtney,1886/01/01,1893/12/31
+229,5693,chairman,John William Mellor,1893/01/01,1895/12/31
+229,5885,chairman,James William Lowther,1895/01/01,1905/06/01
+229,7671,chairman,John Grant Lawson,1905/06/01,1906/12/31
+229,7281,chairman,Alfred Emmott,1906/01/01,1911/12/31

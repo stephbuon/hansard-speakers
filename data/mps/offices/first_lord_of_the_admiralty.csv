@@ -1,41 +1,41 @@
-office_id,corresponding_id,alias,real_name,honorary_title,party,start,end,details,link
-10,6741,Lord of the Admiralty,George John Spencer,Earl Spencer,N/A,1794,1801,,"https://en.wikipedia.org/wiki/George_Spencer,_2nd_Earl_Spencer"
-10,6697,Lord of the Admiralty,John Jervis,Earl of St Vincent,Whig,1801,1804,,"https://en.wikipedia.org/wiki/John_Jervis,_1st_Earl_of_St_Vincent"
-10,781,Lord of the Admiralty,Henery Dundas,Viscount Melville,Tory,1804,1805,,"https://en.wikipedia.org/wiki/Henry_Dundas,_1st_Viscount_Melville"
-10,6771,Lord of the Admiralty,Charles Middleton,Baron Barham,Tory,1805,1806,,"https://en.wikipedia.org/wiki/Charles_Middleton,_1st_Baron_Barham"
-10,1522,Lord of the Admiralty,Charles Grey,Viscount Howick,Whig,1806,1806,MP for Northumberland,"https://en.wikipedia.org/wiki/Charles_Grey,_2nd_Earl_Grey"
-10,664,Lord of the Admiralty,Thomas Grenville,N/A,Whig,1806,1807,MP for Buckingham,https://en.wikipedia.org/wiki/Thomas_Grenville
-10,6723,Lord of the Admiralty,Henry Phipps,Baron Mulgrave,Tory,1807,1810,,"https://en.wikipedia.org/wiki/Henry_Phipps,_1st_Earl_of_Mulgrave"
-10,681,Lord of the Admiralty,Charles Philip Yorke,N/A,Tory,1810,1812,MP for St Germans,https://en.wikipedia.org/wiki/Charles_Philip_Yorke
-10,782,Lord of the Admiralty,Robert Dundas,Viscount Melville,Tory,1812,1827,,"https://en.wikipedia.org/wiki/Robert_Dundas,_2nd_Viscount_Melville"
-10,6685,Lord of the Admiralty,William IV Hanover,Duke of Clarence,N/A,1827,1828,King WIlliam IV 1830-1937,https://en.wikipedia.org/wiki/William_IV
-10,782,Lord of the Admiralty,Robert Dundas,Viscount Melville,Tory,1828,1830,,"https://en.wikipedia.org/wiki/Robert_Dundas,_2nd_Viscount_Melville"
-10,2399,Lord of the Admiralty,James Robert George Graham ,Baronet,Whig,1830,1834,MP for East Cumberland,"https://en.wikipedia.org/wiki/Sir_James_Graham,_2nd_Baronet"
-10,1686,Lord of the Admiralty,George Eden,Baron Auckland,Whig,1834,1834,,"https://en.wikipedia.org/wiki/George_Eden,_1st_Earl_of_Auckland"
-10,,Lord of the Admiralty,Thomas Philip de Grey,Earl de Grey,Conservative,1834,1835,"https://en.wikipedia.org/wiki/Thomas_Robinson,_2nd_Earl_de_Grey","https://en.wikipedia.org/wiki/Thomas_de_Grey,_2nd_Earl_de_Grey"
-10,1686,Lord of the Admiralty,George Eden,Baron Auckland,Whig,1835,1835,,"https://en.wikipedia.org/wiki/George_Eden,_1st_Earl_of_Auckland"
-10,1318,Lord of the Admiralty,Gilbert Elliot-Murray-Kynynmound,Earl of Minto,Whig,1835,1841,,"https://en.wikipedia.org/wiki/Gilbert_Elliot-Murray-Kynynmound,_2nd_Earl_of_Minto"
-10,1073,Lord of the Admiralty,Thomas Hamilton,Earl of Haddington,Conservative,1841,1846,,"https://en.wikipedia.org/wiki/Thomas_Hamilton,_9th_Earl_of_Haddington"
-10,1875,Lord of the Admiralty,Edward Law,Earl of Ellenborough,Conservative,1846,1846,,"https://en.wikipedia.org/wiki/Edward_Law,_1st_Earl_of_Ellenborough"
-10,1686,Lord of the Admiralty,George Eden,Earl of Auckland,Whig,1846,1849,,"https://en.wikipedia.org/wiki/George_Eden,_1st_Earl_of_Auckland"
-10,3134,Lord of the Admiralty,Francis Thornhill Baring,N/A,Whig,1849,1852,MP for Portsmouth; Baronet,"https://en.wikipedia.org/wiki/Francis_Baring,_1st_Baron_Northbrook"
-10,,Lord of the Admiralty,Algernon Percy,Duke of Northumberland,Conservative,1852,1852,"https://en.wikipedia.org/wiki/Algernon_Percy,_4th_Duke_of_Northumberland","https://en.wikipedia.org/wiki/Algernon_Percy,_4th_Duke_of_Northumberland"
-10,2399,Lord of the Admiralty,James Robert George Graham ,N/A,Peelite,1852,1855,MP for Carlisle; Baronet,"https://en.wikipedia.org/wiki/Sir_James_Graham,_2nd_Baronet"
-10,2432,Lord of the Admiralty,Charles Wood,N/A,Whig,1855,1858,MP for Halifax; Baronet,"https://en.wikipedia.org/wiki/Charles_Wood,_1st_Viscount_Halifax"
-10,3481,Lord of the Admiralty,John Somerset Pakington,N/A,Conservative,1858,1859,MP for Droitwich; Baronet,"https://en.wikipedia.org/wiki/John_Pakington,_1st_Baron_Hampton"
-10,2616,Lord of the Admiralty,Edward Adolphus Seymour,Duke of Somerset,Liberal,1859,1866,,"https://en.wikipedia.org/wiki/Edward_Seymour,_12th_Duke_of_Somerset"
-10,3481,Lord of the Admiralty,John Somerset Pakington,N/A,Conservative,1866,1867,MP for Droitwich; Baronet,"https://en.wikipedia.org/wiki/John_Pakington,_1st_Baron_Hampton"
-10,3211,Lord of the Admiralty,Henry Thomas Lowry-Corry,N/A,Conservative,1867,1868,MP for Tyrone,https://en.wikipedia.org/wiki/Henry_Lowry-Corry_(1803%E2%80%931873)
-10,4705,Lord of the Admiralty,Hugh Culling Eardley Childers,N/A,Liberal,1868,1871,MP for Pontefract,https://en.wikipedia.org/wiki/Hugh_Childers
-10,4774,Lord of the Admiralty,George Joachim Goschen,N/A,Liberal,1871,1874,MP for City of London,"https://en.wikipedia.org/wiki/George_Goschen,_1st_Viscount_Goschen"
-10,4580,Lord of the Admiralty,George Ward Hunt,N/A,Conservative,1874,1877,MP for Northamptonshire North,https://en.wikipedia.org/wiki/George_Ward_Hunt
-10,5221,Lord of the Admiralty,William Henry Smith,N/A,Conservative,1877,1880,MP for Westminster,https://en.wikipedia.org/wiki/William_Henry_Smith_(1825%E2%80%931891)
-10,4528,Lord of the Admiralty,Thomas Baring,Earl of Northbrook,Liberal,1880,1885,,"https://en.wikipedia.org/wiki/Thomas_Baring,_1st_Earl_of_Northbrook"
-10,6939,Lord of the Admiralty,George Frederick Samuel Robinson,Earl of Rupon,Liberal,1886,1886,,"https://en.wikipedia.org/wiki/George_Robinson,_1st_Marquess_of_Ripon"
-10,5162,Lord of the Admiralty,George Francis Hamilton,N/A,Conservative,1886,1892,MP for Ealing,https://en.wikipedia.org/wiki/Lord_George_Hamilton
-10,4523,Lord of the Admiralty,John Poyntz Spencer,Earl Spencer,Liberal,1892,1895,,"https://en.wikipedia.org/wiki/John_Spencer,_5th_Earl_Spencer"
-10,4774,Lord of the Admiralty,George Joachim Goschen,Viscount Goschen,Conservative,1895,1900,MP for St George Hanover Square,"https://en.wikipedia.org/wiki/George_Goschen,_1st_Viscount_Goschen"
-10,6138,Lord of the Admiralty,William Waldegrave Palmer,Earl of Selbourne,Liberal Unionist,1900,1905,,"https://en.wikipedia.org/wiki/William_Palmer,_2nd_Earl_of_Selborne"
-10,5367,Lord of the Admiralty,Frederick Archibald Vaughan Campbell,Earl Cawdor,Conservative,1905,1905,,"https://en.wikipedia.org/wiki/Frederick_Campbell,_3rd_Earl_Cawdor"
-10,5641,Lord of the Admiralty,Edward Marjoribanks,Baron Tweedmouth,Liberal,1905,1908,,"https://en.wikipedia.org/wiki/Edward_Marjoribanks,_2nd_Baron_Tweedmouth"
-10,7806,Lord of the Admiralty,Reginald McKenna,N/A,Liberal,1908,1911,Was on the cover of Time Magazine in 1924. MP for North Monmouthshire.,https://en.wikipedia.org/wiki/Reginald_McKenna
+office_id,corresponding_id,alias,real_name,start,end
+10,6741,Lord of the Admiralty,George John Spencer,1794,1801
+10,6697,Lord of the Admiralty,John Jervis,1801,1804
+10,781,Lord of the Admiralty,Henery Dundas,1804,1805
+10,6771,Lord of the Admiralty,Charles Middleton,1805,1806
+10,1522,Lord of the Admiralty,Charles Grey,1806,1806
+10,664,Lord of the Admiralty,Thomas Grenville,1806,1807
+10,6723,Lord of the Admiralty,Henry Phipps,1807,1810
+10,681,Lord of the Admiralty,Charles Philip Yorke,1810,1812
+10,782,Lord of the Admiralty,Robert Dundas,1812,1827
+10,6685,Lord of the Admiralty,William IV Hanover,1827,1828
+10,782,Lord of the Admiralty,Robert Dundas,1828,1830
+10,2399,Lord of the Admiralty,James Robert George Graham ,1830,1834
+10,1686,Lord of the Admiralty,George Eden,1834,1834
+10,,Lord of the Admiralty,Thomas Philip de Grey,1834,1835
+10,1686,Lord of the Admiralty,George Eden,1835,1835
+10,1318,Lord of the Admiralty,Gilbert Elliot-Murray-Kynynmound,1835,1841
+10,1073,Lord of the Admiralty,Thomas Hamilton,1841,1846
+10,1875,Lord of the Admiralty,Edward Law,1846,1846
+10,1686,Lord of the Admiralty,George Eden,1846,1849
+10,3134,Lord of the Admiralty,Francis Thornhill Baring,1849,1852
+10,,Lord of the Admiralty,Algernon Percy,1852,1852
+10,2399,Lord of the Admiralty,James Robert George Graham ,1852,1855
+10,2432,Lord of the Admiralty,Charles Wood,1855,1858
+10,3481,Lord of the Admiralty,John Somerset Pakington,1858,1859
+10,2616,Lord of the Admiralty,Edward Adolphus Seymour,1859,1866
+10,3481,Lord of the Admiralty,John Somerset Pakington,1866,1867
+10,3211,Lord of the Admiralty,Henry Thomas Lowry-Corry,1867,1868
+10,4705,Lord of the Admiralty,Hugh Culling Eardley Childers,1868,1871
+10,4774,Lord of the Admiralty,George Joachim Goschen,1871,1874
+10,4580,Lord of the Admiralty,George Ward Hunt,1874,1877
+10,5221,Lord of the Admiralty,William Henry Smith,1877,1880
+10,4528,Lord of the Admiralty,Thomas Baring,1880,1885
+10,6939,Lord of the Admiralty,George Frederick Samuel Robinson,1886,1886
+10,5162,Lord of the Admiralty,George Francis Hamilton,1886,1892
+10,4523,Lord of the Admiralty,John Poyntz Spencer,1892,1895
+10,4774,Lord of the Admiralty,George Joachim Goschen,1895,1900
+10,6138,Lord of the Admiralty,William Waldegrave Palmer,1900,1905
+10,5367,Lord of the Admiralty,Frederick Archibald Vaughan Campbell,1905,1905
+10,5641,Lord of the Admiralty,Edward Marjoribanks,1905,1908
+10,7806,Lord of the Admiralty,Reginald McKenna,1908,1911

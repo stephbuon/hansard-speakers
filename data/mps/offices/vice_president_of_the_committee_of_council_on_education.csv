@@ -1,18 +1,18 @@
-office_id,alias,corresponding_id,real_name,honorary_title,party,start,end
-162,Vice-President of the Committee of the Council on Education,3346,William Francis Cowper-Temple,The Lord Mount Temple,Whig,1857/02/05,1858/02/21
-162,Vice-President of the Committee of the Council on Education,3737,Charles Bowyer Adderley,The Lord Norton,Conservative,1858/03/12,1859/06/11
-162,Vice-President of the Committee of the Council on Education,4218,Robert Lowe,The Viscount Sherbrooke,Liberal,1859/06/24,1864/04/26
-162,Vice-President of the Committee of the Council on Education,4253,Henry Austin Bruce,The Lord Aberdare,Liberal,1864/04/26,1866/06/26
-162,Vice-President of the Committee of the Council on Education,3211,Henry Thomas Lowry-Corry,The Right Honorable,Conservative,1866/06/26,1867/03/19
-162,Vice-President of the Committee of the Council on Education,4643,Robert Montagu,Lord Robert Montagu,Conservative,1867/03/19,1868/12/01
-162,Vice-President of the Committee of the Council on Education,4728,William Edward Forster,The Right Honorable,Liberal,1868/12/09,1874/02/17
-162,Vice-President of the Committee of the Council on Education,4406,Dudley Francis Stuart Ryder,Viscount Sandon,Conservative,1874/03/02,1878/04/04
-162,Vice-President of the Committee of the Council on Education,5162,George Francis Hamilton,Lord George Hamilton,Conservative,1878/04/04,1880/04/21
-162,Vice-President of the Committee of the Council on Education,5186,Anthony John Mundella,A. J. Mundella,Liberal,1880/05/03,1885/06/09
-162,Vice-President of the Committee of the Council on Education,5433,Edward Stanhope,The Right Honorable,Conservative,1885/06/24,1885/09/17
-162,Vice-President of the Committee of the Council on Education,5533,Henry Thurstan Holland,The Viscount Knutsford,Conservative,1885/09/17,1886/01/28
-162,Vice-President of the Committee of the Council on Education,5236,Lyon Playfair,The Lord Playfair,Liberal,1886/02/13,1886/07/20
-162,Vice-President of the Committee of the Council on Education,5533,Henry Thurstan Holland,The Viscount Knutsford,Conservative,1886/08/03,1887/01/25
-162,Vice-President of the Committee of the Council on Education,4876,William Hart Dyke,The Right Honorable,Conservative,1887/01/25,1892/08/11
-162,Vice-President of the Committee of the Council on Education,6151,Arthur Herbert Dyke Acland,The Right Honorable,Liberal,1892/08/25,1895/06/21
-162,Vice-President of the Committee of the Council on Education,4980,John Eldon Gorst,The Right Honorable,Conservative,1895/07/04,1902/08/08
+office_id,alias,corresponding_id,real_name,start,end
+162,Vice-President of the Committee of the Council on Education,3346,William Francis Cowper-Temple,1857/02/05,1858/02/21
+162,Vice-President of the Committee of the Council on Education,3737,Charles Bowyer Adderley,1858/03/12,1859/06/11
+162,Vice-President of the Committee of the Council on Education,4218,Robert Lowe,1859/06/24,1864/04/26
+162,Vice-President of the Committee of the Council on Education,4253,Henry Austin Bruce,1864/04/26,1866/06/26
+162,Vice-President of the Committee of the Council on Education,3211,Henry Thomas Lowry-Corry,1866/06/26,1867/03/19
+162,Vice-President of the Committee of the Council on Education,4643,Robert Montagu,1867/03/19,1868/12/01
+162,Vice-President of the Committee of the Council on Education,4728,William Edward Forster,1868/12/09,1874/02/17
+162,Vice-President of the Committee of the Council on Education,4406,Dudley Francis Stuart Ryder,1874/03/02,1878/04/04
+162,Vice-President of the Committee of the Council on Education,5162,George Francis Hamilton,1878/04/04,1880/04/21
+162,Vice-President of the Committee of the Council on Education,5186,Anthony John Mundella,1880/05/03,1885/06/09
+162,Vice-President of the Committee of the Council on Education,5433,Edward Stanhope,1885/06/24,1885/09/17
+162,Vice-President of the Committee of the Council on Education,5533,Henry Thurstan Holland,1885/09/17,1886/01/28
+162,Vice-President of the Committee of the Council on Education,5236,Lyon Playfair,1886/02/13,1886/07/20
+162,Vice-President of the Committee of the Council on Education,5533,Henry Thurstan Holland,1886/08/03,1887/01/25
+162,Vice-President of the Committee of the Council on Education,4876,William Hart Dyke,1887/01/25,1892/08/11
+162,Vice-President of the Committee of the Council on Education,6151,Arthur Herbert Dyke Acland,1892/08/25,1895/06/21
+162,Vice-President of the Committee of the Council on Education,4980,John Eldon Gorst,1895/07/04,1902/08/08

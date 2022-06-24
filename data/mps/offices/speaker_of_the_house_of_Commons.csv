@@ -1,12 +1,12 @@
-office_id,alias,corresponding_id,real_name,party,start,end,Extas
-3,Speaker of the House of Commons,745,Henry Addington,Tory,1789/06/08,1801/02/10,MP for Devizes
-3,Speaker of the House of Commons,6761,John Freeman-Ritford,Tory,1801/02/11,1802/02/09,MP for East Looe
-3,Speaker of the House of Commons,1168,Charles Abbot,Tory,1802/02/10,1817/06/02,"MP for Helston(-1802), Woodstock (1802-1806), Oxford University (1806-)"
-3,Speaker of the House of Commons,1461,Charles Manners-Sutton,Tory,1817/06/03,1835/02/19,"MP for Scarborough (-1832), Cambridge University (1832-)"
-3,Speaker of the House of Commons,1741,James Abercromby,Whig,1835/02/19,1839/05/27,MP for Edinburgh
-3,Speaker of the House of Commons,3007,Charles Shaw-Lefevre,Whig,1839/05/27,1857/04/30,MP for North Hampshire
-3,Speaker of the House of Commons,2345,John Evelyn Denison,Liberal,1857/04/30,1872/02/09,MP for North Nottinghamshire
-3,Speaker of the House of Commons,4235,Henry Bouverie William Brand,Liberal,1872/02/09,1884/02/26,MP for Cambridgeshire
-3,Speaker of the House of Commons,4946,Arthur Wellesley Peel,Liberal,1884/02/26,1895/04/10,"MP for Warwick (-1885), Warwick and Leamington (1885-)"
-3,Speaker of the House of Commons,6252,William Court Gully,Liberal,1895/04/10,1905/06/08,MP for Carlisle
-3,Speaker of the House of Commons,5885,James William Lowther,Conservative,1905/06/08,1921/04/28,MP for Penrith (-1918)
+office_id,alias,corresponding_id,real_name,start,end
+3,Speaker of the House of Commons,745,Henry Addington,1789/06/08,1801/02/10
+3,Speaker of the House of Commons,6761,John Freeman-Ritford,1801/02/11,1802/02/09
+3,Speaker of the House of Commons,1168,Charles Abbot,1802/02/10,1817/06/02
+3,Speaker of the House of Commons,1461,Charles Manners-Sutton,1817/06/03,1835/02/19
+3,Speaker of the House of Commons,1741,James Abercromby,1835/02/19,1839/05/27
+3,Speaker of the House of Commons,3007,Charles Shaw-Lefevre,1839/05/27,1857/04/30
+3,Speaker of the House of Commons,2345,John Evelyn Denison,1857/04/30,1872/02/09
+3,Speaker of the House of Commons,4235,Henry Bouverie William Brand,1872/02/09,1884/02/26
+3,Speaker of the House of Commons,4946,Arthur Wellesley Peel,1884/02/26,1895/04/10
+3,Speaker of the House of Commons,6252,William Court Gully,1895/04/10,1905/06/08
+3,Speaker of the House of Commons,5885,James William Lowther,1905/06/08,1921/04/28

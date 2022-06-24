@@ -1,4 +1,0 @@
-corresponding_id,alias,real_name,alias_type,start,end,extra,links
-745,Viscount Sidmouth,Henry Addington,title,1805/01/12,1844/02/15,was very active in parliament,https://en.wikipedia.org/wiki/Henry_Addington
-,Viscount Sidmouth,William Leonard Addington,title,1844/02/16,1864/03/25,"He does not have an entry inside of mps.csv. After checking speechdates didn't find any dates corresponding with his dob/dod, decided to not add an entry in mps.csv",https://en.wikipedia.org/wiki/Viscount_Sidmouth
-4765,Viscount Sidmouth,William Wells Addington,title,1864/03/26,1913/12/28,was very active in parliament,"https://en.wikipedia.org/wiki/William_Addington,_3rd_Viscount_Sidmouth"
