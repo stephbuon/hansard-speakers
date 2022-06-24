@@ -1,5 +1,7 @@
 import os
 from typing import Dict, List, Optional, Tuple, Set
+
+import numpy
 import pandas as pd
 from hansard import DATE_FORMAT, DATE_FORMAT2, MP_ALIAS_PATTERN, cleanse_string
 from hansard.speaker import SpeakerReplacement, OfficeHolding, Office, OfficeTerm
@@ -67,9 +69,6 @@ class DataStruct:
     def _check_date_estimates(df, start_column, end_column):
         date_format = DATE_FORMAT2 if df[start_column].str.contains('/', regex=False).any() else DATE_FORMAT
         splitchr = '/' if date_format == DATE_FORMAT2 else '-'
-
-        print(start_column, date_format, splitchr)
-
         df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True, splitchr=splitchr))
         df[start_column] = pd.to_datetime(df[start_column], format=date_format)
 
@@ -80,8 +79,8 @@ class DataStruct:
         return df
 
     def load(self):
-        self._load_lord_titles()
         self._load_speakers()
+        self._load_lord_titles()
         self._load_term_metadata()
         self._load_corrections()
 
@@ -114,6 +113,13 @@ class DataStruct:
             except AttributeError:
                 raise Exception(f'Invalid dates in file: {csv}')
             df = df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+
+            for sp_id in df['corresponding_id']:
+                if numpy.isnan(sp_id):
+                    continue
+                if sp_id not in self.speaker_dict:
+                    raise KeyError('Speaker %s not found. From file %s' % (sp_id, csv))
+
             df = df[~df['alias'].isnull()]
 
             dfs.append(df)
@@ -156,8 +162,7 @@ class DataStruct:
             dob = row['mp.dob']
 
             if pd.isna(dob):
-                # TODO: fix members without DOB
-                continue
+                dob = datetime(day=1, month=1, year=1700)
 
             dod = row['mp.dod']
             if pd.isna(dod):
