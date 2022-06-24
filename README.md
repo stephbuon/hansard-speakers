@@ -5,6 +5,6 @@ Democracy Lab thus presents a preprocessing pipeline that produces the cleanest 
 Steps: 
 1. Downlood the speaker name data. 
 
-2.
+2. Initialize the disambiguation process. Over terminal do: `python3 run.py --cores 3`. Over SLURM do: `sbatch job.sbatch`. Running the 
 
-3. Initialize the disambiguation process. Over terminal do: `placeholder`. Over SLURM do: `job.sbatch`. Running the 
+Must have a minimum of three cores. 
