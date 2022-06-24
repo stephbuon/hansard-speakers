@@ -366,11 +366,14 @@ IGNORE_KEYWORDS = (
     'british statesman',
     'bishop',
     'archbishop',
+    'this parliament'
 )
 
 IGNORE_PREFIXES = (
     'mrs ',
     'miss ',
+    'a ',
+    'an ',
 )
 
 
