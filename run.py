@@ -162,7 +162,6 @@ if __name__ == '__main__':
         chunk['speechdate'] = pd.to_datetime(chunk['speechdate'], format=DATE_FORMAT)
         inq.put(chunk)
         num_chunks += 1
-        break
 
     logging.info(f'Added {num_chunks} chunks to the queue.')
 
