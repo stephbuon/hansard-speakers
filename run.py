@@ -47,9 +47,13 @@ def export(output_queue, slack_secret):
     ambiguities_df = pd.DataFrame()
     ignored_df = pd.DataFrame()
     output_fp = os.path.join(OUTPUT_DIR, 'output_.csv')
+    debug_fp = os.path.join(OUTPUT_DIR, 'debug_output.csv')
 
     # Overwrite the file temporarily.
     with open(output_fp, 'w+'):
+        pass
+
+    with open(debug_fp, 'w+'):
         pass
 
     hit = 0
@@ -67,17 +71,24 @@ def export(output_queue, slack_secret):
             print('Finished all chunks.')
             break
         else:
-            chunk_matched_df, chunk_missed_df, chunk_ambig_df, chunk_ignored_df = entry
-            hit += len(chunk_matched_df)
-            ambiguities += len(chunk_ambig_df)
-            ignored += len(chunk_ignored_df)
-            i += 1
+            entry_type = entry[0]
+            entry = entry[1:]
 
-            missed_df = missed_df.append(chunk_missed_df)
-            ambiguities_df = ambiguities_df.append(chunk_ambig_df)
-            ignored_df = ignored_df.append(chunk_ignored_df)
-            chunk_matched_df.to_csv(output_fp, mode='a', header=False, index=False)
-            print(f'Processed {i} chunks so far.')
+            if entry_type == 0:
+                chunk_matched_df, chunk_missed_df, chunk_ambig_df, chunk_ignored_df = entry
+                hit += len(chunk_matched_df)
+                ambiguities += len(chunk_ambig_df)
+                ignored += len(chunk_ignored_df)
+                i += 1
+
+                missed_df = missed_df.append(chunk_missed_df)
+                ambiguities_df = ambiguities_df.append(chunk_ambig_df)
+                ignored_df = ignored_df.append(chunk_ignored_df)
+                chunk_matched_df.to_csv(output_fp, mode='a', header=False, index=False)
+                print(f'Processed {i} chunks so far.')
+            elif entry_type == 1:
+                chunk_fuzzy_df = entry[0]
+                chunk_fuzzy_df.to_csv(debug_fp, mode='a', header=False, index=False)
 
     from util.slackbot import Blocks, send_slack_post
 
@@ -151,6 +162,7 @@ if __name__ == '__main__':
         chunk['speechdate'] = pd.to_datetime(chunk['speechdate'], format=DATE_FORMAT)
         inq.put(chunk)
         num_chunks += 1
+        break
 
     logging.info(f'Added {num_chunks} chunks to the queue.')
 

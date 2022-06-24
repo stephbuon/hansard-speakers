@@ -10,11 +10,11 @@ import calendar
 import re
 
 
-def fix_estimated_date(date_str, start=True):
+def fix_estimated_date(date_str, start=True, splitchr='/'):
     if type(date_str) == int:
         date = [str(date_str, )]
     else:
-        date = date_str.split('/')
+        date = date_str.split(splitchr)
 
     if len(date) == 3:
         # No changes as its already Year-Month-Day
@@ -22,17 +22,17 @@ def fix_estimated_date(date_str, start=True):
     elif len(date) == 1:
         # Year only estimate.
         if start:
-            return f'{date_str}/1/1'
+            return f'{date_str}{splitchr}1{splitchr}1'
         else:
-            return f'{date_str}/12/31'
+            return f'{date_str}{splitchr}12{splitchr}31'
     elif len(date) == 2:
         # Year-Month estimate.
         if start:
-            return f'{date_str}/1'
+            return f'{date_str}{splitchr}1'
         else:
             year, month = map(int, date)
             # calendar.monthrange(year, month)[1] gives us the last day of the month, takes leap years into account.
-            return f'{date_str}/{calendar.monthrange(year, month)[1]}'
+            return f'{date_str}{splitchr}{calendar.monthrange(year, month)[1]}'
     elif not len(date):
         raise ValueError('invalid date string')
 
@@ -65,11 +65,18 @@ class DataStruct:
 
     @staticmethod
     def _check_date_estimates(df, start_column, end_column):
-        df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True))
-        df[start_column] = pd.to_datetime(df[start_column], format=DATE_FORMAT2)
+        date_format = DATE_FORMAT2 if df[start_column].str.contains('/', regex=False).any() else DATE_FORMAT
+        splitchr = '/' if date_format == DATE_FORMAT2 else '-'
 
-        df[end_column] = df[end_column].map(lambda x: fix_estimated_date(x, start=False))
-        df[end_column] = pd.to_datetime(df[end_column], format=DATE_FORMAT2)
+        print(start_column, date_format, splitchr)
+
+        df[start_column] = df[start_column].map(lambda x: fix_estimated_date(x, start=True, splitchr=splitchr))
+        df[start_column] = pd.to_datetime(df[start_column], format=date_format)
+
+        date_format = DATE_FORMAT2 if df[end_column].str.contains('/', regex=False).any() else DATE_FORMAT
+        splitchr = '/' if date_format == DATE_FORMAT2 else '-'
+        df[end_column] = df[end_column].map(lambda x: fix_estimated_date(x, start=False, splitchr=splitchr))
+        df[end_column] = pd.to_datetime(df[end_column], format=date_format)
         return df
 
     def load(self):
@@ -79,7 +86,7 @@ class DataStruct:
         self._load_corrections()
 
         self.ignored_set = set()
-        for dirpath, _, filenames in os.walk('data/non-mps/other'):
+        for dirpath, _, filenames in os.walk('data/non-mps'):
             for fn in filenames:
                 filepath = dirpath + "/" + fn
                 self.ignored_set = self.ignored_set.union(set(pd.read_csv(filepath)['non_mps'].unique()))
@@ -130,7 +137,7 @@ class DataStruct:
     def _load_speakers(self):
         self._load_name_aliases()
 
-        mps: pd.DataFrame = pd.read_csv('data/mps/speakers/speakers.csv', sep=',')
+        mps: pd.DataFrame = pd.read_csv('data/mps/speakers-names/speakers.csv', sep=',')
         mps['mp.dod'] = mps['mp.dod'].fillna(datetime.now().strftime(DATE_FORMAT))
         mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
         mps['mp.dod'] = pd.to_datetime(mps['mp.dod'], format=DATE_FORMAT)
@@ -232,6 +239,8 @@ class DataStruct:
     @staticmethod
     def _load_office_position(filename: str) -> pd.DataFrame:
         df = pd.read_csv(filename)
+        df['start'] = df['start'].astype(str)
+        df['end'] = df['end'].astype(str)
 
         if "honorary_title" not in df:
             df['honorary_title'] = None
@@ -293,7 +302,7 @@ class DataStruct:
         logging.debug(f'{unknown_offices} office holding rows had unknown offices.')
         logging.debug(f'{len(holdings)} office holdings successfully loaded out of {len(holdings_df)} rows.')
 
-        self.term_df = pd.read_csv('data/mps/speakers/speakers_terms.csv', sep=',')
+        self.term_df = pd.read_csv('data/mps/speakers-names/speakers_terms.csv', sep=',')
         self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
         self.term_df['end_term'] = pd.to_datetime(self.term_df['end_term'], format=DATE_FORMAT)
 
