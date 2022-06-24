@@ -9,9 +9,10 @@ Steps:
 
 Terminal: 
 - `cythonize -3 -i util/*.pyx`
-- `python3 run.py --cores 3`. 
+- `python3 run.py --cores 3`
 
 SLURM: 
 - `sbatch job.sbatch` 
 
 Must have a minimum of three cores. 
+Must have cython installed 
