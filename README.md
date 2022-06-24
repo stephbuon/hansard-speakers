@@ -1,18 +1,18 @@
 # Hansard Speaker Name Disambiguation
 
-Democracy Lab thus presents a preprocessing pipeline that produces the cleanest known version of the Hansard data which includes disambiguated speaker names. The final dataset produced by this pipeline can be downloaded [here]().
+`hansard-speakers` is a data processing pipeline that disambiguates speaker names in the 19th-century British Parliamentary debates, also known as Hansard. The final dataset produced by this pipeline can be downloaded [here]().
 
 Steps: 
-1. Downlood the speaker name data. 
+1. Download the speaker name data from our GitHub [repository](https://github.com/stephbuon/hansard-speakers/tree/main/data) or from ENTER. 
 
-2. Initialize the disambiguation process. Over terminal do:
+2. Start the disambiguation process.
 
-Terminal: 
+Over terminal do:
 - `cythonize -3 -i util/*.pyx`
-- `python3 run.py --cores 3`
+- `python3 run.py --cores <n>` where "n" must be a minimum of three cores. 
 
-SLURM: 
+Or, if using SLRUM do:
 - `sbatch job.sbatch` 
 
-Must have a minimum of three cores. 
-Must have cython installed 
+Requirements:
+Our disambiguation process uses lower-level processing for computational speed and efficency. To run `hansard-speakers`, users must have [Cython](https://pypi.org/project/Cython/) installed. 
