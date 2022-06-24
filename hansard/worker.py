@@ -14,6 +14,8 @@ from hansard.speaker import SpeakerReplacement
 from util.edit_distance import within_distance_four, within_distance_two, is_distance_one
 
 
+OUTPUT_COLUMN = 'disambig_speaker'
+
 compile_regex = lambda x: (re.compile(x[0]), x[1])
 
 
@@ -542,14 +544,14 @@ def worker_function(inq: multiprocessing.Queue,
                 # This is our signal that we are done here. Every other worker thread will get a similar signal.
                 return
 
-            chunk['speaker_modified'] = chunk['speaker'].map(preprocess)
+            chunk[OUTPUT_COLUMN] = chunk['speaker'].map(preprocess)
 
             for row in chunk.itertuples():
                 fuzzy_flag = 0
                 i = row[0]
                 speechdate = row.speechdate
                 # unmodified_target = row.speaker
-                target = row.speaker_modified
+                target = row.disambig_speaker
                 debate_id = int(row.debate_id)
 
                 if (target, speechdate) in MISS_CACHE:
@@ -734,9 +736,9 @@ def worker_function(inq: multiprocessing.Queue,
                 if match is not None:
                     hitcount += 1
                     if isinstance(match, SpeakerReplacement):
-                        chunk.loc[i, 'speaker_modified'] = match.id
+                        chunk.loc[i, OUTPUT_COLUMN] = match.id
                     else:
-                        chunk.loc[i, 'speaker_modified'] = match
+                        chunk.loc[i, OUTPUT_COLUMN] = match
                     MATCH_CACHE[(target, speechdate)] = match
                     matched_indexes.append(i)
                 elif ambiguity:
@@ -749,8 +751,8 @@ def worker_function(inq: multiprocessing.Queue,
                     MISS_CACHE.add((target, speechdate))
                     missed_indexes.append(i)
 
-            outq.put((0, chunk.loc[matched_indexes, ['sentence_id', 'speaker_modified']], chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
-            outq.put((1, chunk.loc[fuzzy_match_indexes, ['sentence_id', 'speaker', 'speaker_modified']]))
+            outq.put((0, chunk.loc[matched_indexes, ['sentence_id', OUTPUT_COLUMN]], chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
+            outq.put((1, chunk.loc[fuzzy_match_indexes, ['sentence_id', 'speaker', OUTPUT_COLUMN]]))
 
             hitcount = 0
             del matched_indexes[:]
