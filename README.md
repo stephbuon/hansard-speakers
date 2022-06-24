@@ -16,3 +16,9 @@ Or, if using SLRUM do:
 
 Requirements:
 Our disambiguation process uses lower-level processing for computational speed and efficency. To run `hansard-speakers`, users must have [Cython](https://pypi.org/project/Cython/) installed. 
+
+
+to connect to our data for now: 
+https://stackoverflow.com/questions/58460476/where-to-find-credentials-json-for-google-api-client
+
+https://developers.google.com/calendar/api/guides/sync
