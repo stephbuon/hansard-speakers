@@ -2,7 +2,7 @@
 
 `hansard-speakers` is a data processing pipeline for disambiguating speaker names in the 19th-century British Parliamentary debates, also known as Hansard. The final dataset produced by this pipeline can be downloaded [here](). An article describing our disambiguation efforts can be read [here]().
 
-Steps: 
+## Steps: 
 1. Clone the repo. 
 2. Start the disambiguation process. 
 
@@ -13,11 +13,5 @@ Steps:
    Over SLURM:
   `sbatch job.sbatch` 
 
-Requirements:
-Our disambiguation process uses lower-level processing for computational speed and efficency. To run `hansard-speakers`, users must have [Cython](https://pypi.org/project/Cython/) installed. 
-
-
-to connect to our data for now: 
-https://stackoverflow.com/questions/58460476/where-to-find-credentials-json-for-google-api-client
-
-https://developers.google.com/calendar/api/guides/sync
+## Requirements:
+Our disambiguation process uses lower-level processing for computational speed and efficency. To run `hansard-speakers`, users must have [Cython](https://pypi.org/project/Cython/) installed as well as Python.
