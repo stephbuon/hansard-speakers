@@ -639,11 +639,11 @@ def worker_function(inq: multiprocessing.Queue,
                         ambiguity = True
 
                 # can we get ambiguities with office names?
-                if not match:
-                    for holding in holdings:
-                        if holding.matches(target, speechdate, cleanse=False):
-                            match = speaker_dict[int(holding.member_id)]
-                            break
+                # if not match:
+                #     for holding in holdings:
+                #         if holding.matches(target, speechdate, cleanse=False):
+                #             match = speaker_dict[int(holding.member_id)]
+                #             break
 
                 if not match:
                     possibles = alias_dict.get(target)
