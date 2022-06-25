@@ -1,17 +1,16 @@
 # Hansard Speaker Name Disambiguation
 
-`hansard-speakers` is a data processing pipeline that disambiguates speaker names in the 19th-century British Parliamentary debates, also known as Hansard. The final dataset produced by this pipeline can be downloaded [here]().
+`hansard-speakers` is a data processing pipeline for disambiguating speaker names in the 19th-century British Parliamentary debates, also known as Hansard. The final dataset produced by this pipeline can be downloaded [here](). An article describing our disambiguation efforts can be read [here]().
 
 Steps: 
-1. Download the speaker name data from our GitHub [repository](https://github.com/stephbuon/hansard-speakers/tree/main/data) or from ENTER. 
+1. Clone the repo. 
+2. Start the disambiguation process. 
 
-2. Start the disambiguation process.
-
-Over terminal do:
+   Over terminal:
 - `cythonize -3 -i util/*.pyx`
-- `python3 run.py --cores <n>` where "n" must be a minimum of three cores. 
+- `python3 run.py --cores <n>` where "n" must be a minimum of three cores.
 
-Or, if using SLRUM do:
+   Over SLURM:
 - `sbatch job.sbatch` 
 
 Requirements:
