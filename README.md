@@ -7,11 +7,11 @@ Steps:
 2. Start the disambiguation process. 
 
    Over terminal:
-- `cythonize -3 -i util/*.pyx`
-- `python3 run.py --cores <n>` where "n" must be a minimum of three cores.
+  `cythonize -3 -i util/*.pyx`
+  `python3 run.py --cores <n>` where "n" must be a minimum of three cores.
 
    Over SLURM:
-- `sbatch job.sbatch` 
+  `sbatch job.sbatch` 
 
 Requirements:
 Our disambiguation process uses lower-level processing for computational speed and efficency. To run `hansard-speakers`, users must have [Cython](https://pypi.org/project/Cython/) installed. 
