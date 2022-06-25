@@ -3,7 +3,7 @@
 `hansard-speakers` is a data processing pipeline for disambiguating speaker names in the 19th-century British Parliamentary debates, also known as Hansard. The final dataset produced by this pipeline can be downloaded [here](). An article describing our disambiguation efforts can be read [here]().
 
 ## Steps: 
-1. Clone the repo. 
+1. Clone the repo and `cd` into `hansard-speakers`.
 2. Start the disambiguation process. 
 
    Over terminal:
