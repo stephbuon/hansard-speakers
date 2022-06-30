@@ -95,9 +95,6 @@ class SpeakerReplacement:
         if 'mr' not in self.titles:
             self.titles.append('mr')
 
-        if 'lord' not in self.titles:
-            self.titles.append('lord')
-
         self.middle_names = name_parts[fn_index + 1:ln_index]
 
         self.member_id = member_id
