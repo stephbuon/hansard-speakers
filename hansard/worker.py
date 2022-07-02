@@ -475,6 +475,7 @@ def worker_function(inq: multiprocessing.Queue,
     speaker_dict = data.speaker_dict
     honorary_title_df = data.honorary_titles_df
     office_title_dfs = data.office_position_dfs
+    office_dict = data.office_dict
     lord_titles_df = data.lord_titles_df
     aliases_df = data.aliases_df
     title_df = data.title_df
@@ -504,6 +505,7 @@ def worker_function(inq: multiprocessing.Queue,
     target = None
     debate_id = None
     ignored = False
+    office_id = None
 
     for speaker in data.speakers:
         # if len(speaker.last_name) > 8:
@@ -554,6 +556,7 @@ def worker_function(inq: multiprocessing.Queue,
                 # unmodified_target = row.speaker
                 target = row.disambig_speaker
                 debate_id = int(row.debate_id)
+                office_id = None
 
                 if (target, speechdate) in MISS_CACHE:
                     missed_indexes.append(i)
@@ -619,10 +622,20 @@ def worker_function(inq: multiprocessing.Queue,
                 #             break
 
                 if not match and not len(query):
-                    condition = (speechdate >= holdings_df['start']) & \
-                                (speechdate < holdings_df['end']) & \
-                                (holdings_df['alias'].str.contains(target, regex=False))
-                    query = holdings_df[condition]
+                    for office in data.office_dict.values():
+                        if target in office.aliases:
+                            office_id = office.id
+                            break
+                        for alias in office.aliases:
+                            if alias in target:
+                                office_id = office_id
+                                break
+
+                    if office_id:
+                        condition = (speechdate >= holdings_df['start']) & \
+                                    (speechdate < holdings_df['end']) & \
+                                    (office_id == holdings_df['office_id'])
+                        query = holdings_df[condition]
 
                 if not match:
                     query = query.drop_duplicates(subset=['corresponding_id'])
@@ -676,10 +689,30 @@ def worker_function(inq: multiprocessing.Queue,
 
                 # Try edit distance with office holdings.
                 if not match and not ambiguity:
-                    match, ambiguity = match_edit_distance_df(target, speechdate, holdings_df,
-                                                              ('start', 'end', 'alias'),
-                                                              speaker_dict, edit_dist_func=within_distance_four)
-                    if match: fuzzy_match_indexes.append(i)
+                    office_ids = []
+                    for office in data.office_dict.values():
+                        for alias in office.aliases:
+                            if within_distance_four(alias, target, False):
+                                office_ids.append(office.id)
+
+                    if office_ids:
+                        condition = (speechdate >= holdings_df['start']) & \
+                                    (speechdate < holdings_df['end']) & \
+                                    (holdings_df['office_id'].isin(office_ids))
+                        query = holdings_df[condition]
+
+                        if len(query) == 1:
+                            match = query.iloc[0]['corresponding_id']
+                            if not numpy.isnan(match) and type(match) != str:
+                                match = speaker_dict[int(match)]
+                            else:
+                                match = None
+                                ambiguity = False
+                        elif len(query) > 1:
+                            match = None
+                            ambiguity = True
+
+                        if match: fuzzy_match_indexes.append(i)
 
                 # Try edit distance with MP name permutations.
                 if not match and not ambiguity:
