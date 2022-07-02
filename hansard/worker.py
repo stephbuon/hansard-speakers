@@ -620,7 +620,7 @@ def worker_function(inq: multiprocessing.Queue,
 
                 if not match and not len(query):
                     condition = (speechdate >= holdings_df['start']) & \
-                                (speechdate < holdings_df['end']) * \
+                                (speechdate < holdings_df['end']) & \
                                 (holdings_df['alias'].str.contains(target, regex=False))
                     query = holdings_df[condition]
 

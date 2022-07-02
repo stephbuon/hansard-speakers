@@ -281,9 +281,12 @@ class DataStruct:
         holdings_df = pd.read_csv('data/mps/office-holdings/office-holdings.csv', sep=',')
         old_length = len(holdings_df)
         holdings_df = self._check_date_estimates(holdings_df, 'start', 'end')
-        holdings_df['alias'] = holdings_df['office_id'].apply(lambda x: self.office_dict.get(x, None))
+        holdings_df = holdings_df.astype({'office_id': int})
+        invalid_office = Office(-1, '')
+        holdings_df['alias'] = holdings_df['office_id'].apply(lambda x: self.office_dict.get(x, invalid_office).name)
         holdings_df = holdings_df[holdings_df['corresponding_id'].isin(speaker_dict.keys())]
         holdings_df = holdings_df[holdings_df['office_id'].isin(office_dict.keys())]
+        holdings_df = holdings_df[holdings_df['alias'].str.len() > 1]
         self.holdings_df = holdings_df
 
         logging.debug(f'{len(holdings_df)} office holdings successfully loaded out of {old_length} rows.')
