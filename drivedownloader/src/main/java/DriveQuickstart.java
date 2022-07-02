@@ -67,6 +67,10 @@ public class DriveQuickstart {
         return String.format("mimeType='application/vnd.google-apps.spreadsheet' and parents in '%s'", parentFolderId);
     }
 
+    public static String getCSVFilter(String parentFolderId) {
+        return String.format("parents in '%s' and fileExtension = 'csv'", parentFolderId);
+    }
+
     public static void main(String... args) throws IOException, GeneralSecurityException {
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
@@ -101,15 +105,39 @@ public class DriveQuickstart {
             handleFolder(f.getId(), currentDir + "/" +  f.getName());
         }
 
+        FileList csvFiles = service.files().list().setQ(getCSVFilter(folderId)).execute();
+        for(File f: csvFiles.getFiles()) {
+            handleCSV(f, currentDir);
+        }
+
         FileList spreadsheets = service.files().list().setQ(getSpreadsheetFilter(folderId)).execute();
 
         for(File f: spreadsheets.getFiles()){
             handleSpreadsheet(f, currentDir);
         }
+
+
+    }
+
+    public static void handleCSV(File f, String directory) throws IOException {
+        System.out.printf("csv: %s/%s (%s)\n", directory, f.getName(), f.getId());
+        String outputDirectory = "./output" + directory;
+        String outputFilePath =  outputDirectory + "/" + f.getName();
+        Files.createDirectories(Paths.get(outputDirectory));
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        try(OutputStream outputStream = new FileOutputStream(outputFilePath)) {
+            service.files().get(f.getId()).executeMediaAndDownloadTo(outputStream);
+            outputStream.close();
+            byteStream.writeTo(outputStream);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void handleSpreadsheet(File f, String directory) throws IOException {
-        System.out.printf("file: %s/%s (%s)\n", directory, f.getName(), f.getId());
+        System.out.printf("google sheet: %s/%s (%s)\n", directory, f.getName(), f.getId());
 
         String outputDirectory = "./output" + directory;
         String outputFilePath =  outputDirectory + "/" + f.getName() + ".csv";
