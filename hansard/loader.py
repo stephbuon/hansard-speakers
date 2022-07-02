@@ -15,6 +15,16 @@ import re
 def fix_estimated_date(date_str, start=True, splitchr='/'):
     if type(date_str) == int:
         date = [str(date_str, )]
+    elif type(date_str) == str and (not len(date_str) or date_str == 'nan'):
+        if start:
+            raise Exception('Cant have nan for start date')
+        else:
+            return f'1910{splitchr}01{splitchr}01'
+    elif type(date_str) == float and numpy.isnan(date_str):
+        if start:
+            raise Exception('Cant have nan for start date')
+        else:
+            return f'1910{splitchr}01{splitchr}01'
     else:
         date = date_str.split(splitchr)
 
@@ -128,17 +138,17 @@ class DataStruct:
 
     def _load_name_aliases(self):
         self.aliases_df = pd.DataFrame()
-        # dfs = []
-        # for csv in os.listdir('data/name_aliases'):
-        #     print('Loading name alias csv:', csv)
-        #     df = pd.read_csv('data/name_aliases/' + csv, sep=',')
-        #     dfs.append(df)
-        # self.aliases_df = pd.concat(dfs)
-        # self.aliases_df['real_name'] = self.aliases_df['real_name'].str.lower()
-        # self.aliases_df['alias'] = self.aliases_df['alias'].str.lower()
-        # self.aliases_df = self._check_date_estimates(self.aliases_df, 'start', 'end')
-        # self.aliases_df = self.aliases_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
-        # self.aliases_df = self.aliases_df[~self.aliases_df['alias'].isnull()]
+        dfs = []
+        for csv in os.listdir('data/mps/military-titles'):
+            print('Loading name alias csv:', csv)
+            df = pd.read_csv('data/mps/military-titles/' + csv, sep=',')
+            dfs.append(df)
+        self.aliases_df = pd.concat(dfs)
+        self.aliases_df['real_name'] = self.aliases_df['real_name'].str.lower()
+        self.aliases_df['alias'] = self.aliases_df['alias'].str.lower()
+        self.aliases_df = self._check_date_estimates(self.aliases_df, 'start', 'end')
+        self.aliases_df = self.aliases_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+        self.aliases_df = self.aliases_df[~self.aliases_df['alias'].isnull()]
 
     def _load_speakers(self):
         self._load_name_aliases()
@@ -268,44 +278,15 @@ class DataStruct:
             self.office_dict[office.id] = office
 
         logging.info('Loading office holdings...')
-        holdings_df = pd.read_csv('data/officeholdings.csv', sep=',')
-        holdings_df = holdings_df.astype({'oh_id': int, 'member_id': int, 'office_id': int})
-        unknown_members = 0
-        unknown_offices = 0
-        invalid_office_dates = 0
+        holdings_df = pd.read_csv('data/mps/office-holdings/office-holdings.csv', sep=',')
+        old_length = len(holdings_df)
+        holdings_df = self._check_date_estimates(holdings_df, 'start', 'end')
+        holdings_df['alias'] = holdings_df['office_id'].apply(lambda x: self.office_dict.get(x, None))
+        holdings_df = holdings_df[holdings_df['corresponding_id'].isin(speaker_dict.keys())]
+        holdings_df = holdings_df[holdings_df['office_id'].isin(office_dict.keys())]
+        self.holdings_df = holdings_df
 
-        for index, row in holdings_df.iterrows():
-            # oh_id,member_id,office_id,start_date,end_date
-            try:
-                holding_start = datetime.strptime(row['start_date'], DATE_FORMAT)
-
-                if type(row['end_date']) == float:
-                    holding_end = datetime.now()
-                else:
-                    holding_end = datetime.strptime(row['end_date'], DATE_FORMAT)
-
-            except TypeError:
-                logging.debug(f'Invalid office holding date in row {index}. start_date is {row["start_date"]}')
-                invalid_office_dates += 1
-                continue
-
-            if row['member_id'] not in speaker_dict:
-                logging.debug(f'Member with id {row["member_id"]} not found for office holding at row {index}')
-                unknown_members += 1
-                continue
-
-            if row['office_id'] not in office_dict:
-                logging.debug(f'Office holding at row {index} linked to invalid office id: {row["office_id"]}')
-                unknown_offices += 1
-                continue
-
-            holding = OfficeHolding(row['oh_id'], row['member_id'], row['office_id'], holding_start, holding_end,
-                                    office_dict[row['office_id']])
-            holdings.append(holding)
-
-        logging.debug(f'{unknown_members} office holding rows had unknown members.')
-        logging.debug(f'{unknown_offices} office holding rows had unknown offices.')
-        logging.debug(f'{len(holdings)} office holdings successfully loaded out of {len(holdings_df)} rows.')
+        logging.debug(f'{len(holdings_df)} office holdings successfully loaded out of {old_length} rows.')
 
         self.term_df = pd.read_csv('data/mps/speakers-names/speakers_terms.csv', sep=',')
         self.term_df['start_term'] = pd.to_datetime(self.term_df['start_term'], format=DATE_FORMAT)
@@ -319,7 +300,7 @@ class DataStruct:
                 print(row)
                 raise e
 
-        self._load_office_positions()
+        # self._load_office_positions()
 
     def _load_office_positions(self):
         directory = 'data/mps/offices'

@@ -396,7 +396,8 @@ def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
 
 
 def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
-                           columns: Tuple[str, str, str], speaker_dict: Dict[int, SpeakerReplacement]) -> Tuple[Optional[str], bool]:
+                           columns: Tuple[str, str, str], speaker_dict: Dict[int, SpeakerReplacement],
+                           edit_dist_func=within_distance_two) -> Tuple[Optional[str], bool]:
     start_col, end_col, search_col = columns
 
     match = None
@@ -406,7 +407,7 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
     query = df[condition]
 
     for i, alias in enumerate(query[search_col]):
-        if within_distance_two(target, alias, False):
+        if edit_dist_func(target, alias, False):
             if match:
                 match = None
                 ambiguity = True
@@ -469,7 +470,6 @@ def worker_function(inq: multiprocessing.Queue,
 
     # Lookup optimization
     misspellings_dict = data.corrections
-    holdings = data.holdings
     alias_dict = data.alias_dict
     terms_df = data.term_df
     speaker_dict = data.speaker_dict
@@ -478,6 +478,7 @@ def worker_function(inq: multiprocessing.Queue,
     lord_titles_df = data.lord_titles_df
     aliases_df = data.aliases_df
     title_df = data.title_df
+    holdings_df = data.holdings_df
 
     hitcount = 0
     matched_indexes = []
@@ -578,12 +579,12 @@ def worker_function(inq: multiprocessing.Queue,
                         ignored_indexes.append(i)
                         continue  # continue onto the next speaker
 
-                if not match and not len(query):
-                    # Try honorary title
-                    condition = (speechdate >= honorary_title_df['start']) &\
-                                (speechdate < honorary_title_df['end']) &\
-                                (honorary_title_df['honorary_title'].str.contains(target, regex=False))
-                    query = honorary_title_df[condition]
+                # if not match and not len(query):
+                #     # Try honorary title
+                #     condition = (speechdate >= honorary_title_df['start']) &\
+                #                 (speechdate < honorary_title_df['end']) &\
+                #                 (honorary_title_df['honorary_title'].str.contains(target, regex=False))
+                #     query = honorary_title_df[condition]
 
                 if not match and not len(query):
                     # try lord/viscount/earl aliases.
@@ -592,12 +593,12 @@ def worker_function(inq: multiprocessing.Queue,
                                 (lord_titles_df['alias'].str.contains(target, regex=False))
                     query = lord_titles_df[condition]
 
-                # if not match and not len(query):
-                #     # try name aliases.
-                #     condition = (speechdate >= aliases_df['start']) &\
-                #                 (speechdate < aliases_df['end']) &\
-                #                 (aliases_df['alias'].str.contains(target, regex=False))
-                #     query = aliases_df[condition]
+                if not match and not len(query):
+                    # try name aliases.
+                    condition = (speechdate >= aliases_df['start']) &\
+                                (speechdate < aliases_df['end']) &\
+                                (aliases_df['alias'].str.contains(target, regex=False))
+                    query = aliases_df[condition]
 
                 if not match and not len(query):
                     # try a lord title/alias
@@ -606,16 +607,22 @@ def worker_function(inq: multiprocessing.Queue,
                                 (title_df['alias'].str.contains(target, regex=False))
                     query = title_df[condition]
 
+                # if not match and not len(query):
+                #     # Try office position
+                #     for position in office_title_dfs:
+                #         if position in target:
+                #             query = match_term(office_title_dfs[position], speechdate)
+                #             break
+                #         if within_distance_four(position, target, True):
+                #             fuzzy_flag = 1
+                #             query = match_term(office_title_dfs[position], speechdate)
+                #             break
+
                 if not match and not len(query):
-                    # Try office position
-                    for position in office_title_dfs:
-                        if position in target:
-                            query = match_term(office_title_dfs[position], speechdate)
-                            break
-                        if within_distance_four(position, target, True):
-                            fuzzy_flag = 1
-                            query = match_term(office_title_dfs[position], speechdate)
-                            break
+                    condition = (speechdate >= holdings_df['start']) & \
+                                (speechdate < holdings_df['end']) * \
+                                (holdings_df['alias'].str.contains(target, regex=False))
+                    query = holdings_df[condition]
 
                 if not match:
                     query = query.drop_duplicates(subset=['corresponding_id'])
@@ -637,13 +644,6 @@ def worker_function(inq: multiprocessing.Queue,
 
                     elif len(query) > 1:
                         ambiguity = True
-
-                # can we get ambiguities with office names?
-                # if not match:
-                #     for holding in holdings:
-                #         if holding.matches(target, speechdate, cleanse=False):
-                #             match = speaker_dict[int(holding.member_id)]
-                #             break
 
                 if not match:
                     possibles = alias_dict.get(target)
@@ -668,10 +668,17 @@ def worker_function(inq: multiprocessing.Queue,
                     if match: fuzzy_match_indexes.append(i)
 
                 # Try edit distance with honorary titles.
+                # if not match and not ambiguity:
+                #     match, ambiguity = match_edit_distance_df(target, speechdate, honorary_title_df,
+                #                                               ('start', 'end', 'honorary_title'),
+                #                                               speaker_dict)
+                #     if match: fuzzy_match_indexes.append(i)
+
+                # Try edit distance with office holdings.
                 if not match and not ambiguity:
-                    match, ambiguity = match_edit_distance_df(target, speechdate, honorary_title_df,
-                                                              ('start', 'end', 'honorary_title'),
-                                                              speaker_dict)
+                    match, ambiguity = match_edit_distance_df(target, speechdate, holdings_df,
+                                                              ('start', 'end', 'alias'),
+                                                              speaker_dict, edit_dist_func=within_distance_four)
                     if match: fuzzy_match_indexes.append(i)
 
                 # Try edit distance with MP name permutations.

@@ -216,8 +216,7 @@ class Office:
 
 
 class OfficeHolding:
-    def __init__(self, holding_id, member_id, office_id, start_date, end_date, office):
-        self.holding_id = holding_id
+    def __init__(self, member_id, office_id, start_date, end_date, office):
         self.member_id = member_id
         self.office_id = office_id
         self.start_date = start_date
