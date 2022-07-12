@@ -8,6 +8,7 @@ from hansard import *
 from hansard.loader import DataStruct
 from datetime import datetime
 import requests
+from hansard.worker import OUTPUT_COLUMN
 
 
 CPU_CORES = 2
@@ -43,9 +44,6 @@ def init_logging():
 def export(output_queue, slack_secret):
     import time
 
-    missed_df = pd.DataFrame()
-    ambiguities_df = pd.DataFrame()
-    ignored_df = pd.DataFrame()
     output_fp = os.path.join(OUTPUT_DIR, 'output_.csv')
     debug_fp = os.path.join(OUTPUT_DIR, 'debug_output.csv')
 
@@ -59,6 +57,7 @@ def export(output_queue, slack_secret):
     hit = 0
     ambiguities = 0
     ignored = 0
+    missed = 0
     i = 0
 
     t0 = time.time()
@@ -75,16 +74,19 @@ def export(output_queue, slack_secret):
             entry = entry[1:]
 
             if entry_type == 0:
-                chunk_matched_df, chunk_missed_df, chunk_ambig_df, chunk_ignored_df = entry
-                hit += len(chunk_matched_df)
-                ambiguities += len(chunk_ambig_df)
-                ignored += len(chunk_ignored_df)
-                i += 1
+                chunk_ = entry[0]
 
-                missed_df = missed_df.append(chunk_missed_df)
-                ambiguities_df = ambiguities_df.append(chunk_ambig_df)
-                ignored_df = ignored_df.append(chunk_ignored_df)
-                chunk_matched_df.to_csv(output_fp, mode='a', header=False, index=False)
+                chunk_ambiguities = len(chunk_[chunk_['ambiguous'] == 1])
+                chunk_ignored = len(chunk_[chunk_['ignored'] == 1])
+                chunk_missed = len(chunk_[chunk_[OUTPUT_COLUMN].isna() & (chunk_['ignored'] == 0) & (chunk_['ambiguous'] == 0)])
+                chunk_hit = len(chunk_) - (chunk_ambiguities + chunk_ignored + chunk_missed)
+
+                ambiguities += chunk_ambiguities
+                ignored += chunk_ignored
+                missed += chunk_missed
+                hit += chunk_hit
+                i += 1
+                chunk_.to_csv(output_fp, mode='a', header=False, index=False)
                 print(f'Processed {i} chunks so far.')
             elif entry_type == 1:
                 chunk_fuzzy_df = entry[0]
@@ -92,11 +94,11 @@ def export(output_queue, slack_secret):
 
     from util.slackbot import Blocks, send_slack_post
 
-    total = len(missed_df) + ambiguities + hit - ignored
+    total = missed + ambiguities + hit - ignored
 
     hit_percent = hit/total * 100
     ambig_percent = ambiguities/total * 100
-    missed_percent = len(missed_df)/total * 100
+    missed_percent = missed/total * 100
 
     if slack_secret:
         send_slack_post(slack_secret, [
@@ -105,16 +107,15 @@ def export(output_queue, slack_secret):
             Blocks.section(f'Hit percentage: {hit_percent:.2f}% ({hit}/{total} rows)'),
             Blocks.section(f'Ambiguous percentage: {ambig_percent:.2f}%'),
             Blocks.section(f'Missed percentage: {missed_percent:.2f}%'),
+            Blocks.section(f'{ignored} rows ignored'),
         ])
 
     print('Exporting...')
     print(f'{hit} hits ({hit_percent:.2f}%)...')
     print(f'{ambiguities} ambiguities ({ambig_percent:.2f}%)...')
-    print(f'{len(missed_df)} misses ({missed_percent:.2f}%)...')
+    print(f'{missed} misses ({missed_percent:.2f}%)...')
+    print(f'{ignored} ignored ({missed_percent:.2f}%)...')
     print(f'Total rows processed: {total}')
-    missed_df.to_csv(os.path.join(OUTPUT_DIR, 'missed_speakers.csv'))
-    ambiguities_df.to_csv(os.path.join(OUTPUT_DIR, 'ambig_speakers.csv'))
-    ignored_df.to_csv(os.path.join(OUTPUT_DIR, 'ignored_speakers.csv'))
 
 
 if __name__ == '__main__':

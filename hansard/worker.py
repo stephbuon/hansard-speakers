@@ -14,7 +14,7 @@ from hansard.speaker import SpeakerReplacement
 from util.edit_distance import within_distance_four, within_distance_two, is_distance_one
 
 
-OUTPUT_COLUMN = 'disambig_speaker'
+OUTPUT_COLUMN = 'suggested_speaker'
 
 compile_regex = lambda x: (re.compile(x[0]), x[1])
 
@@ -482,19 +482,14 @@ def worker_function(inq: multiprocessing.Queue,
     holdings_df = data.holdings_df
 
     hitcount = 0
-    matched_indexes = []
-    missed_indexes = []
-    ambiguities_indexes = []
-    ignored_indexes = []
-
-    fuzzy_match_indexes = []
 
     fuzzy_flag = 0
 
-    MATCH_CACHE = {}
-    MISS_CACHE = set()
-    AMBIG_CACHE = set()
-    IGNORED_CACHE = set()
+    MATCH_CACHE = {}  # (target, speechdate) -> suggested speaker
+    MISS_CACHE = set()  # (target, speechdate)
+    AMBIG_CACHE = {}  # (target, speechdate) -> suggested speakers
+    IGNORED_CACHE = set()  # (target, speechdate)
+    FUZZY_CACHE = set()   # (target, speechdate)
 
     edit_distance_dict = {}  # alias -> list[speaker id's]
 
@@ -548,24 +543,32 @@ def worker_function(inq: multiprocessing.Queue,
                 return
 
             chunk[OUTPUT_COLUMN] = chunk['speaker'].map(preprocess)
+            chunk['ambiguous'] = 0
+            chunk['fuzzy_matched'] = 0
+            chunk['ignored'] = 0
 
             for row in chunk.itertuples():
                 fuzzy_flag = 0
                 i = row[0]
                 speechdate = row.speechdate
                 # unmodified_target = row.speaker
-                target = row.disambig_speaker
+                target = getattr(row, OUTPUT_COLUMN)
                 debate_id = int(row.debate_id)
                 office_id = None
 
+                if(target, speechdate) in FUZZY_CACHE:
+                    chunk.loc[i, 'fuzzy_matched'] = 1
+
                 if (target, speechdate) in MISS_CACHE:
-                    missed_indexes.append(i)
+                    chunk.loc[i, OUTPUT_COLUMN] = None
                     continue
                 elif (target, speechdate) in AMBIG_CACHE:
-                    ambiguities_indexes.append(i)
+                    chunk.loc[i, OUTPUT_COLUMN] = AMBIG_CACHE[(target, speechdate)]
+                    chunk.loc[i, 'ambiguous'] = 1
                     continue
                 elif target in IGNORED_CACHE:
-                    ignored_indexes.append(i)
+                    chunk.loc[i, OUTPUT_COLUMN] = None
+                    chunk.loc[i, 'ignored'] = 1
                     continue
 
                 match = MATCH_CACHE.get((target, speechdate), None)
@@ -579,7 +582,8 @@ def worker_function(inq: multiprocessing.Queue,
 
                     if ignored:
                         IGNORED_CACHE.add(target)
-                        ignored_indexes.append(i)
+                        chunk.loc[i, OUTPUT_COLUMN] = None
+                        chunk.loc[i, 'ignored'] = 1
                         continue  # continue onto the next speaker
 
                 # if not match and not len(query):
@@ -648,8 +652,6 @@ def worker_function(inq: multiprocessing.Queue,
                             # for now use speaker_id to ensure this counts as a match
                             try:
                                 match = speaker_dict[int(speaker_id)]
-                                if fuzzy_flag:
-                                    fuzzy_match_indexes.append(i)
                             except KeyError as e:
                                 print('failed lookup', query)
                                 match = None
@@ -673,12 +675,12 @@ def worker_function(inq: multiprocessing.Queue,
                     match, ambiguity = match_edit_distance_df(target, speechdate, lord_titles_df,
                                                               ('start', 'end', 'alias'), speaker_dict)
 
-                    if match: fuzzy_match_indexes.append(i)
+                    if match: fuzzy_flag = 1
 
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, title_df,
                                                               ('start', 'end', 'alias'), speaker_dict)
-                    if match: fuzzy_match_indexes.append(i)
+                    if match: fuzzy_flag = 1
 
                 # Try edit distance with honorary titles.
                 # if not match and not ambiguity:
@@ -712,7 +714,7 @@ def worker_function(inq: multiprocessing.Queue,
                             match = None
                             ambiguity = True
 
-                        if match: fuzzy_match_indexes.append(i)
+                        if match: fuzzy_flag = 1
 
                 # Try edit distance with MP name permutations.
                 if not match and not ambiguity:
@@ -735,9 +737,6 @@ def worker_function(inq: multiprocessing.Queue,
                     if len(possibles) == 1:
                         match = possibles[0]
                         ambiguity = False
-                        flag = 5
-                        if fuzzy_flag:
-                            fuzzy_match_indexes.append(i)
                     elif len(possibles) > 1:
                         ambiguity = True
 
@@ -774,29 +773,31 @@ def worker_function(inq: multiprocessing.Queue,
                         match = speaker_dict.get(match, match)
 
                 if match is not None:
-                    hitcount += 1
+                    chunk.loc[i, 'fuzzy_matched'] = fuzzy_flag
                     if isinstance(match, SpeakerReplacement):
                         chunk.loc[i, OUTPUT_COLUMN] = match.id
                     else:
                         chunk.loc[i, OUTPUT_COLUMN] = match
                     MATCH_CACHE[(target, speechdate)] = match
-                    matched_indexes.append(i)
                 elif ambiguity:
-                    AMBIG_CACHE.add((target, speechdate))
-                    ambiguities_indexes.append(i)
+                    chunk.loc[i, 'fuzzy_matched'] = fuzzy_flag
+                    chunk.loc[i, 'ambiguous'] = 1
+
+                    possibles = [speaker_dict.get(speaker_id, speaker_id) for speaker_id in possibles if speaker_id]
+                    if not possibles:
+                        match = None
+                    else:
+                        match = ', '.join(possibles)
+                        chunk.loc[i, OUTPUT_COLUMN] = match
+                    AMBIG_CACHE[(target, speechdate)] = match
                 else:
                     # TODO: fix this
                     # best_guess = find_best_jaro_dist(target, alias_dict, honorary_title_df, lord_titles_df, aliases_df, speechdate)
                     # print('Best Guess for ', target, ' : ', best_guess)
+                    chunk.loc[i, OUTPUT_COLUMN] = None
                     MISS_CACHE.add((target, speechdate))
-                    missed_indexes.append(i)
 
-            outq.put((0, chunk.loc[matched_indexes, ['sentence_id', OUTPUT_COLUMN]], chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
-            outq.put((1, chunk.loc[fuzzy_match_indexes, ['sentence_id', 'speaker', OUTPUT_COLUMN]]))
+            # outq.put((0, chunk.loc[matched_indexes, ['sentence_id', OUTPUT_COLUMN]], chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
+            outq.put((0, chunk))
 
             hitcount = 0
-            del matched_indexes[:]
-            del missed_indexes[:]
-            del ambiguities_indexes[:]
-            del ignored_indexes[:]
-            del fuzzy_match_indexes[:]
