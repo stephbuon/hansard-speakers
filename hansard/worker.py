@@ -669,6 +669,8 @@ def worker_function(inq: multiprocessing.Queue,
                             ambiguity = False
                         else:
                             ambiguity = True
+                    else:
+                        possibles = []
 
                 # Try edit distance with lord titles.
                 if not match and not ambiguity:
@@ -783,7 +785,7 @@ def worker_function(inq: multiprocessing.Queue,
                     chunk.loc[i, 'fuzzy_matched'] = fuzzy_flag
                     chunk.loc[i, 'ambiguous'] = 1
 
-                    possibles = [speaker_dict.get(speaker_id, speaker_id) for speaker_id in possibles if speaker_id]
+                    possibles = [speaker.id if isinstance(speaker, SpeakerReplacement) else speaker for speaker in possibles if speaker]
                     if not possibles:
                         match = None
                     else:
