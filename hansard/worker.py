@@ -380,6 +380,8 @@ REGEX_POST_CORRECTIONS = [
     (r'lieutenant[\- ]?colonel +', ''),
     (r'lieut(.*)col', ''),
     (r'lieut', ''),
+    
+    ('^the hon ', ''),
 
     (r'^right hon +', ''),
     (r' +observed$', ''),
