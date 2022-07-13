@@ -382,6 +382,8 @@ REGEX_POST_CORRECTIONS = [
     (r'lieut', ''),
     
     ('^the hon ', ''),
+    
+    ('memberconstituency', ''),
 
     (r'^right hon +', ''),
     (r' +observed$', ''),
