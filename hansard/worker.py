@@ -162,7 +162,9 @@ REGEX_POST_CORRECTIONS = [
     ('^duek +', 'duke '),
     ('^ducke +', 'duke '),
     ('^duck +', 'duke '),
-
+    
+    ('^chamberlatn +', 'chamberlain '),
+    
     # Fix leading Sir
     ('^sib +', 'sir '),
     ('^sin +', 'sir '),
