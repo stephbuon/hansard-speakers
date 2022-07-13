@@ -1,4 +1,4 @@
-prefix,firstname,surname,dob,dod,alias_type,alias,start,end,corresponding_id
+prefix,firstname,surname,dob,dod,alias_type,alias,start_search,end_search,corresponding_id
 Mr,William,A'Court,1779-07-11,1860-05-31,lord_membership,Baron Heytesbury,1828-01-23,1860-05-31,1871.0
 Baron,Charles,Abbot,1757-10-14,1829-05-08,lord_membership,Baron Colchester of Colchester,1817-06-03,1829-05-08,
 Mr,Charles,Abbot,1798-03-12,1867-10-18,lord_membership,Baron Colchester of Colchester,1829-05-08,1867-10-18,

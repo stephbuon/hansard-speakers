@@ -17,12 +17,12 @@ def fix_estimated_date(date_str, start=True, splitchr='/'):
         date = [str(date_str, )]
     elif type(date_str) == str and (not len(date_str) or date_str == 'nan'):
         if start:
-            raise Exception('Cant have nan for start date')
+            return f'1700{splitchr}01{splitchr}01'
         else:
             return f'1910{splitchr}01{splitchr}01'
     elif type(date_str) == float and numpy.isnan(date_str):
         if start:
-            raise Exception('Cant have nan for start date')
+            return f'1700{splitchr}01{splitchr}01'
         else:
             return f'1910{splitchr}01{splitchr}01'
     else:
@@ -103,8 +103,8 @@ class DataStruct:
         self.title_df = pd.read_csv('data/hansard_titles.csv')
         self.title_df = self.title_df[~self.title_df['corresponding_id'].isna()]
         self.title_df = self.title_df.astype({'corresponding_id': int})
-        self.title_df['start'] = pd.to_datetime(self.title_df['start'], format=DATE_FORMAT)
-        self.title_df['end'] = pd.to_datetime(self.title_df['end'], format=DATE_FORMAT)
+        self.title_df['start_search'] = pd.to_datetime(self.title_df['start_search'], format=DATE_FORMAT)
+        self.title_df['end_search'] = pd.to_datetime(self.title_df['end_search'], format=DATE_FORMAT)
         self.title_df['alias'] = self.title_df['alias'].str.lower().str.replace('\'', '', regex=False)
 
         infer_df = pd.read_csv('data/inferences.csv')
@@ -119,10 +119,10 @@ class DataStruct:
             df['real_name'] = df['real_name'].str.lower()
             df['alias'] = df['alias'].str.lower()
             try:
-                df = self._check_date_estimates(df, 'start', 'end')
+                df = self._check_date_estimates(df, 'start_search', 'end_search')
             except AttributeError:
                 raise Exception(f'Invalid dates in file: {csv}')
-            df = df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+            df = df[['corresponding_id', 'real_name', 'start_search', 'end_search', 'alias']]
 
             for sp_id in df['corresponding_id']:
                 if numpy.isnan(sp_id):
@@ -146,8 +146,8 @@ class DataStruct:
         self.aliases_df = pd.concat(dfs)
         self.aliases_df['real_name'] = self.aliases_df['real_name'].str.lower()
         self.aliases_df['alias'] = self.aliases_df['alias'].str.lower()
-        self.aliases_df = self._check_date_estimates(self.aliases_df, 'start', 'end')
-        self.aliases_df = self.aliases_df[['corresponding_id', 'real_name', 'start', 'end', 'alias']]
+        self.aliases_df = self._check_date_estimates(self.aliases_df, 'start_search', 'end_search')
+        self.aliases_df = self.aliases_df[['corresponding_id', 'real_name', 'start_search', 'end_search', 'alias']]
         self.aliases_df = self.aliases_df[~self.aliases_df['alias'].isnull()]
 
     def _load_speakers(self):
@@ -254,14 +254,14 @@ class DataStruct:
     @staticmethod
     def _load_office_position(filename: str) -> pd.DataFrame:
         df = pd.read_csv(filename)
-        df['start'] = df['start'].astype(str)
-        df['end'] = df['end'].astype(str)
+        df['start_search'] = df['start_search'].astype(str)
+        df['end_search'] = df['end_search'].astype(str)
 
         if "honorary_title" not in df:
             df['honorary_title'] = None
 
-        start_column = 'start'
-        end_column = 'end'
+        start_column = 'start_search'
+        end_column = 'end_search'
 
         return DataStruct._check_date_estimates(df, start_column, end_column)
 
@@ -280,7 +280,7 @@ class DataStruct:
         logging.info('Loading office holdings...')
         holdings_df = pd.read_csv('data/mps/office-holdings/office-holdings.csv', sep=',')
         old_length = len(holdings_df)
-        holdings_df = self._check_date_estimates(holdings_df, 'start', 'end')
+        holdings_df = self._check_date_estimates(holdings_df, 'start_search', 'end_search')
         holdings_df = holdings_df.astype({'office_id': int})
         holdings_df = holdings_df[holdings_df['corresponding_id'].isin(speaker_dict.keys())]
         holdings_df = holdings_df[holdings_df['office_id'].isin(office_dict.keys())]
@@ -321,7 +321,7 @@ class DataStruct:
 
             print('Loaded office position:', name)
 
-        temp_df = pd.concat(df[['corresponding_id', 'honorary_title', 'start', 'end']]
+        temp_df = pd.concat(df[['corresponding_id', 'honorary_title', 'start_search', 'end_search']]
                             for df in self.office_position_dfs.values())
         temp_df = temp_df[~(temp_df['honorary_title'].isna()) & ~(temp_df['corresponding_id'].isna())]
         temp_df['honorary_title'] = temp_df['honorary_title'].str.lower()
