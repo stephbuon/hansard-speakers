@@ -392,7 +392,7 @@ def is_ignored(target: str) -> bool:
 
 
 def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
-    return df[(date >= df['start']) & (date < df['end'])]
+    return df[(date >= df['start_search']) & (date < df['end_search'])]
 
 
 def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
@@ -447,7 +447,7 @@ def find_best_jaro_dist(target: str, alias_dict: Dict[str, List[SpeakerReplaceme
     best_match = ['', 0.0]
 
     best_match = find_best_jaro_dist_df(target, honorary_title_df, speechdate, best_match, 'honorary_title',
-                                        'start', 'end')
+                                        'start_search', 'end_search')
     best_match = find_best_jaro_dist_df(target, lord_titles_df, speechdate, best_match, 'alias')
     best_match = find_best_jaro_dist_df(target, aliases_df, speechdate, best_match, 'alias')
 
@@ -595,22 +595,22 @@ def worker_function(inq: multiprocessing.Queue,
 
                 if not match and not len(query):
                     # try lord/viscount/earl aliases.
-                    condition = (speechdate >= lord_titles_df['start']) &\
-                                (speechdate < lord_titles_df['end']) &\
+                    condition = (speechdate >= lord_titles_df['start_search']) &\
+                                (speechdate < lord_titles_df['end_search']) &\
                                 (lord_titles_df['alias'].str.contains(target, regex=False))
                     query = lord_titles_df[condition]
 
                 if not match and not len(query):
                     # try name aliases.
-                    condition = (speechdate >= aliases_df['start']) &\
-                                (speechdate < aliases_df['end']) &\
+                    condition = (speechdate >= aliases_df['start_search']) &\
+                                (speechdate < aliases_df['end_search']) &\
                                 (aliases_df['alias'].str.contains(target, regex=False))
                     query = aliases_df[condition]
 
                 if not match and not len(query):
                     # try a lord title/alias
-                    condition = (speechdate >= title_df['start']) &\
-                                (speechdate < title_df['end']) &\
+                    condition = (speechdate >= title_df['start_search']) &\
+                                (speechdate < title_df['end_search']) &\
                                 (title_df['alias'].str.contains(target, regex=False))
                     query = title_df[condition]
 
@@ -636,8 +636,8 @@ def worker_function(inq: multiprocessing.Queue,
                                 break
 
                     if office_id:
-                        condition = (speechdate >= holdings_df['start']) & \
-                                    (speechdate < holdings_df['end']) & \
+                        condition = (speechdate >= holdings_df['start_search']) & \
+                                    (speechdate < holdings_df['end_search']) & \
                                     (office_id == holdings_df['office_id'])
                         query = holdings_df[condition]
 
@@ -675,13 +675,13 @@ def worker_function(inq: multiprocessing.Queue,
                 # Try edit distance with lord titles.
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, lord_titles_df,
-                                                              ('start', 'end', 'alias'), speaker_dict)
+                                                              ('start_search', 'end_search', 'alias'), speaker_dict)
 
                     if match: fuzzy_flag = 1
 
                 if not match and not ambiguity:
                     match, ambiguity = match_edit_distance_df(target, speechdate, title_df,
-                                                              ('start', 'end', 'alias'), speaker_dict)
+                                                              ('start_search', 'start_search', 'alias'), speaker_dict)
                     if match: fuzzy_flag = 1
 
                 # Try edit distance with honorary titles.

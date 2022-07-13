@@ -1,4 +1,4 @@
-corresponding_id,office_id,start,end
+corresponding_id,office_id,start_search,end_search
 1234,1,1830/11/22,1834/12/29
 2286,30,1834/01/01,1834/12/29
 2286,1,1835/04/18,1839/08/26
