@@ -426,8 +426,8 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
 from util.jaro_distance import jaro_distance
 
 
-def find_best_jaro_dist_df(target: str, df: pd.DataFrame, speechdate: datetime, curr_best, col: str, date_start_col='start',
-                           date_end_col='end'):
+def find_best_jaro_dist_df(target: str, df: pd.DataFrame, speechdate: datetime, curr_best, col: str, date_start_col='start_search',
+                           date_end_col='end_search'):
     condition = (speechdate >= df[date_start_col]) & \
                 (speechdate < df[date_end_col])
     query = df[condition]
@@ -588,8 +588,8 @@ def worker_function(inq: multiprocessing.Queue,
 
                 # if not match and not len(query):
                 #     # Try honorary title
-                #     condition = (speechdate >= honorary_title_df['start']) &\
-                #                 (speechdate < honorary_title_df['end']) &\
+                #     condition = (speechdate >= honorary_title_df['start_search']) &\
+                #                 (speechdate < honorary_title_df['end_search']) &\
                 #                 (honorary_title_df['honorary_title'].str.contains(target, regex=False))
                 #     query = honorary_title_df[condition]
 
@@ -687,7 +687,7 @@ def worker_function(inq: multiprocessing.Queue,
                 # Try edit distance with honorary titles.
                 # if not match and not ambiguity:
                 #     match, ambiguity = match_edit_distance_df(target, speechdate, honorary_title_df,
-                #                                               ('start', 'end', 'honorary_title'),
+                #                                               ('start_search', 'end_search', 'honorary_title'),
                 #                                               speaker_dict)
                 #     if match: fuzzy_match_indexes.append(i)
 
@@ -700,8 +700,8 @@ def worker_function(inq: multiprocessing.Queue,
                                 office_ids.append(office.id)
 
                     if office_ids:
-                        condition = (speechdate >= holdings_df['start']) & \
-                                    (speechdate < holdings_df['end']) & \
+                        condition = (speechdate >= holdings_df['start_search']) & \
+                                    (speechdate < holdings_df['end_search']) & \
                                     (holdings_df['office_id'].isin(office_ids))
                         query = holdings_df[condition]
 
