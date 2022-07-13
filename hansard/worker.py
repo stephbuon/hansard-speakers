@@ -61,6 +61,7 @@ REGEX_POST_CORRECTIONS = [
     ('^mp +', 'mr '),
     ('^ma +', 'mr '),
     ('^mi +', 'mr '),
+    ('^mk +', 'mr '),
     
     ('^m r +', 'mr '),  # Fix leading spaced out mr
     
@@ -68,9 +69,12 @@ REGEX_POST_CORRECTIONS = [
     ('^dk +', 'dr '),
     ('^de +','dr '),
     
+    ('^vick +','vice '),
+    
     (' image srcsvpi colcol', ''),
     
     ('^marquis +', 'marquess '),
+    ('^marqess +', 'marquess '),
     ('^mauquess +', 'marquess '),
     ('^manquess +', 'marquess '),
     ('^marguess +', 'marquess '),
@@ -85,8 +89,15 @@ REGEX_POST_CORRECTIONS = [
     ('^marqdess +', 'marquess '),
     ('^marqiess +', 'marquess '),
     ('^marqtjess +', 'marquess '),
+    ('^manquess +', 'marquess '),
+    ('^marguess +', 'marquess '),
+    ('^marquees +', 'marquess '),
+    ('^marques +', 'marquess '),
+    ('^marquese +', 'marquess '),
+    ('^marquese +', 'marquess '),
     
     ('^vicount +', 'viscount '),
+    ('^viscovnt +', 'viscount '),
     ('^vicsount +', 'viscount '),
     ('^vis- count +', 'viscount '),
     ('^viscocnt +', 'viscount '),
@@ -109,6 +120,12 @@ REGEX_POST_CORRECTIONS = [
     ('^lord speaker +', 'speaker '),
 
     ('^lerd +', 'lord '),
+    ('^lard +', 'lord '),
+    ('^loed +', 'lord '),
+    ('^loro +', 'lord '),
+    ('^loud +', 'lord '),
+    ('^lort +', 'lord '),
+    ('^loup +', 'lord '),
     ('^lobd +', 'lord '),
     ('^loan +', 'lord '),
     ('^load +', 'lord '),
@@ -134,9 +151,17 @@ REGEX_POST_CORRECTIONS = [
     ('^eeal +', 'earl '),
     ('^arl +', 'earl '),
     ('^eahl +', 'earl '),
+    ('^eael +', 'earl '),
+    ('^eakl +', 'earl '),
+    ('^eard +', 'earl '),
+    ('^eall +', 'earl '),
+    ('^eart +', 'earl '),
+    ('^farl +', 'earl '),
 
     ('^dike +', 'duke '),
     ('^duek +', 'duke '),
+    ('^ducke +', 'duke '),
+    ('^duck +', 'duke '),
 
     # Fix leading Sir
     ('^sib +', 'sir '),
@@ -166,6 +191,9 @@ REGEX_POST_CORRECTIONS = [
     ('^admtralty +', 'admiralty '),
     ('^adralty +', 'admiralty '),
     ('^admihalty +', 'admiralty '),
+    ('^ad-jmiralty +', 'admiralty '),
+    ('^admil alty +', 'admiralty '),
+    ('^admir alty +', 'admiralty '),
     
     ('^trea-iury +', 'treasury '),
     ('^trea-treasury +', 'treasury '),
@@ -191,6 +219,7 @@ REGEX_POST_CORRECTIONS = [
     ('^coloxel +','colonel '),
     ('^colonl +','colonel '),
     ('^colosel +','colonel '),
+    ('^colonei +','colonel '),
     
     ('^eirst +', 'first '),
     ('^fiest +', 'first '),
@@ -205,6 +234,8 @@ REGEX_POST_CORRECTIONS = [
     
     ('^atiorney +', 'attorney'),
     ('^attornby +', 'attorney'),
+    ('^attorne +', 'attorney'),
+    ('^attorney- +', 'attorney'),
     
     ('^ge neral  +', 'general '),
     ('^gen  +', 'general '),
@@ -213,8 +244,17 @@ REGEX_POST_CORRECTIONS = [
     ('^genekal  +', 'general '),
     ('^genenal  +', 'general '),
     ('^genera  +', 'general '),
+    ('^gexeral  +', 'general '),
+    ('^geneeal  +', 'general '),
+    ('^gen  +', 'general '),
+    
+    ('^solioitor +', 'solicitor '),
+    ('^solicttor +', 'solicitor '),
+    ('^solioitor +', 'solicitor '),
     
     ('peivy', 'privy'),
+    
+    ('chanoellor', 'chancellor'),
     
     ('chancellor of the e xciiequer', 'chancellor of the exchequer'),
     ('chancellor of the exchequer-chequer', 'chancellor of the exchequer'),
@@ -244,9 +284,17 @@ REGEX_POST_CORRECTIONS = [
     ('^chancellob of the exchequerr$','chancellor of the exchequer'),
     ('^chancelor of the exchequerr$','chancellor of the exchequer'),
     ('^chancelloe of the exche-quer$','chancellor of the exchequer'),
+    ('^the chan. of the exchequer$','chancellor of the exchequer'),
+    ('^the chanc. of the exchequer$','chancellor of the exchequer'),
+    ('^the chancellar the exchequer$','chancellor of the exchequer'),
+    ('^the chancellor if the exchequer$','chancellor of the exchequer'),
+    ('^the Chancellor of die exchequer$','chancellor of the exchequer'),
+    ('^the chancellor of tie exchequer$','chancellor of the exchequer'),
+    ('^chanc. of tie excheq.$','chancellor of the exchequer'),
     
     ('ex-chequer', 'exchequer'),
     ('excheque', 'exchequer'),
+    ('hie bxchequer', 'exchequer'),
     
     ('mrjor', 'major'),
     
@@ -308,6 +356,19 @@ REGEX_POST_CORRECTIONS = [
     (' de ', ' of '),
     (' oe ', ' of '),
     (' uf ', ' of '),
+    (' op ', ' of '),
+    (' or ', ' of '),
+    (' ov ', ' of '),
+    
+    (' fob ', ' for '),
+    (' foe ', ' for '),
+    (' toe ', ' for '),
+    
+    (' statf ', ' state '),
+    
+    (' boaed ', ' board '),
+    
+    (' statf$', ' state$'),
 
     ('under +secretary', 'under-secretary'),
     ('under +- +secretary', 'under-secretary'),
