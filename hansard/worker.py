@@ -789,7 +789,7 @@ def worker_function(inq: multiprocessing.Queue,
                     if not possibles:
                         match = None
                     else:
-                        match = ', '.join(possibles)
+                        match = '|'.join(possibles)
                         chunk.loc[i, OUTPUT_COLUMN] = match
                     AMBIG_CACHE[(target, speechdate)] = match
                 else:
