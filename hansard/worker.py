@@ -427,15 +427,15 @@ REGEX_POST_CORRECTIONS = [
 REGEX_POST_CORRECTIONS = list(map(compile_regex, REGEX_POST_CORRECTIONS))
 
 IGNORE_KEYWORDS = (
-    'member',
-    'membee',
-    'membek',
-    'evicted tenant',
-    'voice',
-    'british statesman',
-    'bishop',
-    'archbishop',
-    'this parliament'
+    #'member',
+    #'membee',
+    #'membek',
+    #'evicted tenant',
+    #'voice',
+    #'british statesman',
+    #'bishop',
+    #'archbishop',
+    #'this parliament'
 )
 
 IGNORE_PREFIXES = (
