@@ -86,7 +86,8 @@ def export(output_queue, slack_secret):
                 missed += chunk_missed
                 hit += chunk_hit
                 i += 1
-                chunk_.to_csv(output_fp, mode='a', header=False, index=False)
+                with open(output_fp, 'a') as f:
+                    chunk_.to_csv(f, mode='a', header=f.tell()==0, index=False)
                 print(f'Processed {i} chunks so far.')
             elif entry_type == 1:
                 chunk_fuzzy_df = entry[0]

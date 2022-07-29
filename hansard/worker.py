@@ -867,6 +867,6 @@ def worker_function(inq: multiprocessing.Queue,
                     MISS_CACHE.add((target, speechdate))
 
             # outq.put((0, chunk.loc[matched_indexes, ['sentence_id', OUTPUT_COLUMN]], chunk.loc[missed_indexes, :], chunk.loc[ambiguities_indexes, :], chunk.loc[ignored_indexes, :]))
-            outq.put((0, chunk))
+            outq.put((0, chunk[['sentence_id', 'speaker', OUTPUT_COLUMN, 'ambiguous', 'fuzzy_matched', 'ignored']]))
 
             hitcount = 0
