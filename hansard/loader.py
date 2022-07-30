@@ -154,10 +154,10 @@ class DataStruct:
         self._load_name_aliases()
 
         mps: pd.DataFrame = pd.read_csv('data/mps/speakers-names/speakers.csv', sep=',')
-        mps['mp.dod'] = mps['mp.dod'].fillna(datetime.now().strftime(DATE_FORMAT))
-        mps['mp.dob'] = pd.to_datetime(mps['mp.dob'], format=DATE_FORMAT)
-        mps['mp.dod'] = pd.to_datetime(mps['mp.dod'], format=DATE_FORMAT)
-        mps = mps.astype({'member.id': int})
+        mps['dod'] = mps['dod'].fillna(datetime.now().strftime(DATE_FORMAT))
+        mps['dob'] = pd.to_datetime(mps['dob'], format=DATE_FORMAT)
+        mps['dod'] = pd.to_datetime(mps['dod'], format=DATE_FORMAT)
+        mps = mps.astype({'corresponding_id': int})
 
         malformed_mp_date = 0
         malformed_mp_name = 0
@@ -169,25 +169,25 @@ class DataStruct:
         alias_dict = self.alias_dict
 
         for index, row in mps.iterrows():
-            dob = row['mp.dob']
+            dob = row['dob']
 
             if pd.isna(dob):
                 dob = datetime(day=1, month=1, year=1700)
 
-            dod = row['mp.dod']
+            dod = row['dod']
             if pd.isna(dod):
                 # Assume that the speaker is still alive.
                 dod = datetime.now()
 
-            fullname, firstname, surname = row['mp.name'], row['mp.fname'], row['mp.sname']
+            fullname, firstname, surname = row['speaker_name'], row['first_name'], row['last_name']
 
             if type(firstname) != str:
                 missing_fn_name += 1
-                logging.debug(f'Missing first name at row: {index}. Fullname is {row["mp.name"]}. Surname is {row["mp.sname"]}.')
+                logging.debug(f'Missing first name at row: {index}. Fullname is {row["speaker_name"]}. Surname is {row["last_name"]}.')
                 continue
             elif type(surname) != str:
                 missing_sn_name += 1
-                logging.debug(f'Missing surname at row: {index}. Fullname is {row["mp.name"]}. First name is {row["mp.fname"]}.')
+                logging.debug(f'Missing surname at row: {index}. Fullname is {row["speaker_name"]}. First name is {row["first_name"]}.')
                 continue
 
             defined_aliases = []
@@ -202,7 +202,7 @@ class DataStruct:
             #     continue
 
             try:
-                speaker = SpeakerReplacement(fullname, firstname, surname, row['member.id'], dob, dod)
+                speaker = SpeakerReplacement(fullname, firstname, surname, row['corresponding_id'], dob, dod)
                 speakers.append(speaker)
                 speaker_dict[speaker.member_id] = speaker
 

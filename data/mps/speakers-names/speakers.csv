@@ -1,4 +1,4 @@
-member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_approximate
+corresponding_id,speaker_name,last_name,first_name,dob,dob_approx,dod,dod_approx
 592,Mr James Farquhar,Farquhar,James,1764-08-01,0,1833-09-04,0
 593,Mr James Ferguson,Ferguson,James,1735-05-25,0,1820-09-06,0
 594,Sir Thomas Theophilus Metcalfe,Metcalfe,Thomas,1745-01-08,0,1813-11-17,0
@@ -573,7 +573,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 1165,Mr Robert Fulke Greville,Greville,Robert,1751-02-03,0,1824-04-27,0
 1166,Mr John Williams,Williams,John,1766-10-30,0,1810-12-31,1
 1167,Sir Henry Watkin Dashwood,Dashwood,Henry,1745-08-30,0,1828-06-10,0
-1168,Baron Colchester (Charles Abbot),Abbot,Charles,1757-10-14,0,1829-05-08,0
+1168,Charles Abbot,Abbot,Charles,1757-10-14,0,1829-05-08,0
 1169,Mr Robert Williams,Williams,Robert,1767-01-01,1,1847-12-31,1
 1170,Mr Peter William Baker,Baker,Peter,1756-01-01,1,1815-08-25,0
 1171,Mr Abraham Robarts,Robarts,Abraham,1745-09-27,0,1816-11-26,0
@@ -2693,7 +2693,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 3322,Mr John Barneby,Barneby,John,1799-01-01,1,1846-12-31,1
 3323,Mr George Alexander Hamilton,Hamilton,George,1802-01-01,1,1871-12-31,1
 3324,Mr Alex Dennistoun,Dennistoun,Alex,,1,1874-12-31,1
-3325,Mr William Sharman-Crawford,Sharman-Crawford,William,1781-01-01,1,1861-12-31,1
+3325,Mr William Sharman Crawford,Crawford,William,1781-01-01,1,1861-12-31,1
 3326,Mr Michael O'Loghlen,O'Loghlen,Michael,1789-01-01,1,1842-12-31,1
 3327,Mr Hewitt Bridgeman,Bridgeman,Hewitt,,1,1853-12-31,1
 3328,Mr John Payne Elwes,Elwes,John,1798-01-01,1,1849-12-31,1
@@ -4726,7 +4726,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 5379,Sir John Colman Rashleigh,Rashleigh,John,1819-01-01,1,1896-12-31,1
 5380,Mr Francis Arkwright,Arkwright,Francis,1846-01-01,1,1915-03-01,0
 5381,Mr William Ernest Brymer,Brymer,William,1840-01-01,1,1909-05-09,0
-5382,Mr James Sharman-Crawford,Sharman-Crawford,James,1812-01-01,1,1878-12-31,1
+5382,Mr James Sharman Crawford,Crawford,James,1812-01-01,1,1878-12-31,1
 5383,Mr John Mulholland,Mulholland,John,1819-01-01,1,1895-12-31,1
 5384,Dr William Hagarty O'Leary,O'Leary,William,1839-01-01,1,1880-12-31,1
 5385,Mr John Corbett,Corbett,John,1817-01-01,1,1901-04-22,0
@@ -5905,7 +5905,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 6560,Mr John Ponsonby,Ponsonby,John,1855-02-21,0,,0
 6561,Mr George Rawdon-Hastings,Rawdon-Hastings,George,1808-02-04,0,1844-01-13,0
 6562,Mr Henry Reynolds-Moreton,Reynolds-Moreton,Henry,1802-05-08,0,1853-06-02,0
-6563,Mr Thomas Robinson,Robinson,marquess of bath,1781-12-08,0,1859-11-14,0
+6563,Mr Thomas Robinson,Robinson,Thomas,1781-12-08,0,1859-11-14,0
 6564,Mr John Rushout,Rushout,John,1770-02-16,0,1859-01-20,0
 6565,Mr George Sackville-West,Sackville-West,George,1791-10-26,0,1869-02-23,0
 6566,Mr Walter Francis Montagu Douglas Scott,Scott,Walter,1806-11-25,0,1884-04-16,0
@@ -8026,7 +8026,7 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 8705,Mr George Butler Lloyd,Lloyd,George,1854-01-01,1,1930-03-28,0
 8706,Mr Samuel Samuel,Samuel,Samuel,1855-01-01,1,1934-10-23,0
 8707,Mr Martin Joseph Murphy,Murphy,Martin,1862-01-01,1,1919-09-04,0
-8708,Mr Robert Gordon Sharman-Crawford,Sharman-Crawford,Robert,1853-01-01,1,1934-03-20,0
+8708,Mr Robert Gordon Sharman Crawford,Crawford,Robert,1853-01-01,1,1934-03-20,0
 8709,Sir Mathew Richard Henry Wilson,Wilson,Mathew,1875-01-01,1,1958-05-17,0
 8710,Mr Robert Tootill,Tootill,Robert,1850-01-01,1,1934-07-02,0
 8711,Mr Charles Thomas-Stanford,Thomas-Stanford,Charles,1858-01-01,1,1932-03-07,0
@@ -9985,3 +9985,5 @@ member.id,mp.name,mp.sname,mp.fname,mp.dob,mp.dob_approximate,mp.dod,mp.dod_appr
 900024,William David Murray Stormont,Stormont,William,1806,,1898,
 900025,Mr Thomas Henry Sutton Bucknall-Estcourt,Bucknall-Estcourt,Thomas,1801,,1876,
 900026,Sir Hugh Arbuthnott,Arbuthnott,Hugh,1780,,1868,
+900027,Algernon St Maur,St Maur,Algernon,1846,,1923,
+900028,Algernon Percy Banks St Maur,St Maur,Algernon,1813,,1894,
