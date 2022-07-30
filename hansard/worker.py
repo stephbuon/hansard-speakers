@@ -674,12 +674,12 @@ def worker_function(inq: multiprocessing.Queue,
                                 (aliases_df['alias'].str.contains(target, regex=False))
                     query = aliases_df[condition]
 
-                if not match and not len(query):
-                    # try a lord title/alias
-                    condition = (speechdate >= title_df['start_search']) &\
-                                (speechdate < title_df['end_search']) &\
-                                (title_df['alias'].str.contains(target, regex=False))
-                    query = title_df[condition]
+                # if not match and not len(query):
+                #     # try a lord title/alias
+                #     condition = (speechdate >= title_df['start_search']) &\
+                #                 (speechdate < title_df['end_search']) &\
+                #                 (title_df['alias'].str.contains(target, regex=False))
+                #     query = title_df[condition]
 
                 # if not match and not len(query):
                 #     # Try office position
@@ -746,10 +746,10 @@ def worker_function(inq: multiprocessing.Queue,
 
                     if match: fuzzy_flag = 1
 
-                if not match and not ambiguity:
-                    match, ambiguity = match_edit_distance_df(target, speechdate, title_df,
-                                                              ('start_search', 'start_search', 'alias'), speaker_dict)
-                    if match: fuzzy_flag = 1
+                # if not match and not ambiguity:
+                #     match, ambiguity = match_edit_distance_df(target, speechdate, title_df,
+                #                                               ('start_search', 'start_search', 'alias'), speaker_dict)
+                #     if match: fuzzy_flag = 1
 
                 # Try edit distance with honorary titles.
                 # if not match and not ambiguity:

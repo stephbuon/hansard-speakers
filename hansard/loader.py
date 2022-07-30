@@ -100,12 +100,12 @@ class DataStruct:
                 filepath = dirpath + "/" + fn
                 self.ignored_set = self.ignored_set.union(set(pd.read_csv(filepath)['non_mps'].unique()))
 
-        self.title_df = pd.read_csv('data/hansard_titles.csv')
-        self.title_df = self.title_df[~self.title_df['corresponding_id'].isna()]
-        self.title_df = self.title_df.astype({'corresponding_id': int})
-        self.title_df['start_search'] = pd.to_datetime(self.title_df['start_search'], format=DATE_FORMAT)
-        self.title_df['end_search'] = pd.to_datetime(self.title_df['end_search'], format=DATE_FORMAT)
-        self.title_df['alias'] = self.title_df['alias'].str.lower().str.replace('\'', '', regex=False)
+        # self.title_df = pd.read_csv('data/hansard_titles.csv')
+        # self.title_df = self.title_df[~self.title_df['corresponding_id'].isna()]
+        # self.title_df = self.title_df.astype({'corresponding_id': int})
+        # self.title_df['start_search'] = pd.to_datetime(self.title_df['start_search'], format=DATE_FORMAT)
+        # self.title_df['end_search'] = pd.to_datetime(self.title_df['end_search'], format=DATE_FORMAT)
+        # self.title_df['alias'] = self.title_df['alias'].str.lower().str.replace('\'', '', regex=False)
 
         infer_df = pd.read_csv('data/inferences.csv')
         self.inferences = dict(infer_df.itertuples(index=False))
@@ -248,8 +248,8 @@ class DataStruct:
 
         self.corrections.update({k.lower(): v for k, v in zip(misspellings2['misspelled_name'], misspellings2['correct_name'])})
 
-        self.corrections.update(
-            DataStruct.load_correction_csv_as_dict(f'{folder}/common_OCR_errors_titles.csv'))
+        # self.corrections.update(
+        #     DataStruct.load_correction_csv_as_dict(f'{folder}/common_OCR_errors_titles.csv'))
 
     @staticmethod
     def _load_office_position(filename: str) -> pd.DataFrame:
