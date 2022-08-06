@@ -464,11 +464,13 @@ def match_term(df: pd.DataFrame, date: datetime) -> pd.DataFrame:
 
 def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
                            columns: Tuple[str, str, str], speaker_dict: Dict[int, SpeakerReplacement],
-                           edit_dist_func=within_distance_two) -> Tuple[Optional[str], bool]:
+                           edit_dist_func=within_distance_two) -> Tuple[Optional[str], bool, List[str]]:
     start_col, end_col, search_col = columns
 
     match = None
     ambiguity = False
+    possibles = []
+    max_possibles = 5
 
     condition = (date >= df[start_col]) & (date < df[end_col])
     query = df[condition]
@@ -476,9 +478,17 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
     for i, alias in enumerate(query[search_col]):
         if edit_dist_func(target, alias, False):
             if match:
+                ambig_match = query.iloc[i]['corresponding_id']
+                if numpy.isnan(ambig_match):
+                    ambig_match = alias
+                else:
+                    ambig_match = speaker_dict[int(ambig_match)]
+                max_possibles -= 1
                 match = None
                 ambiguity = True
-                break
+                possibles.append(ambig_match)
+                if not max_possibles:
+                    break
             else:
                 match = query.iloc[i]['corresponding_id']
                 if numpy.isnan(match):
@@ -487,7 +497,7 @@ def match_edit_distance_df(target: str,  date: datetime, df: pd.DataFrame,
                     match = speaker_dict[int(match)]
                 # print('edit distance found. target=%s match=%s' % (target, repr(match)))
 
-    return match, ambiguity
+    return match, ambiguity, possibles
 
 
 from util.jaro_distance import jaro_distance
@@ -741,7 +751,7 @@ def worker_function(inq: multiprocessing.Queue,
 
                 # Try edit distance with lord titles.
                 if not match and not ambiguity:
-                    match, ambiguity = match_edit_distance_df(target, speechdate, lord_titles_df,
+                    match, ambiguity, possibles = match_edit_distance_df(target, speechdate, lord_titles_df,
                                                               ('start_search', 'end_search', 'alias'), speaker_dict)
 
                     if match: fuzzy_flag = 1

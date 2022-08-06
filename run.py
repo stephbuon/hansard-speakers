@@ -45,13 +45,9 @@ def export(output_queue, slack_secret):
     import time
 
     output_fp = os.path.join(OUTPUT_DIR, 'output_.csv')
-    debug_fp = os.path.join(OUTPUT_DIR, 'debug_output.csv')
 
     # Overwrite the file temporarily.
     with open(output_fp, 'w+'):
-        pass
-
-    with open(debug_fp, 'w+'):
         pass
 
     hit = 0
@@ -89,9 +85,6 @@ def export(output_queue, slack_secret):
                 with open(output_fp, 'a') as f:
                     chunk_.to_csv(f, mode='a', header=f.tell()==0, index=False)
                 print(f'Processed {i} chunks so far.')
-            elif entry_type == 1:
-                chunk_fuzzy_df = entry[0]
-                chunk_fuzzy_df.to_csv(debug_fp, mode='a', header=False, index=False)
 
     from util.slackbot import Blocks, send_slack_post
 
