@@ -1,6 +1,6 @@
 # Hansard Speaker Name Disambiguation
 
-`hansard-speakers` is a data processing pipeline for disambiguating speaker names in the 19th-century British Parliamentary debates, also known as Hansard. The final dataset produced by this pipeline can be downloaded [here]() (coming soon). An article describing our disambiguation efforts can be read [here]() (coming soon).
+`hansard-speakers` is a data processing pipeline for disambiguating speaker names in the 19th-century British Parliamentary debates, also known as Hansard. The final dataset produced by this pipeline can be downloaded [here]() (coming soon). An article describing our disambiguation efforts can be read [here]() (coming soon). You can [view the code](https://github.com/rkalescky/import_hansard_data) to scrape and format our version of the Hansard corpus from the original XML files hosted by Historic Hansard. 
 
 ## Steps: 
 1. Clone the repo and `cd` into `hansard-speakers`
