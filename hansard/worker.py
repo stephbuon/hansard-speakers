@@ -18,10 +18,7 @@ OUTPUT_COLUMN = 'suggested_speaker'
 
 compile_regex = lambda x: (re.compile(x[0]), x[1])
 
-
-REGEX_PRE_CORRECTIONS = [
-    (r'(?:\([^()]+\))', ''), 
-    # Remove all text within parenthesis, including parenthesis 
+PRE_CORRECTIONS = [
     ('Mr. Nicltolas Vansittart', 'Mr. Nicholas Vansittart'),
     ('The whole of Mr. Vansittart\'s', 'Mr. Vansittart'),
     ('SIR WILLTAM HARCOURT', 'SIR WILLLIAM HARCOURT'),
@@ -265,7 +262,12 @@ REGEX_PRE_CORRECTIONS = [
     ('EOBEET FINLAY', 'Robert Einlay'),
     ('ROBERT F1NLAY', 'Robert Einlay'),
     ('COUNCIL ON EDU-', 'Council of Education')
-    
+]
+
+
+REGEX_PRE_CORRECTIONS = [
+    # Remove all text within parenthesis, including parenthesis
+    (r'(?:\([^()]+\))', ''),
 ]
 
 PARENTHESIS_REGEX = re.compile(r'(?:\(([^()]+)\))')
@@ -844,6 +846,9 @@ def worker_function(inq: multiprocessing.Queue,
             inner_string = postprocess(cleanse_string(p_match.group(1)))
             if inner_string in alias_dict:  # is this a speaker name?
                 return inner_string
+
+        for k, v in PRE_CORRECTIONS:
+            string_val = string_val.replace(k, v)
 
         for k, v in REGEX_PRE_CORRECTIONS:
             string_val = re.sub(k, v, string_val)
