@@ -238,15 +238,15 @@ class DataStruct:
     def _load_corrections(self):
         folder = 'data/pre_corrections'
 
-        self.corrections.update(
-            DataStruct.load_correction_csv_as_dict(f'{folder}/misspellings_dictionary.csv', encoding='ISO-8859-1'))
-
-        misspellings2 = pd.read_csv(f'{folder}/misspelled_given_names.tsv', sep='\t', encoding='ISO-8859-1')
-
-        if misspellings2['correct_name'].isnull().sum():
-            raise ValueError('misspelled_given_names.tsv has an invalid entry')
-
-        self.corrections.update({k.lower(): v for k, v in zip(misspellings2['misspelled_name'], misspellings2['correct_name'])})
+        # self.corrections.update(
+        #     DataStruct.load_correction_csv_as_dict(f'{folder}/misspellings_dictionary.csv', encoding='ISO-8859-1'))
+        #
+        # misspellings2 = pd.read_csv(f'{folder}/misspelled_given_names.tsv', sep='\t', encoding='ISO-8859-1')
+        #
+        # if misspellings2['correct_name'].isnull().sum():
+        #     raise ValueError('misspelled_given_names.tsv has an invalid entry')
+        #
+        # self.corrections.update({k.lower(): v for k, v in zip(misspellings2['misspelled_name'], misspellings2['correct_name'])})
 
         # self.corrections.update(
         #     DataStruct.load_correction_csv_as_dict(f'{folder}/common_OCR_errors_titles.csv'))
