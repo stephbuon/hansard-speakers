@@ -22,4 +22,5 @@ else
   cd hansard-speakers
 fi
 
+cythonize -3 -i util/*.pyx
 python3 run.py --cores ${SLURM_NTASKS}
